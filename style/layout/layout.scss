@@ -1,0 +1,13 @@
+
+
+.main {
+  position: relative;
+  min-height: 100vh;
+
+  &:after {
+    content: '';
+    display: block;
+    height: 415px;
+    width: 100%;
+  }
+}

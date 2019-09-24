@@ -1,0 +1,62 @@
+
+.text {
+  &_size {
+    &-xl {
+      font-size: $size-typo-mobile-xl;
+      line-height: $line-height-typo-mobile-xl;
+      @media (min-width: 768px) {
+        font-size: $size-typo-xl;
+        line-height: $line-height-typo-xl;
+      }
+    }
+
+    &-l {
+      font-size: $size-typo-mobile-l;
+      line-height: $line-height-typo-mobile-l;
+      @media (min-width: 768px) {
+        font-size: $size-typo-l;
+        line-height: $line-height-typo-l;
+      }
+    }
+
+    &-m {
+      font-size: $size-typo-m;
+      line-height: $line-height-typo-m;
+    }
+
+    &-s {
+      font-size: $size-typo-s;
+      line-height: $line-height-typo-s;
+    }
+
+    &-xs {
+      font-size: $size-typo-xs;
+      line-height: $line-height-typo-xs;
+    }
+  }
+
+  &_font {
+    &-object {
+      font-family: 'Object Sans', sans-serif;
+    }
+
+    &-root {
+      font-family: 'PT Root UI Web', sans-serif;
+    }
+  }
+
+  &_primary {
+    color: $color-typo-primary;
+  }
+
+  &_secondary {
+    color: $color-typo-placeholder;
+  }
+
+  &_align {
+    &-left {
+      text-align: left;
+    }
+  }
+
+}

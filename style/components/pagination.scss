@@ -1,0 +1,25 @@
+
+.pagination {
+  &_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &_item {
+    &-prev {
+    }
+
+    &-next {
+    }
+  }
+
+
+  &_link {
+    &--active {
+
+    }
+  }
+
+}

@@ -1,0 +1,28 @@
+
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
+ul, ol, li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+body, html {
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Object Sans', sans-serif;
+  font-style: normal;
+}
+
+#__next {
+  min-height: 100vh;
+}

@@ -1,0 +1,15 @@
+.footer {
+  margin-top: -415px;
+  min-height: 415px;
+  padding-top: 80px;
+  padding-bottom: 48px;
+  width: 100%;
+  background-color: $color-bg-dark;
+
+
+  &_nav-list {}
+  &_nav-item {
+    margin-bottom: 24px ;
+    text-align: left;
+  }
+}

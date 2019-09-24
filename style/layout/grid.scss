@@ -1,0 +1,33 @@
+
+.container {
+  position: relative;
+  max-width: 1224px;
+  margin: 0 auto;
+}
+@media only screen and (min-width: 576px) {
+  .container {
+    width: auto;
+    max-width: 100%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    width: auto;
+    max-width: 100%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .container {
+    width: auto;
+    max-width: 100%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .container {
+    max-width: 1224px;
+    width: 100%;
+  }
+}

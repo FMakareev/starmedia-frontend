@@ -1,0 +1,69 @@
+
+
+
+$color-base-base: #ffffff;
+$color-base-project: #ED1C24;
+$color-base-accent: #D40E16;
+$color-base-dark: #202020;
+$color-base-gray: #D6D6D6;
+$color-base-gray-light: #F0F0F0;
+
+// link and btn bg
+$color-link-default: $color-base-project;
+$color-link-disabled: $color-base-gray;
+$color-link-primary: $color-base-base;
+$color-link-secondary: $color-base-dark;
+$color-link-transparent: transparent;
+
+// typography
+$color-typo-brand: $color-base-project;
+$color-typo-primary: $color-base-dark;
+$color-typo-secondary: $color-base-base;
+$color-typo-placeholder: #909090;
+$color-typo-disabled: #bdbdbd;
+$color-typo-alert: $color-base-project;
+
+// bg color
+$color-bg-default: $color-base-base;
+$color-bg-primary: $color-base-gray-light;
+$color-bg-secondary: $color-base-project;
+$color-bg-dark: $color-base-dark;
+
+// border
+$color-border-base: $color-base-dark;
+
+
+
+// screen size
+$screen-xs: 320px;
+$screen-s: 768px;
+$screen-m: 1024px;
+$screen-l: 1170px;
+
+
+// typo size
+// h1
+$size-typo-xl: 48px;
+$line-height-typo-xl: 64px;
+
+$size-typo-mobile-xl: 24px;
+$line-height-typo-mobile-xl: 32px;
+
+// h2
+$size-typo-l: 32px;
+$line-height-typo-l: 40px;
+
+$size-typo-mobile-l: 20px;
+$line-height-typo-mobile-l: 28px;
+
+// h3, default text,
+$size-typo-m: 16px;
+$line-height-typo-m: 24px;
+
+// Button, link, additional text
+$size-typo-s: 14px;
+$line-height-typo-s: 18px;
+
+// h4
+$size-typo-xs: 12px;
+$line-height-typo-xs: 16px;

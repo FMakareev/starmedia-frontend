@@ -1,0 +1,100 @@
+
+.button {
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  @extend .text_font-object;
+
+  &_link {
+    @extend .text_size-s;
+    color: $color-typo-primary;
+    font-weight: bold;
+
+    &--l {
+      text-transform: uppercase;
+      @extend .text_size-l;
+    }
+
+    &--m {
+      text-transform: uppercase;
+      @extend .text_size-m;
+    }
+
+    &--s {
+      @extend .text_size-s;
+    }
+
+    &--light {
+      color: $color-typo-secondary;
+    }
+
+
+    &:hover {
+      color: $color-link-default;
+    }
+
+  }
+
+  &_primary {
+    min-width: 224px;
+    min-height: 56px;
+    background-color: $color-link-default;
+    @extend .text_size-s;
+
+    &:hover {
+      background-color: $color-base-accent;
+    }
+
+    &:disabled {
+      background-color: $color-link-disabled;
+      color: $color-typo-disabled;
+    }
+
+  }
+
+  &_circle {
+    background-color: $color-link-default;
+    color: $color-typo-secondary;
+    @extend .text_size-s;
+
+    &:hover {
+      background-color: $color-base-accent;
+    }
+
+    &:disabled {
+      background-color: $color-link-disabled;
+      color: $color-typo-disabled;
+    }
+
+    &-m {
+      width: 112px;
+      height: 112px;
+      @extend .text_size-s;
+    }
+
+    &-s {
+      width: 32px;
+      height: 32px;
+      @extend .text_size-s;
+    }
+
+  }
+
+  &_tab {
+    border: 1px solid $color-border-base;
+    background-color: $color-bg-default;
+    color: $color-typo-primary;
+    @extend .text_size-m;
+
+    &:hover {
+      color: $color-typo-brand;
+    }
+    &--active {
+      background-color: $color-bg-dark;
+      color: $color-bg-default;
+    }
+
+  }
+
+}
