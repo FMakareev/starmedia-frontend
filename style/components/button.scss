@@ -4,12 +4,16 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
-  @extend .text_font-object;
+  @include transitionHover;
 
   &_link {
-    @extend .text_size-s;
+    //@extend .text_size-s;
+    @extend .text_font-object;
+    @include transitionHover;
+    padding: 0;
     color: $color-typo-primary;
     font-weight: bold;
+    text-align: left;
 
     &--l {
       text-transform: uppercase;
@@ -27,19 +31,30 @@
 
     &--light {
       color: $color-typo-secondary;
+      fill: $color-typo-secondary;
+    }
+    &--gray {
+      color: $color-typo-placeholder;
+      fill: $color-typo-placeholder;
     }
 
+    &--font-root {
+      @extend .text_font-root;
+      font-weight: normal;
+    }
 
     &:hover {
       color: $color-link-default;
+      fill: $color-link-default;
+      opacity: 1;
     }
-
   }
 
   &_primary {
     min-width: 224px;
     min-height: 56px;
     background-color: $color-link-default;
+    @extend .text_font-object;
     @extend .text_size-s;
 
     &:hover {
@@ -54,9 +69,13 @@
   }
 
   &_circle {
+    @extend .text_font-object;
+    @extend .text_size-s;
     background-color: $color-link-default;
     color: $color-typo-secondary;
-    @extend .text_size-s;
+    border-radius: 50%;
+    text-align: center;
+    position: relative;
 
     &:hover {
       background-color: $color-base-accent;
@@ -67,16 +86,38 @@
       color: $color-typo-disabled;
     }
 
-    &-m {
+    &--l {
+      width: 200px;
+      height: 200px;
+    }
+    &--m {
       width: 112px;
       height: 112px;
       @extend .text_size-s;
     }
 
-    &-s {
+    &--s {
+      width: 64px;
+      height: 64px;
+      line-height: 64px;
+      @extend .text_size-s;
+    }
+
+    &--xs {
       width: 32px;
       height: 32px;
+      line-height: 32px;
       @extend .text_size-s;
+    }
+
+    &--inverse {
+      color: $color-link-default;
+      fill: $color-link-default;
+      background-color: $color-typo-secondary;
+
+      &:hover {
+        background-color: $color-typo-secondary;
+      }
     }
 
   }
@@ -85,6 +126,7 @@
     border: 1px solid $color-border-base;
     background-color: $color-bg-default;
     color: $color-typo-primary;
+    @extend .text_font-object;
     @extend .text_size-m;
 
     &:hover {
@@ -95,6 +137,14 @@
       color: $color-bg-default;
     }
 
+  }
+
+  &_transparent {
+    color: $color-typo-secondary;
+
+    &:hover {
+      color: $color-link-default;
+    }
   }
 
 }

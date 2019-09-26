@@ -1,0 +1,71 @@
+.lang-switcher {
+  $this: &;
+
+  &_wrapper {
+    position: relative;
+
+    &:hover {
+      #{$this}_list {
+        opacity: 1;
+        z-index: 11;
+        top: 170%;
+      }
+    }
+  }
+
+  &_label {
+    text-transform: uppercase;
+    color: $color-typo-secondary;
+    fill: $color-typo-secondary;
+    cursor: pointer;
+    @include transitionHover;
+
+    &:hover {
+      color: $color-typo-brand;
+      fill: $color-typo-brand;
+    }
+  }
+
+  &_list {
+    position: absolute;
+    right: 0;
+    top: -1700%;
+    width: 96px;
+    padding: 18px 20px;
+    background-color: $color-bg-default;
+    border: 1px solid $color-border-gray;
+    opacity: 0;
+    z-index: -1;
+
+  }
+
+  &_item {
+    color: $color-typo-primary;
+    margin-bottom: 16px;
+    cursor: pointer;
+    @include transitionHover;
+    &:hover {
+      color: $color-typo-brand;
+      fill: $color-typo-brand;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &--active {
+      color: $color-typo-placeholder;
+    }
+  }
+
+  &_icon-wrapper {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 16px;
+    height: 16px;
+    margin-right: 12px;
+    display: inline-block;
+  }
+
+  &_icon {
+  }
+}

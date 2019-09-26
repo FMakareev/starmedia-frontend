@@ -1,6 +1,7 @@
 import * as React from 'react'
 import classNames from 'classnames'
 import {ButtonElementEnum} from "../../types/types";
+import {createIndentMargin, createIndentPadding} from "../../libs/createIndent";
 
 
 type Props = {
@@ -15,15 +16,19 @@ const linkModMap: any = {
   l: 'button_link--l',
   m: 'button_link--m',
   s: 'button_link--s',
+  xs: 'button_link--xs',
   light: 'button_link--light',
+  gray: 'button_link--gray',
 };
 const circleModMap: any = {
-  m: 'button_link--m',
-  s: 'button_link--s',
+  l: 'button_circle--l',
+  m: 'button_circle--m',
+  s: 'button_circle--s',
+  inverse: 'button_circle--inverse',
 };
 
 
-function getClassNameList(props: any): any {
+export function getClassListWithButton(props: any): any {
   const classNameList: any = {};
 
   switch (props.element) {
@@ -55,17 +60,23 @@ function getClassNameList(props: any): any {
       }
       break;
     }
+    case ButtonElementEnum.transparent: {
+      classNameList['button_transparent'] = true;
+      break;
+    }
   }
 
   return classNameList;
 }
 
 
-export const Button = ({as = 'button', className, children, href, onClick, ...rest}: Props) => {
+export const Button = ({as = 'button', Component, className, children, href, onClick, ...rest}: Props) => {
 
   return React.createElement(as, {
     className: classNames('button', className, {
-        ...getClassNameList(rest),
+        ...getClassListWithButton(rest),
+        ...createIndentMargin(rest),
+        ...createIndentPadding(rest),
       }
     ),
     href,
@@ -73,5 +84,10 @@ export const Button = ({as = 'button', className, children, href, onClick, ...re
   }, children)
 
 };
+
+Button.defaultProps = {
+  element: ButtonElementEnum.link,
+  mods: ['s']
+}
 
 export default Button;

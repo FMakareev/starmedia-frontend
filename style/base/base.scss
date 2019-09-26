@@ -26,3 +26,13 @@ body, html {
 #__next {
   min-height: 100vh;
 }
+
+
+
+@mixin transitionHover(){
+  transition: .225s ease-in-out;
+}
+
+h1,h2,h3,h4{
+  margin: 0;
+}

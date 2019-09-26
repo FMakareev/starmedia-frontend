@@ -1,6 +1,10 @@
 import * as React from 'react';
 import classnames from 'classnames';
 import {ViewportSizeEnum} from 'types/types';
+import {
+  createIndentMargin,
+  createIndentPadding
+} from "../../libs/createIndent";
 
 interface IColProps {
   first?: ViewportSizeEnum,
@@ -12,11 +16,11 @@ interface IColProps {
   lgOffset?: number,
   xlOffset?: number,
 
-  xs?: number,
-  sm?: number,
-  md?: number,
-  lg?: number,
-  xl?: number,
+  xs?: number | string,
+  sm?: number | string,
+  md?: number | string,
+  lg?: number | string,
+  xl?: number | string,
 
   [prop: string]: any
 }
@@ -26,7 +30,6 @@ const classMap: any = {
   sm: 'col-sm',
   md: 'col-md',
   lg: 'col-lg',
-  xl: 'col-xl',
   xsOffset: 'col-xs-offset',
   smOffset: 'col-sm-offset',
   mdOffset: 'col-md-offset',
@@ -53,11 +56,16 @@ function getColClassNames(props: any): any {
 }
 
 
-const Col: React.FC<IColProps> = ({children, className, ...rest}) => {
+const Col: React.FC<IColProps> = ({children, className,style, ...rest}) => {
   return (
-    <div className={classnames('col', className, {
-      ...getColClassNames(rest),
-    })}>
+    <div
+      style={style}
+      className={classnames('col', className, {
+        ...getColClassNames(rest),
+        ...createIndentMargin(rest),
+        ...createIndentPadding(rest),
+      })}
+    >
       {children}
     </div>
   );

@@ -1,0 +1,53 @@
+$base-indent: 2;
+
+@mixin createIdent($base-indent, $exponent, $property,$base-classname,$screen) {
+
+  @for $i from 1 through $exponent {
+    .#{$base-classname}t-#{$screen}#{$base-indent * $i} {
+      #{$property}-top: $base-indent * $i + px;
+    }
+    .#{$base-classname}r-#{$screen}#{$base-indent * $i} {
+      #{$property}-right: $base-indent * $i + px;
+    }
+    .#{$base-classname}b-#{$screen}#{$base-indent * $i} {
+      #{$property}-bottom: $base-indent * $i + px;
+    }
+    .#{$base-classname}l-#{$screen}#{$base-indent * $i} {
+      #{$property}-left: $base-indent * $i + px;
+    }
+  }
+  .#{$base-classname}t-#{$screen}0 {
+    #{$property}-top: 0;
+  }
+  .#{$base-classname}r-#{$screen}0 {
+    #{$property}-right: 0;
+  }
+  .#{$base-classname}b-#{$screen}0 {
+    #{$property}-bottom: 0;
+  }
+  .#{$base-classname}l-#{$screen}0 {
+    #{$property}-left: 0;
+  }
+}
+
+
+@include createIdent($base-indent, 50, "padding", "p", "");
+@include createIdent($base-indent, 50, "margin", "m", "");
+
+@media only screen and (min-width: map_get($screen, "sm")) {
+  @include createIdent($base-indent, 50, "margin", "m", "sm-");
+  @include createIdent($base-indent, 50, "padding", "p", "sm-");
+}
+
+@media only screen and (min-width: map_get($screen, "md")) {
+  @include createIdent($base-indent, 50, "margin", "m", "md-");
+  @include createIdent($base-indent, 50, "padding", "p", "md-");
+}
+
+@media only screen and (min-width: map_get($screen, "lg")) {
+  @include createIdent($base-indent, 50, "margin", "m", "lg-");
+  @include createIdent($base-indent, 50, "padding", "p", "lg-");
+}
+
+
+

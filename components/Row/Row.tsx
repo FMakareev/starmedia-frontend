@@ -1,10 +1,24 @@
 import * as React from 'react';
 import classnames from 'classnames';
-import { ViewportSizeEnum } from 'types/types';
+import {ViewportSizeEnum} from 'types/types';
+import {createIndentPadding, createIndentMargin} from "../../libs/createIndent";
 
-export const rowKeys = ['start', 'center', 'end', 'top', 'middle', 'bottom', 'around', 'between'];
-
-
+export const rowKeys = [
+  'start',
+  'center',
+  'end',
+  'top',
+  'middle',
+  'bottom',
+  'around',
+  'between',
+  'none',
+  'xs',
+  'sm',
+  'md',
+  'lg',
+  'nowrap',
+];
 
 
 interface IRowProps {
@@ -27,7 +41,13 @@ function getRowClassNames(props: any): any {
     const key = rowKeys[i];
     const value = props[key];
     if (value) {
-      modificators[`${key}-${value}`] = true;
+      if (Array.isArray(value)) {
+        value.forEach((item: string) => {
+          modificators[`${key}-${item}`] = true;
+        })
+      } else {
+        modificators[`${key}-${value}`] = true;
+      }
     }
   }
   return modificators;
@@ -43,6 +63,8 @@ const Row: React.FC<IRowProps> = ({
     <div className={classnames('row', className, {
       'reverse': reverse,
       ...getRowClassNames(rest),
+      ...createIndentMargin(rest),
+      ...createIndentPadding(rest),
     })}>
       {children}
     </div>

@@ -1,3 +1,80 @@
 .project-card {
+  $this: &;
 
+  &_wrapper {
+    cursor: pointer;
+
+    &:hover {
+      #{$this}_preview {
+        &:after {
+          opacity: 0.9;
+        }
+      }
+
+      #{$this}_info-title {
+        color: $color-typo-brand;
+      }
+      #{$this}_detail {
+        opacity: 1;
+      }
+
+    }
+
+  }
+
+  &_detail {
+    @include transitionHover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+  }
+
+  &_preview {
+    overflow: hidden;
+    position: relative;
+
+    &:after {
+      @include transitionHover;
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      background-color: $color-bg-secondary;
+      opacity: 0;
+    }
+  }
+
+  &_preview-img {
+    display: block;
+    width: 100%;
+
+  }
+
+  &_info {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  &_info-title {
+    @include transitionHover;
+    @extend .text_font-object;
+    @extend .text_primary;
+    @extend .text_size-xs;
+    text-transform: uppercase;
+
+  }
+
+  &_info-genre {
+    @extend .text_placeholder;
+    @extend .text_font-root;
+    @extend .text_size-s;
+
+
+  }
 }

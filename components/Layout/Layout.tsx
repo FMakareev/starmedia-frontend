@@ -2,7 +2,6 @@ import * as React from 'react';
 import Head from 'next/head'
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
-import Container from "../Container/Container";
 
 interface ILayoutProps {
   title: string;
@@ -21,9 +20,7 @@ const Layout: React.FC<ILayoutProps> = ({
       </Head>
       <main className={'main'}>
         <Header/>
-        <Container>
-          {children}
-        </Container>
+        {children}
       </main>
       <Footer/>
     </React.Fragment>

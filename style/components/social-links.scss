@@ -1,0 +1,22 @@
+.social-links {
+
+  &_list {
+    display: flex;
+    margin-left: -8px;
+  }
+
+  &_item {
+    padding: 8px;
+  }
+
+  &_link {
+    display: block;
+    width: 24px;
+    height: 24px;
+    @include transitionHover;
+  }
+
+  &_icon {
+    fill: inherit;
+  }
+}

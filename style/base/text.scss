@@ -38,11 +38,13 @@
   &_font {
     &-object {
       font-family: 'Object Sans', sans-serif;
+      font-weight: bold;
     }
 
     &-root {
       font-family: 'PT Root UI Web', sans-serif;
     }
+
   }
 
   &_primary {
@@ -50,13 +52,23 @@
   }
 
   &_secondary {
+    color: $color-typo-secondary;
+  }
+
+  &_placeholder {
     color: $color-typo-placeholder;
+  }
+  &_inherit {
+    color: inherit;
   }
 
   &_align {
     &-left {
       text-align: left;
     }
+  }
+  &_uppercase {
+    text-transform: uppercase;
   }
 
 }
