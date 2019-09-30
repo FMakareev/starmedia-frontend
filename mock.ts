@@ -1,5 +1,38 @@
 import {Project, Award, Contacts, Cooperation} from "./types/types";
 
+export  const Menu: any[] = [
+  {
+    href: '/projects',
+    label: 'Проекты'
+  },
+  {
+    href: '/news',
+    label: 'Новости'
+  },
+  {
+    href: '/about-us',
+    label: 'О компании'
+  },
+  {
+    href: '/services',
+    label: 'Услуги'
+  },
+  {
+    href: '/cooperation',
+    label: 'Сотрудничество'
+  },
+  {
+    href: '/contacts',
+    label: 'Контакты'
+  },
+];
+
+
+
+
+
+
+
 export const ProjectMock: Project = {
   title: {
     ru: 'А зори здесь тихие...',

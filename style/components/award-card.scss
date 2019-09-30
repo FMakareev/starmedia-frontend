@@ -3,7 +3,6 @@
   &_wrapper {
     @include transitionHover;
     width: 100%;
-    min-height: 328px;
     padding-left: 24px;
     padding-right: 24px;
     padding-bottom: 24px;
@@ -11,6 +10,10 @@
     color: $color-typo-primary;
     background-color: $color-bg-primary;
     cursor: pointer;
+
+    @media(min-width: 768px){
+      min-height: 328px;
+    }
 
     &:hover {
       background-color: $color-typo-brand;

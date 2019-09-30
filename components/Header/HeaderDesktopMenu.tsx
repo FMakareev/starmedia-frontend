@@ -11,37 +11,13 @@ import SocialLinkList from "../SocialLinkList/SocialLinkList";
 import HeaderSearch from "./HeaderSearch";
 import LangSwitcher from "../LangSwitcher/LangSwitcher";
 import Link from 'next/link';
+import { Menu } from '../../mock';
 
 interface IHeaderDesktopMenuProps {
   [prop: string]: any
 }
 
-const Menu: any[] = [
-  {
-    href: '/projects',
-    label: 'Проекты'
-  },
-  {
-    href: '/news',
-    label: 'Новости'
-  },
-  {
-    href: '/about-us',
-    label: 'О компании'
-  },
-  {
-    href: '/services',
-    label: 'Услуги'
-  },
-  {
-    href: '/',
-    label: 'Сотрудничество'
-  },
-  {
-    href: '/contacts',
-    label: 'Контакты'
-  },
-];
+
 
 const HeaderDesktopMenu: React.FC<IHeaderDesktopMenuProps> = ({isActive,toggleMenu}) => {
   return (
