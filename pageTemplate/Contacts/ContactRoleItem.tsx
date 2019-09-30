@@ -2,20 +2,27 @@ import * as React from 'react';
 import classNames from 'classnames';
 import AnimateHeight from 'react-animate-height';
 import Text from '../../components/Text/Text';
+import {Person, Role} from "../../types/types";
 
-interface IContactRoleItemProps {
+interface IContactRoleItemProps extends Role {
   [prop: string]: any
 }
 
-const ContactRoleItem: React.FC<IContactRoleItemProps> = ({onClick,
-                                                            isOpen}) => {
+const ContactRoleItem: React.FC<IContactRoleItemProps> = (
+  {
+    onClick,
+    isOpen,
+    name,
+    persons
+  }
+) => {
   return (
     <div className={classNames('contact-role_item', {
       'contact-role_item--active': isOpen,
     })}>
       <div onClick={onClick} className="contact-role_item-toggle">
         <Text font={'object'} className={'text_uppercase'} size={'xs'}>
-          Департамент международных проектов
+          {name && name.ru}
         </Text>
         <div className="contact-role_item-toggle-icon">
 
@@ -26,17 +33,24 @@ const ContactRoleItem: React.FC<IContactRoleItemProps> = ({onClick,
         height={isOpen ? 'auto' : 0}
       >
         <div className="contact-role_item-content">
-          Мария Гречишникова <br/>
-          Вице-президент по продажам и международным проектам
-          <br/>
-          +7 915 123-45-67 <br/>
-          +7 499 356-54-00 (доб. 1224) <br/>
-          m.grechishnikova@starmediafilm.com <br/>
-          <br/>
-          Надежда Рехтер <br/>
-          Руководитель отдела международных проектов <br/>
-          +7 499 356-54- 00 (доб. 1252) <br/>
-          n.rekhter@starmediafilm.com <br/>
+
+
+          {
+            persons && persons.map((item: Person, index) => (<div
+              key={index}
+            >
+              <Text size={'m'} font={'root'}>
+                {item.name && item.name.ru}
+              </Text>
+              <Text mb={12} size={'m'} font={'root'} type={'placeholder'}>
+                {item.position && item.position.ru}
+              </Text>
+              <Text mb={20} size={'m'} font={'root'}>
+                {item.phone && item.phone.ru} <br/>
+                {item.email && item.email.ru} <br/>
+              </Text>
+            </div>))
+          }
         </div>
       </AnimateHeight>
     </div>

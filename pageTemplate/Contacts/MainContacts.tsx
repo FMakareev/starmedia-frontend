@@ -1,36 +1,37 @@
 import * as React from 'react';
 import Container from "../../components/Container/Container";
 import ContactMainItem from './ContactMainItem';
+import {Contacts, MainContact} from "../../types/types";
 
-interface IMainContactsProps {
+interface IMainContactsProps extends Contacts {
   [prop: string]: any
 }
 
-const MainContacts: React.FC<IMainContactsProps> = () => {
+const BGMap: object = {
+  ru: "/static/images/contact-bg-moscow.jpg",
+  uk: "/static/images/contact-bg-kiev.jpg",
+  en: "/static/images/contact-bg-london.jpg",
+}
+
+
+const MainContacts: React.FC<IMainContactsProps> = (
+  {
+    mainContacts
+  }
+) => {
+
   return (
     <Container mb={80}>
       <ul className={'contact-main_list'}>
-        <ContactMainItem
-          cityName={'Москва'}
-          phone={'+7 499 356-54-00'}
-          email={'office@starmediafilm.com'}
-          address={'02222, ул. Закревского, 22'}
-          src={"/static/images/contact-bg-moscow.jpg"}
-        />
-        <ContactMainItem
-          cityName={'Киев'}
-          phone={'+7 499 356-54-00'}
-          email={'office@starmediafilm.com'}
-          address={'02222, ул. Закревского, 22'}
-          src={"/static/images/contact-bg-kiev.jpg"}
-        />
-        <ContactMainItem
-          cityName={'Лондон'}
-          phone={'+7 499 356-54-00'}
-          email={'office@starmediafilm.com'}
-          address={'02222, ул. Закревского, 22'}
-          src={"/static/images/contact-bg-london.jpg"}
-        />
+        {
+          mainContacts && mainContacts.map((item: MainContact, index: number) =>
+            (<ContactMainItem
+              {...item}
+              key={index}
+              // @ts-ignore
+              src={item && item.locale && BGMap[item.locale]}
+            />))
+        }
       </ul>
     </Container>
   );

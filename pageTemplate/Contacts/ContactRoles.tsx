@@ -4,9 +4,10 @@ import Row from "../../components/Row/Row";
 import Col from '../../components/Col/Col';
 import ContactRoleItem from './ContactRoleItem';
 import {useAccordion} from "../../libs/useAccordion";
+import {Contacts, Role} from "../../types/types";
 
 
-interface IContactRolesProps {
+interface IContactRolesProps extends Contacts {
   [prop: string]: any
 }
 
@@ -14,23 +15,20 @@ interface IContactRolesProps {
 
 
 
-const ContactRoles: React.FC<IContactRolesProps> = () => {
+const ContactRoles: React.FC<IContactRolesProps> = ({roles}) => {
   const {isOpen, toggle} = useAccordion();
   return (
     <Container pt={80} pb={100}>
       <Row>
-        <Col xs={12} md={6}>
-          <ContactRoleItem
-            onClick={() => toggle(0)}
-            isOpen={isOpen.includes(0)}
-          />
-        </Col>
-        <Col xs={12} md={6}>
-          <ContactRoleItem
-            onClick={() => toggle(1)}
-            isOpen={isOpen.includes(1)}
-          />
-        </Col>
+        {
+          roles && roles.map((item: Role, index)=>(<Col xs={12} md={6}>
+            <ContactRoleItem
+              {...item}
+              onClick={() => toggle(index)}
+              isOpen={isOpen.includes(index)}
+            />
+          </Col>))
+        }
       </Row>
     </Container>
   );

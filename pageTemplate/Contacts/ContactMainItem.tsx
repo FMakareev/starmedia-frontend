@@ -1,25 +1,22 @@
 import * as React from 'react';
 import Row from "../../components/Row/Row";
-import {ViewportSizeEnum} from "../../types/types";
+import {ViewportSizeEnum, MainContact, LocalizedString} from "../../types/types";
 import Col from "../../components/Col/Col";
 import Text from "../../components/Text/Text";
 
-interface IContactMainItemProps {
+interface IContactMainItemProps extends MainContact {
   src?: string,
-  cityName?: string,
-  phone?: string,
-  address?: string,
-  email?: string,
+
   [prop: string]: any
 }
 
 const ContactMainItem: React.FC<IContactMainItemProps> = (
   {
     src,
-    cityName,
-    phone,
-    address,
-    email,
+    name,
+    phones,
+    addresses,
+    emails,
   }
 ) => {
   return (
@@ -32,25 +29,49 @@ const ContactMainItem: React.FC<IContactMainItemProps> = (
         />
       </div>
       <Row middle={ViewportSizeEnum.md}>
-        <Col md={3}>
+        <Col xs={12} md={4} mb={[12,'0']}>
           <Text type={'inherit'} className={'text_uppercase'} font={'object'} size={'xl'}>
-            {cityName}
+            {name && name.ru}
           </Text>
         </Col>
-        <Col md={3}>
-          <Text type={'inherit'} font={'root'} size={'m'}>
-            {address}
-          </Text>
+        <Col xs={12} md={3} mb={[10,'0']}>
+          {
+            addresses && addresses.map((item:LocalizedString, index) => (<Text
+              key={index}
+              type={'inherit'}
+              font={'root'}
+              size={'m'}
+              mb={8}
+            >
+              {item && item.ru}
+            </Text>))
+          }
+
         </Col>
-        <Col md={3}>
-          <Text type={'inherit'} font={'root'} size={'m'}>
-            {phone}
-          </Text>
+        <Col xs={12} md={2} mb={[10,'0']}>
+          {
+            phones && phones.map((item:LocalizedString, index) => (<Text
+              key={index}
+              type={'inherit'}
+              font={'root'}
+              size={'m'}
+              mb={8}
+            >
+              {item && item.ru}
+            </Text>))
+          }
         </Col>
-        <Col md={3}>
-          <Text type={'inherit'} font={'root'} size={'m'}>
-            {email}
-          </Text>
+        <Col xs={12}  md={3} mb={[10,'0']}>
+          {
+            emails && emails.map((item:LocalizedString, index) => (<Text
+              key={index}
+              type={'inherit'}
+              font={'root'}
+              size={'m'}
+            >
+              {item && item.ru}
+            </Text>))
+          }
         </Col>
       </Row>
     </li>

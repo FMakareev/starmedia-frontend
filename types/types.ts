@@ -31,7 +31,7 @@ export type LocalizedString = {
   uk?: Maybe<Scalars["String"]>;
 };
 
-export enum SocialLinkTypeEnum  {
+export enum SocialLinkTypeEnum {
   ok = 'ok',
   in = 'in',
   facebook = 'facebook',
@@ -46,30 +46,28 @@ export type SocialLink = {
   name?: Scalars["String"];
   shortName?: Scalars["String"];
 };
-export type IRelation = {
-
-}
+export type IRelation = {}
 export type File = {
   __typename?: "SocialLink";
-  ext?:  Maybe<Scalars["String"]>;
-  id?:  Maybe<Scalars["String"]>;
-  mime?:  Maybe<Scalars["String"]>;
-  name?:  Maybe<Scalars["String"]>;
-  provider?:  Maybe<Scalars["String"]>;
+  ext?: Maybe<Scalars["String"]>;
+  id?: Maybe<Scalars["String"]>;
+  mime?: Maybe<Scalars["String"]>;
+  name?: Maybe<Scalars["String"]>;
+  provider?: Maybe<Scalars["String"]>;
   related?: Maybe<Array<IRelation>>;
-  sha256?:  Maybe<Scalars["String"]>;
-  size?:  Maybe<Scalars["Int"]>;
-  url?:  Maybe<Scalars["String"]>;
-  updated?:  Maybe<Scalars["String"]>;
-  created?:  Maybe<Scalars["String"]>;
+  sha256?: Maybe<Scalars["String"]>;
+  size?: Maybe<Scalars["Int"]>;
+  url?: Maybe<Scalars["String"]>;
+  updated?: Maybe<Scalars["String"]>;
+  created?: Maybe<Scalars["String"]>;
 }
 
 export type Video = {
-  preview?:Maybe<File>;
-  video?:Maybe<File>;
+  preview?: Maybe<File>;
+  video?: Maybe<File>;
 }
 
-  export type Award = {
+export type Award = {
   __typename?: "Award";
   name?: Maybe<LocalizedString>;
   date?: Maybe<Scalars["String"]>;
@@ -82,7 +80,7 @@ export type Project = {
   __typename?: "Project";
   title?: Maybe<LocalizedString>;
   description?: Maybe<LocalizedString>;
-  preview?:Maybe<File>;
+  preview?: Maybe<File>;
   trailer?: Maybe<Video>;
   projectInfo?: Maybe<ProjectInfo>;
   awards?: Maybe<Array<Maybe<Award>>>;
@@ -109,3 +107,41 @@ export type Tag = {
   __typename?: "Tag";
   name?: Maybe<LocalizedString>;
 };
+
+
+export type Contacts = {
+  __typename?: "Contacts";
+  mainContacts?: MainContact[],
+  gpsPoints?: Maybe<Array<GpsPoint>>,
+  roles?: Maybe<Array<Role>>,
+}
+
+export type GpsPoint = {
+  __typename?: "GpsPoint";
+  lat?: Maybe<String>,
+  lng?: Maybe<String>
+}
+
+export type Role = {
+  __typename?: "Role";
+  name?: Maybe<LocalizedString>;
+  persons?: Person[];
+}
+export type Person = {
+  __typename?: "Person";
+  name?: LocalizedString,
+  email?: LocalizedString,
+  phone?: LocalizedString
+  company?: LocalizedString,
+  position?: LocalizedString
+}
+
+
+export  type MainContact = {
+  __typename?: "MainContact";
+  locale?: Maybe<String>;
+  name?: Maybe<LocalizedString>;
+  addresses?: Maybe<Array<LocalizedString>>,
+  phones?: Maybe<Array<LocalizedString>>,
+  emails?: Maybe<Array<LocalizedString>>,
+}

@@ -1,4 +1,4 @@
-import {Project, Award} from "./types/types";
+import {Project, Award, Contacts} from "./types/types";
 
 export const ProjectMock: Project = {
   title: {
@@ -213,22 +213,8 @@ export const AwardMock: Award[] = [
 ]
 
 
-// type MainContact {
-// 	locale: String
-// 	name: LocalizedString,
-// 	addresses: [LocalizedString],
-// 	phones: [LocalizedString],
-// 	emails: [LocalizedString]
-// }
-
-//type Contacts {
-// 	main_contacts: [MainContact],
-// 	gps_points: [GpsPoint],
-// 	roles: [Role]
-// }
-
-export const Contacts = {
-  main_contacts: [
+export const ContactsMock: Contacts = {
+  mainContacts: [
     {
       locale: 'ru',
       name: {
@@ -259,12 +245,122 @@ export const Contacts = {
         },
       ],
     },
+    {
+      locale: 'uk',
+      name: {
+        ru: 'Киев',
+      },
+      addresses: [
+        {
+          ru: '02222, ул. Закревского, 22',
+        },
+      ],
+      phones: [
+        {
+          ru: '+38 (044) 390-50-60',
+        },
+      ],
+      emails: [
+        {
+          ru: 'info@starmediafilm.com',
+        },
+      ],
+    },
+    {
+      locale: 'en',
+      name: {
+        ru: 'Лондон',
+      },
+      addresses: [
+        {
+          ru: 'SW1H 0HW, 83 Victoria Street',
+        },
+      ],
+      phones: [
+        {
+          ru: '+44 (0) 20-3008-6555',
+        },
+      ],
+      emails: [
+        {
+          ru: '(факс) +44 (0) 20-3008-6180',
+        },
+      ],
+    },
   ],
-  gps_points: [],
+  gpsPoints: [
+    {
+      // Москва, ул. Нижние Поля, 31, стр. 1
+      lat: '55.65632225',
+      lng: '37.73053030506042',
+    },
+    {
+      // 127474, Дмитровское ш., 60, пом. 6
+      lat: '55.8528765',
+      lng: '37.567404',
+    },
+  ],
   roles: [
     {
-
+      name: {
+        ru: 'Департамент международных проектов',
+      },
+      persons: [
+        {
+          name: {ru: 'Мария Гречишникова'},
+          position: {ru: 'Вице-президент по продажам и международным проектам'},
+          email: {ru: 'm.grechishnikova@starmediafilm.com'},
+          phone: {ru: '+7 915 123-45-67,  +7 499 356-54-00 (доб. 1224)'},
+        },
+        {
+          name: {ru: 'Мария Гречишникова'},
+          position: {ru: 'Вице-президент по продажам и международным проектам'},
+          email: {ru: 'm.grechishnikova@starmediafilm.com'},
+          phone: {ru: '+7 915 123-45-67,  +7 499 356-54-00 (доб. 1224)'},
+        },
+      ]
+    },
+    {
+      name: {
+        ru: 'Департамент международных проектов',
+      },
+      persons: [
+        {
+          name: {ru: 'Мария Гречишникова'},
+          position: {ru: 'Вице-президент по продажам и международным проектам'},
+          email: {ru: 'm.grechishnikova@starmediafilm.com'},
+          phone: {ru: '+7 915 123-45-67,  +7 499 356-54-00 (доб. 1224)'},
+        },
+        {
+          name: {ru: 'Мария Гречишникова'},
+          position: {ru: 'Вице-президент по продажам и международным проектам'},
+          email: {ru: 'm.grechishnikova@starmediafilm.com'},
+          phone: {ru: '+7 915 123-45-67,  +7 499 356-54-00 (доб. 1224)'},
+        },
+      ]
+    },
+    {
+      name: {
+        ru: 'Департамент международных проектов',
+      },
+      persons: [
+        {
+          name: {ru: 'Мария Гречишникова'},
+          position: {ru: 'Вице-президент по продажам и международным проектам'},
+          email: {ru: 'm.grechishnikova@starmediafilm.com'},
+          phone: {ru: '+7 915 123-45-67,  +7 499 356-54-00 (доб. 1224)'},
+        },
+        {
+          name: {ru: 'Мария Гречишникова'},
+          position: {ru: 'Вице-президент по продажам и международным проектам'},
+          email: {ru: 'm.grechishnikova@starmediafilm.com'},
+          phone: {ru: '+7 915 123-45-67,  +7 499 356-54-00 (доб. 1224)'},
+        },
+      ]
     },
   ]
 }
 
+//
+//
+//
