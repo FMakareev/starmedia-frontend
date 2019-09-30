@@ -43,6 +43,11 @@
       font-weight: normal;
     }
 
+    &--decoration {
+      text-decoration: underline;
+      text-decoration-color: $color-typo-placeholder
+    }
+
     &:hover {
       color: $color-link-default;
       fill: $color-link-default;
@@ -51,9 +56,10 @@
   }
 
   &_primary {
-    min-width: 224px;
+    min-width: 200px;
     min-height: 56px;
     background-color: $color-link-default;
+    color: $color-link-primary;
     @extend .text_font-object;
     @extend .text_size-s;
 
@@ -143,18 +149,28 @@
   }
 
   &_tab {
+    @extend .text_font-object;
+    @extend .text_size-xs;
     border: 1px solid $color-border-base;
     background-color: $color-bg-default;
     color: $color-typo-primary;
-    @extend .text_font-object;
-    @extend .text_size-m;
-
+    text-transform: uppercase;
     &:hover {
       color: $color-typo-brand;
     }
     &--active {
       background-color: $color-bg-dark;
       color: $color-bg-default;
+    }
+
+    height: 56px;
+    padding-left: 16px;
+    padding-right: 16px;
+    @media(min-width: 1024px){
+      font-size: $size-typo-m;
+      line-height: $line-height-typo-m;
+      height: 80px;
+      width: 300px;
     }
 
   }
@@ -176,6 +192,10 @@
   &--icon {
     display: flex;
     align-items: center;
+  }
+
+  &--full {
+    width: 100%;
   }
 
 }

@@ -19,6 +19,7 @@ const linkModMap: any = {
   xs: 'button_link--xs',
   light: 'button_link--light',
   gray: 'button_link--gray',
+  decoration: 'button_link--decoration',
 };
 const circleModMap: any = {
   l: 'button_circle--l',
@@ -72,6 +73,7 @@ export function getClassListWithButton(props: any): any {
       break;
     }
     case ButtonElementEnum.tab: {
+      classNameList['button_tab'] = true;
       if (props.isActive) {
         classNameList['button_tab--active'] = true;
       }

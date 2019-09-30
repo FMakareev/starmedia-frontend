@@ -6,19 +6,13 @@ interface ISelectProps {
   [prop: string]: any
 }
 
-const options = [
-  {value: 'chocolate', label: 'Chocolate'},
-  {value: 'strawberry', label: 'Strawberry'},
-  {value: 'vanilla', label: 'Vanilla'},
-];
-
-
-const SelectStyle: any = {
+const SelectStyle: any = (style: any)=>({
   container: (styles: any,) => ({
     ...styles,
     display: 'inline-block',
     width: 'auto',
-    minWidth: '144px'
+    minWidth: '144px',
+    ...style.container,
   }),
   control: (styles: any, {menuIsOpen, isFocused}: any) => {
     return ({
@@ -105,30 +99,50 @@ const SelectStyle: any = {
     borderRight: '1px solid #D6D6D6',
   }),
 
-};
+});
 
 class Select extends React.Component<any, ISelectProps> {
   state: any = {
-    selectedOption: {value: 'chocolate', label: 'Chocolate'},
+    selectedOption: null,
   };
+
+  constructor(props: any) {
+    super(props);
+    this.state = this.initialState;
+  }
+
+
+  get initialState() {
+    const {input:{value}} = this.props;
+    return {
+      selectedOption: value,
+    }
+  }
+
+
   handleChange = (selectedOption: any) => {
+    const {input} = this.props;
     this.setState({selectedOption});
-    console.log(`Option selected:`, selectedOption);
+
+    if (input) {
+      input.onChange(selectedOption);
+    }
   };
 
   render() {
     const {selectedOption} = this.state;
-    const {label} = this.props;
+    const {label, options, placeholder, styles} = this.props;
     return (
       <div>
         <Text font={'root'} mb={8}>
           {label}
         </Text>
         <DefaultSelect
+          placeholder={placeholder}
           value={selectedOption}
           onChange={this.handleChange}
           options={options}
-          styles={SelectStyle}
+          styles={SelectStyle(styles)}
           defaultMenuIsOpen={false}
         />
       </div>

@@ -145,3 +145,40 @@ export  type MainContact = {
   phones?: Maybe<Array<LocalizedString>>,
   emails?: Maybe<Array<LocalizedString>>,
 }
+
+
+//
+//
+//
+//
+//
+export type Cooperation = {
+  actors?: Maybe<Actors>,
+  scripts?: Maybe<Scripts>,
+  director?: Maybe<Director>
+}
+
+
+export type Actors = {
+  form?: Maybe<Form>,
+  name?: Maybe<LocalizedString>,
+  description?: Maybe<LocalizedString>
+}
+export type Scripts = {
+  form?: Maybe<Form>,
+  name?: Maybe<LocalizedString>,
+  description?: Maybe<LocalizedString>
+}
+
+export type Director = {
+  form?: Maybe<Form>,
+  name?: Maybe<LocalizedString>,
+  description?: Maybe<LocalizedString>
+}
+
+
+export type Form = {
+  name?: Maybe<LocalizedString>,
+  description?: Maybe<LocalizedString>,
+  icon?: Maybe<File>,
+}

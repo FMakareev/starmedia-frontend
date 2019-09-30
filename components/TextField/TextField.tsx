@@ -6,19 +6,20 @@ interface ITextFieldProps {
   [prop: string]: any
 }
 
-const TextField: React.FC<ITextFieldProps> = ({
-                                                placeholder,
-                                                disabled,
-                                                input,
-                                                type,
-                                                label,
-                                                meta: {
-                                                  touched,
-                                                  error,
-                                                  submitError,
-                                                },
-  icon
-                                              }: any
+const TextField: React.FC<ITextFieldProps> = (
+  {
+    placeholder,
+    disabled,
+    input,
+    type,
+    label,
+    meta: {
+      touched,
+      error,
+      submitError,
+    },
+    icon
+  }: any
 ) => {
   return (
     <div className={'text-field_wrapper'}>
@@ -53,7 +54,7 @@ const TextField: React.FC<ITextFieldProps> = ({
       {
         touched && error || submitError &&
 				<Text
-          className={'mt-8'}
+					className={'mt-8'}
 					type={'alert'}
 					font={'root'}
 				>
