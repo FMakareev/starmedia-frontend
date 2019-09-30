@@ -24,12 +24,29 @@ const circleModMap: any = {
   l: 'button_circle--l',
   m: 'button_circle--m',
   s: 'button_circle--s',
+  xs: 'button_circle--xs',
+  xxs: 'button_circle--xxs',
   inverse: 'button_circle--inverse',
+  gray: 'button_circle--gray',
 };
+
+const transparentModMap: any = {
+  dark: 'button_transparent--dark',
+};
+
+const otherModMap:any = {
+  'icon': 'button--icon',
+}
 
 
 export function getClassListWithButton(props: any): any {
   const classNameList: any = {};
+
+  props.mods && props.mods.forEach((mod: string) => {
+    if (otherModMap[mod]) {
+      classNameList[otherModMap[mod]] = true;
+    }
+  });
 
   switch (props.element) {
     case ButtonElementEnum.link: {
@@ -62,9 +79,16 @@ export function getClassListWithButton(props: any): any {
     }
     case ButtonElementEnum.transparent: {
       classNameList['button_transparent'] = true;
+      props.mods && props.mods.forEach((mod: string) => {
+        if (transparentModMap[mod]) {
+          classNameList[transparentModMap[mod]] = true;
+        }
+      });
       break;
     }
   }
+
+
 
   return classNameList;
 }

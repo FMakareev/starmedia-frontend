@@ -56,19 +56,19 @@ function getColClassNames(props: any): any {
 }
 
 
-const Col: React.FC<IColProps> = ({children, className,style, ...rest}) => {
-  return (
-    <div
-      style={style}
-      className={classnames('col', className, {
-        ...getColClassNames(rest),
-        ...createIndentMargin(rest),
-        ...createIndentPadding(rest),
-      })}
-    >
-      {children}
-    </div>
-  );
+const Col: React.FC<IColProps> = ({children, className, style, as = 'div',id, ...rest}) => {
+
+
+  return React.createElement(as, {
+    style,
+    id,
+    className: classnames('col', className, {
+      ...getColClassNames(rest),
+      ...createIndentMargin(rest),
+      ...createIndentPadding(rest),
+    })
+  }, children);
+
 };
 
 export default Col;

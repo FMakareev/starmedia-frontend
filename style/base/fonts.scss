@@ -14,3 +14,15 @@
   font-family: 'Object Sans S';
   src: url('../../static/fonts/ObjectSans/ObjectSans-Slanted.otf') format("opentype");
 }
+
+@font-face {
+  font-family: 'PTRootUIWebMedium';
+  src: url('/static/fonts/PT Root UI Web/PT Root UI_Medium.eot');
+  src:
+          url('/static/fonts/PT Root UI Web/PT Root UI_Medium.eot?#iefix') format('embedded-opentype'),
+          url('/static/fonts/PT Root UI Web/PT Root UI_Medium.woff2') format('woff2'),
+          url('/static/fonts/PT Root UI Web/PT Root UI_Medium.woff') format('woff'),
+          url('/static/fonts/PT Root UI Web/PT Root UI_Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

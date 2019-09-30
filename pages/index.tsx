@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react'
-import "../style/style.scss";
+
 import SectionNews from '../pageTemplate/HomePage/SectionNews/SectionNews';
 import SectionAboutUs from "../pageTemplate/HomePage/SectionAboutUs/SectionAboutUs";
 import SectionProjects from '../pageTemplate/HomePage/SectionProjects/SectionProjects';

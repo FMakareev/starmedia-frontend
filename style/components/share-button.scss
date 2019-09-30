@@ -1,0 +1,17 @@
+.share-button {
+  &_list {
+    display: flex;
+    margin-left: -8px;
+    margin-right: -8px;
+    &--horizontal {
+      flex-direction: column;
+    }
+  }
+  &_item {
+    padding: 8px;
+  }
+  &_icon {
+    width: 40px;
+    height: 40px;
+  }
+}

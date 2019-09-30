@@ -87,7 +87,7 @@ export type Project = {
   projectInfo?: Maybe<ProjectInfo>;
   awards?: Maybe<Array<Maybe<Award>>>;
   gallery?: Maybe<Array<Maybe<File>>>;
-  tags?: Maybe<Array<Maybe<Tag>>>;
+  tags?: Maybe<Array<Tag>>;
   similarProject?: Maybe<Array<Maybe<Project>>>;
 };
 

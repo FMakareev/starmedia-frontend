@@ -1,17 +1,32 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import {createIndentMargin, createIndentPadding} from "../../libs/createIndent";
+import {createIndentMargin, createIndentPadding, createTextAlign} from "../../libs/createIndent";
 
 interface ITextProps {
   size?: string;
   font?: string;
   type?: string;
-  align?: string;
+  align?: string | string[];
 
   [prop: string]: any
 }
 
 
+// const getTextAlign = (align?: string) => {
+//
+//   const AlignMap: any = {
+//     'left': 'text_align--left',
+//     'center': 'text_align--center',
+//     'right': 'text_align--right',
+//   }
+//
+//   if(align && AlignMap[align]){
+//     return {
+//       [AlignMap[align]]: true,
+//     }
+//   }
+//   return {}
+// };
 const getTextSize = (size?: string) => {
 
   const TextSizeMap: any = {
@@ -47,6 +62,7 @@ const getTextColor = (type?: string) => {
     primary: 'text_primary',
     secondary: 'text_secondary',
     placeholder: 'text_placeholder',
+    alert: 'text_alert',
     inherit: 'text_inherit',
   };
 
@@ -59,7 +75,7 @@ const getTextColor = (type?: string) => {
 };
 
 
-const Text: React.FC<ITextProps> = ({as = 'div', className, font, size, type, children, ...rest}) => {
+const Text: React.FC<ITextProps> = ({as = 'div', className, font, size, type, align, children, ...rest}) => {
   return React.createElement(as, {
     className: classNames('text',
       className,
@@ -67,6 +83,8 @@ const Text: React.FC<ITextProps> = ({as = 'div', className, font, size, type, ch
         ...getTextFont(font),
         ...getTextSize(size),
         ...getTextColor(type),
+        // ...getTextAlign(align),
+        ...createTextAlign({align}),
         ...createIndentMargin(rest),
         ...createIndentPadding(rest),
       }

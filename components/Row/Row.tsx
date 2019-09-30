@@ -57,10 +57,11 @@ const Row: React.FC<IRowProps> = ({
                                     children,
                                     reverse,
                                     className,
+                                    style,
                                     ...rest
                                   }) => {
   return (
-    <div className={classnames('row', className, {
+    <div style={style} className={classnames('row', className, {
       'reverse': reverse,
       ...getRowClassNames(rest),
       ...createIndentMargin(rest),

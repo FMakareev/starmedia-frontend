@@ -1,5 +1,13 @@
 
 
+## Start
+
+1. git clone https://github.com/FMakareev/starmedia-frontend.git
+2. yarn
+3. yarn build
+4. yarn start
+
+
 ## 
 
 * https://react-id-swiper.ashernguyen.site/

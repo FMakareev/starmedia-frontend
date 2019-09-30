@@ -1,0 +1,23 @@
+.cursor {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  opacity: 0;
+  transition: .225s opacity;
+  pointer-events: none;
+}
+
+.cursor_container {
+  position: relative;
+  cursor: none;
+
+  &:hover {
+    .cursor {
+      opacity: 1;
+    }
+  }
+}

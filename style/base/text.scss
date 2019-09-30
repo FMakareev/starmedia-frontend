@@ -42,9 +42,71 @@
     }
 
     &-root {
-      font-family: 'PT Root UI Web', sans-serif;
+      font-family: 'PTRootUIWebMedium', sans-serif;
     }
 
+  }
+
+  &_align {
+    &-left {
+      text-align: left;
+    }
+
+    &-right {
+      text-align: right;
+    }
+
+    &-center {
+      text-align: center;
+    }
+
+    @media(min-width: map_get($screen, "sm")){
+      &-sm-left {
+        text-align: left;
+      }
+    }
+    @media(min-width: map_get($screen, "md")){
+      &-md-left {
+        text-align: left;
+      }
+    }
+    @media(min-width: map_get($screen, "lg")){
+      &-lg-left {
+        text-align: left;
+      }
+    }
+
+
+    @media(min-width: map_get($screen, "sm")){
+      &-sm-center {
+        text-align: center;
+      }
+    }
+    @media(min-width: map_get($screen, "md")) {
+      &-md-center {
+        text-align: center;
+      }
+    }
+    @media(min-width: map_get($screen, "lg")){
+      &-lg-center {
+        text-align: center;
+      }
+    }
+    @media(min-width: map_get($screen, "sm")){
+      &-sm-right {
+        text-align: right;
+      }
+    }
+    @media(min-width: map_get($screen, "md")) {
+      &-md-right {
+        text-align: right;
+      }
+    }
+    @media(min-width: map_get($screen, "lg")){
+      &-lg-right {
+        text-align: right;
+      }
+    }
   }
 
   &_primary {
@@ -58,15 +120,13 @@
   &_placeholder {
     color: $color-typo-placeholder;
   }
+  &_alert {
+    color: $color-typo-alert;
+  }
   &_inherit {
     color: inherit;
   }
 
-  &_align {
-    &-left {
-      text-align: left;
-    }
-  }
   &_uppercase {
     text-transform: uppercase;
   }

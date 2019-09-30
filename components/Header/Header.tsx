@@ -19,13 +19,14 @@ const Header: React.FC<IHeaderProps> = () => {
 
   return (
     <header className={classNames('header', {
-      'header--transparent': !isActive,
+      'header--transparent-2': !isActive,
     })}>
       <HeaderDesktopTop
         toggleMenu={toggleMenu}
         isActive={isActive}
       />
       <HeaderDesktopMenu
+        toggleMenu={toggleMenu}
         isActive={isActive}
       />
     </header>

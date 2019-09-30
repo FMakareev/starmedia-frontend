@@ -16,6 +16,9 @@ $base-indent: 2;
       #{$property}-left: $base-indent * $i + px;
     }
   }
+  .#{$base-classname}-#{$screen}0 {
+    #{$property}: 0;
+  }
   .#{$base-classname}t-#{$screen}0 {
     #{$property}-top: 0;
   }
@@ -31,22 +34,22 @@ $base-indent: 2;
 }
 
 
-@include createIdent($base-indent, 50, "padding", "p", "");
-@include createIdent($base-indent, 50, "margin", "m", "");
+@include createIdent($base-indent, 70, "padding", "p", "");
+@include createIdent($base-indent, 70, "margin", "m", "");
 
 @media only screen and (min-width: map_get($screen, "sm")) {
-  @include createIdent($base-indent, 50, "margin", "m", "sm-");
-  @include createIdent($base-indent, 50, "padding", "p", "sm-");
+  @include createIdent($base-indent, 70, "margin", "m", "sm-");
+  @include createIdent($base-indent, 70, "padding", "p", "sm-");
 }
 
 @media only screen and (min-width: map_get($screen, "md")) {
-  @include createIdent($base-indent, 50, "margin", "m", "md-");
-  @include createIdent($base-indent, 50, "padding", "p", "md-");
+  @include createIdent($base-indent, 70, "margin", "m", "md-");
+  @include createIdent($base-indent, 70, "padding", "p", "md-");
 }
 
 @media only screen and (min-width: map_get($screen, "lg")) {
-  @include createIdent($base-indent, 50, "margin", "m", "lg-");
-  @include createIdent($base-indent, 50, "padding", "p", "lg-");
+  @include createIdent($base-indent, 70, "margin", "m", "lg-");
+  @include createIdent($base-indent, 70, "padding", "p", "lg-");
 }
 
 

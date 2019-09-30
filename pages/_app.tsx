@@ -1,5 +1,6 @@
 import App from "next/app";
 import React from "react";
+import "../style/style.scss";
 import Layout from "../components/Layout/Layout";
 import {appWithTranslation} from '../libs/i18n'
 import SocialIconsSprite from "../components/Icons/SocialIconsSprite";

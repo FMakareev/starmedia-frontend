@@ -12,8 +12,7 @@ const SearchPopup = asyncComponent({
 });
 
 const HeaderSearch: React.FC<IHeaderSearchProps> = () => {
-  const [isVisible, togglePopup] = React.useState(true);
-
+  const [isVisible, togglePopup] = React.useState(false);
   return (
     <React.Fragment>
       <button

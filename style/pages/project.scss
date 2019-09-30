@@ -1,0 +1,186 @@
+.project-detail {
+
+  &_awards {
+
+  }
+
+  &_awards-slider {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  &_awards-slider-item {
+    width: 224px !important;
+    min-height: 328px;
+  }
+
+  &_awards-slider-first-item {
+    min-height: 328px;
+    margin-right: 16px !important;
+    width: 0 !important;
+
+    @media only screen and (min-width: map_get($screen, "lg")) {
+      width: 96px !important;
+    }
+
+    @media only screen and (min-width: 1440px) {
+      width: calc((100vw - #{$container-max-width} - 32px) / 2) !important;
+    }
+  }
+
+  // ==================================================
+  //
+  // GALLERY
+  //
+  // ==================================================
+
+  &_gallery-swiper {
+
+  }
+
+  &_gallery {
+
+    .swiper-slide {
+      width: auto;
+    }
+
+    .swiper-wrapper {
+      margin-bottom: 48px;
+    }
+
+    &-first-item {
+      height: 300px !important;
+
+      @media only screen and (min-width: map_get($screen, "lg")) {
+        width: 104px !important;
+      }
+
+      @media only screen and (min-width: 1440px) {
+        width: calc((100vw - #{$container-max-width} - 16px) / 2) !important;
+        height: 300px !important;
+      }
+    }
+
+    .swiper-container-horizontal > .swiper-scrollbar {
+      width: calc(100% - 48px);
+      border-radius: 0;
+      margin: 0 auto;
+      background-color: #F0F0F0;
+      position: relative;
+      bottom: initial;
+      left: initial;
+      @media only screen and (min-width: map_get($screen, "lg")) {
+        max-width: calc(100% - 250px) !important;
+        width: 100%;
+      }
+
+      @media only screen and (min-width: 1440px) {
+        max-width: 1212px !important;
+      }
+    }
+
+    .swiper-scrollbar-drag {
+      border-radius: 0;
+      background-color: $color-bg-secondary;
+    }
+  }
+
+}
+
+
+.project-tags {
+  &_list {
+
+  }
+
+  &_item {
+    @extend .text_font-root;
+    @extend .text_size-s;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    color: #ffffff;
+    border-radius: 25px;
+    display: inline-block;
+    padding: 5px 10px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+  }
+}
+
+.project-detail-main {
+  &_wrapper {
+    position: relative;
+    background-color: $color-typo-disabled;
+  }
+}
+
+
+.project-info {
+  &_item {
+    margin-bottom: 12px;
+    @media only screen and (min-width: map_get($screen, "sm")) {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  &_label {
+    @media only screen and (min-width: map_get($screen, "sm")) {
+      width: 150px;
+    }
+  }
+
+  &_value {
+    @media only screen and (min-width: map_get($screen, "sm")) {
+      width: calc(100% - 150px);
+    }
+  }
+}
+
+
+.project-trailer {
+  &_wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+
+  &_preview {
+    width: 100%;
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+  }
+
+  &_video {
+    width: 100%;
+  }
+
+  &_play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 64px;
+    height: 64px;
+  }
+}
+
+
+.project-detail-similar {
+  &_first-item {
+    width: 0!important;
+    margin-right: 24px !important;
+    @media only screen and (min-width: map_get($screen, "lg")) {
+      width: 104px !important;
+    }
+
+    @media only screen and (min-width: 1440px) {
+      width: calc((100vw - #{$container-max-width} - 16px) / 2) !important;
+      height: 300px !important;
+    }
+  }
+}

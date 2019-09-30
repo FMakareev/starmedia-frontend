@@ -23,8 +23,8 @@ const SectionProjects: React.FC<ISectionProjectsProps> = () => {
         </Text>
       </Container>
 
-      <Container>
-        <Row mb={80} className="section-projects_grid">
+      <Container  mb={80}>
+        <Row className="section-projects_grid">
           {
             ProjectsMock.map((item: Project, index: number) =>
               <Col key={index}>

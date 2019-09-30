@@ -24,6 +24,16 @@ const myBigGreenDialog = {
   justifyContent: 'center'
 };
 
+const closeButtonStyle = {
+  cursor: 'pointer',
+  position: 'absolute',
+  fontSize: '0',
+  width: '56px',
+  height: '56px',
+  backgroundColor: 'transparent',
+
+};
+
 const SearchPopup: React.FC<ISearchPopupProps> = ({
                                                     onClose,
                                                     isVisible
@@ -31,6 +41,7 @@ const SearchPopup: React.FC<ISearchPopupProps> = ({
   return (
     <SkyLightStateless
       dialogStyles={myBigGreenDialog}
+      closeButtonStyle={closeButtonStyle}
       isVisible={isVisible}
       onCloseClicked={onClose}
       onOverlayClicked={onClose}

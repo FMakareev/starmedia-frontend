@@ -11,3 +11,30 @@
   }
 }
 
+
+
+.layout-title-date-content {
+  &_sidebar {
+    width: 100%;
+    padding-left: 1em;
+    padding-right: 1em;
+    order: 2;
+    margin-bottom: 60px;
+    @media(min-width: 1024px){
+      width: 200px;
+      order: 1;
+    }
+  }
+  &_content {
+    width: 100%;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-bottom: 50px;
+    order: 1;
+    @media(min-width: 1024px){
+      width: calc(100% - 200px);
+      margin-bottom: 130px;
+      order: 2;
+    }
+  }
+}

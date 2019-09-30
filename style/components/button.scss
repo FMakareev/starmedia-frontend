@@ -110,6 +110,13 @@
       @extend .text_size-s;
     }
 
+    &--xxs {
+      width: 21px;
+      height: 21px;
+      line-height: 32px;
+      @extend .text_size-s;
+    }
+
     &--inverse {
       color: $color-link-default;
       fill: $color-link-default;
@@ -119,6 +126,19 @@
         background-color: $color-typo-secondary;
       }
     }
+
+    &--gray {
+      color: $color-typo-primary;
+      fill: $color-typo-primary;
+      background-color: $color-typo-placeholder;
+
+      &:hover {
+        color: $color-link-default;
+        fill: $color-link-default;
+        background-color: $color-typo-placeholder;
+      }
+    }
+
 
   }
 
@@ -141,10 +161,21 @@
 
   &_transparent {
     color: $color-typo-secondary;
+    padding: 0;
+    &--dark {
+      color: $color-bg-dark;
+    }
 
     &:hover {
       color: $color-link-default;
+      fill: $color-link-default;
     }
+  }
+
+
+  &--icon {
+    display: flex;
+    align-items: center;
   }
 
 }

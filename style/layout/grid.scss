@@ -7,8 +7,8 @@
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 @media only screen and (min-width: map_get($screen, "sm")) {
@@ -27,14 +27,13 @@
 
 @media only screen and (min-width: map_get($screen, "lg")) {
   .container {
-    max-width: calc(100% - 208px);
+    max-width: calc(100% - 176px);
     width: 100%;
-    padding: 0;
   }
 }
 @media only screen and (min-width: 1440px) {
   .container {
-    max-width: 1224px;
+    max-width: 1260px;
     width: 100%;
   }
 }
@@ -55,7 +54,7 @@
 
 @media only screen and (min-width: map_get($screen, "sm")) and (max-width: map_get($screen, "md") - 1px) {
   .col-xs-none {
-    display: initial;
+    display: block;
   }
   .col-sm-none {
     display: none !important;
@@ -72,10 +71,10 @@
 
 @media only screen and (min-width: map_get($screen, "md")) and (max-width: map_get($screen, "lg") - 1px) {
   .col-sm-none {
-    display: initial;
+    display: block;
   }
   .col-xs-none {
-    display: initial;
+    display: block;
   }
   .col-md-none {
     display: none !important;
@@ -87,13 +86,13 @@
 
 @media only screen and (min-width: map_get($screen, "lg")) {
   .col-sm-none {
-    display: initial;
+    display: block;
   }
   .col-xs-none {
-    display: initial;
+    display: block;
   }
   .col-md-none {
-    display: initial;
+    display: block;
   }
   .col-lg-none {
     display: none !important;
@@ -164,8 +163,8 @@
   flex-direction: row;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  //margin-right: -1rem;
-  //margin-left: -1rem;
+  margin-right: -1rem;
+  margin-left: -1rem;
 }
 
 .row.reverse {
@@ -199,8 +198,8 @@
   -ms-flex: 0 0 auto;
   -webkit-box-flex: 0;
   flex: 0 0 auto;
-  //padding-right: 1rem;
-  //padding-left: 1rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
 }
 
 .col-xs-auto {

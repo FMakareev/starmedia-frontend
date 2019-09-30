@@ -6,17 +6,17 @@ interface IContainerProps {
   [prop: string]: any
 }
 
-const Container: React.FC<IContainerProps> = ({children, className, ...rest}) => {
-  return (
-    <div className={classnames('container', className,
+const Container: React.FC<IContainerProps> = ({children, className, as = 'div', ...rest}) => {
+
+  return React.createElement(as, {
+    className: classnames('container', className,
       {
         ...createIndentMargin(rest),
         ...createIndentPadding(rest),
       }
-    )}>
-      {children}
-    </div>
-  );
+    ),
+    ...rest,
+  }, children);
 };
 
 export default Container;

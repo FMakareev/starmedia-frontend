@@ -10,6 +10,7 @@ import {SocialLinkListMock} from "../../config";
 import SocialLinkList from "../SocialLinkList/SocialLinkList";
 import HeaderSearch from "./HeaderSearch";
 import LangSwitcher from "../LangSwitcher/LangSwitcher";
+import Link from 'next/link';
 
 interface IHeaderDesktopMenuProps {
   [prop: string]: any
@@ -17,19 +18,19 @@ interface IHeaderDesktopMenuProps {
 
 const Menu: any[] = [
   {
-    href: '/',
-    label: 'Проект'
+    href: '/projects',
+    label: 'Проекты'
   },
   {
-    href: '/',
+    href: '/news',
     label: 'Новости'
   },
   {
-    href: '/',
+    href: '/about-us',
     label: 'О компании'
   },
   {
-    href: '/',
+    href: '/services',
     label: 'Услуги'
   },
   {
@@ -37,12 +38,12 @@ const Menu: any[] = [
     label: 'Сотрудничество'
   },
   {
-    href: '/',
+    href: '/contacts',
     label: 'Контакты'
   },
 ];
 
-const HeaderDesktopMenu: React.FC<IHeaderDesktopMenuProps> = ({isActive}) => {
+const HeaderDesktopMenu: React.FC<IHeaderDesktopMenuProps> = ({isActive,toggleMenu}) => {
   return (
     <div
       className={classNames("header_menu-wrapper", {
@@ -66,22 +67,26 @@ const HeaderDesktopMenu: React.FC<IHeaderDesktopMenuProps> = ({isActive}) => {
           nowrap={[ViewportSizeEnum.md]}
           between={ViewportSizeEnum.sm}
         >
-          <Col className="header_menu-left">
+          <Col  className="header_menu-left">
             <ul className="header_menu-list">
               {
                 Menu.map((item, index) => (<li
                   key={`menu-${index}`}
                   className="header_menu-item"
                 >
-                  <Button
-                    className={'text_align-left'}
-                    mods={['l']}
-                    element={ButtonElementEnum.link}
-                    href={item.href}
-                    as={'a'}
-                  >
-                    {item.label}
-                  </Button>
+                  <Link href={item.href}>
+                    <Button
+                      onClick={toggleMenu}
+                      className={'text_align-left'}
+                      mods={['l']}
+                      element={ButtonElementEnum.link}
+                      href={item.href}
+                      as={'a'}
+                    >
+                      {item.label}
+                    </Button>
+                  </Link>
+
                 </li>))
               }
 
@@ -91,6 +96,7 @@ const HeaderDesktopMenu: React.FC<IHeaderDesktopMenuProps> = ({isActive}) => {
             <HeaderContact/>
           </Col>
           <Col
+            xs={12}
             lg={'none'}
             md={'none'}
           >

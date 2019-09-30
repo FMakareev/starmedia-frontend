@@ -1,5 +1,7 @@
 
 .pagination {
+  $this: &;
+
   &_container {
     display: flex;
     flex-direction: row;
@@ -15,11 +17,62 @@
     }
   }
 
+  &_page-item {
+    padding: 4px;
 
-  &_link {
-    &--active {
-
+    &:hover {
+      #{$this}_page-link {
+        color: $color-bg-secondary;
+      }
     }
+    &--active {
+      #{$this}_page-link {
+        background-color: $color-bg-secondary;
+        color: $color-typo-secondary;
+      }
+
+      &:hover {
+        #{$this}_page-link {
+          color: $color-typo-secondary;
+        }
+      }
+    }
+
+  }
+
+  &_page-link {
+    width: 32px;
+    height: 32px;
+    display: block;
+    border-radius: 50%;
+    background-color: transparent;
+    text-align: center;
+    line-height: 32px;
+    color: $color-typo-primary;
+    cursor: pointer;
+  }
+
+  &_next, &_previous {
+    width: 32px;
+    height: 32px;
+    display: block;
+    svg {
+      fill: $color-typo-primary;
+    }
+
+    &:hover {
+      svg {
+        fill: $color-bg-secondary;
+      }
+    }
+  }
+
+  &_previous {
+    margin-right: 24px;
+  }
+
+  &_next {
+    margin-left: 24px;
   }
 
 }
