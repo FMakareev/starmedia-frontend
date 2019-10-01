@@ -3,27 +3,27 @@ import {Project, Award, Contacts, Cooperation} from "./types/types";
 export  const Menu: any[] = [
   {
     href: '/projects',
-    label: 'Проекты'
+    label: 'nav-project-list'
   },
   {
     href: '/news',
-    label: 'Новости'
+    label: 'nav-news'
   },
   {
     href: '/about-us',
-    label: 'О компании'
+    label: 'nav-about_us'
   },
   {
     href: '/services',
-    label: 'Услуги'
+    label: 'nav-services'
   },
   {
     href: '/cooperation',
-    label: 'Сотрудничество'
+    label: 'nav-cooperation'
   },
   {
     href: '/contacts',
-    label: 'Контакты'
+    label: 'nav-contacts'
   },
 ];
 
@@ -85,7 +85,7 @@ export const ProjectMock: Project = {
     composer: {
       ru: 'Роман Дормидошин',
     },
-    castr: {
+    cast: {
       ru: 'Петр Федоров, Анастасия Микульчина, Женя Малахова, Агния Кузнецова, Софья Лебедева, Кристина Асмус, Екатерина Вилкова',
     },
   }

@@ -7,17 +7,20 @@ import {ButtonElementEnum, ViewportSizeEnum} from "../../types/types";
 import Button from "../Button/Button";
 import ArrowLargeLeft from '../Icons/ArrowLargeLeft';
 import ArrowLargeRight from "../Icons/ArrowLargeRight";
+import {useTranslation} from "../../libs/i18n";
 
 interface IPaginationProps {
   [prop: string]: any
 }
 
 const Pagination: React.FC<IPaginationProps> = () => {
+
+  const {t} = useTranslation('common');
   return (
     <Container>
       <Row mb={56} center={ViewportSizeEnum.xs}>
         <Button mods={['m']} element={ButtonElementEnum.circle}>
-          Показать<br/>ещё
+          {t('button_show-more')}
         </Button>
       </Row>
       <Row center={ViewportSizeEnum.sm}>

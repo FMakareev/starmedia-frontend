@@ -4,6 +4,7 @@ import ProjectList from '../pageTemplate/Projects/ProjectList';
 import { ProjectsMock } from '../mock';
 import Pagination from "../components/Pagination/Pagination";
 import ProjectFilter from '../pageTemplate/Projects/ProjectFilter';
+import {withTranslation} from "../libs/i18n";
 
 
 
@@ -11,9 +12,11 @@ interface IProjectsProps {
   [prop: string]: any
 }
 
-const Projects: React.FC<IProjectsProps> = () => {
+const Projects: React.FC<IProjectsProps> = ({t}) => {
   return (
-    <LayoutTitleWithContent title={'Проекты'}>
+    <LayoutTitleWithContent
+      title={t('nav-project-list')}
+    >
 
       <ProjectFilter/>
 
@@ -26,4 +29,4 @@ const Projects: React.FC<IProjectsProps> = () => {
   );
 };
 
-export default Projects;
+export default withTranslation(['nav','home','footer'])(Projects);

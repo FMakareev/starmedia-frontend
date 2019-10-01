@@ -5,11 +5,13 @@ import LayoutTitleWithContent from "../components/Layout/LayoutTitleWithContent"
 import Row from '../components/Row/Row';
 import Container from '../components/Container/Container';
 import Col from '../components/Col/Col';
+import {useTranslation} from "../libs/i18n";
 
 const Privacy = () => {
 
+  const {t} = useTranslation('nav');
   return (
-    <LayoutTitleWithContent title={'политика конфиденциальности'}>
+    <LayoutTitleWithContent title={t('nav-privacy-policy')}>
       <Container pt={[16, 16, 32]}>
         <Row>
           <Col xs={12}>

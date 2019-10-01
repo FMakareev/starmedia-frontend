@@ -10,6 +10,7 @@ import "../../node_modules/slick-carousel/slick/slick.css";
 import "../../node_modules/slick-carousel/slick/slick-theme.css";
 import ReactIdSwiper, {SwiperInstance} from 'react-id-swiper';
 import CustomCursor from "../../components/CustomCursor/CustomCursor";
+import {useTranslation} from "../../libs/i18n";
 
 interface IProjectAwardsProps {
   awards: Award[];
@@ -32,13 +33,17 @@ const params = {
 };
 
 const ProjectAwards: React.FC<IProjectAwardsProps> = () => {
+  const {t} = useTranslation('common');
+
   return (
     <Col as={'section'} id={'awards'} mb={100} className={'project-detail_awards'}>
       <Container mb={36}>
         <Row>
           <Col xs={12}>
             <Text as={'h2'} font={'object'} size={'m'} className={'text_uppercase'}>
-              награды
+              {
+                t('project_awards')
+              }
             </Text>
           </Col>
         </Row>

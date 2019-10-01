@@ -22,13 +22,16 @@ const SectionGetCatalog: React.FC<ISectionGetCatalogProps> = () => {
         <Tilt
           options={{
             max: 10,
-            scale: 1.05,
+            scale: 1,
             reverse: false,
             transition: true,
             easing: "cubic-bezier(.03,.98,.52,.99)",
           }}
         >
           <img
+            style={{
+              transform: 'scale(1.2)',
+            }}
             src={'../../../static/images/Grey bg.jpg'}
             alt=""
           />
@@ -42,7 +45,7 @@ const SectionGetCatalog: React.FC<ISectionGetCatalogProps> = () => {
           middle={ViewportSizeEnum.sm}
         >
           <Col mb={[44, 0]}>
-            <Text  className="section-get-catalog_title" size={'l'} type={'secondary'} font={'object'}>
+            <Text className="section-get-catalog_title" size={'l'} type={'secondary'} font={'object'}>
               хотите получить <br/>
               наш каталог?
             </Text>

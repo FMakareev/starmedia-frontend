@@ -100,7 +100,7 @@ export type ProjectInfo = {
   operator?: Maybe<LocalizedString>;
   composer?: Maybe<LocalizedString>;
   producer?: Maybe<LocalizedString>;
-  castr?: Maybe<LocalizedString>;
+  cast?: Maybe<LocalizedString>;
 };
 
 export type Tag = {

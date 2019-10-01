@@ -1,11 +1,14 @@
 import * as React from 'react';
 import SearchLargeIcon from '../Icons/SearchLargeIcon';
+import {useTranslation} from "../../libs/i18n";
 
 interface ISearchPopupTextFieldProps {
   [prop: string]: any
 }
 
 const SearchPopupTextField: React.FC<ISearchPopupTextFieldProps> = () => {
+  const {t} = useTranslation('common');
+
   return (
     <label className={'search-popup-text-field_wrapper'}>
       <input
@@ -13,7 +16,7 @@ const SearchPopupTextField: React.FC<ISearchPopupTextFieldProps> = () => {
         type="text"
       />
       <div className="search-popup-text-field_placeholder">
-        Поиск по сайту
+        {t('search_placeholder')}
       </div>
       <div className="search-popup-text-field_icon">
         <SearchLargeIcon/>

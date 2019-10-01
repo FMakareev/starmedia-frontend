@@ -13,10 +13,10 @@ const SectionMainTitle: React.FC<ISectionMainTitleProps> = () => {
         и сериалы, которые
       </div>
       <div className="section-main_title-animated">
-        <TextLoop springConfig={{ stiffness: 180, damping: 8 }}>
-          <span>вдохновляют</span>
-          <span>захватывают дух</span>
-          <span>Запоминаются</span>
+        <TextLoop interval={3000}>
+          <div>вдохновляют</div>
+          <div>захватывают дух</div>
+          <div>Запоминаются</div>
         </TextLoop>
       </div>
     </div>

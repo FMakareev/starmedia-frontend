@@ -1,3 +1,61 @@
 {
-  "nav": "хер"
+  "button_detail": "Подробнее",
+  "button_detail-project": "Подробнее о проекте",
+  "button_show-more": "Показать еще",
+  "button_watch-online": "Смотреть онлайн",
+  "search_btn-label": "Поиск",
+  "search_placeholder": "Поиск по сайту",
+  "search_placeholder-search-by-name": "Поиск по названию",
+
+  "search_found-n-result": "Найдено {{count}} результата",
+  "search_not-found": "Нам жаль, но по вашему запросу «Ирония судьбы» ничего не найдено",
+
+
+  "news_next-news": "Следующая новость",
+  "news_go-back": "Вернуться к списку новостей",
+
+  "awards_go-back": "Вернуться к списку наград",
+
+  "filter_format-label": "Формат",
+  "filter_genre-label": "Жанр",
+  "filter_year-label": "Год",
+  "tabs_actors": "Актеры",
+  "tabs_scripts": "Сценарии",
+  "tabs_director": "Режисеры",
+  "city_moscow": "Москва",
+  "city_kiev": "Киев",
+  "city_london": "Лондон",
+  "form-field_label-city": "Город",
+  "form-field_label-fio": "Имя и фамилия",
+  "form-field_label-email": "Email",
+  "form-field_label-file": "Ваш сценарий в pdf, doc или zip",
+  "form-field_label2-file": "Выбрать другой файл",
+  "form-field_placeholder-file": "Перетащите файл в это окошко \nили нажмите чтобы выбрать файл",
+  "form-field_label-link-portfolio": "Ссылка на портфолио",
+  "form-field_label-link-script": "Ссылка на сценарий",
+  "form-field_label-link-works": "Ссылки на работы, фильмография",
+  "form-or": "или",
+  "form-privacy_agree": "Я согласен с ",
+  "form-privacy_link": "условиями обработки персональных данных",
+  "form-field_label-phone": "телефон",
+  "form-field_submit": "Отправить",
+
+  "back_to-catalog": "Вернутся в каталог",
+
+  "project_description": "Описание",
+  "project_awards": "Награды",
+  "project_gallery": "Галерея",
+  "project_similar": "Похожие проекты",
+  "project_share": "Поделится",
+
+  "project-info_genre": "Жанр",
+  "project-info_format": "Форма",
+  "project-info_productionYear": "Год производства",
+  "project-info_numberOfEpisodes": "Кол-во эпизодов",
+  "project-info_directors": "Режисер",
+  "project-info_scenario": "Сеценарист",
+  "project-info_operator": "Оператор",
+  "project-info_composer": "Компоситор",
+  "project-info_producer": "Продюссер",
+  "project-info_cast": "В ролях"
 }

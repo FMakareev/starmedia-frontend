@@ -2,13 +2,19 @@
 .main {
   position: relative;
   min-height: 100vh;
-
+  padding-top: 64px;
   &:after {
     content: '';
     display: block;
     height: 431px;
     width: 100%;
   }
+
+  @media(min-width: 1024px){
+    padding-top: 88px;
+  }
+
+
 }
 
 

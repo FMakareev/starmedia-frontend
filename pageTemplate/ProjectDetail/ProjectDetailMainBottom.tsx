@@ -5,12 +5,15 @@ import {ButtonElementEnum, ViewportSizeEnum} from "../../types/types";
 import Button from "../../components/Button/Button";
 // @ts-ignore
 import AnchorLink from 'react-anchor-link-smooth-scroll'
+import {useTranslation} from "../../libs/i18n";
 
 interface IProjectDetailMainBottomProps {
   [prop: string]: any
 }
 
 const ProjectDetailMainBottom: React.FC<IProjectDetailMainBottomProps> = () => {
+  const {t} = useTranslation('common');
+
   return (
     <Row between={ViewportSizeEnum.sm}>
       <Col xs={12} sm={3} md={3}>
@@ -22,7 +25,9 @@ const ProjectDetailMainBottom: React.FC<IProjectDetailMainBottomProps> = () => {
             href={'item.href'}
             as={'a'}
           >
-            Описание
+            {
+              t('project_description')
+            }
           </Button>
         </AnchorLink>
       </Col>
@@ -35,7 +40,9 @@ const ProjectDetailMainBottom: React.FC<IProjectDetailMainBottomProps> = () => {
             href={'item.href'}
             as={'a'}
           >
-            награды
+            {
+              t('project_awards')
+            }
           </Button>
         </AnchorLink>
       </Col>
@@ -48,7 +55,7 @@ const ProjectDetailMainBottom: React.FC<IProjectDetailMainBottomProps> = () => {
             href={'item.href'}
             as={'a'}
           >
-            галерея
+            {t('project_gallery')}
           </Button>
         </AnchorLink>
       </Col>
@@ -61,7 +68,9 @@ const ProjectDetailMainBottom: React.FC<IProjectDetailMainBottomProps> = () => {
             href={'item.href'}
             as={'a'}
           >
-            похожие проекты
+            {
+              t('project_similar')
+            }
           </Button>
         </AnchorLink>
       </Col>

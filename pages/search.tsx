@@ -9,14 +9,18 @@ import SearchIcon from "../components/Icons/SearchIcon";
 import {ViewportSizeEnum} from "../types/types";
 import Pagination from "../components/Pagination/Pagination";
 import SearchResultCard from "../components/SearchResultCard/SearchResultCard";
+import {useTranslation, Trans} from "../libs/i18n";
 
 interface ISearchProps {
   [prop: string]: any
 }
 
 const Search: React.FC<ISearchProps> = () => {
+
+  const {t,i18n} = useTranslation('common');
+  const {t:tNav} = useTranslation('nav');
   return (
-    <LayoutTitleWithContent title={'Результаты поиска'}>
+    <LayoutTitleWithContent title={tNav('nav-search-result')}>
       <Container>
         <Row
           mb={[30, 30, 56]}
@@ -27,12 +31,14 @@ const Search: React.FC<ISearchProps> = () => {
             <TextField
               label={null}
               icon={<SearchIcon width={'16px'} height={'16px'}/>}
-              placeholder={'Поиск по названию'}
+              placeholder={t('search_placeholder-search-by-name')}
             />
           </Col>
           <Col xs={12} sm={4} md={3}>
             <Text align={['left','right']} type={'placeholder'} font={'root'} size={'s'}>
-              Найдено 32 результата
+              <Trans i18n={i18n} i18nKey={'search_found-n-result'} count={12}>
+                Найдено {{count:12}} результата
+              </Trans>
             </Text>
           </Col>
         </Row>

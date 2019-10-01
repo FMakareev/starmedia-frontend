@@ -10,7 +10,6 @@ import SocialIconsSprite from "../components/Icons/SocialIconsSprite";
 class RootApp extends App<any> {
   render() {
     const {Component, pageProps} = this.props;
-
     return (
       <Layout title={''}>
         <SocialIconsSprite/>

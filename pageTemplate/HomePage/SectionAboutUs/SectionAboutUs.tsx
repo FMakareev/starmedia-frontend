@@ -6,12 +6,17 @@ import Row from '../../../components/Row/Row';
 import Button from "../../../components/Button/Button";
 import {ButtonElementEnum} from "../../../types/types";
 import ExternalLink from '../../../components/Icons/ExternalLink';
+import { useTranslation } from '../../../libs/i18n';
+import Link from 'next/link';
 
 interface ISectionAboutUsProps {
   [prop: string]: any
 }
 
 const SectionAboutUs: React.FC<ISectionAboutUsProps> = () => {
+
+  const {t} = useTranslation('home');
+
   return (
     <div className={'section-about-us'}>
 
@@ -38,26 +43,34 @@ const SectionAboutUs: React.FC<ISectionAboutUsProps> = () => {
       <Container className="section-about-us_bottom">
         <Row>
           <Col xs={12} sm={'auto'} mb={16} mr={30}>
-            <Button
-              className={'text_align-left'}
-              mods={['light', 'm']}
-              element={ButtonElementEnum.link}
-              href={'item.href'}
-              as={'a'}
-            >
-              наша история
-            </Button>
+           <Link
+             href={'/about-us'}
+           >
+             <Button
+               className={'text_align-left'}
+               mods={['light', 'm']}
+               element={ButtonElementEnum.link}
+               href={'/about-us'}
+               as={'a'}
+             >
+               {t('section_about-us_link_history')}
+             </Button>
+           </Link>
           </Col>
           <Col  xs={12} sm={'auto'} mb={16} mr={30}>
-            <Button
-              className={'text_align-left'}
-              mods={['light', 'm']}
-              element={ButtonElementEnum.link}
-              href={'item.href'}
-              as={'a'}
+            <Link
+              href={'/awards'}
             >
-              награды
-            </Button>
+              <Button
+                className={'text_align-left'}
+                mods={['light', 'm']}
+                element={ButtonElementEnum.link}
+                href={'/awards'}
+                as={'a'}
+              >
+                {t('section_about-us_link_awards')}
+              </Button>
+            </Link>
           </Col>
           <Col>
             <Button

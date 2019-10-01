@@ -12,6 +12,7 @@ import HeaderSearch from "./HeaderSearch";
 import LangSwitcher from "../LangSwitcher/LangSwitcher";
 import Link from 'next/link';
 import { Menu } from '../../mock';
+import {useTranslation} from "../../libs/i18n";
 
 interface IHeaderDesktopMenuProps {
   [prop: string]: any
@@ -19,7 +20,10 @@ interface IHeaderDesktopMenuProps {
 
 
 
-const HeaderDesktopMenu: React.FC<IHeaderDesktopMenuProps> = ({isActive,toggleMenu}) => {
+const HeaderDesktopMenu: React.FC<IHeaderDesktopMenuProps> = ({isActive,toggleMenu,...rest}) => {
+  console.log(rest);
+  const {t,...trans} = useTranslation('nav');
+  console.log('trans: ',trans);
   return (
     <div
       className={classNames("header_menu-wrapper", {
@@ -59,7 +63,7 @@ const HeaderDesktopMenu: React.FC<IHeaderDesktopMenuProps> = ({isActive,toggleMe
                       href={item.href}
                       as={'a'}
                     >
-                      {item.label}
+                      {t(item.label)}
                     </Button>
                   </Link>
 

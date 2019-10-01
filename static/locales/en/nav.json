@@ -2,8 +2,14 @@
   "nav-project-list": "Project",
   "nav-news": "News",
   "nav-about_us": "About us",
+  "nav-awards": "Awards",
   "nav-services": "Services",
   "nav-cooperation": "Cooperation",
   "nav-star_media_school": "Star media school",
-  "nav-contacts": "Контакты"
+  "nav-contacts": "contacts",
+  "nav-privacy-policy": "Privacy policy",
+  "nav-project-serial": "Serials",
+  "nav-project-films": "Films",
+  "nav-project-telefilm": "TV Project",
+  "nav-search-result": "Search result"
 }

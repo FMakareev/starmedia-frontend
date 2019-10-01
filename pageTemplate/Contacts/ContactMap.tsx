@@ -4,6 +4,7 @@ import GoogleMapReact from 'google-map-react';
 import Col from '../../components/Col/Col';
 import {Contacts, GpsPoint} from "../../types/types";
 
+import styles from './mapStyle.json';
 interface IContactMapProps extends Contacts {
   [prop: string]: any
 }
@@ -31,6 +32,7 @@ const ContactMap: React.FC<IContactMapProps> = (
         bootstrapURLKeys={{key: API_KEY}}
         defaultCenter={props.center}
         defaultZoom={props.zoom}
+        options={{styles}}
       >
         {
           gpsPoints && gpsPoints.map((item: GpsPoint, index: number) => (<AnyReactComponent

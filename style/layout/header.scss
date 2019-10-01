@@ -1,11 +1,16 @@
 .header {
+  @include transitionHover;
   $this: &;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 10;
   background-color: #fff;
 
   color: $color-typo-primary;
   fill: $color-typo-primary;
+
 
   &--transparent {
     background-color: transparent;
@@ -16,9 +21,38 @@
       span {
         background-color: $color-typo-secondary;
       }
+
     }
   }
 
+  &--is-scroll {
+    background-color: #fff;
+    color: $color-typo-primary;
+    fill: $color-typo-primary;
+    #{$this}_burger{
+      height: 64px;
+      span {
+        background-color: $color-typo-primary;
+        &:nth-child(1) {
+          top: 27px;
+        }
+
+        &:nth-child(2) {
+          top: 35px;
+        }
+      }
+    }
+    #{$this}_logo-wrapper{
+      height: 64px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      svg {
+        width: 49px;
+        height: 35px;
+      }
+    }
+
+  }
   &_container {
     padding: 0;
     width: 100%;
@@ -57,10 +91,18 @@
     width: 100%;
     margin-bottom: 40px;
     @media(min-width: 1024px) {
-      padding-right: 24px;
       margin: 0;
+      padding-right: 16px;
       max-width: 740px;
       justify-content: flex-end;
+    }
+    @media(min-width: 1200px) {
+      padding-right: 104px;
+      max-width: 840px;
+    }
+    @media(min-width: 1440px) {
+      padding-right: 16px;
+
     }
   }
 
@@ -82,7 +124,8 @@
     }
 
     @media(min-width: 1440px) {
-      margin-left: -84px;
+      margin-left: -82px;
+      max-width: 98px;
     }
 
     &:hover {
@@ -152,6 +195,7 @@
     background-color: $color-bg-secondary;
     text-align: center;
     height: 64px;
+    cursor: pointer;
     svg {
       width: 49px;
       height: 35px;
@@ -233,6 +277,12 @@
     min-height: 100px;
     background-color: $color-bg-default;
 
+
+    @media(max-width: 767px){
+      height: calc(100vh - 64px);
+      overflow-y: auto;
+    }
+
     @media(min-width: 1024px) {
       padding-top: 52px;
     }
@@ -253,11 +303,14 @@
     @media(min-width: 1024px) {
       width: 475px;
       margin-bottom: 0;
-      padding-left: 78px;
+      padding-left: 104px;
+    }
+    @media(min-width: 1200px) {
+      padding-left: 16px;
     }
     @media(min-width: 1440px) {
       padding-left: 16px;
-      width: calc(100% - 701px);
+      width: calc(100% - 768px);
     }
   }
 
@@ -272,7 +325,7 @@
     }
     @media(min-width: 1440px) {
 
-      max-width: 701px;
+      max-width: 768px;
       width: 100%;
     }
   }

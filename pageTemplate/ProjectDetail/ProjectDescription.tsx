@@ -5,18 +5,23 @@ import Col from '../../components/Col/Col';
 import Text from '../../components/Text/Text';
 import ShareButton from '../../components/ShareButton/ShareButton';
 import {Project} from "../../types/types";
+import {useTranslation} from "../../libs/i18n";
 
-interface IProjectDescriptionProps extends Project{
+interface IProjectDescriptionProps extends Project {
   [prop: string]: any
 }
 
 const ProjectDescription: React.FC<IProjectDescriptionProps> = ({description}) => {
+  const {t} = useTranslation('common');
+
   return (
-    <Container as={'section'} id={'description'} mb={[40,40,80]}>
+    <Container as={'section'} id={'description'} mb={[40, 40, 80]}>
       <Row>
         <Col md={7} xs={12} mb={24}>
           <Text as={'h2'} mb={16} font={'object'} size={'m'} className={'text_uppercase'}>
-            описание
+            {
+              t('project_description')
+            }
           </Text>
           <Text font={'root'} size={'m'}>
             {description && description.ru}
@@ -24,7 +29,9 @@ const ProjectDescription: React.FC<IProjectDescriptionProps> = ({description}) =
         </Col>
         <Col mdOffset={1} md={4} xs={12}>
           <Text mb={8} font={'object'} size={'m'} className={'text_uppercase'}>
-            поделится
+            {
+              t('project_share')
+            }
           </Text>
           <ShareButton/>
         </Col>

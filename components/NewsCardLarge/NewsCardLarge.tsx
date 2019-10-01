@@ -5,12 +5,15 @@ import Text from '../Text/Text';
 import Button from '../Button/Button';
 // @ts-ignore
 import placeholder from "../../static/images/news-placeholder.svg";
+import { useTranslation } from '../../libs/i18n';
 
 interface INewsCardLargeProps {
   [prop: string]: any
 }
 
 const NewsCardLarge: React.FC<INewsCardLargeProps> = () => {
+
+  const {t} = useTranslation('common');
   return (
     <div className={'news-card-large_wrapper'}>
       <div className="news-card-large_preview">
@@ -38,7 +41,7 @@ const NewsCardLarge: React.FC<INewsCardLargeProps> = () => {
           атмосферу Древней Руси вместе с нами...
         </Text>
         <Button>
-          Подробнее
+          {t('button_detail')}
         </Button>
       </div>
     </div>

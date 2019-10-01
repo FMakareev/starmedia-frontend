@@ -4,6 +4,7 @@ import Text from '../components/Text/Text';
 import Row from '../components/Row/Row';
 import Container from "../components/Container/Container";
 import ServiceList from '../pageTemplate/ServiceList/ServiceList';
+import {useTranslation} from "react-i18next";
 
 interface IServicesProps {
   [prop: string]: any
@@ -12,6 +13,7 @@ interface IServicesProps {
 
 const Services: React.FC<IServicesProps> = () => {
 
+  const {t} = useTranslation('nav');
 
   return (
     <Col className={'service_wrapper'} pt={80} pb={100}>
@@ -25,7 +27,7 @@ const Services: React.FC<IServicesProps> = () => {
               size={'l'}
               className={'text_uppercase'}
             >
-              услуги
+              {t('nav-services')}
             </Text>
           </Col>
         </Row>

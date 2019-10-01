@@ -10,18 +10,24 @@ import Button from "../../components/Button/Button";
 import BackIcon from "../../components/Icons/BackIcon";
 import ProjectDetailMainBottom from "./ProjectDetailMainBottom";
 import ProjectTrailer from "./ProjectTrailer";
+import Link from "next/link";
+import {useTranslation} from "../../libs/i18n";
 
 interface IProjectMainSectionProps extends Project {
   [prop: string]: any
 }
 
-const ProjectMainSection: React.FC<IProjectMainSectionProps> = ({
-                                                                  tags,
-                                                                  projectInfo,
-                                                                  title
-                                                                }) => {
+const ProjectMainSection: React.FC<IProjectMainSectionProps> = (
+  {
+    tags,
+    projectInfo,
+    title
+  }
+) => {
+  const {t} = useTranslation('common');
+
   return (
-    <Col mb={[40,80]} pb={40} pt={130} className={'project-detail-main_wrapper'}>
+    <Col mb={[40, 80]} pb={40} pt={130} className={'project-detail-main_wrapper'}>
       <div className="section-main_bg">
         <img
           src={'/static/images/mock/image4.jpg'}
@@ -33,24 +39,26 @@ const ProjectMainSection: React.FC<IProjectMainSectionProps> = ({
         <div className="project-detail-main_top">
           <Row mb={40}>
             <Col xs={12}>
-              <Button element={ButtonElementEnum.transparent} mods={['light', 'icon']}>
-                <Col mr={8}>
-                  <BackIcon/>
-                </Col>
-                <Text font={'root'} size={'s'} type={'inherit'} as={'span'}>
-                  Вернуться в каталог
-                </Text>
-              </Button>
+              <Link href={'/projects'}>
+                <Button as={'a'} href={'/projects'} element={ButtonElementEnum.transparent} mods={['light', 'icon']}>
+                  <Col mr={8}>
+                    <BackIcon/>
+                  </Col>
+                  <Text font={'root'} size={'s'} type={'inherit'} as={'span'}>
+                    {t('back_to-catalog')}
+                  </Text>
+                </Button>
+              </Link>
             </Col>
           </Row>
         </div>
         <div className="project-detail-main_content">
-          <Row mb={['0','0',72]}>
+          <Row mb={['0', '0', 72]}>
             <Col xs={12} md={6} mb={40}>
               <ProjectTrailer/>
             </Col>
             <Col xs={12} md={6}>
-              <Col pl={['0','0',32]}>
+              <Col pl={['0', '0', 32]}>
                 <Col mb={20}>
                   <ProjectTags tags={tags}/>
                 </Col>

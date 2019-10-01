@@ -13,7 +13,7 @@ export interface IDropFieldProps {
   [prop: string]: any
 }
 
-export const DropField: React.FC<IDropFieldProps> = ({help, label, addFile, fileList, removeFile, ...rest}) => {
+export const DropField: React.FC<IDropFieldProps> = ({help, labelOtherFile, label, placeholder, addFile, fileList, removeFile, ...rest}) => {
   console.log(rest);
 
   return (
@@ -42,7 +42,7 @@ export const DropField: React.FC<IDropFieldProps> = ({help, label, addFile, file
                   cursor: 'pointer',
                 }}
 							>
-								Выбрать другой файл
+                {labelOtherFile}
 								<input
 									onChange={addFile}
 									type="file"
@@ -87,8 +87,7 @@ export const DropField: React.FC<IDropFieldProps> = ({help, label, addFile, file
 							className="drop-field_placeholder-icon"
 						/>
 						<div className="drop-field_placeholder-text">
-							Перетащите файл в это окошко
-							или нажмите чтобы выбрать файл
+              {placeholder}
 						</div>
 					</div>
 					<input

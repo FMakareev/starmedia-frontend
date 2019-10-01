@@ -16,6 +16,7 @@ interface IProjectDetailProps {
 
 
 const ProjectDetail: React.FC<IProjectDetailProps> = () => {
+
   return (
     <div>
       <ProjectMainSection {...ProjectMock}/>

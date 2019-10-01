@@ -1,3 +1,64 @@
 {
-  "nav": "хер"
+  "button_detail": "Details",
+  "button_detail-project": "About the project",
+  "button_show-more": "Show more",
+  "button_watch-online": "Watch online",
+  "search_btn-label": "Search",
+  "search_placeholder": "Site search",
+  "search_placeholder-search-by-name": "Search by name",
+
+  "search_found-n-result": "Found {{count}} results",
+  "search_not-found": "Нам жаль, но по вашему запросу «Ирония судьбы» ничего не найдено",
+
+
+  "news_next-news": "Next news",
+  "news_go-back": "Back to news list",
+  "awards_go-back": "Back to awards list",
+
+  "filter_format-label": "Format",
+  "filter_genre-label": "Genre",
+  "filter_year-label": "Year",
+  "tabs_actors": "Actors",
+  "tabs_scripts": "Scripts",
+  "tabs_director": "Director",
+  "city_moscow": "Moscow",
+  "city_kiev": "Kiev",
+  "city_london": "London",
+
+  "form-field_label-city": "City",
+  "form-field_label-fio": "First and last name",
+  "form-field_label-email": "Email",
+  "form-field_label-file": "Your script in pdf, doc or zip",
+  "form-field_label2-file": "Select another file",
+  "form-field_placeholder-file": "Drag the file into this window or click to select the file",
+  "form-field_label-link-portfolio": "Portfolio Link",
+  "form-field_label-link-script": "Script Link",
+  "form-field_label-link-works": "Links to work, filmography",
+  "form-or": "Or",
+  "form-privacy_agree": "I agree with",
+  "form-privacy_link": "Personal data processing conditions",
+  "form-field_label-phone": "Phone",
+  "form-field_submit": "Submit",
+
+  "back_to-catalog": "Back to catalog",
+
+  "project_description": "Description",
+  "project_awards": "Awards",
+  "project_gallery": "Gallery",
+  "project_similar": "Similar project",
+
+  "project_share": "Поделится",
+
+  "project-info_genre": "Genre",
+  "project-info_format": "Format",
+  "project-info_productionYear": "Year",
+  "project-info_numberOfEpisodes": "Number of episodes",
+  "project-info_directors": "Directors",
+  "project-info_scenario": "Scenario",
+  "project-info_operator": "Operator",
+  "project-info_composer": "Composer",
+  "project-info_producer": "Producer",
+  "project-info_cast": "Cast"
+
+
 }

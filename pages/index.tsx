@@ -5,7 +5,7 @@ import SectionAboutUs from "../pageTemplate/HomePage/SectionAboutUs/SectionAbout
 import SectionProjects from '../pageTemplate/HomePage/SectionProjects/SectionProjects';
 import SectionGetCatalog from '../pageTemplate/HomePage/SectionGetCatalog/SectionGetCatalog';
 import SectionMain from '../pageTemplate/HomePage/SectionMain/SectionMain';
-// import {withTranslation} from "react-i18next";
+
 
 const Homepage = () => {
 
@@ -21,7 +21,7 @@ const Homepage = () => {
 };
 
 Homepage.getInitialProps = async () => ({
-	namespacesRequired: ['nav'],
+	namespacesRequired: ['nav','home','footer','common']
 });
 
 export default Homepage;

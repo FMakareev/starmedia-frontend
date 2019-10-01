@@ -4,18 +4,21 @@ import MainContacts from '../pageTemplate/Contacts/MainContacts';
 import LayoutTitleWithContent from "../components/Layout/LayoutTitleWithContent";
 import ContactMap from "../pageTemplate/Contacts/ContactMap";
 import { ContactsMock } from '../mock';
+import {useTranslation} from "../libs/i18n";
 
 interface IContactsProps {
   [prop: string]: any
 }
 
 const Contacts: React.FC<IContactsProps> = () => {
+  const {t} = useTranslation('nav');
+
   return (
     <LayoutTitleWithContent
       titleStyle={{
         mb: 32,
       }}
-      title={'Контакты'}>
+      title={t('nav-contacts')}>
 
       <MainContacts {...ContactsMock}/>
       <ContactMap {...ContactsMock}/>

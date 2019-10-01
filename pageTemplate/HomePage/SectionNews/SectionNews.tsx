@@ -7,6 +7,8 @@ import {ButtonElementEnum, ViewportSizeEnum} from "../../../types/types";
 import {SocialLinkListMock} from "../../../config";
 import SocialLinkList, {SocialLinkVariantEnum} from "../../../components/SocialLinkList/SocialLinkList";
 import SectionNewsList from './SectionNewsList';
+import Link from "../../../components/Link/Link";
+import {useTranslation} from "../../../libs/i18n";
 
 interface ISectionNewsProps {
   [prop: string]: any
@@ -36,12 +38,13 @@ const news = [
 
 
 const SectionNews: React.FC<ISectionNewsProps> = () => {
+  const {t} = useTranslation('home');
   return (
     <div className={'section-news_wrapper'}>
       <Container>
         <div className="section-news_top mb-44">
           <Text className={'text_uppercase'} size={'l'} as={'h2'}>
-            Новости
+            {t('section_news_title')}
           </Text>
         </div>
         <Row className="section-news_list">
@@ -51,15 +54,17 @@ const SectionNews: React.FC<ISectionNewsProps> = () => {
         </Row>
         <Row mb={22} center={ViewportSizeEnum.sm}>
           <Button mods={['m']} element={ButtonElementEnum.circle}>
-            Все <br/> новости
+            {t('section_news_btn-all-news')}
           </Button>
         </Row>
         <div className="section-news_bottom">
-          <SocialLinkList
-            mods={['gray', 'm']}
-            variant={SocialLinkVariantEnum.shortName}
-            links={SocialLinkListMock}
-          />
+         <Link href={'/news'}>
+           <SocialLinkList
+             mods={['gray', 'm']}
+             variant={SocialLinkVariantEnum.shortName}
+             links={SocialLinkListMock}
+           />
+         </Link>
         </div>
       </Container>
     </div>

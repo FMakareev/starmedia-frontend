@@ -7,6 +7,7 @@ import {ButtonElementEnum} from "../../types/types";
 import {CooperationMock} from '../../mock';
 import ReactHtmlParser from 'react-html-parser';
 import CooperationForm from './CooperationForm';
+import {useTranslation} from "../../libs/i18n";
 
 interface ICooperationTabsProps {
   [prop: string]: any
@@ -22,19 +23,20 @@ enum TypesC {
 const getLinkLabel = (isActive: TypesC) =>{
 
   if(isActive === TypesC.director){
-    return 'Ссылки на работы, фильмография'
+    return 'form-field_label-link-works'
   }
   if(isActive === TypesC.scripts){
-    return 'Ссылка на сценарий'
+    return 'form-field_label-link-script'
   }
   if(isActive === TypesC.actors){
-    return 'Ссылка на портфолио'
+    return 'form-field_label-link-portfolio'
   }
   return ''
 }
 
 const CooperationTabs: React.FC<ICooperationTabsProps> = () => {
 
+  const {t} = useTranslation('common');
   const [isActive, setActive] = React.useState<TypesC>(TypesC.actors);
 
 
@@ -58,7 +60,7 @@ const CooperationTabs: React.FC<ICooperationTabsProps> = () => {
                 isActive={isActive === TypesC.actors}
                 element={ButtonElementEnum.tab}
               >
-                Актеры
+                {t('tabs_actors')}
               </Button>
             </li>
             <li className="cooperation-tabs_li">
@@ -67,7 +69,7 @@ const CooperationTabs: React.FC<ICooperationTabsProps> = () => {
                 isActive={isActive === TypesC.scripts}
                 element={ButtonElementEnum.tab}
               >
-                сценарии
+                {t('tabs_scripts')}
               </Button>
             </li>
             <li className="cooperation-tabs_li">
@@ -76,7 +78,7 @@ const CooperationTabs: React.FC<ICooperationTabsProps> = () => {
                 isActive={isActive === TypesC.director}
                 element={ButtonElementEnum.tab}
               >
-                Режиссеры
+                {t('tabs_director')}
               </Button>
             </li>
           </ul>

@@ -3,19 +3,22 @@ import Button from "../../../components/Button/Button";
 import {ButtonElementEnum} from "../../../types/types";
 import PlayIcon from "../../../components/Icons/PlayIcon";
 import Text from "../../../components/Text/Text";
+import {useTranslation} from "../../../libs/i18n";
 
 interface ISectionMainWatchOnlineProps {
   [prop: string]: any
 }
 
 const SectionMainWatchOnline: React.FC<ISectionMainWatchOnlineProps> = () => {
+  const {t} = useTranslation('common');
+
   return (
     <Button element={ButtonElementEnum.transparent}>
       <Button mr={16} as={'div'} element={ButtonElementEnum.circle} mods={['inverse', 's']}>
         <PlayIcon/>
       </Button>
       <Text as={'span'} font={'root'} type={'inherit'}>
-        Смотреть онлайн
+        {t('button_watch-online')}
       </Text>
     </Button>
   );

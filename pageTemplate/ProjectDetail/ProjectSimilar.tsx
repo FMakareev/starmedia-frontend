@@ -7,6 +7,7 @@ import ProjectCard from '../../components/ProjectCard/ProjectCard';
 import {Project} from '../../types/types';
 import ReactIdSwiper, {SwiperInstance} from "react-id-swiper";
 import CustomCursor from "../../components/CustomCursor/CustomCursor";
+import {useTranslation} from "../../libs/i18n";
 
 interface IProjectSimilarProps {
   projects: Project[];
@@ -30,13 +31,17 @@ const params = {
 };
 
 const ProjectSimilar: React.FC<IProjectSimilarProps> = ({projects}) => {
+  const {t} = useTranslation('common');
+
   return (
     <Col mb={[60, 100]}>
       <Container as={'section'} id={'similar'}>
         <Row mb={[34, 40]}>
           <Col xs={12}>
             <Text as={'h2'} font={'object'} size={'m'} className={'text_uppercase'}>
-              Похожие проекты
+              {
+                t('project_similar')
+              }
             </Text>
           </Col>
         </Row>

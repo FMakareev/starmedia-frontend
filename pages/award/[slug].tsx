@@ -1,5 +1,6 @@
 import * as React from 'react';
 import LayoutTitleDateContent from '../../components/Layout/LayoutTitleDateContent';
+import {useTranslation} from "../../libs/i18n";
 
 interface ISlugProps {
   [prop: string]: any
@@ -7,10 +8,14 @@ interface ISlugProps {
 
 
 const AwardDetail: React.FC<ISlugProps> = () => {
+  const {t} = useTranslation('common');
+
   return (
     <LayoutTitleDateContent
       title={'ПОбеда на Международном фестивале WorldFest Houston Film Festival 2019'}
       date={'28.08.2019'}
+      goBackLabel={t('awards_go-back')}
+      goBackLink={'/about-us'}
     >
       Кинокомпания Star Media получила 3 главных приза на самом старейшем Международном фестивале независимого кино
       WorldFest Houston Film Festival, который входит в тройку самых престижных в Америке!

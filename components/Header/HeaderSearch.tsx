@@ -1,6 +1,7 @@
 import * as React from 'react';
 import SearchIcon from "../Icons/SearchIcon";
 import { asyncComponent } from 'react-async-component';
+import {useTranslation} from "../../libs/i18n";
 
 interface IHeaderSearchProps {
   [prop: string]: any
@@ -13,6 +14,8 @@ const SearchPopup = asyncComponent({
 
 const HeaderSearch: React.FC<IHeaderSearchProps> = () => {
   const [isVisible, togglePopup] = React.useState(false);
+  const {t, i18n} = useTranslation('common');
+  console.log('i18n: ', i18n);
   return (
     <React.Fragment>
       <button
@@ -26,7 +29,9 @@ const HeaderSearch: React.FC<IHeaderSearchProps> = () => {
           width={'15px'}
           height={'15px'}
         />
-        Поиск
+        {
+          t('search_btn-label')
+        }
       </button>
       {
       SearchPopup && <SearchPopup

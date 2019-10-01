@@ -5,6 +5,7 @@ import Col from '../../components/Col/Col';
 import AwardCard from '../../components/AwardCard/AwardCard';
 import {ButtonElementEnum, ViewportSizeEnum} from "../../types/types";
 import Button from "../../components/Button/Button";
+import {useTranslation} from "../../libs/i18n";
 
 interface IAwardsListProps {
   [prop: string]: any
@@ -13,6 +14,7 @@ interface IAwardsListProps {
 const awards: any[] = ['','','','','','','','','','',];
 
 const AwardsList: React.FC<IAwardsListProps> = () => {
+  const {t} = useTranslation('common');
   return (
     <Container>
       <Row
@@ -27,7 +29,7 @@ const AwardsList: React.FC<IAwardsListProps> = () => {
       </Row>
       <Row center={ViewportSizeEnum.sm}>
         <Button mods={['m']} element={ButtonElementEnum.circle}>
-          Показать <br/> еще
+          {t('button_show-more')}
         </Button>
       </Row>
     </Container>

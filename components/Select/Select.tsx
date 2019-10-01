@@ -6,13 +6,13 @@ interface ISelectProps {
   [prop: string]: any
 }
 
-const SelectStyle: any = (style: any)=>({
+const SelectStyle: any = (style: any) => ({
   container: (styles: any,) => ({
     ...styles,
     display: 'inline-block',
     width: 'auto',
     minWidth: '144px',
-    ...style.container,
+    ...(style ? style.container : {}),
   }),
   control: (styles: any, {menuIsOpen, isFocused}: any) => {
     return ({
@@ -113,9 +113,11 @@ class Select extends React.Component<any, ISelectProps> {
 
 
   get initialState() {
-    const {input:{value}} = this.props;
+    const {input} = this.props;
+
+
     return {
-      selectedOption: value,
+      selectedOption: input && input.value,
     }
   }
 

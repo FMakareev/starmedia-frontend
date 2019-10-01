@@ -1,9 +1,15 @@
 {
-  "nav.project-list": "Проекты",
-  "nav.news": "Новости",
-  "nav.about_us": "О компании",
-  "nav.services": "Услуги",
-  "nav.cooperation": "Сотрудничество",
-  "nav.star_media_school": "Star media school",
-  "nav.contacts": "Контакты"
+  "nav-project-list": "Проекти",
+  "nav-news": "Новини",
+  "nav-about_us": "Про компанії",
+  "nav-awards": "Нагороди",
+  "nav-services": "Послуги",
+  "nav-cooperation": "Співпраця",
+  "nav-star_media_school": "Star media school",
+  "nav-contacts": "Контакти",
+  "nav-privacy-policy": "Політика конфіденційності",
+  "nav-project-serial": "Сериалы",
+  "nav-project-films": "Фильмы",
+  "nav-project-telefilm": "Телепроекты",
+  "nav-search-result": "Результаты поиска"
 }

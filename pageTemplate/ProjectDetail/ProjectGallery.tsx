@@ -6,6 +6,7 @@ import Text from "../../components/Text/Text";
 import ReactIdSwiper, {SwiperInstance} from 'react-id-swiper';
 import 'react-id-swiper/lib/styles/scss/swiper.scss';
 import CustomCursor from "../../components/CustomCursor/CustomCursor";
+import {useTranslation} from "../../libs/i18n";
 
 interface IProjectGalleryProps {
   [prop: string]: any
@@ -47,6 +48,7 @@ const mock: any[] = [
 ]
 
 const ProjectGallery: React.FC<IProjectGalleryProps> = () => {
+  const {t} = useTranslation('common');
 
   return (
     <Col
@@ -59,7 +61,9 @@ const ProjectGallery: React.FC<IProjectGalleryProps> = () => {
         <Row>
           <Col xs={12}>
             <Text as={'h2'} font={'object'} size={'m'} className={'text_uppercase'}>
-              Галерея
+              {
+                t('project_gallery')
+              }
             </Text>
           </Col>
         </Row>

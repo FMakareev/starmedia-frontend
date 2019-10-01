@@ -10,39 +10,40 @@ import Text from "../Text/Text";
 import ExternalLink from '../Icons/ExternalLink';
 import SocialLinkList from '../SocialLinkList/SocialLinkList';
 import {SocialLinkListMock} from "../../config";
+import {useTranslation} from "../../libs/i18n";
 
 interface IFooterProps {
   [prop: string]: any
 }
 
 
-const MenuListFirst: any[] = [
+export const Menu: any[] = [
   {
-    title: 'Новости',
-    href: '',
+    href: '/news',
+    label: 'nav-news'
   },
   {
-    title: 'О компании',
-    href: '',
+    href: '/about-us',
+    label: 'nav-about_us'
   },
   {
-    title: 'Услуги',
-    href: '',
+    href: '/services',
+    label: 'nav-services'
   },
   {
-    title: 'Сотрудничество',
-    href: '',
+    href: '/cooperation',
+    label: 'nav-cooperation'
   },
   {
-    title: 'Контакты',
-    href: '',
+    href: '/contacts',
+    label: 'nav-contacts'
   },
 ];
 
 
-
-
 const Footer: React.FC<IFooterProps> = () => {
+  const {t:tNav} = useTranslation('nav');
+  const {t:tFooter} = useTranslation('footer');
   return (
     <footer className={'footer'}>
       <Container>
@@ -53,7 +54,7 @@ const Footer: React.FC<IFooterProps> = () => {
           <Col xs={12} md={3}>
             <ul className={'footer_nav-list'}>
               {
-                MenuListFirst.map((item, index) => (<li className={'footer_nav-item'} key={index}>
+                Menu.map((item, index) => (<li className={'footer_nav-item'} key={index}>
                   <Button
                     className={'text_align-left'}
                     mods={['light', 'm']}
@@ -61,7 +62,7 @@ const Footer: React.FC<IFooterProps> = () => {
                     href={item.href}
                     as={'a'}
                   >
-                    {item.title}
+                    {tNav(item.label)}
                   </Button>
                 </li>))
               }
@@ -74,44 +75,56 @@ const Footer: React.FC<IFooterProps> = () => {
                   className={'text_align-left'}
                   mods={['light', 'm']}
                   element={ButtonElementEnum.link}
-                  href={'item.href'}
+                  href={'/projects'}
                   as={'a'}
                 >
-                  проекты
+                  {tNav("nav-project-list")}
                 </Button>
               </li>
               <li className={'footer_nav-item'}>
-                <Button
-                  className={'text_align-left'}
-                  mods={['light', 's']}
-                  element={ButtonElementEnum.link}
-                  href={'item.href'}
-                  as={'a'}
+                <Link
+                  href={'/projects?format=films'}
                 >
-                  Фильмы
-                </Button>
+                  <Button
+                    className={'text_align-left'}
+                    mods={['light', 's']}
+                    element={ButtonElementEnum.link}
+                    href={'/projects?format=films'}
+                    as={'a'}
+                  >
+                    {tNav("nav-project-films")}
+                  </Button>
+                </Link>
               </li>
               <li className={'footer_nav-item'}>
-                <Button
-                  className={'text_align-left'}
-                  mods={['light', 's']}
-                  element={ButtonElementEnum.link}
-                  href={'item.href'}
-                  as={'a'}
+                <Link
+                  href={'/projects?format=serial'}
                 >
-                  Сериалы
-                </Button>
+                  <Button
+                    className={'text_align-left'}
+                    mods={['light', 's']}
+                    element={ButtonElementEnum.link}
+                    href={'item.href'}
+                    as={'a'}
+                  >
+                    {tNav("nav-project-serial")}
+                  </Button>
+                </Link>
               </li>
               <li className={'footer_nav-item'}>
-                <Button
-                  className={'text_align-left'}
-                  mods={['light', 's']}
-                  element={ButtonElementEnum.link}
-                  href={'item.href'}
-                  as={'a'}
+                <Link
+                  href={'/projects?format=telefilm'}
                 >
-                  Телепроекты
-                </Button>
+                  <Button
+                    className={'text_align-left'}
+                    mods={['light', 's']}
+                    element={ButtonElementEnum.link}
+                    href={'item.href'}
+                    as={'a'}
+                  >
+                    {tNav("nav-project-telefilm")}
+                  </Button>
+                </Link>
               </li>
             </ul>
             <Button
@@ -132,7 +145,7 @@ const Footer: React.FC<IFooterProps> = () => {
               type={'placeholder'}
               className={'pb-8'}
             >
-              Мы в соцсетях
+              {tFooter("we-are-in-social-networks")}
             </Text>
             <SocialLinkList
               links={SocialLinkListMock}
@@ -151,16 +164,16 @@ const Footer: React.FC<IFooterProps> = () => {
                 mods={['gray', 's']}
                 element={ButtonElementEnum.link}
               >
-                Политика конфиденциальности
+                {tNav('nav-privacy-policy')}
               </Button>
             </Link>
           </Col>
-          <Col xs={12} md={3} >
+          <Col xs={12} md={3}>
             <Text
               font={'root'}
               type={'placeholder'}
             >
-              Star Media © 2007 — 2019. Все права защищены
+              {tFooter('copyright')}
             </Text>
           </Col>
         </Row>
@@ -170,8 +183,7 @@ const Footer: React.FC<IFooterProps> = () => {
               font={'root'}
               type={'placeholder'}
             >
-              Star Media © 2007 — 2019. <br/>
-              Все права защищены
+              {tFooter('copyright')}
             </Text>
           </Col>
           <Col xs={12} md={3}>
@@ -182,8 +194,7 @@ const Footer: React.FC<IFooterProps> = () => {
                 mods={['gray', 's']}
                 element={ButtonElementEnum.link}
               >
-                Политика <br/>
-                конфиденциальности
+                {tNav('nav-privacy-policy')}
               </Button>
             </Link>
 

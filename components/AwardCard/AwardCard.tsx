@@ -1,12 +1,15 @@
 import * as React from 'react';
 import {Award} from "../../types/types";
 import AwardIcon from '../../components/Icons/AwardIcon';
+import { useTranslation } from '../../libs/i18n';
 
 interface IAwardCardProps extends Award {
   [prop: string]: any
 }
 
 const AwardCard: React.FC<IAwardCardProps> = () => {
+  const {t} = useTranslation('common');
+
   return (
     <div className={'award-card_wrapper'}>
       <div className="award-card_icon">
@@ -20,7 +23,7 @@ const AwardCard: React.FC<IAwardCardProps> = () => {
           2007
         </div>
         <div className="award-card_detail">
-          Подробнее
+          {t('button_detail')}
         </div>
       </div>
     </div>
