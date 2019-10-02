@@ -9,13 +9,13 @@ interface ILayoutTitleWithContentProps {
   [prop: string]: any
 }
 
-const LayoutTitleWithContent: React.FC<ILayoutTitleWithContentProps> = ({title, titleAs,titleStyle, children}) => {
+const LayoutTitleWithContent: React.FC<ILayoutTitleWithContentProps> = ({title,titleId, titleAs,titleStyle, children}) => {
   return (
     <Col pt={64} pb={64}>
       <Container>
         <Row>
           <Col xs={12}>
-            <Text className={'text_uppercase'} size={'l'} as={titleAs} {...titleStyle}>
+            <Text id={titleId} className={'text_uppercase'} size={'l'} as={titleAs} {...titleStyle}>
               {title}
             </Text>
           </Col>

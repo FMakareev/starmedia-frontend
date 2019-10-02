@@ -3,6 +3,11 @@
 
   &_wrapper {
     cursor: pointer;
+    display: block;
+
+    &--disabled {
+      pointer-events: none;
+    }
 
     &:hover {
       #{$this}_preview {

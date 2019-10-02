@@ -25,6 +25,8 @@
   "city_kiev": "Київ",
   "city_london": "Лондон",
 
+  "form-field_submit-get-catalog": "Отримати каталог",
+
   "form-field_label-city": "Місто",
   "form-field_label-fio": "Ім'я та прізвище",
   "form-field_label-email": "Email",

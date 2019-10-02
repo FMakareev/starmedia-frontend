@@ -14,8 +14,8 @@ const SearchPopup = asyncComponent({
 
 const HeaderSearch: React.FC<IHeaderSearchProps> = () => {
   const [isVisible, togglePopup] = React.useState(false);
-  const {t, i18n} = useTranslation('common');
-  console.log('i18n: ', i18n);
+  const {t} = useTranslation('common');
+
   return (
     <React.Fragment>
       <button

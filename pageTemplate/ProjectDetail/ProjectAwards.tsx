@@ -11,6 +11,7 @@ import "../../node_modules/slick-carousel/slick/slick-theme.css";
 import ReactIdSwiper, {SwiperInstance} from 'react-id-swiper';
 import CustomCursor from "../../components/CustomCursor/CustomCursor";
 import {useTranslation} from "../../libs/i18n";
+import Link from 'next/link';
 
 interface IProjectAwardsProps {
   awards: Award[];
@@ -58,58 +59,32 @@ const ProjectAwards: React.FC<IProjectAwardsProps> = () => {
 
               </Col>
               <Col className={'project-detail_awards-slider-item'}>
-                <AwardCard/>
+                <Link href={'/award/asd'}>
+                  <a href={'/award/asd'}>
+                    <AwardCard/>
+                  </a>
+                </Link>
               </Col>
               <Col className={'project-detail_awards-slider-item'}>
-                <AwardCard/>
+                <Link href={'/award/asd'}>
+                  <a href={'/award/asd'}>
+                    <AwardCard/>
+                  </a>
+                </Link>
               </Col>
               <Col className={'project-detail_awards-slider-item'}>
-                <AwardCard/>
+                <Link href={'/award/asd'}>
+                  <a href={'/award/asd'}>
+                    <AwardCard/>
+                  </a>
+                </Link>
               </Col>
               <Col className={'project-detail_awards-slider-item'}>
-                <AwardCard/>
-              </Col>
-              <Col className={'project-detail_awards-slider-item'}>
-                <AwardCard/>
-              </Col>
-              <Col className={'project-detail_awards-slider-item'}>
-                <AwardCard/>
-              </Col>
-              <Col className={'project-detail_awards-slider-item'}>
-                <AwardCard/>
-              </Col>
-              <Col className={'project-detail_awards-slider-item'}>
-                <AwardCard/>
-              </Col>
-              <Col className={'project-detail_awards-slider-item'}>
-                <AwardCard/>
-              </Col>
-              <Col className={'project-detail_awards-slider-item'}>
-                <AwardCard/>
-              </Col>
-              <Col className={'project-detail_awards-slider-item'}>
-                <AwardCard/>
-              </Col>
-              <Col className={'project-detail_awards-slider-item'}>
-                <AwardCard/>
-              </Col>
-              <Col className={'project-detail_awards-slider-item'}>
-                <AwardCard/>
-              </Col>
-              <Col className={'project-detail_awards-slider-item'}>
-                <AwardCard/>
-              </Col>
-              <Col className={'project-detail_awards-slider-item'}>
-                <AwardCard/>
-              </Col>
-              <Col className={'project-detail_awards-slider-item'}>
-                <AwardCard/>
-              </Col>
-              <Col className={'project-detail_awards-slider-item'}>
-                <AwardCard/>
-              </Col>
-              <Col className={'project-detail_awards-slider-item'}>
-                <AwardCard/>
+                <Link href={'/award/asd'}>
+                  <a href={'/award/asd'}>
+                    <AwardCard/>
+                  </a>
+                </Link>
               </Col>
             </ReactIdSwiper>
 

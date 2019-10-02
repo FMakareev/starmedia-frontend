@@ -9,6 +9,7 @@
     "storybook": "start-storybook -p 6006 -c .storybook"
   },
   "dependencies": {
+    "@types/js-cookie": "^2.2.2",
     "@types/react-html-parser": "^2.0.1",
     "@types/react-select": "^3.0.4",
     "@types/react-share": "^3.0.1",
@@ -20,6 +21,7 @@
     "flexboxgrid": "^6.3.1",
     "google-map-react": "^1.1.5",
     "intl": "^1.2.5",
+    "js-cookie": "^2.2.1",
     "next": "9.0.5",
     "next-i18next": "1.2.0",
     "react": "16.9.0",

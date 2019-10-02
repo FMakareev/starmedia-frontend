@@ -363,6 +363,30 @@
     padding-bottom: 64px;
   }
 
+  &_form-wrapper {
+    background-color: #fff;
+    position: absolute;
+    max-width: 520px;
+    min-height: 400px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    padding: 24px 24px 32px 24px;
+
+    @media(min-width: 768px){
+      padding: 48px 48px 56px 48px;
+    }
+
+  }
+
+  &_form {
+    .skylight-close-button {
+
+      top: 16px!important;
+      right: 16px!important;
+
+    }
+  }
 
   &_bg {
     position: absolute;

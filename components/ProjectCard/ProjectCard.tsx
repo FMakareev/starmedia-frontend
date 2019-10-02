@@ -9,6 +9,7 @@ import Tilt from 'react-tilt'
 // @ts-ignore
 import placeholder from '../../static/images/project-placeholder.jpg';
 import {useTranslation} from "../../libs/i18n";
+import classNames from 'classnames';
 
 interface IProjectCardProps extends Project {
   withInfo?: boolean;
@@ -16,10 +17,12 @@ interface IProjectCardProps extends Project {
   [prop: string]: any
 }
 
-const ProjectCard: React.FC<IProjectCardProps> = ({withInfo, title, projectInfo, preview,}) => {
+const ProjectCard: React.FC<IProjectCardProps> = ({withInfo, href, title, projectInfo, preview,disabled}) => {
   const {t} = useTranslation();
 
-  return (<div className={'project-card_wrapper'}>
+  return (<a href={href} className={classNames('project-card_wrapper',{
+    'project-card_wrapper--disabled': disabled
+  })}>
     <Tilt
       options={{max: 5, scale: 1}}
     >
@@ -62,7 +65,7 @@ const ProjectCard: React.FC<IProjectCardProps> = ({withInfo, title, projectInfo,
 				</div>
 			</div>
     }
-  </div>)
+  </a>)
 };
 
 export default ProjectCard;

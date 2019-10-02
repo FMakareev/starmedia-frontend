@@ -59,13 +59,13 @@ const SectionAboutUs: React.FC<ISectionAboutUsProps> = () => {
           </Col>
           <Col  xs={12} sm={'auto'} mb={16} mr={30}>
             <Link
-              href={'/awards'}
+              href={'/about-us/#awards'}
             >
               <Button
                 className={'text_align-left'}
                 mods={['light', 'm']}
                 element={ButtonElementEnum.link}
-                href={'/awards'}
+                href={'/about-us/#awards'}
                 as={'a'}
               >
                 {t('section_about-us_link_awards')}

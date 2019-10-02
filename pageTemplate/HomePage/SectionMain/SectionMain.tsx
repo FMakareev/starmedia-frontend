@@ -35,6 +35,38 @@ const SectionMain: React.FC<ISectionMainProps> = () => {
 
 
   const [currentSlide, setNewSlideIndex] = React.useState(0);
+  const [disabled, setDisabledEvent] = React.useState(false);
+
+  const ref = React.useRef(null);
+
+  React.useEffect(() => {
+
+    if (typeof window !== undefined) {
+      let isDown: boolean = false;
+      let isMoved: boolean = false;
+      // @ts-ignore
+      ref.current.addEventListener('mousemove', () => {
+        if (isDown) {
+          setDisabledEvent(true);
+          isMoved = true;
+        }
+      });
+      // @ts-ignore
+      ref.current.addEventListener('mousedown', () => {
+        isDown = true;
+      });
+      // @ts-ignore
+      ref.current.addEventListener('mouseup', (e) => {
+        if (isMoved && isDown || isDown) {
+          setDisabledEvent(false)
+          isDown = false;
+          isMoved = false;
+        }
+      });
+    }
+
+  }, []);
+
 
   return (
     <div className={'section-main'}>
@@ -54,7 +86,7 @@ const SectionMain: React.FC<ISectionMainProps> = () => {
       </Col>
       <CustomCursor>
 
-        <div className="section-main_bottom">
+        <div ref={ref} className="section-main_bottom">
 
           <Slider
             initialSlide={currentSlide}
@@ -73,11 +105,11 @@ const SectionMain: React.FC<ISectionMainProps> = () => {
                 <Col
                   className={'section-main_slide-project'}
                 >
-                 <Link href={`/project/slug`}>
-                   <a href={`/project/slug`}>
-                     <ProjectCard key={index} withInfo={false} {...item}/>
-                   </a>
-                 </Link>
+                  <Link href={`/project/slug`}>
+                    <ProjectCard
+                      disabled={disabled}
+                      href={`/project/slug`} key={index} withInfo={false} {...item}/>
+                  </Link>
                 </Col>
               )
             }

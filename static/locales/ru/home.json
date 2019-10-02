@@ -4,5 +4,9 @@
   "section_about-us_link_history": "наша история",
   "section_about-us_link_awards": "награды",
   "section_project_title": "проекты",
-  "section_project_btn-all-projects": "все проекты"
+  "section_project_btn-all-projects": "все проекты",
+  "section_send-order_title": "Хотите получить <br/> наш каталог?",
+  "section_send-order_button": "Заказать каталог",
+  "section_send-order_form-title": "заказать каталог",
+  "section_send-order_form-description": "Заполните форму и пришлем каталог на вашу почту"
 }

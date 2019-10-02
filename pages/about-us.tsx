@@ -30,6 +30,8 @@ const AboutUs: React.FC<IAboutUsProps> = () => {
         titleStyle={{
           mb: 32,
         }}
+        titleAs={'h2'}
+        titleId={'awards'}
         title={t('nav-awards')}
       >
         <AwardsList/>

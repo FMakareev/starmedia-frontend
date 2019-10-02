@@ -25,6 +25,8 @@
   "city_kiev": "Kiev",
   "city_london": "London",
 
+  "form-field_submit-get-catalog": "Get catalog",
+
   "form-field_label-city": "City",
   "form-field_label-fio": "First and last name",
   "form-field_label-email": "Email",

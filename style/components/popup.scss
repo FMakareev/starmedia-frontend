@@ -11,6 +11,12 @@
 
   }
 
+  &:hover {
+    &:after,&:before {
+      background-color: $color-typo-brand;
+    }
+  }
+
   &:after {
     transform: rotate(-45deg);
   }

@@ -1,4 +1,6 @@
 import * as React from 'react';
+import ReactHtmlParser from 'react-html-parser';
+
 import Container from "../../../components/Container/Container";
 import Row from '../../../components/Row/Row';
 import Col from '../../../components/Col/Col';
@@ -9,12 +11,23 @@ import PdfIcon from "../../../components/Icons/PDFIcon";
 
 // @ts-ignore
 import Tilt from 'react-tilt'
+import {asyncComponent} from "react-async-component";
+import {useTranslation} from "../../../libs/i18n";
 
 interface ISectionGetCatalogProps {
   [prop: string]: any
 }
+const CatalogFormPopup = asyncComponent({
+  resolve: () => import("../../../components/CatalogFormPopup/CatalogFormPopup"),
+  serverMode: "defer"
+});
 
 const SectionGetCatalog: React.FC<ISectionGetCatalogProps> = () => {
+
+  const [isVisible, togglePopup] = React.useState(false);
+  const {t} = useTranslation('home');
+
+
   return (
     <div className={'section-get-catalog'}>
 
@@ -46,14 +59,19 @@ const SectionGetCatalog: React.FC<ISectionGetCatalogProps> = () => {
         >
           <Col mb={[44, 0]}>
             <Text className="section-get-catalog_title" size={'l'} type={'secondary'} font={'object'}>
-              хотите получить <br/>
-              наш каталог?
+
+              {
+                ReactHtmlParser(t('section_send-order_title'))
+              }
             </Text>
           </Col>
           <Col
             className={'section-get-catalog_get-button'}
           >
             <Button
+              onClick={()=>{
+                togglePopup(true);
+              }}
               mods={['l']}
               element={ButtonElementEnum.circle}
             >
@@ -64,7 +82,9 @@ const SectionGetCatalog: React.FC<ISectionGetCatalogProps> = () => {
                 type={'secondary'}
                 font={'object'}
               >
-                Заказать каталог
+                {
+                  t('section_send-order_button')
+                }
               </Text>
               <Text
                 style={{opacity: '0.7'}}
@@ -77,6 +97,12 @@ const SectionGetCatalog: React.FC<ISectionGetCatalogProps> = () => {
           </Col>
         </Row>
       </Container>
+      <CatalogFormPopup
+        isVisible={isVisible}
+        onClose={() => {
+          togglePopup(false);
+        }}
+      />
     </div>
   );
 };

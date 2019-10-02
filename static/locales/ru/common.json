@@ -25,6 +25,10 @@
   "city_moscow": "Москва",
   "city_kiev": "Киев",
   "city_london": "Лондон",
+
+
+  "form-field_submit-get-catalog": "Получить каталог",
+
   "form-field_label-city": "Город",
   "form-field_label-fio": "Имя и фамилия",
   "form-field_label-email": "Email",

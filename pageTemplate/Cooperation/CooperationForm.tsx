@@ -70,7 +70,7 @@ const CooperationForm: React.FC<ICooperationFormProps> = (
 ) =>{
 
   const {t, i18n} = useTranslation('common');
-  console.log(i18n.language);
+
   return  (
     <Form
       onSubmit={() => {
