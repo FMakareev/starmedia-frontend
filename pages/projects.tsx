@@ -5,6 +5,9 @@ import { ProjectsMock } from '../mock';
 import Pagination from "../components/Pagination/Pagination";
 import ProjectFilter from '../pageTemplate/Projects/ProjectFilter';
 import {withTranslation} from "../libs/i18n";
+// import {useQuery} from "@apollo/react-hooks";
+// import { ProjectPaginationQuery } from '../apollo/query/ProjectPaginationQuery';
+
 
 
 
@@ -13,6 +16,7 @@ interface IProjectsProps {
 }
 
 const Projects: React.FC<IProjectsProps> = ({t}) => {
+  // const data = useQuery(ProjectPaginationQuery);
   return (
     <LayoutTitleWithContent
       title={t('nav-project-list')}

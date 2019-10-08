@@ -19,7 +19,7 @@ const Pagination: React.FC<IPaginationProps> = () => {
   return (
     <Container>
       <Row mb={56} center={ViewportSizeEnum.xs}>
-        <Button mods={['m']} element={ButtonElementEnum.circle}>
+        <Button aria-label={'Show more'}  mods={['m']} element={ButtonElementEnum.circle}>
           {t('button_show-more')}
         </Button>
       </Row>

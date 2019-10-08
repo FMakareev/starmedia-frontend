@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Link from "next/link";
 import Row from '../../components/Row/Row';
 import Col from '../../components/Col/Col';
 import Container from '../../components/Container/Container';
@@ -10,8 +11,8 @@ import Button from "../../components/Button/Button";
 import BackIcon from "../../components/Icons/BackIcon";
 import ProjectDetailMainBottom from "./ProjectDetailMainBottom";
 import ProjectTrailer from "./ProjectTrailer";
-import Link from "next/link";
 import {useTranslation} from "../../libs/i18n";
+import {GetLocalizationString} from "../../libs/GetLocalizationString";
 
 interface IProjectMainSectionProps extends Project {
   [prop: string]: any
@@ -21,7 +22,9 @@ const ProjectMainSection: React.FC<IProjectMainSectionProps> = (
   {
     tags,
     projectInfo,
-    title
+    title,
+    preview,
+    trailer,
   }
 ) => {
   const {t} = useTranslation('common');
@@ -30,7 +33,7 @@ const ProjectMainSection: React.FC<IProjectMainSectionProps> = (
     <Col mb={[40, 80]} pb={40} pt={130} className={'project-detail-main_wrapper'}>
       <div className="section-main_bg">
         <img
-          src={'/static/images/mock/image4.jpg'}
+          src={preview && preview.url || ''}
           alt=""
           className="project-detail-main_bg-img"
         />
@@ -55,7 +58,9 @@ const ProjectMainSection: React.FC<IProjectMainSectionProps> = (
         <div className="project-detail-main_content">
           <Row mb={['0', '0', 72]}>
             <Col xs={12} md={6} mb={40}>
-              <ProjectTrailer/>
+              <ProjectTrailer
+                {...trailer}
+              />
             </Col>
             <Col xs={12} md={6}>
               <Col pl={['0', '0', 32]}>
@@ -63,7 +68,9 @@ const ProjectMainSection: React.FC<IProjectMainSectionProps> = (
                   <ProjectTags tags={tags}/>
                 </Col>
                 <Text as={'h1'} className={'text_uppercase'} mb={24} font={'object'} size={'l'} type={'secondary'}>
-                  {title && title.ru}
+                  {
+                    GetLocalizationString(title)
+                  }
                 </Text>
                 <ProjectInfoList projectInfo={projectInfo}/>
               </Col>

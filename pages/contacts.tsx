@@ -3,29 +3,78 @@ import ContactRoles from "../pageTemplate/Contacts/ContactRoles";
 import MainContacts from '../pageTemplate/Contacts/MainContacts';
 import LayoutTitleWithContent from "../components/Layout/LayoutTitleWithContent";
 import ContactMap from "../pageTemplate/Contacts/ContactMap";
-import { ContactsMock } from '../mock';
 import {useTranslation} from "../libs/i18n";
+import {
+  GetContactsUKQuery,
+  GetContactsENQuery,
+  GetContactsRUQuery
+} from '../apollo/query/GetContactsQuery';
+import {GetContacts} from '../types/types';
+import {useLocalizationQuery} from "../libs/useLocalizationQuery";
+import Head from "../components/Head/Head";
+import { Fragment } from 'react';
+import Preloader from "../components/Preloader/Preloader";
 
 interface IContactsProps {
   [prop: string]: any
 }
 
+
+// @ts-ignore
 const Contacts: React.FC<IContactsProps> = () => {
+
   const {t} = useTranslation('nav');
 
+  const [currentCity, cityToggle] = React.useState<number>(0);
+  const {data, loading, error} = useLocalizationQuery<GetContacts>({
+    ru: GetContactsRUQuery,
+    en: GetContactsENQuery,
+    uk: GetContactsUKQuery,
+  });
+
+
+  if (loading) {
+    return (<Preloader/>)
+  }
+  if (error) {
+    console.log(error);
+    return 'Error'
+  }
+
   return (
-    <LayoutTitleWithContent
-      titleStyle={{
-        mb: 32,
-      }}
-      title={t('nav-contacts')}>
+    <Fragment>
+      <Head
+        title={t('nav-contacts')}
+        seoTags={{
+          description: {
+            ru:'Страница контактов',
+            en:'Contact page',
+            uk:'Сторінка контактів',
+          },
+        }}
+      />
+      <LayoutTitleWithContent
+        titleStyle={{
+          mb: 32,
+        }}
+        title={t('nav-contacts')}>
+        <MainContacts
+          cityToggle={cityToggle}
+          currentCity={currentCity}
+          {...(data && data.getContacts ? data.getContacts : {})}
+        />
+        <ContactMap
+          currentCity={currentCity}
+          {...(data && data.getContacts ? data.getContacts : {})}
+        />
+        <ContactRoles
+          {...(data && data.getContacts ? data.getContacts : {})}
+          currentCity={currentCity}
+        />
 
-      <MainContacts {...ContactsMock}/>
-      <ContactMap {...ContactsMock}/>
-      <ContactRoles {...ContactsMock}/>
 
-
-    </LayoutTitleWithContent>
+      </LayoutTitleWithContent>
+    </Fragment>
   );
 };
 

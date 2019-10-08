@@ -2,11 +2,15 @@ import * as React from 'react';
 import classNames from 'classnames';
 import AnimateHeight from 'react-animate-height';
 import Text from '../../components/Text/Text';
-import {Person, Role} from "../../types/types";
+import {Departament, Person} from "../../types/types";
+import {GetLocalizationString} from "../../libs/GetLocalizationString";
 
-interface IContactRoleItemProps extends Role {
+interface IContactRoleItemProps extends Departament {
   [prop: string]: any
 }
+
+
+
 
 const ContactRoleItem: React.FC<IContactRoleItemProps> = (
   {
@@ -22,7 +26,7 @@ const ContactRoleItem: React.FC<IContactRoleItemProps> = (
     })}>
       <div onClick={onClick} className="contact-role_item-toggle">
         <Text font={'object'} className={'text_uppercase'} size={'xs'}>
-          {name && name.ru}
+          {name && GetLocalizationString(name)}
         </Text>
         <div className="contact-role_item-toggle-icon">
 
@@ -40,14 +44,14 @@ const ContactRoleItem: React.FC<IContactRoleItemProps> = (
               key={index}
             >
               <Text size={'m'} font={'root'}>
-                {item.name && item.name.ru}
+                {item.name && GetLocalizationString(item.name)}
               </Text>
               <Text mb={12} size={'m'} font={'root'} type={'placeholder'}>
-                {item.position && item.position.ru}
+                {item.position && GetLocalizationString(item.position)}
               </Text>
               <Text mb={20} size={'m'} font={'root'}>
-                {item.phone && item.phone.ru} <br/>
-                {item.email && item.email.ru} <br/>
+                {item.phone} <br/>
+                {item.email} <br/>
               </Text>
             </div>))
           }

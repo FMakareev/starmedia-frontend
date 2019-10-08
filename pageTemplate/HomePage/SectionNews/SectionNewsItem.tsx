@@ -23,12 +23,12 @@ const SectionNewsItem: React.FC<ISectionNewsItemProps> = (
         {title}
       </Text>
       <Row between={ViewportSizeEnum.sm}>
-        <Col>
+        <Col xs={6} >
           <Text size={'m'} type={'placeholder'} font={'root'}>
             {publish}
           </Text>
         </Col>
-        <Col className={'section-news_item-more'}>
+        <Col xs={6}  className={'section-news_item-more'}>
           <Text size={'s'} type={'secondary'}>
             {t('button_detail')}
           </Text>

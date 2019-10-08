@@ -52,19 +52,23 @@
 
     &-first-item {
       height: 300px !important;
-
+      // swiper не дает через свое api гибко менять размер отступа и задает его инлайново,
+      // на этом разрешении его нужно перебить и сделать меньше
+      margin-right: 16px !important;
       @media only screen and (min-width: map_get($screen, "lg")) {
+        margin-right: 0 !important;
         width: 104px !important;
       }
 
       @media only screen and (min-width: 1440px) {
+        margin-right: 24px !important;
         width: calc((100vw - #{$container-max-width} - 32px) / 2) !important;
         height: 300px !important;
       }
     }
 
     .swiper-container-horizontal > .swiper-scrollbar {
-      width: calc(100% - 48px);
+      width: calc(100% - 32px);
       border-radius: 0;
       margin: 0 auto;
       background-color: #F0F0F0;
@@ -179,8 +183,9 @@
 .project-detail-similar {
   &_first-item {
     width: 0!important;
-    margin-right: 24px !important;
+    margin-right: 16px !important;
     @media only screen and (min-width: map_get($screen, "lg")) {
+      margin-right: 24px !important;
       width: 104px !important;
     }
 

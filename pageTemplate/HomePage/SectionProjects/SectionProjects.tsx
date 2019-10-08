@@ -42,7 +42,7 @@ const SectionProjects: React.FC<ISectionProjectsProps> = () => {
         <Row center={ViewportSizeEnum.sm}>
 
           <Link href={'/projects'}>
-            <Button mods={['m']} element={ButtonElementEnum.circle}>
+            <Button aria-label={'show all projects'} mods={['m']} element={ButtonElementEnum.circle}>
               {t('section_project_btn-all-projects')}
             </Button>
           </Link>

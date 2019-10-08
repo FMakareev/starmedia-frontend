@@ -22,8 +22,22 @@ export const SocialLinkListMock: SocialLink[] = [
     shortName: 'OK'
   },
   {
-    url: '',
+    url: 'https://www.linkedin.com/company/star-media-group-russia-ukraine-/',
     icon: SocialLinkTypeEnum.in,
     shortName: 'IN'
   },
 ];
+
+export default {
+  googleMap: {
+    key: "AIzaSyAheztZVzzEHN5zCYbNqq_Ws6eo8S8Cl8s"
+  },
+  serverURI:  "http://localhost:9002",
+  graphql: {
+    serverEndpoint: "http://localhost:9002/graphql",
+    clientEndpoint: "/graphql",
+
+    devServerEndpoint: "http://localhost:9002/graphql",
+    devClientEndpoint: "/graphql",
+  }
+};

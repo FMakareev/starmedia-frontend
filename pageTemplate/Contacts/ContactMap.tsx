@@ -5,6 +5,7 @@ import Col from '../../components/Col/Col';
 import {Contacts, GpsPoint} from "../../types/types";
 
 import styles from './mapStyle.json';
+
 interface IContactMapProps extends Contacts {
   [prop: string]: any
 }
@@ -22,7 +23,7 @@ const props = {
 
 const ContactMap: React.FC<IContactMapProps> = (
   {
-    gpsPoints
+    gpsPoints,
   }
 ) => {
   return (

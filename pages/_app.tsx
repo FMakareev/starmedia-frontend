@@ -1,24 +1,34 @@
 import App from "next/app";
 import React from "react";
+import {ApolloProvider} from "react-apollo";
+
 import "../style/style.scss";
 import Layout from "../components/Layout/Layout";
 import {appWithTranslation} from '../libs/i18n'
 import SocialIconsSprite from "../components/Icons/SocialIconsSprite";
 import CookiePopup from "../components/CookiePopup/CookiePopup";
+import withApollo from "../apollo/withApollo/withApollo";
 
-// const cookieParse = require('cookie');
+
+
+
 
 class RootApp extends App<any> {
+
+
   render() {
-    const {Component, pageProps} = this.props;
+    const {Component, pageProps, apollo } = this.props;
+
     return (
-      <Layout title={''}>
-        <SocialIconsSprite/>
-        <Component {...pageProps} />
-        <CookiePopup/>
-      </Layout>
+      <ApolloProvider client={apollo}>
+        <Layout title={''}>
+          <SocialIconsSprite/>
+          <Component {...pageProps} />
+          <CookiePopup/>
+        </Layout>
+      </ApolloProvider>
     );
   }
 }
 
-export default appWithTranslation(RootApp);
+export default withApollo(appWithTranslation(RootApp));

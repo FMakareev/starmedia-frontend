@@ -11,6 +11,7 @@ import ExternalLink from '../Icons/ExternalLink';
 import SocialLinkList from '../SocialLinkList/SocialLinkList';
 import {SocialLinkListMock} from "../../config";
 import {useTranslation} from "../../libs/i18n";
+import ShowComponentInLocales from '../../components/ShowComponentInLocales/ShowComponentInLocales';
 
 interface IFooterProps {
   [prop: string]: any
@@ -42,8 +43,8 @@ export const Menu: any[] = [
 
 
 const Footer: React.FC<IFooterProps> = () => {
-  const {t:tNav} = useTranslation('nav');
-  const {t:tFooter} = useTranslation('footer');
+  const {t: tNav} = useTranslation('nav');
+  const {t: tFooter} = useTranslation('footer');
   return (
     <footer className={'footer'}>
       <Container>
@@ -153,13 +154,17 @@ const Footer: React.FC<IFooterProps> = () => {
           </Col>
         </Row>
         <Row lg={'none'} md={'none'}>
-          <Col xs={12} md={3} className={'mb-30'}>
-            <img src={require('../../static/images/APKIT_logo.jpg')} alt=""/>
-          </Col>
+
+          <ShowComponentInLocales locales={['ru']}>
+            <Col xs={12} md={3} className={'mb-30'}>
+              <img src={require('../../static/images/APKIT_logo.jpg')} alt=""/>
+            </Col>
+          </ShowComponentInLocales>
           <Col xs={12} md={3} className={'mb-16'}>
             <Link href={'/privacy'}>
               <Button
                 as={'a'}
+                href={'/privacy'}
                 className={'button_link--font-root'}
                 mods={['gray', 's']}
                 element={ButtonElementEnum.link}
@@ -189,6 +194,7 @@ const Footer: React.FC<IFooterProps> = () => {
           <Col xs={12} md={3}>
             <Link href={'/privacy'}>
               <Button
+                href={'/privacy'}
                 as={'a'}
                 className={'button_link--font-root'}
                 mods={['gray', 's']}
@@ -199,9 +205,13 @@ const Footer: React.FC<IFooterProps> = () => {
             </Link>
 
           </Col>
-          <Col xs={12} md={3}>
-            <img src={require('../../static/images/APKIT_logo.jpg')} alt=""/>
-          </Col>
+          <ShowComponentInLocales locales={['ru']}>
+            <Col xs={12} md={3}>
+              <a href="http://www.rusproducers.com/" target={'_blank'}>
+                <img src={require('../../static/images/APKIT_logo.jpg')} alt=""/>
+              </a>
+            </Col>
+          </ShowComponentInLocales>
         </Row>
       </Container>
     </footer>

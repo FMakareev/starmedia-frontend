@@ -26,10 +26,14 @@
   "city_london": "London",
 
   "form-field_submit-get-catalog": "Get catalog",
+  "form-field_submit-get-presentation": "Get presentation",
+  "form-field_submit-send-request": "Send request",
 
   "form-field_label-city": "City",
   "form-field_label-fio": "First and last name",
   "form-field_label-email": "Email",
+  "form-field_label-company": "Company",
+  "form-field_label-position": "Position",
   "form-field_label-file": "Your script in pdf, doc or zip",
   "form-field_label2-file": "Select another file",
   "form-field_placeholder-file": "Drag the file into this window or click to select the file",

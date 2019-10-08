@@ -53,7 +53,7 @@ const SectionNews: React.FC<ISectionNewsProps> = () => {
           />
         </Row>
         <Row mb={22} center={ViewportSizeEnum.sm}>
-          <Button mods={['m']} element={ButtonElementEnum.circle}>
+          <Button aria-label={'show all news'}  mods={['m']} element={ButtonElementEnum.circle}>
             {t('section_news_btn-all-news')}
           </Button>
         </Row>

@@ -29,7 +29,6 @@ const CustomCursor: React.FC<ICustomCursorProps> = ({children}) => {
       }, true);
       // @ts-ignore
       ContainerRef.current.addEventListener('mousemove', (e: any) => {
-        // console.log('mousemove');
         if (e) {
           // @ts-ignore
           window.customCursor.clientX = e.clientX;

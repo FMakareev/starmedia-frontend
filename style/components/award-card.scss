@@ -2,6 +2,9 @@
   $this: &;
   &_wrapper {
     @include transitionHover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 100%;
     padding-left: 24px;
     padding-right: 24px;

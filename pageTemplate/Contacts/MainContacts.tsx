@@ -11,12 +11,14 @@ const BGMap: object = {
   ru: "/static/images/contact-bg-moscow.jpg",
   uk: "/static/images/contact-bg-kiev.jpg",
   en: "/static/images/contact-bg-london.jpg",
-}
+};
 
 
 const MainContacts: React.FC<IMainContactsProps> = (
   {
-    mainContacts
+    mainContacts,
+    cityToggle,
+    currentCity,
   }
 ) => {
 
@@ -27,6 +29,8 @@ const MainContacts: React.FC<IMainContactsProps> = (
           mainContacts && mainContacts.map((item: MainContact, index: number) =>
             (<ContactMainItem
               {...item}
+              isActive={currentCity === index}
+              cityToggle={()=>{cityToggle(index)}}
               key={index}
               // @ts-ignore
               src={item && item.locale && BGMap[item.locale]}

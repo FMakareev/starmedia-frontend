@@ -8,22 +8,36 @@ import LangSwitcher from "../LangSwitcher/LangSwitcher";
 import HeaderLogo from "./HeaderLogo";
 import HeaderBurgerButton from './HeaderBurgerButton';
 import HeaderSearch from './HeaderSearch';
+import { MainContact, Maybe } from '../../types/types';
 
 interface IHeaderDesktopTopProps {
+  contact?: Maybe<MainContact>;
+
   [prop: string]: any
 }
 
-const HeaderDesktopTop: React.FC<IHeaderDesktopTopProps> = ({toggleMenu,isActive}) => {
+const HeaderDesktopTop: React.FC<IHeaderDesktopTopProps> = (
+  {
+    toggleMenu,
+    isActive,
+    contact,
+  }
+) => {
+
+  const phone = contact && contact.phones && contact.phones[0];
+
   return (
     <Container className={'header_container'}>
       <Col className={'header_left'}>
-        <HeaderBurgerButton toggleMenu={toggleMenu} isActive={isActive} />
+        <HeaderBurgerButton toggleMenu={toggleMenu} isActive={isActive}/>
         <HeaderLogo/>
       </Col>
-      <Col sm={'none'} xs={'none'}  className={'header_right'}>
+      <Col sm={'none'} xs={'none'} className={'header_right'}>
         <Col className="header_phone-wrapper">
-          <Text size={'m'} as={'a'} font={'root'} type={'inherit'} href={'tel:+74993565400'}>
-            +7 499 356-54-00
+          <Text aria-label={'company phone number'} size={'m'} as={'a'} font={'root'} type={'inherit'} href={`tel:${phone}`}>
+            {
+              phone
+            }
           </Text>
         </Col>
         <Col className="header_search-wrapper">

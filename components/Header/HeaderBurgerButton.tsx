@@ -8,7 +8,7 @@ interface IHeaderBurgerButtonProps {
 const HeaderBurgerButton: React.FC<IHeaderBurgerButtonProps> = ({isActive,
                                                                   toggleMenu}) => {
   return (
-    <button className={classNames('header_burger',{
+    <button aria-label={'menu burger'} className={classNames('header_burger',{
       'open': isActive,
     })} onClick={toggleMenu}>
       <span/>

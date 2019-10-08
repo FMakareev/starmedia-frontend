@@ -12,7 +12,11 @@ const SectionNewsList: React.FC<ISectionNewsListProps> = ({news}) => {
       {
         news.map((item: any, index: any) => <Col
           key={`${index}`}
-          sm={3}
+          xs={12}
+          sm={6}
+          md={3}
+          pb={16}
+          pt={16}
         >
           <SectionNewsItem
             {...item}

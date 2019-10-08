@@ -9,9 +9,9 @@ interface IHeaderLogoProps {
 const HeaderLogo: React.FC<IHeaderLogoProps> = () => {
   return (
     <Link href={'/'}>
-      <div className="header_logo-wrapper">
+      <a aria-label={'logo'} href={'/'} className="header_logo-wrapper">
         <Logo height={''} width={''}/>
-      </div>
+      </a>
     </Link>
   );
 };

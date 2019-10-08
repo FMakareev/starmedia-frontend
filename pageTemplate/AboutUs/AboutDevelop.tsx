@@ -3,13 +3,21 @@ import Container from "../../components/Container/Container";
 import Col from '../../components/Col/Col';
 import Row from '../../components/Row/Row';
 import Text from '../../components/Text/Text';
-import {ViewportSizeEnum} from "../../types/types";
+import {AboutUs, ViewportSizeEnum, AboutUsBabble} from "../../types/types";
+import {GetLocalizationString} from "../../libs/GetLocalizationString";
+import {useTranslation} from "react-i18next";
 
-interface IAboutDevelopProps {
+interface IAboutDevelopProps extends AboutUs {
   [prop: string]: any
 }
 
-const AboutDevelop: React.FC<IAboutDevelopProps> = () => {
+const AboutDevelop: React.FC<IAboutDevelopProps> = (
+  {
+    titleTVBroadcast,
+    titleTVBroadcastBabbles,
+  }
+) => {
+  const {i18n} = useTranslation();
   return (
     <Container>
       <Row mb={80}>
@@ -19,8 +27,9 @@ const AboutDevelop: React.FC<IAboutDevelopProps> = () => {
             size={'m'}
             className={'text_uppercase'}
           >
-            развиваем <br/>
-            собственное телевещание
+            {
+              GetLocalizationString(titleTVBroadcast, i18n)
+            }
           </Text>
         </Col>
       </Row>
@@ -28,36 +37,31 @@ const AboutDevelop: React.FC<IAboutDevelopProps> = () => {
         <Col>
           <div className={'about-develop'}>
 
-            <div className="about-develop_bubble">
-              <div className="about-develop_bubble-title">
-                телеканал<br/>
-                Star Cinema
-              </div>
-              <div className="about-develop_bubble-text">
-                Сериалы и фильмы <br/>
-                для широкой аудитории
-              </div>
-            </div>
+            {
+              titleTVBroadcastBabbles
+              && titleTVBroadcastBabbles
+                .map((item: AboutUsBabble, index: number) => {
 
-            <div className="about-develop_bubble">
-              <div className="about-develop_bubble-title">
-                телеканал <br/>
-                Star Family
-              </div>
-              <div className="about-develop_bubble-text">
-                Сериалы и фильмы <br/> для всей семьи
-              </div>
-            </div>
-            <div className="about-develop_bubble">
-              <div className="about-develop_bubble-title">
-                телеканал<br/>
-                Bolt
-              </div>
-              <div className="about-develop_bubble-text">
-                Для мужской <br/>
-                аудитории
-              </div>
-            </div>
+                  if (index < 3) {
+                    return (<div
+                      className="about-develop_bubble"
+                      key={index}
+                    >
+                      <div className="about-develop_bubble-title">
+                        {
+                          GetLocalizationString(item.title, i18n)
+                        }
+                      </div>
+                      <div className="about-develop_bubble-text">
+                        {
+                          GetLocalizationString(item.content, i18n)
+                        }
+                      </div>
+                    </div>)
+                  }
+                  return null;
+                })
+            }
           </div>
         </Col>
       </Row>

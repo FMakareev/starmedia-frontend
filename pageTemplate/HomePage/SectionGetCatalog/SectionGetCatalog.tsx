@@ -1,5 +1,6 @@
 import * as React from 'react';
 import ReactHtmlParser from 'react-html-parser';
+import dynamic from 'next/dynamic'
 
 import Container from "../../../components/Container/Container";
 import Row from '../../../components/Row/Row';
@@ -11,17 +12,17 @@ import PdfIcon from "../../../components/Icons/PDFIcon";
 
 // @ts-ignore
 import Tilt from 'react-tilt'
-import {asyncComponent} from "react-async-component";
+// import {asyncComponent} from "react-async-component";
 import {useTranslation} from "../../../libs/i18n";
 
 interface ISectionGetCatalogProps {
   [prop: string]: any
 }
-const CatalogFormPopup = asyncComponent({
-  resolve: () => import("../../../components/CatalogFormPopup/CatalogFormPopup"),
-  serverMode: "defer"
-});
 
+const CatalogFormPopup = dynamic(
+  () => import("../../../components/CatalogFormPopup/CatalogFormPopup"),
+  { ssr: false }
+)
 const SectionGetCatalog: React.FC<ISectionGetCatalogProps> = () => {
 
   const [isVisible, togglePopup] = React.useState(false);

@@ -1,8 +1,10 @@
 import * as React from 'react';
 import Row from "../../components/Row/Row";
-import {ViewportSizeEnum, MainContact, LocalizedString} from "../../types/types";
+import {ViewportSizeEnum, MainContact, Address} from "../../types/types";
 import Col from "../../components/Col/Col";
 import Text from "../../components/Text/Text";
+import classNames from 'classnames';
+import {GetLocalizationString} from "../../libs/GetLocalizationString";
 
 interface IContactMainItemProps extends MainContact {
   src?: string,
@@ -17,10 +19,14 @@ const ContactMainItem: React.FC<IContactMainItemProps> = (
     phones,
     addresses,
     emails,
+    isActive,
+    cityToggle,
   }
 ) => {
   return (
-    <li className="contact-main_item">
+    <li onClick={cityToggle} className={classNames("contact-main_item", {
+      'contact-main_item--active': isActive,
+    })}>
       <div className="contact-main_item-bg-wrap">
         <img
           className={'contact-main_item-bg-img'}
@@ -29,47 +35,50 @@ const ContactMainItem: React.FC<IContactMainItemProps> = (
         />
       </div>
       <Row middle={ViewportSizeEnum.md}>
-        <Col xs={12} md={4} mb={[12,'0']}>
+        <Col xs={12} md={4} mb={[12, '0']}>
           <Text type={'inherit'} className={'text_uppercase'} font={'object'} size={'xl'}>
-            {name && name.ru}
+            {name && GetLocalizationString(name)}
           </Text>
         </Col>
-        <Col xs={12} md={3} mb={[10,'0']}>
+        <Col xs={12} md={3} mb={[10, '0']}>
           {
-            addresses && addresses.map((item:LocalizedString, index) => (<Text
+            addresses
+            && addresses.map((item: Address, index: number) => (<Text
               key={index}
               type={'inherit'}
               font={'root'}
               size={'m'}
               mb={8}
             >
-              {item && item.ru}
+              {
+                item
+                && GetLocalizationString(item.addresses)
+              }
             </Text>))
           }
-
         </Col>
-        <Col xs={12} md={2} mb={[10,'0']}>
+        <Col xs={12} md={2} mb={[10, '0']}>
           {
-            phones && phones.map((item:LocalizedString, index) => (<Text
+            phones && phones.map((item: string, index) => (<Text
               key={index}
               type={'inherit'}
               font={'root'}
               size={'m'}
               mb={8}
             >
-              {item && item.ru}
+              {item}
             </Text>))
           }
         </Col>
-        <Col xs={12}  md={3} mb={[10,'0']}>
+        <Col xs={12} md={3} mb={[10, '0']}>
           {
-            emails && emails.map((item:LocalizedString, index) => (<Text
+            emails && emails.map((item: string, index) => (<Text
               key={index}
               type={'inherit'}
               font={'root'}
               size={'m'}
             >
-              {item && item.ru}
+              {item}
             </Text>))
           }
         </Col>

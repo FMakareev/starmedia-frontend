@@ -1,25 +1,39 @@
 import * as React from 'react';
 import TextLoop from "react-text-loop";
+import {LocalizedString, MainSection} from "../../../types/types";
+import {GetLocalizationString} from "../../../libs/GetLocalizationString";
 
-interface ISectionMainTitleProps {
+interface ISectionMainTitleProps extends MainSection {
   [prop: string]: any
 }
 
-const SectionMainTitle: React.FC<ISectionMainTitleProps> = () => {
+const SectionMainTitle: React.FC<ISectionMainTitleProps> = (
+  {
+    title,
+    animatedText,
+  }
+) => {
+
   return (
-    <div className="section-main_title">
+    <h1 className="section-main_title">
       <div className="section-main_title-static">
-        Делаем фильмы <br/>
-        и сериалы, которые
+        {
+          GetLocalizationString(title)
+        }
       </div>
       <div className="section-main_title-animated">
         <TextLoop interval={3000}>
-          <div>вдохновляют</div>
-          <div>захватывают дух</div>
-          <div>Запоминаются</div>
+          {
+            animatedText
+            && animatedText.map((text: LocalizedString, index: number) => (<div key={index}>
+              {
+                GetLocalizationString(text)
+              }
+            </div>))
+          }
         </TextLoop>
       </div>
-    </div>
+    </h1>
   );
 };
 

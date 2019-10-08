@@ -1,8 +1,8 @@
 import * as React from "react";
 
 
-export const useAccordion = () => {
-  const [isOpen, setOpen] = React.useState<number[]>([]);
+export const useAccordion = (initialState: number[] = []) => {
+  const [isOpen, setOpen] = React.useState<number[]>(initialState);
 
   const toggle = (index: number) => {
     if (isOpen.includes(index)) {

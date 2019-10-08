@@ -10,6 +10,7 @@ import Tilt from 'react-tilt'
 import placeholder from '../../static/images/project-placeholder.jpg';
 import {useTranslation} from "../../libs/i18n";
 import classNames from 'classnames';
+import {GetLocalizationString} from "../../libs/GetLocalizationString";
 
 interface IProjectCardProps extends Project {
   withInfo?: boolean;
@@ -17,12 +18,16 @@ interface IProjectCardProps extends Project {
   [prop: string]: any
 }
 
-const ProjectCard: React.FC<IProjectCardProps> = ({withInfo, href, title, projectInfo, preview,disabled}) => {
-  const {t} = useTranslation();
+const ProjectCard: React.FC<IProjectCardProps> = ({withInfo, href, title, projectInfo, preview, disabled}) => {
+  const {t, i18n} = useTranslation();
 
-  return (<a href={href} className={classNames('project-card_wrapper',{
-    'project-card_wrapper--disabled': disabled
-  })}>
+  const localTitle = GetLocalizationString(title);
+  return (<a
+    href={href}
+    className={classNames('project-card_wrapper', {
+      'project-card_wrapper--disabled': disabled
+    })}
+  >
     <Tilt
       options={{max: 5, scale: 1}}
     >
@@ -38,7 +43,7 @@ const ProjectCard: React.FC<IProjectCardProps> = ({withInfo, href, title, projec
             (src: string) => <img
               className="project-card_preview-img"
               src={src}
-              alt={title && title.ru || ''}
+              alt={localTitle || 'project poster'}
             />
           }
         </ProgressiveImage>
@@ -58,10 +63,21 @@ const ProjectCard: React.FC<IProjectCardProps> = ({withInfo, href, title, projec
     {
       withInfo && <div className="project-card_info">
 				<div className="project-card_info-title">
-          {title && title.ru}
+          {
+            localTitle
+          }
 				</div>
 				<div className="project-card_info-genre">
-          {projectInfo && projectInfo.genre && projectInfo.genre.ru}
+          {
+            projectInfo
+            && projectInfo.genre
+            // @ts-ignore
+            && projectInfo.genre[i18n.language] ? projectInfo.genre[i18n.language] : null
+          }
+
+          {
+            GetLocalizationString(projectInfo && projectInfo.genre)
+          }
 				</div>
 			</div>
     }

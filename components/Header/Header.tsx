@@ -6,6 +6,10 @@ import {
   useRouter,
   // withRouter
 } from "next/router";
+import {useLocalizationQuery} from "../../libs/useLocalizationQuery";
+import {GetContacts, MainContact} from "../../types/types";
+import {GetContactsENQuery, GetContactsRUQuery, GetContactsUKQuery} from "../../apollo/query/GetContactsQuery";
+import {useTranslation} from "../../libs/i18n";
 
 interface IHeaderProps {
   [prop: string]: any
@@ -13,18 +17,30 @@ interface IHeaderProps {
 
 const gettransparent = (route: string, isActive: boolean): boolean => {
 
-  if((route === '/' || route === '/project/[slug]') && !isActive){
+  if ((route === '/' || route === '/project/[slug]') && !isActive) {
     return true;
   }
   return false;
 }
 
+const GetContactByCurrentLang = (data?: GetContacts, language?: string): MainContact | undefined => {
+  if (data && data.getContacts.mainContacts) {
+    return data.getContacts.mainContacts.find((contact: MainContact): boolean => contact.locale === language)
+  }
+  return undefined;
+};
+
 const Header: React.FC<IHeaderProps> = () => {
   const {route} = useRouter();
+  const {i18n} = useTranslation();
 
   const [isActive, setActive] = React.useState(false);
   const [isScroll, setScroll] = React.useState(false);
 
+
+  const toggleMenu = () => {
+    setActive(!isActive)
+  };
   React.useEffect(() => {
     if (typeof window !== undefined) {
       if (window.pageYOffset > 50) {
@@ -46,21 +62,26 @@ const Header: React.FC<IHeaderProps> = () => {
 
   }, []);
 
+  const {data} = useLocalizationQuery<GetContacts>({
+    ru: GetContactsRUQuery,
+    en: GetContactsENQuery,
+    uk: GetContactsUKQuery,
+  });
 
-  const toggleMenu = () => {
-    setActive(!isActive)
-  };
 
+  const contacts = GetContactByCurrentLang(data, i18n.language)
   return (
     <header className={classNames('header', {
       'header--is-scroll': isScroll,
-      'header--transparent': gettransparent(route,isActive),
+      'header--transparent': gettransparent(route, isActive),
     })}>
       <HeaderDesktopTop
+        contact={contacts}
         toggleMenu={toggleMenu}
         isActive={isActive}
       />
       <HeaderDesktopMenu
+        contact={contacts}
         // @ts-ignore
         toggleMenu={toggleMenu}
         // @ts-ignore

@@ -1,16 +1,17 @@
 import * as React from 'react';
+import Link from "next/link";
 import Container from '../../components/Container/Container';
 import Col from '../../components/Col/Col';
 import Row from '../../components/Row/Row';
 import Text from '../../components/Text/Text';
-import ProjectCard from '../../components/ProjectCard/ProjectCard';
 import {Project} from '../../types/types';
 import ReactIdSwiper, {SwiperInstance} from "react-id-swiper";
 import CustomCursor from "../../components/CustomCursor/CustomCursor";
 import {useTranslation} from "../../libs/i18n";
+import ProjectCard from "../../components/ProjectCard/ProjectCard";
 
 interface IProjectSimilarProps {
-  projects: Project[];
+  projects?: Project[];
 
   [prop: string]: any
 }
@@ -33,6 +34,7 @@ const params = {
 const ProjectSimilar: React.FC<IProjectSimilarProps> = ({projects}) => {
   const {t} = useTranslation('common');
 
+
   return (
     <Col mb={[60, 100]}>
       <Container as={'section'} id={'similar'}>
@@ -50,20 +52,27 @@ const ProjectSimilar: React.FC<IProjectSimilarProps> = ({projects}) => {
       <CustomCursor>
         <ReactIdSwiper {...params}>
           {
-            [{}, ...projects, ...projects].map((item: Project, index: number) => {
+            // @ts-ignore
+            projects
+            && projects.map((item: any, index)=> {
               if (index === 0) {
                 return (<Col key={index} className={'project-detail-similar_first-item'}>
 
                 </Col>)
               }
-
               return (<Col
                 key={index}
                 style={{
                   width: '279px'
                 }}
               >
-                <ProjectCard withInfo={true} {...item}/>
+                <Link href={`/project/${item.slug}`}>
+                  <ProjectCard
+                    href={`/project/${item.slug}`}
+                    withInfo={true}
+                    {...item}
+                  />
+                </Link>
               </Col>)
             })
           }

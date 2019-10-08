@@ -3,13 +3,23 @@ import Container from "../../components/Container/Container";
 import Row from '../../components/Row/Row';
 import Col from '../../components/Col/Col';
 import Text from '../../components/Text/Text';
-import {ViewportSizeEnum} from "../../types/types";
+import {ViewportSizeEnum, AboutUs} from "../../types/types";
+import {GetLocalizationString} from "../../libs/GetLocalizationString";
+import {useTranslation} from "react-i18next";
+import Typeset from '../../components/Typeset/Typeset';
 
-interface IAboutDescriptionProps {
+interface IAboutDescriptionProps extends AboutUs {
   [prop: string]: any
 }
 
-const AboutDescription: React.FC<IAboutDescriptionProps> = () => {
+const AboutDescription: React.FC<IAboutDescriptionProps> = (
+  {
+    title,
+    content,
+    redBubble,
+  }
+) => {
+  const {i18n} = useTranslation();
   return (
     <Container mb={80}>
       <Row mb={40}>
@@ -19,8 +29,10 @@ const AboutDescription: React.FC<IAboutDescriptionProps> = () => {
             font={'object'}
             className={'text_uppercase'}
           >
-            Кинокомпания star media — один из лидеров по
-            производству фильмов и сериалов в россии
+            {
+              GetLocalizationString(title,i18n)
+            }
+
           </Text>
         </Col>
       </Row>
@@ -32,28 +44,13 @@ const AboutDescription: React.FC<IAboutDescriptionProps> = () => {
       </Row>
 
       <Row between={ViewportSizeEnum.md} middle={ViewportSizeEnum.md}>
-        <Col xs={12} md={4} mb={20}>
-          <Text
-            font={'root'}
-            size={'m'}
-            align={'left'}
-          >
-            Кинокомпания Star Media основана в 2006 году.
-            Сегодня Star Media — один из лидеров отечественного производства телефильмов и сериалов. Библиотека прав
-            насчитывает более пяти тысяч часов готового продукта собственного производства.
-          </Text>
+
+        <Col xs={12} md={8} mb={20}>
+          <Typeset
+            content={GetLocalizationString(content,i18n)}
+          />
         </Col>
-        <Col xs={12} md={4} mb={30}>
-          <Text
-            font={'root'}
-            size={'m'}
-            align={'left'}
-          >
-            Одно из главных направлений развития компании — дистрибуция контента на рынки других стран. Восточная и
-            Западная Европа, Ближний Восток, Китай, Япония, США, Израиль — более 50 зарубежных территорий постоянно
-            приобретают права на проекты Star Media.
-          </Text>
-        </Col>
+
         <Col xs={12} md={'auto'}>
           <div className="about-description_bubble">
             <Text
@@ -63,9 +60,9 @@ const AboutDescription: React.FC<IAboutDescriptionProps> = () => {
               font={'object'}
               align={'center'}
             >
-              библиотека <br/>
-              более 6000 часов <br/>
-              контента
+              {
+                GetLocalizationString(redBubble,i18n)
+              }
             </Text>
           </div>
         </Col>

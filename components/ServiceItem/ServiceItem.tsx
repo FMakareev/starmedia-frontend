@@ -2,6 +2,8 @@ import * as React from 'react';
 import AnimateHeight from 'react-animate-height';
 import classNames from 'classnames';
 
+import ServiceItemContent from './ServiceItemContent';
+
 export interface IServiceItemRowType {
   label?: string;
   value?: string;
@@ -27,9 +29,12 @@ const ServiceItem: React.FC<IServiceItemProps> = (
     title,
     isOpen,
     onClick,
-    rows,
+    content,
+    contacts,
+    forms,
   }
 ) => {
+
   return (
     <li className={classNames("service_item", {
       "service_item--active": isOpen,
@@ -52,28 +57,11 @@ const ServiceItem: React.FC<IServiceItemProps> = (
         duration={500}
         height={isOpen ? 'auto' : 0}
       >
-        <div className="service_item-content">
-          {
-            rows && rows.map((item:IServiceItemRowType, index: number )=>{
-
-              if(item.component){
-                return item.component({});
-              }
-
-              return (<div key={index} className="service_item-content-row">
-                <div className="service_item-content-label">
-                  {item.label}
-                </div>
-                <div className="service_item-content-value">
-                  {item.value}
-                </div>
-              </div>)
-            })
-          }
-
-
-        </div>
-
+        <ServiceItemContent
+          content={content}
+          contacts={contacts}
+          forms={forms}
+        />
       </AnimateHeight>
     </li>
   );

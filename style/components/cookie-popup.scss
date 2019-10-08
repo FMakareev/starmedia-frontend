@@ -3,8 +3,7 @@
     @include transitionHover;
     position: fixed;
     bottom: 0;
-    left: 0;
-    right: 0;
+    left: -10000px;
     z-index: 9;
     display: flex;
     flex-direction: row;
@@ -16,8 +15,11 @@
     background-color: #fff;
     opacity: 0;
 
+
     &--active {
       opacity: 1;
+      left: 0;
+      right: 0;
     }
 
     @media(min-width: 1024px){

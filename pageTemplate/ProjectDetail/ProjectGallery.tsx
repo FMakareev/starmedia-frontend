@@ -7,8 +7,10 @@ import ReactIdSwiper, {SwiperInstance} from 'react-id-swiper';
 import 'react-id-swiper/lib/styles/scss/swiper.scss';
 import CustomCursor from "../../components/CustomCursor/CustomCursor";
 import {useTranslation} from "../../libs/i18n";
+import {File} from '../../types/types';
 
 interface IProjectGalleryProps {
+  gallery?: File[];
   [prop: string]: any
 }
 
@@ -31,23 +33,12 @@ const params = {
   // activeSlideKey: '2',
 };
 
+const ProjectGallery: React.FC<IProjectGalleryProps> = (
+  {
+    gallery,
+  }
 
-const mock: any[] = [
-  "/static/images/mock/image1.jpg",
-  "/static/images/mock/image3.jpg",
-  "/static/images/mock/image2.jpg",
-  "/static/images/mock/image1.jpg",
-  "/static/images/mock/image3.jpg",
-  "/static/images/mock/image2.jpg",
-  "/static/images/mock/image1.jpg",
-  "/static/images/mock/image3.jpg",
-  "/static/images/mock/image2.jpg",
-  "/static/images/mock/image1.jpg",
-  "/static/images/mock/image3.jpg",
-  "/static/images/mock/image2.jpg",
-]
-
-const ProjectGallery: React.FC<IProjectGalleryProps> = () => {
+) => {
   const {t} = useTranslation('common');
 
   return (
@@ -71,7 +62,7 @@ const ProjectGallery: React.FC<IProjectGalleryProps> = () => {
       <CustomCursor>
         <ReactIdSwiper {...params}>
           {
-            mock.map((item: string, index: number) => {
+            gallery && gallery.map((item: File, index: number) => {
               if (index === 0) {
                 return (<Col key={index} className={'project-detail_gallery-first-item'}>
 
@@ -79,7 +70,7 @@ const ProjectGallery: React.FC<IProjectGalleryProps> = () => {
               }
 
               return (<Col key={index}>
-                <img src={item} alt=""/>
+                <img src={item.url || ''} alt=""/>
               </Col>)
             })
           }

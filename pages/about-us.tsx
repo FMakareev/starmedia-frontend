@@ -4,6 +4,11 @@ import AwardsList from '../pageTemplate/AboutUs/AwardsList';
 import AboutDevelop from '../pageTemplate/AboutUs/AboutDevelop';
 import AboutDescription from "../pageTemplate/AboutUs/AboutDescription";
 import {useTranslation} from "../libs/i18n";
+import Head from "../components/Head/Head";
+import {Fragment} from "react";
+import {useLocalizationQuery} from "../libs/useLocalizationQuery";
+import {GetAboutUsRUQuery, GetAboutUsENQuery, GetAboutUsUKQuery} from '../apollo/query/GetAboutUsQuery';
+import { GetAboutUs } from '../types/types';
 
 interface IAboutUsProps {
   [prop: string]: any
@@ -11,8 +16,21 @@ interface IAboutUsProps {
 
 const AboutUs: React.FC<IAboutUsProps> = () => {
   const {t} = useTranslation('nav');
+
+
+  const {data} = useLocalizationQuery<GetAboutUs>({
+    ru: GetAboutUsRUQuery,
+    en: GetAboutUsENQuery,
+    uk: GetAboutUsUKQuery,
+  });
+
+
   return (
-    <div>
+    <Fragment>
+      <Head
+        title={t('nav-about_us')}
+        seoTags={data && data.getAboutUs.seoTags}
+      />
       <LayoutTitleWithContent
         titleStyle={{
           mb: 32,
@@ -20,9 +38,13 @@ const AboutUs: React.FC<IAboutUsProps> = () => {
         title={t('nav-about_us')}
       >
 
-        <AboutDescription/>
+        <AboutDescription
+          {...(data && data.getAboutUs)}
+        />
 
-        <AboutDevelop/>
+        <AboutDevelop
+          {...(data && data.getAboutUs)}
+        />
 
 
       </LayoutTitleWithContent>
@@ -36,7 +58,7 @@ const AboutUs: React.FC<IAboutUsProps> = () => {
       >
         <AwardsList/>
       </LayoutTitleWithContent>
-    </div>
+    </Fragment>
   );
 };
 

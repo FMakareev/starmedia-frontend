@@ -26,10 +26,14 @@
   "city_london": "Лондон",
 
   "form-field_submit-get-catalog": "Отримати каталог",
+  "form-field_submit-get-presentation": "Отримати презентацію",
+  "form-field_submit-send-request": "Відправити заявку",
 
   "form-field_label-city": "Місто",
   "form-field_label-fio": "Ім'я та прізвище",
   "form-field_label-email": "Email",
+  "form-field_label-company": "Компанія",
+  "form-field_label-position": "Посада",
   "form-field_label-file": "Ваш сценарій в pdf, doc або zip",
   "form-field_label2-file": "Вибрати інший файл",
   "form-field_placeholder-file": "Перетягніть файл в це віконце ілі натисніть щоб вибрати файл",

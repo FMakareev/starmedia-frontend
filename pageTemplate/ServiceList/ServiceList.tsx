@@ -1,28 +1,40 @@
 import * as React from 'react';
 import ServiceItem from "../../components/ServiceItem/ServiceItem";
-import { ServicesListConfig } from './ServicesListConfig';
 import {useAccordion} from "../../libs/useAccordion";
+import {GetServices} from "../../types/types";
+import {GetLocalizationString} from '../../libs/GetLocalizationString';
 
-interface IServiceListProps {
+interface IServiceListProps extends GetServices {
   [prop: string]: any
 }
 
-const ServiceList: React.FC<IServiceListProps> = () => {
-
+const ServiceList: React.FC<IServiceListProps> = (
+  {
+    getServices
+  }
+) => {
   const {isOpen, toggle} = useAccordion();
 
   return (
     <ul className="service_list">
+
       {
-        ServicesListConfig.map((item: any, index: number) => (<ServiceItem
-          onClick={() => toggle(index)}
-          isOpen={isOpen.includes(index)}
-          number={`0${index + 1}`}
-          key={index}
-          title={item.title}
-          rows={item.rows}
-        />))
+        getServices && Object.entries(getServices)
+          .filter(([key],) => key !== 'seoTags' && key !== '__typename')
+          .map(([key, value], index) => {
+            return (<ServiceItem
+              id={key}
+              onClick={() => toggle(index)}
+              isOpen={isOpen.includes(index)}
+              number={`0${index + 1}`}
+              key={index}
+              {...value}
+              title={GetLocalizationString(value && value.name)}
+              content={GetLocalizationString(value && value.content)}
+            />)
+          })
       }
+
     </ul>
   );
 };

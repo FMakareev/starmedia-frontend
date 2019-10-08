@@ -2,6 +2,7 @@ import * as React from 'react';
 import {Maybe, ProjectInfo} from '../../types/types';
 import Text from "../../components/Text/Text";
 import {useTranslation} from "../../libs/i18n";
+import {GetLocalizationString} from "../../libs/GetLocalizationString";
 
 interface IProjectInfoProps {
   projectInfo?: Maybe<ProjectInfo>;
@@ -16,13 +17,20 @@ const ProjectInfoList: React.FC<IProjectInfoProps> = ({projectInfo}) => {
   return (
     <ul className={'project-info_list'}>
       {
-        projectInfo && Object.entries(projectInfo).map(([key, value]: any, index) => {
+        projectInfo && Object.entries(projectInfo)
+          .filter(([key])=>key !== '__typename')
+          .map(([key, value]: any, index) => {
           return (<li key={index} className={'project-info_item'}>
             <Text type={'secondary'} font={'object'}  className={'project-info_label'}>
               {t('project-info_'+key)}
             </Text>
             <Text type={'secondary'} font={'root'} className={'project-info_value'}>
-              {value && value.ru}
+              {
+                (typeof value === 'number') && value
+              }
+              {
+                (typeof value !== 'string') && GetLocalizationString(value)
+              }
             </Text>
           </li>)
         })

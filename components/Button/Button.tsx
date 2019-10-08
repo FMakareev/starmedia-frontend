@@ -107,6 +107,7 @@ export const Button = ({as = 'button', Component, className, children, href, onC
     ),
     href,
     onClick,
+    ...rest,
   }, children)
 
 };

@@ -1,20 +1,18 @@
 import * as React from 'react';
+import Link from 'next/link';
 import Container from '../../components/Container/Container';
 import Col from '../../components/Col/Col';
 import Row from '../../components/Row/Row';
 import Text from '../../components/Text/Text';
 import {Award} from "../../types/types";
 import AwardCard from '../../components/AwardCard/AwardCard';
-// @ts-ignore
-import "../../node_modules/slick-carousel/slick/slick.css";
-import "../../node_modules/slick-carousel/slick/slick-theme.css";
+
 import ReactIdSwiper, {SwiperInstance} from 'react-id-swiper';
 import CustomCursor from "../../components/CustomCursor/CustomCursor";
 import {useTranslation} from "../../libs/i18n";
-import Link from 'next/link';
 
 interface IProjectAwardsProps {
-  awards: Award[];
+  awards?: Award[];
 
   [prop: string]: any
 }
@@ -33,7 +31,11 @@ const params = {
   }
 };
 
-const ProjectAwards: React.FC<IProjectAwardsProps> = () => {
+const ProjectAwards: React.FC<IProjectAwardsProps> = (
+  {
+    awards
+  }
+) => {
   const {t} = useTranslation('common');
 
   return (
@@ -55,37 +57,26 @@ const ProjectAwards: React.FC<IProjectAwardsProps> = () => {
             <ReactIdSwiper
               {...params}
             >
-              <Col className={'project-detail_awards-slider-first-item'}>
+              {
+                awards && awards.map((award: Award, index: number)=>{
 
-              </Col>
-              <Col className={'project-detail_awards-slider-item'}>
-                <Link href={'/award/asd'}>
-                  <a href={'/award/asd'}>
-                    <AwardCard/>
-                  </a>
-                </Link>
-              </Col>
-              <Col className={'project-detail_awards-slider-item'}>
-                <Link href={'/award/asd'}>
-                  <a href={'/award/asd'}>
-                    <AwardCard/>
-                  </a>
-                </Link>
-              </Col>
-              <Col className={'project-detail_awards-slider-item'}>
-                <Link href={'/award/asd'}>
-                  <a href={'/award/asd'}>
-                    <AwardCard/>
-                  </a>
-                </Link>
-              </Col>
-              <Col className={'project-detail_awards-slider-item'}>
-                <Link href={'/award/asd'}>
-                  <a href={'/award/asd'}>
-                    <AwardCard/>
-                  </a>
-                </Link>
-              </Col>
+                  if(index === 0){
+                    return (<Col className={'project-detail_awards-slider-first-item'}>
+
+                    </Col>)
+                  }
+
+                  return (<Col className={'project-detail_awards-slider-item'}>
+                    <Link href={`/award/${award.slug}`}>
+                      <a href={`/award/${award.slug}`}>
+                        <AwardCard
+                          {...award}
+                        />
+                      </a>
+                    </Link>
+                  </Col>)
+                })
+              }
             </ReactIdSwiper>
 
           </Row>

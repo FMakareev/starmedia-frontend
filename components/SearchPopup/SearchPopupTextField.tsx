@@ -10,7 +10,7 @@ const SearchPopupTextField: React.FC<ISearchPopupTextFieldProps> = () => {
   const {t} = useTranslation('common');
 
   return (
-    <label className={'search-popup-text-field_wrapper'}>
+    <label aria-label={'search field'} className={'search-popup-text-field_wrapper'}>
       <input
         className={'search-popup-text-field'}
         type="text"

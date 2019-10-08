@@ -25,5 +25,7 @@ export const {
 	withTranslation,
 	useTranslation,
 	Trans,
+	...rest
 } = NextI18NextInstance;
+
 export default NextI18NextInstance

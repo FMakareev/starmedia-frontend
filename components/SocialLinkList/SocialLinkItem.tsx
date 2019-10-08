@@ -11,7 +11,7 @@ interface ISocialLinkItemProps extends SocialLink {
 
 const SocialLinkItem: React.FC<ISocialLinkItemProps> = ({url, icon, mods, shortName, variant}) => {
   return (
-    <Button className={'social-links_link'} mods={mods} href={url || '/404'} target={'_blank'}>
+    <Button aria-label={'social network link'}  as={'a'} className={'social-links_link'} mods={mods} href={url || '/404'} target={'_blank'}>
       {
         variant === SocialLinkVariantEnum.icon &&
 				<svg width="24px" height="24px" className="social-links_icon">
@@ -30,5 +30,5 @@ const SocialLinkItem: React.FC<ISocialLinkItemProps> = ({url, icon, mods, shortN
 };
 SocialLinkItem.defaultProps = {
   mods: ['light']
-}
+};
 export default SocialLinkItem;

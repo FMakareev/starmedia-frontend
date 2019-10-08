@@ -6,6 +6,8 @@ import Text from '../../components/Text/Text';
 import ShareButton from '../../components/ShareButton/ShareButton';
 import {Project} from "../../types/types";
 import {useTranslation} from "../../libs/i18n";
+import {GetLocalizationString} from "../../libs/GetLocalizationString";
+import Typeset from "../../components/Typeset/Typeset";
 
 interface IProjectDescriptionProps extends Project {
   [prop: string]: any
@@ -24,7 +26,9 @@ const ProjectDescription: React.FC<IProjectDescriptionProps> = ({description}) =
             }
           </Text>
           <Text font={'root'} size={'m'}>
-            {description && description.ru}
+            <Typeset
+              content={GetLocalizationString(description)}
+            />
           </Text>
         </Col>
         <Col mdOffset={1} md={4} xs={12}>

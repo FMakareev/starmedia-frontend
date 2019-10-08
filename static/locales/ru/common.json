@@ -1,4 +1,7 @@
 {
+
+
+
   "button_detail": "Подробнее",
   "button_detail-project": "Подробнее о проекте",
   "button_show-more": "Показать еще",
@@ -28,10 +31,14 @@
 
 
   "form-field_submit-get-catalog": "Получить каталог",
+  "form-field_submit-get-presentation": "Получить презентацию",
+  "form-field_submit-send-request": "Отправить заявку",
 
   "form-field_label-city": "Город",
   "form-field_label-fio": "Имя и фамилия",
   "form-field_label-email": "Email",
+  "form-field_label-company": "Компания",
+  "form-field_label-position": "Позиция",
   "form-field_label-file": "Ваш сценарий в pdf, doc или zip",
   "form-field_label2-file": "Выбрать другой файл",
   "form-field_placeholder-file": "Перетащите файл в это окошко \nили нажмите чтобы выбрать файл",

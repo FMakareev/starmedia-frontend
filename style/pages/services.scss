@@ -30,7 +30,8 @@
         color: $color-typo-brand;
       }
     }
-    &:last-child{
+
+    &:last-child {
       &:after {
         content: '';
         position: absolute;
@@ -66,9 +67,16 @@
 
   &_item-top-number {
     @extend .text_font-object;
-    @extend .text_size-l;
-    margin-right: 64px;
-    width: 42px;
+    width: 32px;
+    font-size: $size-typo-xs;
+    line-height: $line-height-typo-xs;
+
+    @media(min-width: 768px) {
+      margin-right: 64px;
+      width: 42px;
+      font-size: $size-typo-l;
+      line-height: $line-height-typo-l;
+    }
   }
 
   &_item-top-title {
@@ -78,11 +86,48 @@
     text-transform: uppercase;
   }
 
+  &_item-contacts {
+    &_wrapper {
+      background-color: #F0F0F0;
+      padding: 40px 0;
+      margin-left: -16px;
+      margin-right: -16px;
+
+      @media(min-width: 768px) {
+        padding: 40px 16px 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      @media(min-width: 1440px) {
+        padding: 50px 35px 0;
+      }
+    }
+
+    &_item {
+      padding-left: 16px;
+      padding-right: 16px;
+
+
+      @media(min-width: 768px) {
+        width: 50%;
+      }
+
+      @media(min-width: 1440px) {
+        padding-left: 35px;
+        padding-right: 35px;
+      }
+
+    }
+  }
+
   &_item-top-toggle {
     position: relative;
     width: 46px;
     height: 46px;
-    &:after,&:before {
+
+    &:after, &:before {
       content: '';
       position: absolute;
       width: 30px;
@@ -96,6 +141,7 @@
     &:after {
       transform: rotate(-45deg);
     }
+
     &:before {
       transform: rotate(45deg);
     }
@@ -104,8 +150,13 @@
   &_item-content {
     padding-top: 30px;
     padding-bottom: 80px;
-    margin-left: 124px;
-    margin-right: 26px;
+    margin-left: 16px;
+    margin-right: 16px;
+    @media only screen and (min-width: map_get($screen, "sm")) {
+
+      margin-left: 120px;
+      margin-right: 26px;
+    }
     @media only screen and (min-width: map_get($screen, "lg")) {
       margin-right: 120px;
       margin-left: 132px;
@@ -117,28 +168,103 @@
   }
 
   &_item-content-row {
-    display: flex;
     margin-bottom: 30px;
+
+    @media(min-width: 1024px) {
+      display: flex;
+
+    }
   }
+
   &_item-content-label {
     @extend .text_font-object;
     @extend .text_size-xs;
+    margin-bottom: 16px;
     text-align: left;
     text-transform: uppercase;
-    width: 350px;
+
+    width: 100%;
+    @media(min-width: 1024px) {
+      width: 300px;
+    }
+    @media(min-width: 1440px) {
+      width: 350px;
+    }
   }
 
   &_item-content-value {
     @extend .text_font-root;
     @extend .text_size-m;
+    width: 100%;
+    @media(min-width: 1024px) {
+      width: calc(100% - 300px);
+    }
 
-    width: calc(100% - 350px);
+    @media(min-width: 1440px) {
+      width: calc(100% - 350px);
+    }
   }
 
   &_item-content-card {
     background-color: $color-bg-primary;
     padding: 32px 40px;
     margin-left: -40px;
+  }
+
+  &_item-content-form {
+
+    &_list {
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: -16px;
+      margin-right: -16px;
+
+      @media(min-width: 768px) {
+
+        margin-left: -32px;
+        margin-right: -8px;
+      }
+      @media(min-width: 1200px) {
+        margin-left: -48px;
+        margin-right: -8px;
+      }
+    }
+
+    &_item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      margin: 8px;
+      background-color: #f0f0f0;
+      padding: 16px 20px;
+      cursor: pointer;
+
+
+      @media(min-width: 768px) {
+        width: calc(50% - 16px);
+        padding: 16px 20px;
+      }
+
+      @media(min-width: 1200px) {
+        padding: 32px 40px;
+      }
+
+    }
+
+    &_item-label {
+      @extend .text_font-object;
+      font-size: $size-typo-xs;
+      line-height: $line-height-typo-xs;
+      text-transform: uppercase;
+      width: calc(100% - 64px);
+
+      @media(min-width: 768px) {
+        font-size: $size-typo-m;
+        line-height: $line-height-typo-m;
+      }
+    }
+
   }
 
 }
