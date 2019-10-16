@@ -12,19 +12,19 @@ export const GetHomePageRUQuery = gql`
                     ru
                 }
             }
-#            aboutUsSection {
-#                title {
-#                    ru
+            aboutUsSection {
+                title {
+                    ru
+                }
+#                backgroudVideo {
+#                    preview {
+#                        url
+#                    }
+#                    video {
+#                        url
+#                    }
 #                }
-##                backgroudVideo {
-##                    preview {
-##                        url
-##                    }
-##                    video {
-##                        url
-##                    }
-##                }
-#            }
+            }
             orderCatalog {
                 title {
                     ru
@@ -84,6 +84,10 @@ export const GetHomePageRUQuery = gql`
             }
             count
             items {
+                slug
+                preview {
+                    url
+                }
                 name{
                     ru
                 }
@@ -98,6 +102,10 @@ export const GetHomePageRUQuery = gql`
             }
             count
             items {
+                slug
+                preview {
+                    url
+                }
                 title{
                     ru
                 }
@@ -117,19 +125,19 @@ export const GetHomePageENQuery = gql`
                     en
                 }
             }
-#            aboutUsSection {
-#                title {
-#                    en
+            aboutUsSection {
+                title {
+                    en
+                }
+#                backgroudVideo {
+#                    preview {
+#                        url
+#                    }
+#                    video {
+#                        url
+#                    }
 #                }
-##                backgroudVideo {
-##                    preview {
-##                        url
-##                    }
-##                    video {
-##                        url
-##                    }
-##                }
-#            }
+            }
             orderCatalog {
                 title {
                     en
@@ -189,6 +197,10 @@ export const GetHomePageENQuery = gql`
             }
             count
             items {
+                slug
+                preview {
+                    url
+                }
                 name{
                     en
                 }
@@ -203,6 +215,10 @@ export const GetHomePageENQuery = gql`
             }
             count
             items {
+                slug
+                preview {
+                    url
+                }
                 title{
                     en
                 }
@@ -222,19 +238,19 @@ export const GetHomePageUKQuery = gql`
                     uk
                 }
             }
-#            aboutUsSection {
-#                title {
-#                    uk
+            aboutUsSection {
+                title {
+                    uk
+                }
+#                backgroudVideo {
+#                    preview {
+#                        url
+#                    }
+#                    video {
+#                        url
+#                    }
 #                }
-##                backgroudVideo {
-##                    preview {
-##                        url
-##                    }
-##                    video {
-##                        url
-##                    }
-##                }
-#            }
+            }
             orderCatalog {
                 title {
                     uk
@@ -294,6 +310,10 @@ export const GetHomePageUKQuery = gql`
             }
             count
             items {
+                slug
+                preview {
+                    url
+                }
                 name{
                     uk
                 }
@@ -308,6 +328,10 @@ export const GetHomePageUKQuery = gql`
             }
             count
             items {
+                slug
+                preview {
+                    url
+                }
                 title{
                     uk
                 }

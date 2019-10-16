@@ -21,7 +21,7 @@ interface IContactsProps {
 
 const ContactMap = dynamic(() => import('../pageTemplate/Contacts/ContactMap'),{
   ssr: false,
-})
+});
 
 // @ts-ignore
 const Contacts: React.FC<IContactsProps> = () => {

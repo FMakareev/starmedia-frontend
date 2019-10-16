@@ -1,9 +1,8 @@
 import * as React from 'react';
 import Link from "next/link";
 import {useTranslation} from "../../../libs/i18n";
-import {useLocalizationQuery} from "../../../libs/useLocalizationQuery";
-import {GetFormatQueryRU, GetFormatQueryEN, GetFormatQueryUK} from "../../../apollo/query/GetFormatQuery";
-import {FormatGQL, GetFormat} from '../../../types/projectTypes';
+import {useGetFormatQuery} from "../../../apollo/query/GetFormatQuery";
+import {FormatGQL} from '../../../types/projectTypes';
 import {GetLocalizationString} from "../../../libs/GetLocalizationString";
 
 interface ISectionMainCatalogFormatProps {
@@ -14,13 +13,7 @@ const SectionMainCatalogFormat: React.FC<ISectionMainCatalogFormatProps> = () =>
   const {i18n} = useTranslation(['nav']);
 
 
-  const {data, loading} = useLocalizationQuery<GetFormat>({
-    ru: GetFormatQueryRU,
-    en: GetFormatQueryEN,
-    uk: GetFormatQueryUK,
-  });
-
-  console.log(data, loading);
+  const {data} = useGetFormatQuery();
 
   return (
     <ul className={'section-main_catalog-format-list'}>

@@ -2,7 +2,7 @@ import * as React from 'react';
 import dynamic from 'next/dynamic'
 import Text from '../../components/Text/Text';
 import Col from '../../components/Col/Col';
-import {ButtonElementEnum, MainContact, FormEnum, Forms, Maybe} from "../../types/types";
+import {ButtonElementEnum, FormEnum, Forms, Maybe, Person} from "../../types/types";
 import {GetLocalizationString} from "../../libs/GetLocalizationString";
 import Button from '../../components/Button/Button';
 import MailSmallIcon from "../Icons/MailSmallIcon";
@@ -49,7 +49,8 @@ const ServiceItemContent: React.FC<IServiceItemContentProps> = (
 						<div className="service_item-contacts_wrapper">
 
               {
-                contacts && contacts.map((item: MainContact, index: number) => (<Col
+                contacts
+                && contacts.map((item: Person, index: number) => (<Col
                   mb={40}
                   className="service_item-contacts_item"
                   key={index}

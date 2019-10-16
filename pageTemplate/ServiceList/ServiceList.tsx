@@ -21,18 +21,16 @@ const ServiceList: React.FC<IServiceListProps> = (
       {
         getServices && Object.entries(getServices)
           .filter(([key],) => key !== 'seoTags' && key !== '__typename')
-          .map(([key, value], index) => {
-            return (<ServiceItem
-              id={key}
-              onClick={() => toggle(index)}
-              isOpen={isOpen.includes(index)}
-              number={`0${index + 1}`}
-              key={index}
-              {...value}
-              title={GetLocalizationString(value && value.name)}
-              content={GetLocalizationString(value && value.content)}
-            />)
-          })
+          .map(([key, value], index) => (<ServiceItem
+            id={key}
+            onClick={() => toggle(index)}
+            isOpen={isOpen.includes(index)}
+            number={`0${index + 1}`}
+            key={index}
+            {...value}
+            title={GetLocalizationString(value && value.name)}
+            content={GetLocalizationString(value && value.content)}
+          />))
       }
 
     </ul>

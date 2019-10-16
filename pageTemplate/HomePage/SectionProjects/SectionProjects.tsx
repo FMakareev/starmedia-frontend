@@ -32,12 +32,13 @@ const SectionProjects: React.FC<ISectionProjectsProps> = ({projectList}) => {
         <Row className="section-projects_grid">
           {
             projectList
-            && projectList.map((item: Project, index: number) =>
-              <Col key={index}>
+            && projectList.map((item: Project, index: number) =>{
+              return (<Col key={index}>
                 <ProjectCard
                   href={`/project/${item.slug}`}
                   withInfo={false} {...item}/>
               </Col>)
+            })
           }
         </Row>
       </Container>

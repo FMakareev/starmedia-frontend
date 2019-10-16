@@ -1,4 +1,6 @@
 import { gql } from "apollo-boost";
+import {useLocalizationQuery} from "../../libs/useLocalizationQuery";
+import {GetFormat} from "../../types/projectTypes";
 
 
 
@@ -34,3 +36,12 @@ export const GetFormatQueryUK = gql`
         }
     }
 `;
+
+
+export const useGetFormatQuery = ()=>{
+    return useLocalizationQuery<GetFormat>({
+        ru: GetFormatQueryRU,
+        en: GetFormatQueryEN,
+        uk: GetFormatQueryUK,
+    });
+};

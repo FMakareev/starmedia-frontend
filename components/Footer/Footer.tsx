@@ -12,6 +12,9 @@ import SocialLinkList from '../SocialLinkList/SocialLinkList';
 import {useTranslation} from "../../libs/i18n";
 import ShowComponentInLocales from '../../components/ShowComponentInLocales/ShowComponentInLocales';
 import {SocialLinkTypeEnum} from "../../types/socialLink";
+import {useGetFormatQuery} from "../../apollo/query/GetFormatQuery";
+import {FormatGQL} from "../../types/projectTypes";
+import {GetLocalizationString} from "../../libs/GetLocalizationString";
 
 interface IFooterProps {
   [prop: string]: any
@@ -43,8 +46,10 @@ export const Menu: any[] = [
 
 
 const Footer: React.FC<IFooterProps> = () => {
-  const {t: tNav} = useTranslation('nav');
+  const {t: tNav, i18n} = useTranslation('nav');
   const {t: tFooter} = useTranslation('footer');
+  const {data} = useGetFormatQuery();
+
   return (
     <footer className={'footer'}>
       <Container>
@@ -70,63 +75,22 @@ const Footer: React.FC<IFooterProps> = () => {
             </ul>
           </Col>
           <Col md={3} sm={'none'} xs={'none'}>
-            <ul className={'footer_nav-list'}>
-              <li className={'footer_nav-item'}>
-                <Button
-                  className={'text_align-left'}
-                  mods={['light', 'm']}
-                  element={ButtonElementEnum.link}
-                  href={'/projects'}
-                  as={'a'}
-                >
-                  {tNav("nav-project-list")}
-                </Button>
-              </li>
-              <li className={'footer_nav-item'}>
-                <Link
-                  href={'/projects?format=films'}
-                >
+            <ul className={'footer_nav-list  mb-32'}>
+              {
+                data && data.getFormat.map((item: FormatGQL, index: number) => ( <li key={index} className={'footer_nav-item'}>
                   <Button
                     className={'text_align-left'}
-                    mods={['light', 's']}
+                    mods={['light', 'm']}
                     element={ButtonElementEnum.link}
-                    href={'/projects?format=films'}
+                    href={'/projects'}
                     as={'a'}
                   >
-                    {tNav("nav-project-films")}
+                    {
+                      GetLocalizationString(item.name, i18n)
+                    }
                   </Button>
-                </Link>
-              </li>
-              <li className={'footer_nav-item'}>
-                <Link
-                  href={'/projects?format=serial'}
-                >
-                  <Button
-                    className={'text_align-left'}
-                    mods={['light', 's']}
-                    element={ButtonElementEnum.link}
-                    href={'item.href'}
-                    as={'a'}
-                  >
-                    {tNav("nav-project-serial")}
-                  </Button>
-                </Link>
-              </li>
-              <li className={'footer_nav-item'}>
-                <Link
-                  href={'/projects?format=telefilm'}
-                >
-                  <Button
-                    className={'text_align-left'}
-                    mods={['light', 's']}
-                    element={ButtonElementEnum.link}
-                    href={'item.href'}
-                    as={'a'}
-                  >
-                    {tNav("nav-project-telefilm")}
-                  </Button>
-                </Link>
-              </li>
+                </li>))
+              }
             </ul>
             <ShowComponentInLocales locales={['uk']}>
               <Button

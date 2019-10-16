@@ -138,11 +138,9 @@ const ProjectFilter: React.FC<IProjectFilterProps> = (
             input={{
               value: filters.query,
               onChange: (event: any) => {
-                console.log(event);
-                console.log(event.target.value);
                 setFilters({
                   ...filters,
-                  query: event.target.value,
+                  search: event.target.value,
                 })
               }
             }}

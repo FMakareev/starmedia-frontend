@@ -9,6 +9,7 @@ import Text from '../../../components/Text/Text';
 import Button from '../../../components/Button/Button';
 import {ButtonElementEnum, ViewportSizeEnum, OrderCatalog} from "../../../types/types";
 import PdfIcon from "../../../components/Icons/PDFIcon";
+import { Parallax } from "react-scroll-parallax"
 
 // @ts-ignore
 import Tilt from 'react-tilt'
@@ -41,23 +42,18 @@ const SectionGetCatalog: React.FC<ISectionGetCatalogProps> = (
     <div className={'section-get-catalog'}>
 
       <div className="section-get-catalog_bg">
-        <Tilt
-          options={{
-            max: 10,
-            scale: 1,
-            reverse: false,
-            transition: true,
-            easing: "cubic-bezier(.03,.98,.52,.99)",
-          }}
+        <Parallax
+          y={[-40, 0]}
+          tagOuter="figure"
         >
           <img
             style={{
-              transform: 'scale(1.2)',
+              transform: 'scale(1)',
             }}
             src={'../../../static/images/Grey bg.jpg'}
             alt=""
           />
-        </Tilt>
+        </Parallax>
       </div>
 
       <Container>

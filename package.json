@@ -7,7 +7,7 @@
     "build:server": "tsc --project tsconfig.server.json",
     "build": "next build && tsc --project tsconfig.server.json",
     "build:analyzer": "cross-env ANALYZE=true yarn build",
-    "start": "cross-env NODE_ENV=production node dist/server/index.js",
+    "start": "cross-env NODE_ENV=production PORT=6000 node dist/server/index.js",
     "storybook": "start-storybook -p 6006 -c .storybook",
     "run-faker": "graphql-faker --open ./ext-swapi.graphql"
   },
@@ -52,6 +52,7 @@
     "react-intl": "^3.3.0",
     "react-paginate": "^6.3.0",
     "react-progressive-image": "^0.6.0",
+    "react-scroll-parallax": "^2.2.0",
     "react-select": "^3.0.5",
     "react-share": "^3.0.1",
     "react-skylight": "^0.5.1",

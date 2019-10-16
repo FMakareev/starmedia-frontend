@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Field, Form} from 'react-final-form'
 import TextField from '../../components/TextField/TextField';
-import Select from "../../components/Select/Select";
+// import Select from "../../components/Select/Select";
 import Text from "../../components/Text/Text";
 import Row from "../../components/Row/Row";
 import Col from '../../components/Col/Col';
@@ -11,6 +11,8 @@ import DropField from "../../components/DropField/DropField";
 import DropFieldHoc from "../../components/DropFieldHOC/DropFieldHOC";
 import Checkbox from "../../components/Checkbox";
 import {useTranslation} from "../../libs/i18n";
+import Link from "next/link";
+import dynamic from 'next/dynamic';
 
 interface ICooperationFormProps {
   [prop: string]: any
@@ -31,32 +33,28 @@ const DropFieldWithHOC = DropFieldHoc(DropField)();
 
 
 
-const initialValues = (t:any,language: any) => {
+const SelectSlim = dynamic(()=>import("../../components/SelectSlim/SelectSlim"),{
+  ssr: false,
+});
+
+
+const initialValues = (language: any) => {
 
   if(language === 'ru'){
     return {
-      city: {
-        label: t("city_moscow"),
-        value: 'moscow',
-      },
+      city: 'moscow',
     }
   }
   if(language === 'en'){
 
     return {
-      city: {
-        label: t("city_london"),
-        value: 'london',
-      },
+      city: 'london',
     }
   }
   if(language === 'uk'){
 
     return {
-      city: {
-        label: t("city_kiev"),
-        value: 'kiev',
-      },
+      city: 'kiev',
     }
   }
 
@@ -77,7 +75,7 @@ const CooperationForm: React.FC<ICooperationFormProps> = (
       onSubmit={() => {
         onSubmit && onSubmit()
       }}
-      initialValues={initialValues(t, i18n.language)}
+      initialValues={initialValues(i18n.language)}
       validate={validate}
       render={({handleSubmit}) => (
         <form onSubmit={handleSubmit}>
@@ -106,7 +104,7 @@ const CooperationForm: React.FC<ICooperationFormProps> = (
                     value: 'london',
                   },
                 ]}
-                render={(props: any) => <Select {...props}/>}
+                render={(props: any) => <SelectSlim {...props}/>}
               />
             </Col>
             <Col mb={40} xs={12} sm={6}>
@@ -159,13 +157,15 @@ const CooperationForm: React.FC<ICooperationFormProps> = (
                   font={'root'}
                   size={'s'}
                 >
-                  {t('form-privacy_agree')}<a
-                  href="/"
-                  target={'_blank'}
-                  className={'button_link button_link--font-root button_link--decoration'}
-                >
-                  {t('form-privacy_link')}
-                </a>
+                  {t('form-privacy_agree')} <Link href={'/privacy'}>
+                  <a
+                    href="/privacy"
+                    target={'_blank'}
+                    className={'button_link button_link--font-root button_link--decoration'}
+                  >
+                    {t('form-privacy_link')}
+                  </a>
+                </Link>
                 </Text>}
                 type={'checkbox'}
                 render={Checkbox}

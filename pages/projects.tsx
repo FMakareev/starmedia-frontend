@@ -8,6 +8,7 @@ import {usePaginationQuery} from "../libs/usePaginationQuery";
 import {PaginationVariables} from "../types/types";
 import {ProjectPaginationRU, ProjectPaginationEN, ProjectPaginationUK} from '../apollo/query/GetProjectQuery';
 import {ProjectPagination} from '../types/projectTypes';
+import {useRouter} from "next/router";
 
 
 interface IProjectsProps {
@@ -16,11 +17,15 @@ interface IProjectsProps {
 
 const Projects: React.FC<IProjectsProps> = ({t}) => {
 
+  const {query} = useRouter();
+
+  console.log('query: ', query);
+
   const [filters, setFilter] = React.useState({
-    genre: '',
-    format: '',
-    year: 0,
-    query: '',
+    genre: query && query.ganre || '',
+    format: query && query.format || '',
+    year: query && query.year || '',
+    search: query && query.search || '',
   });
 
   const {
@@ -43,7 +48,7 @@ const Projects: React.FC<IProjectsProps> = ({t}) => {
       genre: filters.genre,
       format: filters.format,
       year: filters.year,
-      query: filters.query,
+      query: filters.search,
     },
   });
 

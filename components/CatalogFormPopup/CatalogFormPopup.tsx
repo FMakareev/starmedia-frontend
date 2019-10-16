@@ -33,35 +33,38 @@ const CatalogFormPopup: React.FC<ICatalogFormPopupProps> = (
   }
 ) => {
   return (
-    <SkyLightStateless
-      dialogStyles={myBigGreenDialog}
-      closeButtonStyle={closeButtonStyle}
-      isVisible={isVisible}
-      onCloseClicked={onClose}
-      onOverlayClicked={onClose}
-    >
-      <Col
-        className={'section-get-catalog_form-wrapper'}
-        style={{
-          backgroundColor: "#fff",
-          position: 'absolute',
-          maxWidth: "520px",
-          minHeight: "400px",
-          left: '50%',
-          top: '50%',
-          transform: 'translate(-50%,-50%)',
-          padding: '48px 48px 56px 48px',
-        }}
+    <div className={'section-get-catalog_popup'}>
+      <SkyLightStateless
+        dialogStyles={myBigGreenDialog}
+        closeButtonStyle={closeButtonStyle}
+        isVisible={isVisible}
+        onCloseClicked={onClose}
+        onOverlayClicked={onClose}
       >
-        <CatalogForm
-          initialValues={{
-            title,
-            form: form && form.id,
+        <Col
+          className={'section-get-catalog_form-wrapper skylight-dialog'}
+          style={{
+            backgroundColor: "#fff",
+            position: 'absolute',
+            maxWidth: "420px",
+            width: '100%',
+            minHeight: "400px",
+            left: '50%',
+            top: '50%',
+            transform: 'translate(-50%,-50%)',
+            padding: '48px 48px 56px 48px',
           }}
-          onCloseClicked={onClose}
-        />
-      </Col>
-    </SkyLightStateless>
+        >
+          <CatalogForm
+            initialValues={{
+              title,
+              form: form && form.id,
+            }}
+            onCloseClicked={onClose}
+          />
+        </Col>
+      </SkyLightStateless>
+    </div>
   );
 };
 

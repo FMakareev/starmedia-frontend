@@ -133,6 +133,7 @@
     @media (min-width: 768px) {
       margin-bottom: 0;
     }
+
     * {
       cursor: none;
     }
@@ -173,7 +174,8 @@
     }
 
     margin-right: 24px;
-    &.swiper-slide-active{
+
+    &.swiper-slide-active {
     }
   }
 
@@ -263,8 +265,8 @@
     width: 100%;
     height: 100%;
 
-    @media(max-width: 767px){
-      &:before{
+    @media(max-width: 767px) {
+      &:before {
         content: '';
         display: block;
         height: 120px;
@@ -364,6 +366,14 @@
 
 }
 
+.skylight-wrapper {
+  .skylight-dialog {
+    overflow: auto;
+    min-height: 100vh!important;
+  }
+
+}
+
 .section-get-catalog {
   position: relative;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
@@ -377,6 +387,16 @@
     padding-bottom: 64px;
   }
 
+  &_popup {
+
+  }
+
+
+  .parallax-outer {
+    margin: 0;
+  }
+
+
   &_form-wrapper {
     background-color: #fff;
     position: absolute;
@@ -384,10 +404,17 @@
     min-height: 400px;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     padding: 24px 24px 32px 24px;
 
-    @media(min-width: 768px){
+    @media(max-width: 812px) and (orientation: landscape) {
+      left: inherit !important;
+      top: inherit !important;
+      transform: inherit !important;
+      position: relative !important;
+      margin: 0 auto;
+    }
+    @media(min-width: 768px) {
       padding: 48px 48px 56px 48px;
     }
 
@@ -396,8 +423,8 @@
   &_form {
     .skylight-close-button {
 
-      top: 16px!important;
-      right: 16px!important;
+      top: 16px !important;
+      right: 16px !important;
 
     }
   }

@@ -1,4 +1,5 @@
 import React, {Fragment} from 'react'
+import { ParallaxProvider } from "react-scroll-parallax"
 
 import SectionNews from '../pageTemplate/HomePage/SectionNews/SectionNews';
 import SectionAboutUs from "../pageTemplate/HomePage/SectionAboutUs/SectionAboutUs";
@@ -30,28 +31,30 @@ const Homepage = () => {
     return (<Preloader/>)
   }
   return (
-    <Fragment>
-      <Head
-        title={'Star Media'}
-        seoTags={data && data.getHomePage && data.getHomePage.seoTags}
-      />
-      <SectionMain
-        projectList={data && data.projectPagination && data.projectPagination.items}
-				{...(data && data.getHomePage && data.getHomePage.mainSection)}
-      />
-      <SectionNews
-        news={data && data.newsPagination && data.newsPagination.items}
-      />
-      <SectionAboutUs
-				{...(data && data.getHomePage && data.getHomePage.aboutUsSection)}
-			/>
-      <SectionProjects
-        projectList={data && data.projectPagination && data.projectPagination.items}
-      />
-      <SectionGetCatalog
-				{...(data && data.getHomePage && data.getHomePage.orderCatalog)}
-			/>
-    </Fragment>
+    <ParallaxProvider>
+      <Fragment>
+        <Head
+          title={'Star Media'}
+          seoTags={data && data.getHomePage && data.getHomePage.seoTags}
+        />
+        <SectionMain
+          projectList={data && data.projectPagination && data.projectPagination.items}
+          {...(data && data.getHomePage && data.getHomePage.mainSection)}
+        />
+        <SectionNews
+          news={data && data.newsPagination && data.newsPagination.items}
+        />
+        <SectionAboutUs
+          {...(data && data.getHomePage && data.getHomePage.aboutUsSection)}
+        />
+        <SectionProjects
+          projectList={data && data.projectPagination && data.projectPagination.items}
+        />
+        <SectionGetCatalog
+          {...(data && data.getHomePage && data.getHomePage.orderCatalog)}
+        />
+      </Fragment>
+    </ParallaxProvider>
   );
 };
 
