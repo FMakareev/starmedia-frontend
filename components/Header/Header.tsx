@@ -30,7 +30,10 @@ const GetContactByCurrentLang = (data?: GetContacts, language?: string): MainCon
   return undefined;
 };
 
-const Header: React.FC<IHeaderProps> = () => {
+const Header: React.FC<IHeaderProps> = (
+  {
+  }
+) => {
   const {route} = useRouter();
   const {i18n} = useTranslation();
 
@@ -66,10 +69,14 @@ const Header: React.FC<IHeaderProps> = () => {
     ru: GetContactsRUQuery,
     en: GetContactsENQuery,
     uk: GetContactsUKQuery,
+  }, {
+    skip: false,
   });
+  console.log('contacts: ', data);
 
 
   const contacts = GetContactByCurrentLang(data, i18n.language)
+  console.log('contacts: ', contacts);
   return (
     <header className={classNames('header', {
       'header--is-scroll': isScroll,

@@ -11,7 +11,8 @@ import {useLocalizationQuery} from "../../libs/useLocalizationQuery";
 import {GetProjectUKQuery, GetProjectENQuery, GetProjectRUQuery} from '../../apollo/query/GetProjectQuery';
 import Preloader from "../../components/Preloader/Preloader";
 import Head from "../../components/Head/Head";
-import { GetProjectPage } from '../../types/types';
+import { GetProjectPage } from '../../types/projectTypes';
+import {GetLocalizationString} from "../../libs/GetLocalizationString";
 
 interface IProjectDetailProps {
   [prop: string]: any
@@ -39,23 +40,23 @@ const ProjectDetail: React.FC<IProjectDetailProps> = () => {
   return (
     <Fragment>
       <Head
-        seoTags={data && data.getProject.seoTags}
-        title={'title'}
+        seoTags={data && data.getProjectPage.seoTags}
+        title={GetLocalizationString(data && data.getProjectPage.project.title)}
       />
       <ProjectMainSection
-        {...(data && data.getProject.project)}
+        {...(data && data.getProjectPage.project)}
       />
       <ProjectDescription
-        {...(data && data.getProject.project)}
+        {...(data && data.getProjectPage.project)}
       />
       <ProjectAwards
-        awards={data && data.getProject.project.awards || []}
+        awards={data && data.getProjectPage.project.awards || []}
       />
       <ProjectGallery
-        gallery={data && data.getProject.project.gallery || []}
+        gallery={data && data.getProjectPage.project.gallery || []}
       />
       <ProjectSimilar
-        projects={data && data.getProject.project.similarProject}
+        projects={data && data.getProjectPage.project.similarProject}
       />
     </Fragment>
   );

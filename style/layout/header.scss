@@ -78,7 +78,7 @@
     justify-content: space-between;
     width: 100%;
     @media(min-width: 1024px){
-      width: calc(184px + 104px);
+      width: calc(184px + 32px);
       flex-direction: row;
       justify-content: normal;
     }
@@ -94,15 +94,14 @@
       margin: 0;
       padding-right: 16px;
       max-width: 740px;
-      justify-content: flex-end;
     }
     @media(min-width: 1200px) {
       padding-right: 104px;
-      max-width: 840px;
+      max-width: 900px;
     }
     @media(min-width: 1440px) {
       padding-right: 16px;
-
+      max-width: 752px;
     }
   }
 
@@ -214,13 +213,13 @@
   }
 
   &_phone-wrapper {
-    margin-right: 14%;
+    //margin-right: 14%;
     color: inherit;
     fill: inherit;
   }
 
   &_search-wrapper {
-    margin-right: 15%;
+    margin-right: 10%;
   }
 
   &_search-button {

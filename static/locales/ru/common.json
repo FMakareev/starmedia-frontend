@@ -11,7 +11,8 @@
   "search_placeholder-search-by-name": "Поиск по названию",
 
   "search_found-n-result": "Найдено {{count}} результата",
-  "search_not-found": "Нам жаль, но по вашему запросу «Ирония судьбы» ничего не найдено",
+  "search_not-found": "Нам жаль, но по вашему запросу \"{{searchWord}}\" ничего не найдено",
+  "search_not-found_not-result": "Нет результатов",
 
 
   "news_next-news": "Следующая новость",
@@ -22,6 +23,8 @@
   "filter_format-label": "Формат",
   "filter_genre-label": "Жанр",
   "filter_year-label": "Год",
+
+  "filter_options-all": "Все",
   "tabs_actors": "Актеры",
   "tabs_scripts": "Сценарии",
   "tabs_director": "Режисеры",

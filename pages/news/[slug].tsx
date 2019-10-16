@@ -46,7 +46,9 @@ const NewsDetails: React.FC<ISlugProps> = () => {
       <LayoutTitleDateContent
         title={title}
         date={data && DateFormat(data.getNews.date)}
-        bottom={<NewsNext/>}
+        bottom={<NewsNext
+          slug={query.slug}
+        />}
         goBackLabel={t('news_go-back')}
         goBackLink={'/news'}
       >

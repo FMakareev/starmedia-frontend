@@ -1,7 +1,7 @@
-import { gql } from "apollo-boost";
+import {gql} from "apollo-boost";
 
 
-
+// TODO: twitterImageAlt -> twitterImageAlt
 
 export const GetAwardRUQuery = gql`
     query($slug: String!){
@@ -48,7 +48,7 @@ export const GetAwardRUQuery = gql`
                 twitterImage {
                     ru
                 }
-                twitterImage_alt {
+                twitterImageAlt {
                     ru
                 }
                 twitterTitle {
@@ -110,7 +110,7 @@ export const GetAwardENQuery = gql`
                 twitterImage {
                     en
                 }
-                twitterImage_alt {
+                twitterImageAlt {
                     en
                 }
                 twitterTitle {
@@ -172,7 +172,7 @@ export const GetAwardUKQuery = gql`
                 twitterImage {
                     uk
                 }
-                twitterImage_alt {
+                twitterImageAlt {
                     uk
                 }
                 twitterTitle {
@@ -182,6 +182,71 @@ export const GetAwardUKQuery = gql`
                     uk
                 }
                 twitterCard {
+                    uk
+                }
+            }
+        }
+    }
+`;
+
+/** PAGINATION */
+
+export const AwardPaginationRU = gql`
+    query($limit: Int, $page: Int){
+        awardPagination(limit: $limit, page: $page){
+            pageInfo {
+                currentPage
+                limit
+                nextPage
+                prevPage
+            }
+            count
+            items {
+                slug
+                date
+                name{
+                    ru
+                }
+            }
+        }
+    }
+`;
+
+export const AwardPaginationEN = gql`
+    query($limit: Int, $page: Int){
+        awardPagination(limit: $limit, page: $page){
+            pageInfo {
+                currentPage
+                limit
+                nextPage
+                prevPage
+            }
+            count
+            items {
+                slug
+                date
+                name{
+                    en
+                }
+            }
+        }
+    }
+`;
+
+export const AwardPaginationUK = gql`
+    query($limit: Int, $page: Int){
+        awardPagination(limit: $limit, page: $page){
+            pageInfo {
+                currentPage
+                limit
+                nextPage
+                prevPage
+            }
+            count
+            items {
+                slug
+                date
+                name{
                     uk
                 }
             }

@@ -9,6 +9,7 @@ import ExternalLink from '../../../components/Icons/ExternalLink';
 import {useTranslation} from '../../../libs/i18n';
 import Link from 'next/link';
 import {GetLocalizationString} from "../../../libs/GetLocalizationString";
+import ShowComponentInLocales from "../../../components/ShowComponentInLocales/ShowComponentInLocales";
 
 interface ISectionAboutUsProps extends AboutUsSection {
   [prop: string]: any
@@ -76,18 +77,20 @@ const SectionAboutUs: React.FC<ISectionAboutUsProps> = (
                 </Button>
               </Link>
             </Col>
-            <Col xs={12} sm={'auto'} mb={16} mr={30}>
-              <Button
-                className={'text_align-left'}
-                mods={['light', 'm']}
-                element={ButtonElementEnum.link}
-                href={'item.href'}
-                as={'a'}
-              >
-                star media school
-                <ExternalLink className={'ml-6'}/>
-              </Button>
-            </Col>
+            <ShowComponentInLocales locales={['uk']}>
+              <Col xs={12} sm={'auto'} mb={16} mr={30}>
+                <Button
+                  className={'text_align-left'}
+                  mods={['light', 'm']}
+                  element={ButtonElementEnum.link}
+                  href={'item.href'}
+                  as={'a'}
+                >
+                  star media school
+                  <ExternalLink className={'ml-6'}/>
+                </Button>
+              </Col>
+            </ShowComponentInLocales>
           </Row>
         </Container>
       </div>

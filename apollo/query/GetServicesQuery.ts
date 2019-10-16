@@ -20,7 +20,7 @@ export const GetServicesRUQuery=gql`
                     emails
                 }
                 forms {
-                    type
+#                    type
                     name {
                         ru
                     }
@@ -137,7 +137,7 @@ export const GetServicesRUQuery=gql`
                 twitterImage {
                     ru
                 }
-                twitterImage_alt{
+                twitterImageAlt{
                     ru
                 }
                 twitterTitle{
@@ -173,7 +173,7 @@ export const GetServicesENQuery=gql`
                     emails
                 }
                 forms {
-                    type
+#                    type
                     name {
                         en
                     }
@@ -290,7 +290,7 @@ export const GetServicesENQuery=gql`
                 twitterImage {
                     en
                 }
-                twitterImage_alt{
+                twitterImageAlt{
                     en
                 }
                 twitterTitle{
@@ -326,7 +326,7 @@ export const GetServicesUKQuery=gql`
                     emails
                 }
                 forms {
-                    type
+#                    type
                     name {
                         uk
                     }
@@ -443,7 +443,7 @@ export const GetServicesUKQuery=gql`
                 twitterImage {
                     uk
                 }
-                twitterImage_alt{
+                twitterImageAlt{
                     uk
                 }
                 twitterTitle{

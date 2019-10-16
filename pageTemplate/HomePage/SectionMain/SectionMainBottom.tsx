@@ -1,9 +1,8 @@
 import * as React from 'react';
-import {ProjectsMock} from "../../../mock";
 import Col from "../../../components/Col/Col";
 import SectionMainTitle from "./SectionMainTitle";
 import SectionMainWatchOnline from "./SectionMainWatchOnline";
-import {Project} from "../../../types/types";
+import {Project} from "../../../types/projectTypes";
 import Link from "next/link";
 // @ts-ignore
 import Slider from "react-slick";
@@ -68,7 +67,7 @@ const SectionMainBottom: React.FC<ISectionMainBottomProps> = (
          <Slider
            initialSlide={currentSlide}
            afterChange={(index: any) => {
-             if (index < ProjectsMock.length) {
+             if (index < [].length) {
                setNewSlideIndex(index);
              }
            }}
@@ -84,7 +83,7 @@ const SectionMainBottom: React.FC<ISectionMainBottomProps> = (
              <SectionMainWatchOnline/>
            </Col>
            {
-             ProjectsMock.map((item: Project, index: number) =>
+             [].map((item: Project, index: number) =>
                <Col
                  key={index+1}
                  className={'section-main_slide-project'}

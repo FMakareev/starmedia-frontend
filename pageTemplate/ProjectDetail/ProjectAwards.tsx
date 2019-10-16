@@ -4,12 +4,13 @@ import Container from '../../components/Container/Container';
 import Col from '../../components/Col/Col';
 import Row from '../../components/Row/Row';
 import Text from '../../components/Text/Text';
-import {Award} from "../../types/types";
+import {Award} from "../../types/awardsTypes";
 import AwardCard from '../../components/AwardCard/AwardCard';
 
 import ReactIdSwiper, {SwiperInstance} from 'react-id-swiper';
 import CustomCursor from "../../components/CustomCursor/CustomCursor";
 import {useTranslation} from "../../libs/i18n";
+
 
 interface IProjectAwardsProps {
   awards?: Award[];
@@ -58,15 +59,15 @@ const ProjectAwards: React.FC<IProjectAwardsProps> = (
               {...params}
             >
               {
-                awards && awards.map((award: Award, index: number)=>{
+                awards && [{},...awards].map((award: Award, index: number)=>{
 
                   if(index === 0){
-                    return (<Col className={'project-detail_awards-slider-first-item'}>
+                    return (<Col key={index} className={'project-detail_awards-slider-first-item'}>
 
                     </Col>)
                   }
 
-                  return (<Col className={'project-detail_awards-slider-item'}>
+                  return (<Col key={index} className={'project-detail_awards-slider-item'}>
                     <Link href={`/award/${award.slug}`}>
                       <a href={`/award/${award.slug}`}>
                         <AwardCard

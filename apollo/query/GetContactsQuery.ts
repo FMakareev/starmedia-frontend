@@ -37,8 +37,8 @@ export const GetContactsQuery = gql`
                             en
                             uk
                         }
-                        emails 
-                        phones
+                        emailss
+                        phoness
                         company {
                             ru
                             en
@@ -83,8 +83,8 @@ export const GetContactsENQuery = gql`
                         name {
                             en
                         }
-                        email
-                        phone
+                        emails
+                        phones
                         company  {
                             en
                         }
@@ -125,8 +125,8 @@ export const GetContactsRUQuery = gql`
                         name {
                             ru
                         }
-                        email
-                        phone
+                        emails
+                        phones
                         company {
                             ru
                         }
@@ -167,8 +167,8 @@ export const GetContactsUKQuery = gql`
                         name {
                             uk
                         }
-                        email
-                        phone
+                        emails
+                        phones
                         company {
                             uk
                         }

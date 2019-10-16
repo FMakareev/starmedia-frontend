@@ -6,13 +6,14 @@ import Container from '../../components/Container/Container';
 import Text from "../../components/Text/Text";
 import ProjectTags from "../../components/ProjectTags/ProjectTags";
 import ProjectInfoList from './ProjectInfoList';
-import {ButtonElementEnum, Project} from '../../types/types';
+import {ButtonElementEnum} from '../../types/types';
 import Button from "../../components/Button/Button";
 import BackIcon from "../../components/Icons/BackIcon";
 import ProjectDetailMainBottom from "./ProjectDetailMainBottom";
 import ProjectTrailer from "./ProjectTrailer";
 import {useTranslation} from "../../libs/i18n";
 import {GetLocalizationString} from "../../libs/GetLocalizationString";
+import {Project} from "../../types/projectTypes";
 
 interface IProjectMainSectionProps extends Project {
   [prop: string]: any
@@ -59,7 +60,7 @@ const ProjectMainSection: React.FC<IProjectMainSectionProps> = (
           <Row mb={['0', '0', 72]}>
             <Col xs={12} md={6} mb={40}>
               <ProjectTrailer
-                {...trailer}
+                trailer={trailer}
               />
             </Col>
             <Col xs={12} md={6}>

@@ -4,12 +4,11 @@ import AnimateHeight from 'react-animate-height';
 import Text from '../../components/Text/Text';
 import {Departament, Person} from "../../types/types";
 import {GetLocalizationString} from "../../libs/GetLocalizationString";
+import ContactListStrings from "./ContactListStrings";
 
 interface IContactRoleItemProps extends Departament {
   [prop: string]: any
 }
-
-
 
 
 const ContactRoleItem: React.FC<IContactRoleItemProps> = (
@@ -37,24 +36,33 @@ const ContactRoleItem: React.FC<IContactRoleItemProps> = (
         height={isOpen ? 'auto' : 0}
       >
         <div className="contact-role_item-content">
-
-
           {
-            persons && persons.map((item: Person, index) => (<div
+            persons && Array.isArray(persons) && persons.map((item: Person, index) => (<div
               key={index}
             >
               <Text size={'m'} font={'root'}>
-                {item.name && GetLocalizationString(item.name)}
+                {
+                  GetLocalizationString(item.name)
+                }
               </Text>
               <Text mb={12} size={'m'} font={'root'} type={'placeholder'}>
-                {item.position && GetLocalizationString(item.position)}
+                {
+                  GetLocalizationString(item.position)
+                }
               </Text>
               <Text mb={20} size={'m'} font={'root'}>
-                {item.phone} <br/>
-                {item.email} <br/>
+                <ContactListStrings
+                  contacts={item.phones}
+                />
+                <br/>
+                <ContactListStrings
+                  contacts={item.emails}
+                />
+                <br/>
               </Text>
             </div>))
           }
+
         </div>
       </AnimateHeight>
     </div>

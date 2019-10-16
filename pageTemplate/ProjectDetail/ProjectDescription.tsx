@@ -3,15 +3,22 @@ import Container from "../../components/Container/Container";
 import Row from "../../components/Row/Row";
 import Col from '../../components/Col/Col';
 import Text from '../../components/Text/Text';
-import ShareButton from '../../components/ShareButton/ShareButton';
-import {Project} from "../../types/types";
+import {Project} from "../../types/projectTypes";
 import {useTranslation} from "../../libs/i18n";
 import {GetLocalizationString} from "../../libs/GetLocalizationString";
 import Typeset from "../../components/Typeset/Typeset";
+import dynamic from "next-server/dynamic";
 
 interface IProjectDescriptionProps extends Project {
   [prop: string]: any
 }
+
+
+const ShareButton = dynamic(
+  () => import('../../components/ShareButton/ShareButton'),
+  { ssr: false }
+);
+
 
 const ProjectDescription: React.FC<IProjectDescriptionProps> = ({description}) => {
   const {t} = useTranslation('common');

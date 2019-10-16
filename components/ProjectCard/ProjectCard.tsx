@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Text from '../Text/Text';
-import {Project} from '../../types/types';
+import {Project} from '../../types/projectTypes';
 // @ts-ignore
 import ProgressiveImage from 'react-progressive-image';
 // @ts-ignore
@@ -11,6 +11,7 @@ import placeholder from '../../static/images/project-placeholder.jpg';
 import {useTranslation} from "../../libs/i18n";
 import classNames from 'classnames';
 import {GetLocalizationString} from "../../libs/GetLocalizationString";
+import Link from "next/link";
 
 interface IProjectCardProps extends Project {
   withInfo?: boolean;
@@ -22,66 +23,68 @@ const ProjectCard: React.FC<IProjectCardProps> = ({withInfo, href, title, projec
   const {t, i18n} = useTranslation();
 
   const localTitle = GetLocalizationString(title);
-  return (<a
-    href={href}
-    className={classNames('project-card_wrapper', {
-      'project-card_wrapper--disabled': disabled
-    })}
-  >
-    <Tilt
-      options={{max: 5, scale: 1}}
+  return (<Link href={href}>
+    <a
+      href={href}
+      className={classNames('project-card_wrapper', {
+        'project-card_wrapper--disabled': disabled
+      })}
     >
-      <div
-        className="project-card_preview"
+      <Tilt
+        options={{max: 5, scale: 1}}
       >
-
-        <ProgressiveImage
-          src={preview && preview.url || ''}
-          placeholder={placeholder}
+        <div
+          className="project-card_preview"
         >
-          {
-            (src: string) => <img
-              className="project-card_preview-img"
-              src={src}
-              alt={localTitle || 'project poster'}
-            />
-          }
-        </ProgressiveImage>
-        <div className="project-card_detail">
-          <Text
-            className={'text_uppercase'}
-            font={'object'}
-            size={'xs'}
-            type={'secondary'}
+
+          <ProgressiveImage
+            src={preview && preview.url || ''}
+            placeholder={placeholder}
           >
-            {t('button_detail-project')}
-          </Text>
+            {
+              (src: string) => <img
+                className="project-card_preview-img"
+                src={src}
+                alt={localTitle || 'project poster'}
+              />
+            }
+          </ProgressiveImage>
+          <div className="project-card_detail">
+            <Text
+              className={'text_uppercase'}
+              font={'object'}
+              size={'xs'}
+              type={'secondary'}
+            >
+              {t('button_detail-project')}
+            </Text>
+          </div>
         </div>
-      </div>
-    </Tilt>
+      </Tilt>
 
-    {
-      withInfo && <div className="project-card_info">
-				<div className="project-card_info-title">
-          {
-            localTitle
-          }
-				</div>
-				<div className="project-card_info-genre">
-          {
-            projectInfo
-            && projectInfo.genre
-            // @ts-ignore
-            && projectInfo.genre[i18n.language] ? projectInfo.genre[i18n.language] : null
-          }
+      {
+        withInfo && <div className="project-card_info">
+					<div className="project-card_info-title">
+            {
+              localTitle
+            }
+					</div>
+					<div className="project-card_info-genre">
+            {
+              projectInfo
+              && projectInfo.genre
+              // @ts-ignore
+              && projectInfo.genre[i18n.language] ? projectInfo.genre[i18n.language] : null
+            }
 
-          {
-            GetLocalizationString(projectInfo && projectInfo.genre)
-          }
+            {
+              GetLocalizationString(projectInfo && projectInfo.genre)
+            }
+					</div>
 				</div>
-			</div>
-    }
-  </a>)
+      }
+    </a>
+  </Link>)
 };
 
 export default ProjectCard;

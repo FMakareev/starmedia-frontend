@@ -5,20 +5,32 @@ import Text from '../Text/Text';
 import Button from '../Button/Button';
 // @ts-ignore
 import placeholder from "../../static/images/news-placeholder.svg";
-import { useTranslation } from '../../libs/i18n';
+import {useTranslation} from '../../libs/i18n';
+import {News} from "../../types/newsTypes";
+import {GetLocalizationString} from "../../libs/GetLocalizationString";
+import Link from 'next/link';
+import {DateFormat} from "../../libs/DateFormat";
 
-interface INewsCardLargeProps {
+interface INewsCardLargeProps extends News {
   [prop: string]: any
 }
 
-const NewsCardLarge: React.FC<INewsCardLargeProps> = () => {
+const NewsCardLarge: React.FC<INewsCardLargeProps> = (
+  {
+    name,
+    info,
+    slug,
+    date,
+    preview
+  }
+) => {
 
   const {t} = useTranslation('common');
   return (
     <div className={'news-card-large_wrapper'}>
       <div className="news-card-large_preview">
 
-        <ProgressiveImage src={"https://www.fillmurray.com/288/192"} placeholder={placeholder}>
+        <ProgressiveImage src={preview && preview.url || ''} placeholder={placeholder}>
           {(src: string) => (<img
             src={src}
             alt=""
@@ -28,21 +40,29 @@ const NewsCardLarge: React.FC<INewsCardLargeProps> = () => {
       </div>
       <div className="news-card-large_middle">
         <Text font={'root'} type={'placeholder'} mb={16}>
-          28.08.2019
+          {
+            date && DateFormat(date)
+          }
         </Text>
-        <div className="news-card-large_title">
-          продолжаются съемки исторической драмы
-          «Сердце пармы»
-        </div>
+        <Link href={`/news/${slug}`}>
+          <a href={`/news/${slug}`} className="news-card-large_title">
+            {
+              GetLocalizationString(name)
+            }
+          </a>
+        </Link>
       </div>
       <div className="news-card-large_description">
         <Text mb={16} font={'root'} size={'m'}>
-          В Подмосковье продолжаются съемки исторической драмы «Сердце пармы»! Приглашаем вас окунуться в колоритную
-          атмосферу Древней Руси вместе с нами...
+          {
+            GetLocalizationString(info)
+          }
         </Text>
-        <Button>
-          {t('button_detail')}
-        </Button>
+        <Link href={`/news/${slug}`}>
+          <Button as={'a'} href={`/news/${slug}`} >
+            {t('button_detail')}
+          </Button>
+        </Link>
       </div>
     </div>
   );

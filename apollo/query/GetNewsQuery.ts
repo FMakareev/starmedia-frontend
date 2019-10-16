@@ -1,9 +1,6 @@
 import { gql } from "apollo-boost";
 
 
-
-
-
 export const GetNewsRUQuery = gql`
     query ($slug: String!) {
         getNews(slug: $slug) {
@@ -43,7 +40,7 @@ export const GetNewsRUQuery = gql`
                 twitterImage {
                     ru
                 }
-                twitterImage_alt {
+                twitterImageAlt {
                     ru
                 }
                 twitterTitle {
@@ -99,7 +96,7 @@ export const GetNewsENQuery = gql`
                 twitterImage {
                     en
                 }
-                twitterImage_alt {
+                twitterImageAlt {
                     en
                 }
                 twitterTitle {
@@ -155,7 +152,7 @@ export const GetNewsUKQuery = gql`
                 twitterImage {
                     uk
                 }
-                twitterImage_alt {
+                twitterImageAlt {
                     uk
                 }
                 twitterTitle {
@@ -168,6 +165,142 @@ export const GetNewsUKQuery = gql`
                     uk
                 }
             }
+        }
+    }
+`;
+
+
+
+/** PAGINATION */
+
+export const NewsPaginationRU = gql`
+    query($limit: Int, $page: Int){
+        newsPagination(limit: $limit, page: $page){
+            pageInfo {
+                currentPage
+                limit
+                nextPage
+                prevPage
+            }
+            count
+            items {
+                name{
+                    ru
+                }
+                info{
+                    ru
+                }
+                preview{
+                    url
+                }
+                date
+                slug
+            }
+        }
+    }
+`;
+
+export const NewsPaginationEN = gql`
+    query($limit: Int, $page: Int){
+        newsPagination(limit: $limit, page: $page){
+            pageInfo {
+                currentPage
+                limit
+                nextPage
+                prevPage
+            }
+            count
+            items {
+                preview{
+                    url
+                }
+                name{
+                    en
+                }
+                info{
+                    en
+                }
+                slug
+                date
+            }
+        }
+    }
+`;
+
+export const NewsPaginationUK = gql`
+    query($limit: Int, $page: Int){
+        newsPagination(limit: $limit, page: $page){
+            pageInfo {
+                currentPage
+                limit
+                nextPage
+                prevPage
+            }
+            count
+            items {
+                preview{
+                    url
+                }
+                name{
+                    uk
+                }
+                info{
+                    uk
+                }
+                date
+                slug
+            }
+        }
+    }
+`;
+
+
+//
+
+
+
+export const GetNextNewsRU = gql`
+    query ($slug: String!) {
+        getNextNews(slug: $slug) {
+            name {
+                ru
+            }
+            info {
+                ru
+            }
+            date
+            slug
+        }
+    }
+`;
+
+export const GetNextNewsEN = gql`
+    query ($slug: String!) {
+        getNextNews(slug: $slug) {
+            name {
+                en
+            }
+            info {
+                en
+            }
+            date
+            slug
+        }
+    }
+`;
+
+
+export const GetNextNewsUK = gql`
+    query ($slug: String!) {
+        getNextNews(slug: $slug) {
+            name {
+                uk
+            }
+            info {
+                uk
+            }
+            date
+            slug
         }
     }
 `;

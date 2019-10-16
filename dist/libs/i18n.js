@@ -31,6 +31,6 @@ const config = {
     },
 };
 const NextI18NextInstance = new next_i18next_1.default(config);
-exports.appWithTranslation = NextI18NextInstance.appWithTranslation, exports.withTranslation = NextI18NextInstance.withTranslation, exports.useTranslation = NextI18NextInstance.useTranslation, exports.Trans = NextI18NextInstance.Trans, exports.rest = __rest(NextI18NextInstance, ["appWithTranslation", "withTranslation", "useTranslation", "Trans"]);
+exports.appWithTranslation = NextI18NextInstance.appWithTranslation, exports.withTranslation = NextI18NextInstance.withTranslation, exports.useTranslation = NextI18NextInstance.useTranslation, exports.Trans = NextI18NextInstance.Trans, exports.i18n = NextI18NextInstance.i18n, exports.rest = __rest(NextI18NextInstance, ["appWithTranslation", "withTranslation", "useTranslation", "Trans", "i18n"]);
 exports.default = NextI18NextInstance;
 //# sourceMappingURL=i18n.js.map

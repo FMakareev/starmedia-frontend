@@ -5,6 +5,7 @@ import Col from "../../components/Col/Col";
 import Text from "../../components/Text/Text";
 import classNames from 'classnames';
 import {GetLocalizationString} from "../../libs/GetLocalizationString";
+import {i18n} from "../../libs/i18n";
 
 interface IContactMainItemProps extends MainContact {
   src?: string,
@@ -37,7 +38,7 @@ const ContactMainItem: React.FC<IContactMainItemProps> = (
       <Row middle={ViewportSizeEnum.md}>
         <Col xs={12} md={4} mb={[12, '0']}>
           <Text type={'inherit'} className={'text_uppercase'} font={'object'} size={'xl'}>
-            {name && GetLocalizationString(name)}
+            {name && GetLocalizationString(name,i18n)}
           </Text>
         </Col>
         <Col xs={12} md={3} mb={[10, '0']}>
@@ -52,7 +53,7 @@ const ContactMainItem: React.FC<IContactMainItemProps> = (
             >
               {
                 item
-                && GetLocalizationString(item.addresses)
+                && GetLocalizationString(item.addresses,i18n)
               }
             </Text>))
           }

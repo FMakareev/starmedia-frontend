@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {SocialLink} from "../../types/types";
 import Button from '../Button/Button';
 import {SocialLinkVariantEnum} from "./SocialLinkList";
+import {SocialLink} from "../../types/socialLink";
 
 interface ISocialLinkItemProps extends SocialLink {
   variant?: SocialLinkVariantEnum;
@@ -9,13 +9,24 @@ interface ISocialLinkItemProps extends SocialLink {
   [prop: string]: any
 }
 
-const SocialLinkItem: React.FC<ISocialLinkItemProps> = ({url, icon, mods, shortName, variant}) => {
+const SocialLinkItem: React.FC<ISocialLinkItemProps> = ({url, mods, shortName, variant}) => {
   return (
-    <Button aria-label={'social network link'}  as={'a'} className={'social-links_link'} mods={mods} href={url || '/404'} target={'_blank'}>
+    <Button
+      aria-label={'social network link'}
+      as={'a'}
+      className={'social-links_link'}
+      mods={mods}
+      href={url || '/404'}
+      target={'_blank'}
+    >
       {
         variant === SocialLinkVariantEnum.icon &&
-				<svg width="24px" height="24px" className="social-links_icon">
-					<use xlinkHref={`#${icon}`}/>
+				<svg
+          width="24px"
+          height="24px"
+          className="social-links_icon"
+        >
+					<use xlinkHref={`#${shortName}`}/>
 				</svg>
       }
       {

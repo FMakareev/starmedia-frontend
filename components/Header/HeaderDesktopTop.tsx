@@ -3,12 +3,12 @@ import Container from "../Container/Container";
 import Col from "../Col/Col";
 import Text from "../Text/Text";
 import SocialLinkList from "../SocialLinkList/SocialLinkList";
-import {SocialLinkListMock} from "../../config";
 import LangSwitcher from "../LangSwitcher/LangSwitcher";
 import HeaderLogo from "./HeaderLogo";
 import HeaderBurgerButton from './HeaderBurgerButton';
 import HeaderSearch from './HeaderSearch';
-import { MainContact, Maybe } from '../../types/types';
+import {MainContact, Maybe} from '../../types/types';
+import {SocialLinkTypeEnum} from "../../types/socialLink";
 
 interface IHeaderDesktopTopProps {
   contact?: Maybe<MainContact>;
@@ -45,7 +45,9 @@ const HeaderDesktopTop: React.FC<IHeaderDesktopTopProps> = (
         </Col>
 
         <Col className="header_social-list-wrapper">
-          <SocialLinkList links={SocialLinkListMock}/>
+          <SocialLinkList
+            exclude={[SocialLinkTypeEnum.GOOGLE_PLUS, SocialLinkTypeEnum.IMDB]}
+          />
         </Col>
         <div className="header_lang-switcher-wrapper">
           <LangSwitcher/>

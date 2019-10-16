@@ -1,6 +1,8 @@
 import * as React from 'react';
-import {SocialLink} from "../../types/types";
 import SocialLinkItem from './SocialLinkItem';
+import {GetSocialList, SocialLink, SocialLinkTypeEnum} from "../../types/socialLink";
+import {useQuery} from "@apollo/react-hooks";
+import {GetSocials} from "../../apollo/query/GetSocials";
 
 
 export enum SocialLinkVariantEnum {
@@ -9,32 +11,51 @@ export enum SocialLinkVariantEnum {
 }
 
 interface ISocialLinkListProps {
-  links: SocialLink[];
   classWrapper?: string;
   classItem?: string;
   mods?: string[];
   variant?: SocialLinkVariantEnum;
+  exclude?: SocialLinkTypeEnum[];
 
   [prop: string]: any
 }
 
-const SocialLinkList: React.FC<ISocialLinkListProps> = ({links,mods,variant}) => {
+const SocialLinkList: React.FC<ISocialLinkListProps> = (
+  {
+    mods,
+    variant,
+    exclude,
+  }
+) => {
+
+  const {data, error} = useQuery<GetSocialList>(GetSocials);
+
+  if (error) {
+    console.error(error);
+  }
+
+
+  let SocialList: SocialLink[] = data && data.getSocialList || [];
+
+  if (exclude) {
+    SocialList = SocialList.filter((link: SocialLink) => !(exclude.find((exLink: SocialLinkTypeEnum) => link.shortName === exLink)))
+  }
+
   return (
-   <React.Fragment>
-     <ul className={'social-links_list'}>
-       {
-         Array.isArray(links) &&
-         links.map((link: SocialLink, index: number) => (
-           <li className={'social-links_item'} key={`${index}`}>
-             <SocialLinkItem
-               mods={mods}
-               variant={variant}
-               {...link}
-             />
-           </li>))
-       }
-     </ul>
-   </React.Fragment>
+    <React.Fragment>
+      <ul className={'social-links_list'}>
+        {
+          SocialList.map((link: SocialLink, index: number) => (
+            <li className={'social-links_item'} key={`${index}`}>
+              <SocialLinkItem
+                mods={mods}
+                variant={variant}
+                {...link}
+              />
+            </li>))
+        }
+      </ul>
+    </React.Fragment>
 
   );
 };

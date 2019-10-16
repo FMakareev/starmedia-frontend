@@ -1,9 +1,8 @@
 import * as React from 'react';
-import {ProjectsMock} from "../../../mock";
 import Col from "../../../components/Col/Col";
 import SectionMainTitle from "./SectionMainTitle";
 import SectionMainWatchOnline from "./SectionMainWatchOnline";
-import {Project} from "../../../types/types";
+import {Project} from "../../../types/projectTypes";
 import Link from "next/link";
 // @ts-ignore
 import Slider from "react-slick";
@@ -21,11 +20,7 @@ const params = ({onSlideChange}: any) => ({
   freeModeMomentum: true,
   spaceBetween: 0,
   getSwiper: (swiper: SwiperInstance) => {
-    console.log('swiper: ', swiper);
-    swiper && swiper.on('slideChange', (event: any) => {
-      console.log('slideChange: ', event);
-      console.log('slideChange: ', swiper);
-      console.log('slideChange activeIndex: ', swiper.activeIndex);
+    swiper && swiper.on('slideChange', () => {
       onSlideChange && onSlideChange(swiper.activeIndex)
     });
 
@@ -43,13 +38,14 @@ const SectionMainBottom: React.FC<ISectionMainBottomProps> = (
     title,
     animatedText,
     setNewSlideIndex,
+    projectList
   }
 ) => {
   const [disabled] = React.useState(false);
 
   const swiperConfig: any = params({
     onSlideChange: (index: any) => {
-      if (index < ProjectsMock.length) {
+      if (projectList && index < projectList.length) {
         setNewSlideIndex(index);
       }
     }
@@ -74,9 +70,10 @@ const SectionMainBottom: React.FC<ISectionMainBottomProps> = (
       >
 
         {
-          ProjectsMock.map((item: Project, index: number) => {
+          projectList
+          && [undefined, ...projectList, ...projectList, ...projectList].map((item: Project, index: number) => {
             if (index === 0) {
-              return (<Col
+              return ( <Col
                 key={0}
                 className={'section-main_bottom-left'}>
                 <SectionMainTitle

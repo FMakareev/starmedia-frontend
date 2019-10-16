@@ -10,7 +10,7 @@ const SectionNewsList: React.FC<ISectionNewsListProps> = ({news}) => {
   return (
     <React.Fragment>
       {
-        news.map((item: any, index: any) => <Col
+        news && news.map((item: any, index: any) => <Col
           key={`${index}`}
           xs={12}
           sm={6}

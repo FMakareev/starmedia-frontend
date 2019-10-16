@@ -4,7 +4,7 @@ interface ISearchIconProps {
   [prop: string]: any
 }
 
-const SearchIcon: React.FC<ISearchIconProps> = ({width,height,className}) => {
+const SearchIcon: React.FC<ISearchIconProps> = ({width = '1em', height = '1em', className}) => {
   return (
     <svg
       className={className}

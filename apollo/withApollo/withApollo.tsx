@@ -1,4 +1,4 @@
-import ApolloClient, {InMemoryCache} from 'apollo-boost';
+import ApolloClient,{InMemoryCache} from 'apollo-boost';
 import withApollo from 'next-with-apollo';
 import config from '../../config';
 import {isBrowser} from "../../libs/isBrowser/isBrowser";
@@ -11,6 +11,6 @@ export default withApollo(
       }:  {
         uri: isBrowser ? config.graphql.clientEndpoint : config.graphql.serverEndpoint,
       }),
-      cache: new InMemoryCache().restore(initialState || {})
+      cache: new InMemoryCache().restore(initialState || {}),
     })
 );

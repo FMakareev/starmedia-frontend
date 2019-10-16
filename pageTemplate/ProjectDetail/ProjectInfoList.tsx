@@ -1,8 +1,9 @@
 import * as React from 'react';
-import {Maybe, ProjectInfo} from '../../types/types';
+import {Maybe,} from '../../types/types';
 import Text from "../../components/Text/Text";
 import {useTranslation} from "../../libs/i18n";
 import {GetLocalizationString} from "../../libs/GetLocalizationString";
+import { ProjectInfo } from '../../types/projectTypes';
 
 interface IProjectInfoProps {
   projectInfo?: Maybe<ProjectInfo>;

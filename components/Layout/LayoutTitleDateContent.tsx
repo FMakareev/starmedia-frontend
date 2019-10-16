@@ -8,11 +8,15 @@ import {ButtonElementEnum} from "../../types/types";
 import BackIcon from "../Icons/BackIcon";
 import Link from 'next/link';
 import {useTranslation} from "react-i18next";
-import ShareButton from '../../components/ShareButton/ShareButton';
+import dynamic from "next-server/dynamic";
 
 interface ILayoutTitleDateContentProps {
   [prop: string]: any
 }
+const ShareButton = dynamic(
+  () => import('../../components/ShareButton/ShareButton'),
+  { ssr: false }
+);
 
 const LayoutTitleDateContent: React.FC<ILayoutTitleDateContentProps> = (
   {

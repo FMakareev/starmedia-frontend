@@ -6,13 +6,14 @@ import Col from "../Col/Col";
 import Button from "../Button/Button";
 import HeaderContact from './HeaderContact';
 import classNames from 'classnames';
-import {SocialLinkListMock} from "../../config";
 import SocialLinkList from "../SocialLinkList/SocialLinkList";
 import HeaderSearch from "./HeaderSearch";
 import LangSwitcher from "../LangSwitcher/LangSwitcher";
 import Link from 'next/link';
 import {Menu} from '../../mock';
 import {useTranslation} from "../../libs/i18n";
+import ShowComponentInLocales from "../ShowComponentInLocales/ShowComponentInLocales";
+import ExternalLink from "../Icons/ExternalLink";
 
 interface IHeaderDesktopMenuProps {
   contact?: Maybe<MainContact>;
@@ -75,6 +76,25 @@ const HeaderDesktopMenu: React.FC<IHeaderDesktopMenuProps> = (
 
                 </li>))
               }
+              <ShowComponentInLocales locales={['uk']}>
+                <li
+                  key={`menu-10`}
+                  className="header_menu-item"
+                >
+                  <Button
+                    aria-label={`menu item`}
+                    onClick={toggleMenu}
+                    className={'text_align-left'}
+                    mods={['l']}
+                    element={ButtonElementEnum.link}
+                    href={'http://starmediaschool.com/'}
+                    as={'a'}
+                  >
+                    star media school
+                    <ExternalLink className={'ml-6 mb-16'}/>
+                  </Button>
+                </li>
+              </ShowComponentInLocales>
 
             </ul>
           </Col>
@@ -90,7 +110,6 @@ const HeaderDesktopMenu: React.FC<IHeaderDesktopMenuProps> = (
           >
             <SocialLinkList
               mods={[]}
-              links={SocialLinkListMock}
             />
           </Col>
         </Row>

@@ -18,21 +18,21 @@ type File {
 
 type SeoTags {
 
-description:  LocalizedString,
-keywords: LocalizedString
-title: LocalizedString
+	description:  LocalizedString,
+	keywords: LocalizedString
+	title: LocalizedString
 
-ogUrl: LocalizedString,
-ogImage: LocalizedString,
-ogType: LocalizedString, 
-ogTitle: LocalizedString,
+	ogUrl: LocalizedString,
+	ogImage: LocalizedString,
+	ogType: LocalizedString, 
+	ogTitle: LocalizedString,
   
-twitterImage: LocalizedString,
-twitterImage_alt: LocalizedString,
-twitterTitle: LocalizedString,
-twitterDescription: LocalizedString,
-twitterSite: LocalizedString,
-twitterCard: LocalizedString
+	twitterImage: LocalizedString,
+	twitterImage_alt: LocalizedString,
+	twitterTitle: LocalizedString,
+	twitterDescription: LocalizedString,
+	twitterSite: LocalizedString,
+	twitterCard: LocalizedString
 }
 
 
@@ -181,7 +181,7 @@ type ProjectInfo {
 
 type Video {
 	preview: File,
-	video: String @examples(values: "https://www.youtube.com/watch?v=yK8HfzDlOD4"),
+	video: File,
 }
 
 
@@ -254,8 +254,8 @@ type SocialLink {
 }
 
 type AboutUsSection {
-	title:LocalizedString,
-	backgroudVideo:Video,	
+	title: LocalizedString,
+	backgroudVideo: Video,	
 }
 
 
@@ -264,9 +264,19 @@ type MainSection {
 	animatedText: [LocalizedString],
 }
 
+type Feedback {
+  id :ID
+	form: Forms
+	person: Person
+	url: String
+	file: File
+	date: String
+}
+
 type OrderCatalog {
 	title: LocalizedString,
-	form: String,
+	form: Feedback,
+  catalog: File, 
 }
 
 
@@ -293,7 +303,7 @@ type AboutUs {
 
 
 type Query {
-  getAboutUs: AboutUs
+  getAboutUsPage: AboutUs
 	getHomePage:HomePage
   getSocialList: [SocialLink]
   getCookieAccess:CookieAccess

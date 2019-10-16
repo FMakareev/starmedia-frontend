@@ -62,7 +62,7 @@ export const GetCooperationENQuery = gql`
         getCooperation {
             actors {
                 form {
-                    type
+                    id
                     name {
                         en
                     }
@@ -79,7 +79,7 @@ export const GetCooperationENQuery = gql`
             }
             scripts{
                 form {
-                    type
+                    id
                     name {
                         en
                     }
@@ -96,7 +96,7 @@ export const GetCooperationENQuery = gql`
             }
             director {
                 form {
-                    type
+                    id
                     name {
                         en
                     }

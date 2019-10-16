@@ -7,26 +7,34 @@ import Row from '../../../components/Row/Row';
 import Col from '../../../components/Col/Col';
 import Text from '../../../components/Text/Text';
 import Button from '../../../components/Button/Button';
-import {ButtonElementEnum, ViewportSizeEnum} from "../../../types/types";
+import {ButtonElementEnum, ViewportSizeEnum, OrderCatalog} from "../../../types/types";
 import PdfIcon from "../../../components/Icons/PDFIcon";
 
 // @ts-ignore
 import Tilt from 'react-tilt'
-// import {asyncComponent} from "react-async-component";
 import {useTranslation} from "../../../libs/i18n";
 
-interface ISectionGetCatalogProps {
+
+interface ISectionGetCatalogProps extends OrderCatalog{
   [prop: string]: any
 }
 
-const CatalogFormPopup = dynamic(
+const CatalogFormPopup:any = dynamic(
   () => import("../../../components/CatalogFormPopup/CatalogFormPopup"),
   { ssr: false }
-)
-const SectionGetCatalog: React.FC<ISectionGetCatalogProps> = () => {
+);
+
+const SectionGetCatalog: React.FC<ISectionGetCatalogProps> = (
+  {
+    title,
+    form,
+  }
+) => {
 
   const [isVisible, togglePopup] = React.useState(false);
   const {t} = useTranslation('home');
+
+
 
 
   return (
@@ -58,15 +66,15 @@ const SectionGetCatalog: React.FC<ISectionGetCatalogProps> = () => {
           between={ViewportSizeEnum.sm}
           middle={ViewportSizeEnum.sm}
         >
-          <Col mb={[44, 0]}>
+          <Col xs={12} sm={'auto'} pl={16} mb={[44, 0]}>
             <Text className="section-get-catalog_title" size={'l'} type={'secondary'} font={'object'}>
-
               {
                 ReactHtmlParser(t('section_send-order_title'))
               }
             </Text>
           </Col>
           <Col
+            mr={16}
             className={'section-get-catalog_get-button'}
           >
             <Button
@@ -99,6 +107,11 @@ const SectionGetCatalog: React.FC<ISectionGetCatalogProps> = () => {
         </Row>
       </Container>
       <CatalogFormPopup
+        callBack={() => {
+          togglePopup(false);
+        }}
+        form={form}
+        title={title}
         isVisible={isVisible}
         onClose={() => {
           togglePopup(false);

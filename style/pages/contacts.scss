@@ -55,18 +55,24 @@
 
 .contact-main {
   $this: &;
+
   &_item {
     @include transitionHover;
     position: relative;
-    width: 100%;
+    min-width: 100%;
     z-index: 0;
     border-bottom: 1px solid $color-base-gray;
     padding-top: 25px;
     padding-bottom: 25px;
     color: $color-link-secondary;
     cursor: pointer;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin: 0 -16px;
 
-    @media(min-width: 768px){
+
+    @media(min-width: 768px) {
+      margin: 0;
       padding-left: 32px;
       padding-right: 32px;
       padding-top: 48px;
@@ -76,11 +82,8 @@
     &:hover, &--active {
 
       color: $color-typo-secondary;
-
-      @media(min-width: 768px){
-        #{$this}_item-bg-wrap {
-          opacity: 1;
-        }
+      #{$this}_item-bg-wrap {
+        opacity: 1;
       }
 
     }

@@ -2,6 +2,8 @@ import * as React from 'react';
 // @ts-ignore
 import {SkyLightStateless} from "react-skylight"
 import SearchPopupTextField from './SearchPopupTextField';
+import {useState} from "react";
+import {useRouter} from "next/router";
 
 interface ISearchPopupProps {
   onClose(): void;
@@ -38,6 +40,24 @@ const SearchPopup: React.FC<ISearchPopupProps> = ({
                                                     onClose,
                                                     isVisible
                                                   }) => {
+
+  const [value, setState] = useState(null);
+
+  const route = useRouter();
+
+  const onChange = (event: any) => {
+    setState(event.target.value);
+  };
+
+  const onKeyDown = (event: any) => {
+    if (event.key === 'Enter') {
+      route.push(`/search?search=${event.target.value}`);
+      onClose();
+      setState(null);
+    }
+  };
+
+
   return (
     <SkyLightStateless
       dialogStyles={myBigGreenDialog}
@@ -46,7 +66,13 @@ const SearchPopup: React.FC<ISearchPopupProps> = ({
       onCloseClicked={onClose}
       onOverlayClicked={onClose}
     >
-      <SearchPopupTextField/>
+      <SearchPopupTextField
+        input={{
+          value,
+          onChange,
+          onKeyDown,
+        }}
+      />
     </SkyLightStateless>
   );
 };

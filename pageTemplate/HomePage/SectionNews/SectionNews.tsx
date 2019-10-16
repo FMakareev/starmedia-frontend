@@ -4,41 +4,43 @@ import Row from '../../../components/Row/Row';
 import Text from '../../../components/Text/Text';
 import Container from "../../../components/Container/Container";
 import {ButtonElementEnum, ViewportSizeEnum} from "../../../types/types";
-import {SocialLinkListMock} from "../../../config";
 import SocialLinkList, {SocialLinkVariantEnum} from "../../../components/SocialLinkList/SocialLinkList";
 import SectionNewsList from './SectionNewsList';
 import Link from "../../../components/Link/Link";
 import {useTranslation} from "../../../libs/i18n";
+import { News } from '../../../types/newsTypes';
+import {SocialLinkTypeEnum} from "../../../types/socialLink";
+import {useLocalizationQuery} from "../../../libs/useLocalizationQuery";
+import {NewsPaginationEN, NewsPaginationRU, NewsPaginationUK} from "../../../apollo/query/GetNewsQuery";
+
 
 interface ISectionNewsProps {
+  news?: News[];
   [prop: string]: any
 }
 
 
-const news = [
+const SectionNews: React.FC<ISectionNewsProps> = (
   {
-    title: 'Продолжаются съемки исторической драмы «Сердце пармы»',
-    publish: '22.08.2019',
-  },
-  {
-    title: 'Теперь наши сериалы «Анна-детективъ» и «Метод Фрейда» доступны на интернет-платформах по всей Прибалтике!',
-    publish: '20.08.2019',
-  },
-  {
-    title: 'Премьера телевизионного сериала «Без колебаний» на телеканале «Украина».',
-    publish: '12.08.2019',
-  },
-  {
-    title: 'Star Media приступила к съемкам четвертого сезона военно-исторической драмы «По законам военного времени».',
-    publish: '16.07.2019',
-  },
+    news,
+  }
+) => {
 
-]
+  const {data} = useLocalizationQuery({
+    ru: NewsPaginationRU,
+    en: NewsPaginationEN,
+    uk: NewsPaginationUK,
+  }, {
+    variables: {
+      limit: 4,
+      page: 1,
+    }
+  });
 
 
-
-const SectionNews: React.FC<ISectionNewsProps> = () => {
+  console.log('news: ', news);
   const {t} = useTranslation('home');
+
   return (
     <div className={'section-news_wrapper'}>
       <Container>
@@ -48,23 +50,29 @@ const SectionNews: React.FC<ISectionNewsProps> = () => {
           </Text>
         </div>
         <Row className="section-news_list">
+
           <SectionNewsList
-            news={news}
+            news={data && data.newsPagination && data.newsPagination.items}
           />
         </Row>
-        <Row mb={22} center={ViewportSizeEnum.sm}>
-          <Button aria-label={'show all news'}  mods={['m']} element={ButtonElementEnum.circle}>
+        <Row mb={22} center={ViewportSizeEnum.xs}>
+          <Button aria-label={'show all news'} mods={['m']} element={ButtonElementEnum.circle}>
             {t('section_news_btn-all-news')}
           </Button>
         </Row>
         <div className="section-news_bottom">
-         <Link href={'/news'}>
-           <SocialLinkList
-             mods={['gray', 'm']}
-             variant={SocialLinkVariantEnum.shortName}
-             links={SocialLinkListMock}
-           />
-         </Link>
+          <Link href={'/news'}>
+            <SocialLinkList
+              mods={['gray', 'm']}
+              exclude={[
+                SocialLinkTypeEnum.IMDB,
+                SocialLinkTypeEnum.GOOGLE_PLUS,
+                SocialLinkTypeEnum.TWITTER,
+                SocialLinkTypeEnum.YOUTUBE,
+              ]}
+              variant={SocialLinkVariantEnum.shortName}
+            />
+          </Link>
         </div>
       </Container>
     </div>

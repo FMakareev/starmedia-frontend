@@ -66,9 +66,10 @@ const CooperationForm: React.FC<ICooperationFormProps> = (
   {
     onSubmit,
     linkLabel,
+    forms,
   }
 ) =>{
-
+  console.log('forms:', forms);
   const {t, i18n} = useTranslation('common');
 
   return  (

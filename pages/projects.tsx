@@ -1,14 +1,13 @@
 import * as React from 'react';
 import LayoutTitleWithContent from "../components/Layout/LayoutTitleWithContent";
 import ProjectList from '../pageTemplate/Projects/ProjectList';
-import { ProjectsMock } from '../mock';
 import Pagination from "../components/Pagination/Pagination";
 import ProjectFilter from '../pageTemplate/Projects/ProjectFilter';
 import {withTranslation} from "../libs/i18n";
-// import {useQuery} from "@apollo/react-hooks";
-// import { ProjectPaginationQuery } from '../apollo/query/ProjectPaginationQuery';
-
-
+import {usePaginationQuery} from "../libs/usePaginationQuery";
+import {PaginationVariables} from "../types/types";
+import {ProjectPaginationRU, ProjectPaginationEN, ProjectPaginationUK} from '../apollo/query/GetProjectQuery';
+import {ProjectPagination} from '../types/projectTypes';
 
 
 interface IProjectsProps {
@@ -16,21 +15,67 @@ interface IProjectsProps {
 }
 
 const Projects: React.FC<IProjectsProps> = ({t}) => {
-  // const data = useQuery(ProjectPaginationQuery);
+
+  const [filters, setFilter] = React.useState({
+    genre: '',
+    format: '',
+    year: 0,
+    query: '',
+  });
+
+  const {
+    data,
+    page,
+    loading,
+    onFetchMore,
+    onPaginationFetchMore,
+    calculatePageCount,
+    isDisabledPagination,
+  } = usePaginationQuery<ProjectPagination, PaginationVariables>({
+    queryName: 'projectPagination',
+    defaultLimit: 6,
+    localizationQuery: {
+      ru: ProjectPaginationRU,
+      en: ProjectPaginationEN,
+      uk: ProjectPaginationUK,
+    },
+    variables: {
+      genre: filters.genre,
+      format: filters.format,
+      year: filters.year,
+      query: filters.query,
+    },
+  });
+
   return (
     <LayoutTitleWithContent
       title={t('nav-project-list')}
     >
 
-      <ProjectFilter/>
-
-      <ProjectList
-        projects={ProjectsMock}
+      <ProjectFilter
+        filters={filters}
+        setFilters={setFilter}
       />
-      <Pagination/>
+      {
+        data && data.projectPagination && data.projectPagination.items && <ProjectList
+					projects={data && data.projectPagination && data.projectPagination.items}
+				/>
+      }
+      {
+        data && data.projectPagination
+        && Array.isArray(data.projectPagination.items) && (data.projectPagination.items.length > 0) && <Pagination
+					disabled={isDisabledPagination()}
+					forcePage={page - 1}
+					loading={loading}
+					onFetchMore={onFetchMore}
+					onPageChange={onPaginationFetchMore}
+					pageCount={calculatePageCount()}
+				/>
+      }
+
 
     </LayoutTitleWithContent>
   );
 };
 
-export default withTranslation(['nav','home','footer'])(Projects);
+export default withTranslation(['nav', 'home', 'footer'])(Projects);

@@ -5,21 +5,21 @@ import { gql } from "apollo-boost";
 
 export const GetAboutUsRUQuery = gql`
     {
-        getAboutUs {
+        getAboutUsPage {
             title {
                 ru
             }
             content {
                 ru
             }
-            redBubble {
+            redBabble {
                 ru
             }
             titleTVBroadcast {
                 ru
             }
-            titleTVBroadcastBabbles{
-                title{
+            titleTVBroadcastBabbles {
+                title {
                     ru
                 }
                 content {
@@ -32,14 +32,14 @@ export const GetAboutUsRUQuery = gql`
 
 export const GetAboutUsENQuery = gql`
     {
-        getAboutUs {
+        getAboutUsPage {
             title {
                 en
             }
             content {
                 en
             }
-            redBubble {
+            redBabble {
                 en
             }
             titleTVBroadcast {
@@ -59,14 +59,14 @@ export const GetAboutUsENQuery = gql`
 
 export const GetAboutUsUKQuery = gql`
     {
-        getAboutUs {
+        getAboutUsPage {
             title {
                 uk
             }
             content {
                 uk
             }
-            redBubble {
+            redBabble {
                 uk
             }
             titleTVBroadcast {

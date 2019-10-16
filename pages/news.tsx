@@ -5,6 +5,10 @@ import NewsList from '../pageTemplate/News/NewsList';
 import {withTranslation} from '../libs/i18n';
 import Head from "../components/Head/Head";
 import {Fragment} from "react";
+import {usePaginationQuery} from "../libs/usePaginationQuery";
+import {PaginationVariables} from "../types/types";
+import {NewsPaginationRU, NewsPaginationEN, NewsPaginationUK} from "../apollo/query/GetNewsQuery";
+import {NewsPagination} from "../types/newsTypes";
 
 interface INewsProps {
   [prop: string]: any
@@ -12,6 +16,24 @@ interface INewsProps {
 
 const News: React.FC<INewsProps> = ({t}) => {
 
+  const {
+    data,
+    loading,
+    page,
+    onFetchMore,
+    onPaginationFetchMore,
+    calculatePageCount,
+    isDisabledPagination,
+  } = usePaginationQuery<NewsPagination, PaginationVariables>({
+    queryName: 'newsPagination',
+    defaultLimit: 4,
+    localizationQuery: {
+      ru: NewsPaginationRU,
+      en: NewsPaginationEN,
+      uk: NewsPaginationUK,
+    }
+  });
+  console.log('loading: ', loading);
   return (
     <Fragment>
       <Head
@@ -25,9 +47,18 @@ const News: React.FC<INewsProps> = ({t}) => {
         }}
       />
       <LayoutTitleWithContent title={t('nav-news')}>
-        <NewsList/>
+        <NewsList
+          data={data && data.newsPagination.items}
+        />
 
-        <Pagination/>
+        <Pagination
+          disabled={isDisabledPagination()}
+          forcePage={page-1}
+          loading={loading}
+          onFetchMore={onFetchMore}
+          onPageChange={onPaginationFetchMore}
+          pageCount={calculatePageCount()}
+        />
 
       </LayoutTitleWithContent>
     </Fragment>

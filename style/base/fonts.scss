@@ -1,19 +1,45 @@
 @font-face {
   font-family: 'Object Sans';
-  src: url('../../static/fonts/ObjectSans/ObjectSans-Heavy.otf') format("opentype");
+  src: url('../../static/fonts/ObjectSans/ObjectSans-Heavy.otf') format("opentype"),
+  url('../../static/fonts/ObjectSans/ObjectSans-Heavy.woff2') format('woff2'),
+  url('../../static/fonts/ObjectSans/ObjectSans-Heavy.woff') format('woff'),
+  url('../../static/fonts/ObjectSans/ObjectSans-Heavy.ttf') format('truetype'),
+  url('../../static/fonts/ObjectSans/ObjectSans-Heavy.svg#ObjectSans-Heavy') format('svg');
+  font-weight: 800;
+  font-style: normal;
 }
 @font-face {
   font-family: 'Object Sans HS';
-  src: url('../../static/fonts/ObjectSans/ObjectSans-HeavySlanted.otf') format("opentype");
+  src: url('../../static/fonts/ObjectSans/ObjectSans-HeavySlanted.otf') format("opentype"),
+  url('../../static/fonts/ObjectSans/ObjectSans-HeavySlanted.woff2') format('woff2'),
+  url('../../static/fonts/ObjectSans/ObjectSans-HeavySlanted.woff') format('woff'),
+  url('../../static/fonts/ObjectSans/ObjectSans-HeavySlanted.ttf') format('truetype'),
+  url('../../static/fonts/ObjectSans/ObjectSans-HeavySlanted.svg#ObjectSans-HeavySlanted') format('svg');
+  font-weight: 800;
+  font-style: normal;
 }
 @font-face {
   font-family: 'Object Sans R';
-  src: url('../../static/fonts/ObjectSans/ObjectSans-Regular.otf') format("opentype");
+  src: url('../../static/fonts/ObjectSans/ObjectSans-Regular.otf') format("opentype"),
+  url('../../static/fonts/ObjectSans/ObjectSans-Regular.woff2') format('woff2'),
+  url('../../static/fonts/ObjectSans/ObjectSans-Regular.woff') format('woff'),
+  url('../../static/fonts/ObjectSans/ObjectSans-Regular.ttf') format('truetype'),
+  url('../../static/fonts/ObjectSans/ObjectSans-Regular.svg#ObjectSans-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
   font-family: 'Object Sans S';
-  src: url('../../static/fonts/ObjectSans/ObjectSans-Slanted.otf') format("opentype");
+  src: url('../../static/fonts/ObjectSans/ObjectSans-Slanted.otf') format("opentype"),
+  url('../../static/fonts/ObjectSans/ObjectSans-Slanted.woff2') format('woff2'),
+  url('../../static/fonts/ObjectSans/ObjectSans-Slanted.woff') format('woff'),
+  url('../../static/fonts/ObjectSans/ObjectSans-Slanted.ttf') format('truetype'),
+  url('../../static/fonts/ObjectSans/ObjectSans-Slanted.svg#ObjectSans-Slanted') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
+
+
 
 @font-face {
   font-family: 'PTRootUIWebMedium';

@@ -1,5 +1,6 @@
 import {gql} from "apollo-boost";
 
+// TODO: twitterImage_alt -> twitterImageAlt
 
 export const GetPrivacyPolicyRUQuery = gql`
     {
@@ -38,7 +39,7 @@ export const GetPrivacyPolicyRUQuery = gql`
                 twitterImage {
                     ru
                 }
-                twitterImage_alt {
+                twitterImageAlt {
                     ru
                 }
                 twitterTitle {
@@ -53,7 +54,6 @@ export const GetPrivacyPolicyRUQuery = gql`
             }
         }
     }
-
 `;
 
 export const GetPrivacyPolicyENQuery = gql`
@@ -93,7 +93,7 @@ export const GetPrivacyPolicyENQuery = gql`
                 twitterImage {
                     en
                 }
-                twitterImage_alt {
+                twitterImageAlt {
                     en
                 }
                 twitterTitle {
@@ -108,7 +108,6 @@ export const GetPrivacyPolicyENQuery = gql`
             }
         }
     }
-
 `;
 
 export const GetPrivacyPolicyUKQuery = gql`
@@ -148,7 +147,7 @@ export const GetPrivacyPolicyUKQuery = gql`
                 twitterImage {
                     uk
                 }
-                twitterImage_alt {
+                twitterImageAlt {
                     uk
                 }
                 twitterTitle {
@@ -163,5 +162,4 @@ export const GetPrivacyPolicyUKQuery = gql`
             }
         }
     }
-
 `;

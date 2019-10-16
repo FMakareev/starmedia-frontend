@@ -39,6 +39,7 @@
     @extend .text_font-object;
     @extend .text_size-m;
     text-transform: uppercase;
+    color: $color-typo-primary;
     cursor: pointer;
     &:hover {
       color: $color-typo-brand;

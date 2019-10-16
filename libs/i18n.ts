@@ -25,6 +25,7 @@ export const {
 	withTranslation,
 	useTranslation,
 	Trans,
+	i18n,
 	...rest
 } = NextI18NextInstance;
 

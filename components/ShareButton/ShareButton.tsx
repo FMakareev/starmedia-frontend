@@ -23,14 +23,25 @@ interface IShareButtonProps {
   [prop: string]: any
 }
 
+
+const GetSharedUrl = () => {
+  if(typeof window !== undefined){
+    return window.location.href;
+  }
+  return '';
+};
+
 const ShareButton: React.FC<IShareButtonProps> = ({horizontal}) => {
+
+  const sharedURL:string = GetSharedUrl();
+
   return (
     <ul className={classNames('share-button_list',{
       'share-button_list--horizontal': horizontal,
     })}>
       <li className={'share-button_item'}>
         <FacebookShareButton
-          url={''}
+          url={sharedURL}
         >
           <img
             className={'share-button_icon'}
@@ -41,7 +52,7 @@ const ShareButton: React.FC<IShareButtonProps> = ({horizontal}) => {
       </li>
       <li className={'share-button_item'}>
         <TwitterShareButton
-          url={''}
+          url={sharedURL}
         >
           <img
             className={'share-button_icon'}
@@ -52,7 +63,7 @@ const ShareButton: React.FC<IShareButtonProps> = ({horizontal}) => {
       </li>
       <li className={'share-button_item'}>
         <VKShareButton
-          url={''}
+          url={sharedURL}
         >
           <img
             className={'share-button_icon'}
@@ -63,7 +74,7 @@ const ShareButton: React.FC<IShareButtonProps> = ({horizontal}) => {
       </li>
       <li className={'share-button_item'}>
         <OKShareButton
-          url={''}
+          url={sharedURL}
         >
           <img
             className={'share-button_icon'}

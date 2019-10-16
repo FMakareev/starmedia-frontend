@@ -10,38 +10,69 @@ import ArrowLargeRight from "../Icons/ArrowLargeRight";
 import {useTranslation} from "../../libs/i18n";
 
 interface IPaginationProps {
+  onFetchMore: () => any,
+  onPageChange?: (data: any) => void,
+
+  pageCount?: number,
+  forcePage?: number,
+  loading: boolean,
+  isPagination?: boolean,
+  disabled?: boolean,
+
   [prop: string]: any
 }
 
-const Pagination: React.FC<IPaginationProps> = () => {
+const Pagination: React.FC<IPaginationProps> = (
+  {
+    onFetchMore,
+    pageCount,
+    onPageChange,
+    loading,
+    forcePage,
+    isPagination = true,
+    disabled,
+  }
+) => {
 
   const {t} = useTranslation('common');
   return (
     <Container>
       <Row mb={56} center={ViewportSizeEnum.xs}>
-        <Button aria-label={'Show more'}  mods={['m']} element={ButtonElementEnum.circle}>
+        <Button
+          disabled={loading || disabled}
+          onClick={onFetchMore}
+          aria-label={'Show more'}
+          mods={['m']}
+          element={ButtonElementEnum.circle}
+        >
           {t('button_show-more')}
         </Button>
       </Row>
-      <Row center={ViewportSizeEnum.sm}>
-        <ReactPaginate
-          previousLabel={<ArrowLargeLeft/>}
-          nextLabel={<ArrowLargeRight/>}
-          containerClassName={'pagination_container'}
-          pageClassName={'pagination_page-item'}
-          pageLinkClassName={"pagination_page-link"}
-          previousClassName={'pagination_previous'}
-          nextClassName={'pagination_next'}
-          previousLinkClassName={"pagination_page-link"}
-          nextLinkClassName={'pagination_page-link'}
+      {
+        isPagination && <Row center={ViewportSizeEnum.sm}>
+					<ReactPaginate
+						pageCount={pageCount}
+						onPageChange={onPageChange}
+						forcePage={forcePage}
+						previousLabel={<ArrowLargeLeft/>}
+						nextLabel={<ArrowLargeRight/>}
+						containerClassName={'pagination_container'}
+						pageClassName={'pagination_page-item'}
+						pageLinkClassName={"pagination_page-link"}
+						previousClassName={'pagination_previous'}
+						nextClassName={'pagination_next'}
+						previousLinkClassName={"pagination_page-link"}
+						nextLinkClassName={'pagination_page-link'}
 
-          breakClassName={'pagination_page-item'}
-          breakLinkClassName={"pagination_page-link"}
+						breakClassName={'pagination_page-item'}
+						breakLinkClassName={"pagination_page-link"}
 
-          activeClassName={'pagination_page-item--active'}
+						activeClassName={'pagination_page-item--active'}
 
-        />
-      </Row>
+					/>
+				</Row>
+      }
+
 
     </Container>
   );

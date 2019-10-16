@@ -1,12 +1,13 @@
 import * as React from 'react';
-import {Project} from '../../types/types';
+import {Project} from '../../types/projectTypes';
 import Col from "../../components/Col/Col";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
-import Row from '../../components/Row/Row';
+// import Row from '../../components/Row/Row';
 import Container from "../../components/Container/Container";
+import {CSSTransition, TransitionGroup} from "react-transition-group";
 
 interface IProjectListProps {
-  projects: Project[];
+  projects?: Project[];
 
   [prop: string]: any
 }
@@ -14,22 +15,31 @@ interface IProjectListProps {
 const ProjectList: React.FC<IProjectListProps> = ({projects}) => {
   return (
     <Container mb={64}>
-      <Row>
+      <TransitionGroup className={'row'}>
         {
           projects && projects.map((item: Project, index: number) =>
-            (<Col
-              xs={6}
-              sm={4}
-              md={3}
-              key={`${index}`}
-            >
-              <ProjectCard
-                withInfo={true}
-                {...item}
-              />
-            </Col>))
+            (
+              <CSSTransition
+                timeout={300}
+                key={index}
+                classNames={'transition-list'}
+              >
+                <Col
+                  xs={6}
+                  sm={4}
+                  md={3}
+                  key={`${index}`}
+                >
+                  <ProjectCard
+                    withInfo={true}
+                    href={`/project/${item.slug}`}
+                    {...item}
+                  />
+                </Col>
+              </CSSTransition>
+            ))
         }
-      </Row>
+      </TransitionGroup>
     </Container>
   );
 };

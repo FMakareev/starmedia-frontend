@@ -3,8 +3,9 @@ import * as React from 'react';
 import {SkyLightStateless} from "react-skylight"
 import CatalogForm from './CatalogForm';
 import Col from "../Col/Col";
+import {OrderCatalog} from "../../types/types";
 
-interface ICatalogFormPopupProps {
+interface ICatalogFormPopupProps extends OrderCatalog {
   [prop: string]: any
 }
 
@@ -26,7 +27,9 @@ const myBigGreenDialog = {
 const CatalogFormPopup: React.FC<ICatalogFormPopupProps> = (
   {
     onClose,
-    isVisible
+    isVisible,
+    title,
+    form
   }
 ) => {
   return (
@@ -51,6 +54,10 @@ const CatalogFormPopup: React.FC<ICatalogFormPopupProps> = (
         }}
       >
         <CatalogForm
+          initialValues={{
+            title,
+            form: form && form.id,
+          }}
           onCloseClicked={onClose}
         />
       </Col>

@@ -1,9 +1,11 @@
 import {gql} from "apollo-boost";
 
+// TODO: getProject => getProjectPage
 
+// TODO: twitterImage_alt -> twitterImageAlt
 export const GetProjectRUQuery = gql`
     query ($slug: String!) {
-        getProject(slug: $slug) {
+        getProjectPage(slug: $slug) {
             project {
                 slug
                 preview {
@@ -15,12 +17,10 @@ export const GetProjectRUQuery = gql`
                 description {
                     ru
                 }
-                trailer {
-                    preview {
-                        url
-                    }
-                    video
-                }
+                trailer
+#                preview {
+#                    url
+#                }
                 projectInfo {
                     genre {
                         ru
@@ -107,7 +107,7 @@ export const GetProjectRUQuery = gql`
                 twitterImage {
                     ru
                 }
-                twitterImage_alt {
+                twitterImageAlt {
                     ru
                 }
                 twitterTitle {
@@ -127,7 +127,7 @@ export const GetProjectRUQuery = gql`
 
 export const GetProjectENQuery = gql`
     query ($slug: String!) {
-        getProject(slug: $slug) {
+        getProjectPage(slug: $slug) {
             project {
                 slug
                 preview {
@@ -139,12 +139,10 @@ export const GetProjectENQuery = gql`
                 description {
                     en
                 }
-                trailer {
-                    preview {
-                        url
-                    }
-                    video
-                }
+                trailer
+#                preview {
+#                    url
+#                }
                 projectInfo {
                     genre {
                         en
@@ -231,7 +229,7 @@ export const GetProjectENQuery = gql`
                 twitterImage {
                     en
                 }
-                twitterImage_alt {
+                twitterImageAlt {
                     en
                 }
                 twitterTitle {
@@ -250,7 +248,7 @@ export const GetProjectENQuery = gql`
 `;
 export const GetProjectUKQuery = gql`
     query ($slug: String!) {
-        getProject(slug: $slug) {
+        getProjectPage(slug: $slug) {
             project {
                 slug
                 preview {
@@ -262,12 +260,10 @@ export const GetProjectUKQuery = gql`
                 description {
                     uk
                 }
-                trailer {
-                    preview {
-                        url
-                    }
-                    video
-                }
+                trailer
+#                preview {
+#                    url
+#                }
                 projectInfo {
                     genre {
                         uk
@@ -354,7 +350,7 @@ export const GetProjectUKQuery = gql`
                 twitterImage {
                     uk
                 }
-                twitterImage_alt {
+                twitterImageAlt {
                     uk
                 }
                 twitterTitle {
@@ -369,4 +365,80 @@ export const GetProjectUKQuery = gql`
             }            
         }
     }
+`;
+
+
+
+
+/** PAGINATION */
+
+export const ProjectPaginationRU = gql`
+    query ($limit: Int, $page: Int, $genre: String, $format: String, $year: Int, $query: String) {
+        projectPagination(limit: $limit, page: $page, genre: $genre, format: $format, year: $year, query: $query) {
+            pageInfo {
+                currentPage
+                limit
+                nextPage
+                prevPage
+            }
+            count
+            items {
+                slug
+                preview {
+                    url
+                }
+                title {
+                    ru
+                }
+            }
+        }
+    }
+
+`;
+
+export const ProjectPaginationEN = gql`
+    query ($limit: Int, $page: Int, $genre: String, $format: String, $year: Int, $query: String) {
+        projectPagination(limit: $limit, page: $page, genre: $genre, format: $format, year: $year, query: $query) {
+            pageInfo {
+                currentPage
+                limit
+                nextPage
+                prevPage
+            }
+            count
+            items {
+                slug
+                preview {
+                    url
+                }
+                title{
+                    en
+                }
+            }
+        }
+    }
+`;
+
+export const ProjectPaginationUK = gql`
+    query ($limit: Int, $page: Int, $genre: String, $format: String, $year: Int, $query: String) {
+        projectPagination(limit: $limit, page: $page, genre: $genre, format: $format, year: $year, query: $query) {
+            pageInfo {
+                currentPage
+                limit
+                nextPage
+                prevPage
+            }
+            count
+            items {
+                slug
+                preview {
+                    url
+                }
+                title {
+                    uk
+                }
+            }
+        }
+    }
+
 `;

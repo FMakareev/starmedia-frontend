@@ -1,7 +1,4 @@
-import { gql } from "apollo-boost";
-
-
-
+import {gql} from "apollo-boost";
 
 
 export const GetHomePageRUQuery = gql`
@@ -15,22 +12,26 @@ export const GetHomePageRUQuery = gql`
                     ru
                 }
             }
-            aboutUsSection {
-                title {
-                    ru
-                }
-                backgroudVideo {
-                    preview {
-                        url
-                    }
-                    video
-                }
-            }
+#            aboutUsSection {
+#                title {
+#                    ru
+#                }
+##                backgroudVideo {
+##                    preview {
+##                        url
+##                    }
+##                    video {
+##                        url
+##                    }
+##                }
+#            }
             orderCatalog {
                 title {
                     ru
                 }
-                form
+                form {
+                    id
+                }
             }
             seoTags {
                 description {
@@ -60,7 +61,7 @@ export const GetHomePageRUQuery = gql`
                 twitterImage {
                     ru
                 }
-                twitterImage_alt {
+                twitterImageAlt {
                     ru
                 }
                 twitterTitle {
@@ -74,8 +75,35 @@ export const GetHomePageRUQuery = gql`
                 }
             }
         }
+        newsPagination(limit: 4, page: 1){
+            pageInfo {
+                currentPage
+                limit
+                nextPage
+                prevPage
+            }
+            count
+            items {
+                name{
+                    ru
+                }
+            }
+        }
+        projectPagination(limit: 9, page: 1){
+            pageInfo {
+                currentPage
+                limit
+                nextPage
+                prevPage
+            }
+            count
+            items {
+                title{
+                    ru
+                }
+            }
+        }
     }
-
 `;
 
 export const GetHomePageENQuery = gql`
@@ -89,22 +117,26 @@ export const GetHomePageENQuery = gql`
                     en
                 }
             }
-            aboutUsSection {
-                title {
-                    en
-                }
-                backgroudVideo {
-                    preview {
-                        url
-                    }
-                    video
-                }
-            }
+#            aboutUsSection {
+#                title {
+#                    en
+#                }
+##                backgroudVideo {
+##                    preview {
+##                        url
+##                    }
+##                    video {
+##                        url
+##                    }
+##                }
+#            }
             orderCatalog {
                 title {
                     en
                 }
-                form
+                form {
+                    id
+                }
             }
             seoTags {
                 description {
@@ -134,7 +166,7 @@ export const GetHomePageENQuery = gql`
                 twitterImage {
                     en
                 }
-                twitterImage_alt {
+                twitterImageAlt {
                     en
                 }
                 twitterTitle {
@@ -148,8 +180,35 @@ export const GetHomePageENQuery = gql`
                 }
             }
         }
+        newsPagination(limit: 4, page: 1){
+            pageInfo {
+                currentPage
+                limit
+                nextPage
+                prevPage
+            }
+            count
+            items {
+                name{
+                    en
+                }
+            }
+        }
+        projectPagination(limit: 9, page: 1){
+            pageInfo {
+                currentPage
+                limit
+                nextPage
+                prevPage
+            }
+            count
+            items {
+                title{
+                    en
+                }
+            }
+        }
     }
-
 `;
 
 export const GetHomePageUKQuery = gql`
@@ -163,22 +222,26 @@ export const GetHomePageUKQuery = gql`
                     uk
                 }
             }
-            aboutUsSection {
-                title {
-                    uk
-                }
-                backgroudVideo {
-                    preview {
-                        url
-                    }
-                    video
-                }
-            }
+#            aboutUsSection {
+#                title {
+#                    uk
+#                }
+##                backgroudVideo {
+##                    preview {
+##                        url
+##                    }
+##                    video {
+##                        url
+##                    }
+##                }
+#            }
             orderCatalog {
                 title {
                     uk
                 }
-                form
+                form {
+                    id
+                }
             }
             seoTags {
                 description {
@@ -208,7 +271,7 @@ export const GetHomePageUKQuery = gql`
                 twitterImage {
                     uk
                 }
-                twitterImage_alt {
+                twitterImageAlt {
                     uk
                 }
                 twitterTitle {
@@ -222,6 +285,33 @@ export const GetHomePageUKQuery = gql`
                 }
             }
         }
+        newsPagination(limit: 4, page: 1){
+            pageInfo {
+                currentPage
+                limit
+                nextPage
+                prevPage
+            }
+            count
+            items {
+                name{
+                    uk
+                }
+            }
+        }
+        projectPagination(limit: 9, page: 1){
+            pageInfo {
+                currentPage
+                limit
+                nextPage
+                prevPage
+            }
+            count
+            items {
+                title{
+                    uk
+                }
+            }
+        }
     }
-
 `;

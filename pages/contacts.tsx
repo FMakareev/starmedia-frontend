@@ -2,7 +2,6 @@ import * as React from 'react';
 import ContactRoles from "../pageTemplate/Contacts/ContactRoles";
 import MainContacts from '../pageTemplate/Contacts/MainContacts';
 import LayoutTitleWithContent from "../components/Layout/LayoutTitleWithContent";
-import ContactMap from "../pageTemplate/Contacts/ContactMap";
 import {useTranslation} from "../libs/i18n";
 import {
   GetContactsUKQuery,
@@ -14,11 +13,15 @@ import {useLocalizationQuery} from "../libs/useLocalizationQuery";
 import Head from "../components/Head/Head";
 import { Fragment } from 'react';
 import Preloader from "../components/Preloader/Preloader";
+import dynamic from "next-server/dynamic";
 
 interface IContactsProps {
   [prop: string]: any
 }
 
+const ContactMap = dynamic(() => import('../pageTemplate/Contacts/ContactMap'),{
+  ssr: false,
+})
 
 // @ts-ignore
 const Contacts: React.FC<IContactsProps> = () => {

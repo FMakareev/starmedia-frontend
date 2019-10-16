@@ -4,7 +4,7 @@ import LayoutTitleDateContent from '../../components/Layout/LayoutTitleDateConte
 import {useTranslation} from "../../libs/i18n";
 import {GetAwardRUQuery, GetAwardUKQuery, GetAwardENQuery} from '../../apollo/query/GetAwardQuery';
 import {useRouter} from "next/router";
-import {GetAward} from '../../types/types';
+import {GetAward} from '../../types/awardsTypes';
 import {GetLocalizationString} from "../../libs/GetLocalizationString";
 import Preloader from "../../components/Preloader/Preloader";
 import {useLocalizationQuery} from "../../libs/useLocalizationQuery";

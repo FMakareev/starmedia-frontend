@@ -1,3 +1,7 @@
+import {News, NewsPagination} from "./newsTypes";
+import {Project, ProjectPagination} from "./projectTypes";
+import {Award} from "./awardsTypes";
+
 export type Maybe<T> = T | null;
 export type Scalars = {
   ID: string;
@@ -24,29 +28,31 @@ export enum ButtonElementEnum {
   transparent = 'transparent',
 }
 
-export type LocalizedString = {
-  __typename?: "LocalizedString";
-  en?: Maybe<Scalars["String"]>;
-  ru?: Maybe<Scalars["String"]>;
-  uk?: Maybe<Scalars["String"]>;
-};
-
-export enum SocialLinkTypeEnum {
-  ok = 'ok',
-  in = 'in',
-  facebook = 'facebook',
+export enum SocialEnum {
+  t = 't',
+  imdb = 'imdb',
   vk = 'vk',
-  youtube = 'youtube',
-  twitter = 'twitter',
+  ok = 'ok',
+  fb = 'fb',
+  gp = 'gp',
+  yt = 'yt',
 }
 
-export type SocialLink = {
-  __typename?: "SocialLink";
-  url?: Scalars["String"];
-  icon?: SocialLinkTypeEnum;
-  name?: Scalars["String"];
-  shortName?: Scalars["String"];
+
+export enum AppLanguages {
+  ru = 'ru',
+  en = 'en',
+  uk = 'uk'
+}
+
+export type LocalizedString = {
+  __typename?: "LocalizedString";
+  [AppLanguages.en]?: Maybe<Scalars["String"]>;
+  [AppLanguages.ru]?: Maybe<Scalars["String"]>;
+  [AppLanguages.uk]?: Maybe<Scalars["String"]>;
 };
+
+
 export type IRelation = {}
 export type File = {
   __typename?: "SocialLink";
@@ -68,59 +74,6 @@ export type Video = {
   video?: Scalars["String"];
 }
 
-
-export type GetAward = {
-  getAward: Award;
-}
-
-
-export type Award = {
-  __typename?: "Award";
-  seoTags?: SeoTags,
-  name?: Maybe<LocalizedString>;
-  date?: Scalars["String"];
-  slug?: Maybe<Scalars["String"]>;
-  description?: Maybe<LocalizedString>;
-  shortDescription?: Maybe<LocalizedString>;
-  content?: Maybe<LocalizedString>;
-};
-
-export type Project = {
-  __typename?: "Project";
-  slug?: Maybe<Scalars["String"]>;
-  title?: Maybe<LocalizedString>;
-  description?: Maybe<LocalizedString>;
-  preview?: Maybe<File>;
-  trailer?: Maybe<Video>;
-  projectInfo?: Maybe<ProjectInfo>;
-  awards?: Maybe<Array<Award>>;
-  gallery?: Maybe<Array<File>>;
-  tags?: Maybe<Array<Tag>>;
-  similarProject?: Array<Project>;
-};
-
-export type ProjectInfo = {
-  __typename?: "ProjectInfo";
-  genre?: Maybe<LocalizedString>;
-  format?: Maybe<LocalizedString>;
-  productionYear?: Maybe<LocalizedString>;
-  numberOfEpisodes?: Maybe<Scalars["Int"]>;
-  directors?: Maybe<LocalizedString>;
-  scenario?: Maybe<LocalizedString>;
-  operator?: Maybe<LocalizedString>;
-  composer?: Maybe<LocalizedString>;
-  producer?: Maybe<LocalizedString>;
-  cast?: Maybe<LocalizedString>;
-};
-
-export type ProjectPage = {
-  project: Project,
-  seoTags: SeoTags,
-}
-
-export type GetProjectPage = {
-  getProject: ProjectPage,
-}
 
 export type Tag = {
   __typename?: "Tag";
@@ -151,8 +104,8 @@ export type Role = {
 export type Person = {
   __typename?: "Person";
   name?: LocalizedString,
-  email?: Scalars["String"],
-  phone?: Scalars["String"],
+  emails?: Array<Scalars["String"]>,
+  phones?: Array<Scalars["String"]>,
   company?: LocalizedString,
   position?: LocalizedString
 }
@@ -217,6 +170,7 @@ export enum FormEnum {
 }
 
 export type Forms = {
+  id?: string,
   type?: Maybe<FormEnum>,
   name?: Maybe<LocalizedString>,
   description?: Maybe<LocalizedString>,
@@ -276,7 +230,7 @@ export type SeoTags = {
   ogTitle?: LocalizedString,
 
   twitterImage?: LocalizedString,
-  twitterImage_alt?: LocalizedString,
+  twitterImageAlt?: LocalizedString,
   twitterTitle?: LocalizedString,
   twitterDescription?: LocalizedString,
   twitterSite?: LocalizedString,
@@ -326,8 +280,8 @@ export type MainSection = {
 }
 
 export type OrderCatalog = {
-  title: LocalizedString,
-  form: String,
+  title?: LocalizedString,
+  form?: Forms,
 }
 
 
@@ -338,7 +292,7 @@ export type HomePage = {
   seoTags: SeoTags
 }
 
-export type GetHomePage = {
+export interface GetHomePage extends NewsPagination, ProjectPagination {
   getHomePage: HomePage
 }
 
@@ -352,12 +306,71 @@ export type AboutUs = {
   seoTags?: SeoTags,
   title?: LocalizedString,
   content?: LocalizedString,
-  redBubble?: LocalizedString,
+  redBabble?: LocalizedString,
   titleTVBroadcast?: LocalizedString,
   titleTVBroadcastBabbles?: [AboutUsBabble],
 }
 
 
 export type GetAboutUs = {
-  getAboutUs: AboutUs;
+  getAboutUsPage: AboutUs;
+}
+
+
+export type PaginationPageInfo = {
+  currentPage?: number,
+  limit: number,
+  nextPage?: number,
+  prevPage?: number,
+}
+
+export type PaginationVariables = {
+  limit: number,
+  page: number,
+}
+
+export interface SearchPaginationVariable extends PaginationVariables {
+  query: string,
+}
+
+export type SearchPagination = {
+  search?: {
+    projects?: {
+      __typename: "ProjectPagination"
+      pageInfo?: PaginationPageInfo,
+      count: number,
+      items: Project[],
+    },
+    news?: {
+      __typename: "NewsPagination"
+      pageInfo?: PaginationPageInfo,
+      count: number,
+      items: News[],
+    },
+    awards?: {
+      __typename: "AwardPagination"
+      pageInfo?: PaginationPageInfo,
+      count: number,
+      items: Award[],
+    }
+  }
+}
+
+
+export type FeedbackInput = {
+  form?: String,
+  name?: String,
+  email?: String,
+  phone?: String,
+  city?: String,
+  url?: String,
+  file?: String,
+  date?: String,
+}
+export type SendFeedbackVariables = {
+  feedback: FeedbackInput
+}
+
+export type SendFeedback = {
+  answer: String
 }

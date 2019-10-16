@@ -3,22 +3,30 @@ import {ButtonElementEnum, Video} from "../../types/types";
 import PlayIcon from "../../components/Icons/PlayIcon";
 import Button from "../../components/Button/Button";
 import YouTube from "react-youtube"
+import ProgressiveImage from "react-progressive-image";
+// @ts-ignore
+import placeholder from "../../static/images/project-trailer-placeholder.svg";
 
 interface IProjectTrailerProps extends Video {
   [prop: string]: any
 }
 
-function youtubeParser(url: string): string {
-  let regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
-  let match = url.match(regExp);
-  // @ts-ignore
-  return (match && match[7] && match[7].length === 11) ? match[7] : false;
+function youtubeParser(url: string = ''): string {
+  try {
+    let regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+    let match = url.match(regExp);
+    // @ts-ignore
+    return (match && match[7] && match[7].length === 11) ? match[7] : false;
+  } catch (e) {
+    console.log(e);
+    return '';
+  }
 }
 
 const ProjectTrailer: React.FC<IProjectTrailerProps> = (
   {
-    preview,
-    video
+    trailerPreview,
+    trailer,
   }
 ) => {
 
@@ -27,13 +35,14 @@ const ProjectTrailer: React.FC<IProjectTrailerProps> = (
   const togglePlayer = () => {
     setWatch(!watch);
   }
-
+  console.log(trailer);
+  console.log(youtubeParser(trailer));
   return (
     <div className={'project-trailer_wrapper'}>
       {
         watch && <YouTube
 					className="project-trailer_video"
-					videoId={video && youtubeParser(video) || ' '}
+					videoId={trailer && youtubeParser(trailer) || ' '}
 					opts={{
             playerVars: {
               autoplay: 1
@@ -45,10 +54,17 @@ const ProjectTrailer: React.FC<IProjectTrailerProps> = (
       {
         !watch &&
 				<div onClick={togglePlayer} className="project-trailer_preview">
-					<img
-						src={preview && preview.url || ''}
-						alt=""
-					/>
+					<ProgressiveImage
+						src={trailerPreview && trailerPreview.url || ''}
+						placeholder={placeholder}
+					>
+            {
+              (src: string) => <img
+                src={src}
+                alt={'project poster'}
+              />
+            }
+					</ProgressiveImage>
 					<div className="project-trailer_play">
 						<Button aria-label={'play video'} element={ButtonElementEnum.circle} mods={['inverse', 's']}>
 							<PlayIcon/>

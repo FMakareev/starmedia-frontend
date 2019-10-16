@@ -16,7 +16,7 @@ const AboutDescription: React.FC<IAboutDescriptionProps> = (
   {
     title,
     content,
-    redBubble,
+    redBabble,
   }
 ) => {
   const {i18n} = useTranslation();
@@ -61,7 +61,7 @@ const AboutDescription: React.FC<IAboutDescriptionProps> = (
               align={'center'}
             >
               {
-                GetLocalizationString(redBubble,i18n)
+                GetLocalizationString(redBabble,i18n)
               }
             </Text>
           </div>

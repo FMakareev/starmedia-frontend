@@ -44,3 +44,19 @@ hr {
   opacity: 0.3;
   background-color: #FFFFFF;
 }
+
+
+.transition-list-enter {
+  opacity: 0;
+}
+.transition-list-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+.transition-list-exit {
+  opacity: 1;
+}
+.transition-list-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease-in;
+}

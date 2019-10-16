@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {Project} from "../../../types/types";
+import {Project} from "../../../types/projectTypes";
 
 interface ISectionMainBgProps {
-  project: Project;
+  project?: Project;
   [prop: string]: any
 }
 

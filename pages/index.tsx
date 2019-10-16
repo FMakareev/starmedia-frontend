@@ -29,7 +29,6 @@ const Homepage = () => {
   if (loading) {
     return (<Preloader/>)
   }
-
   return (
     <Fragment>
       <Head
@@ -37,13 +36,18 @@ const Homepage = () => {
         seoTags={data && data.getHomePage && data.getHomePage.seoTags}
       />
       <SectionMain
+        projectList={data && data.projectPagination && data.projectPagination.items}
 				{...(data && data.getHomePage && data.getHomePage.mainSection)}
       />
-      <SectionNews/>
+      <SectionNews
+        news={data && data.newsPagination && data.newsPagination.items}
+      />
       <SectionAboutUs
 				{...(data && data.getHomePage && data.getHomePage.aboutUsSection)}
 			/>
-      <SectionProjects/>
+      <SectionProjects
+        projectList={data && data.projectPagination && data.projectPagination.items}
+      />
       <SectionGetCatalog
 				{...(data && data.getHomePage && data.getHomePage.orderCatalog)}
 			/>

@@ -3,6 +3,7 @@ import React from "react";
 import {ApolloProvider} from "react-apollo";
 
 import "../style/style.scss";
+import "react-id-swiper/lib/styles/css/swiper.css";
 import Layout from "../components/Layout/Layout";
 import {appWithTranslation} from '../libs/i18n'
 import SocialIconsSprite from "../components/Icons/SocialIconsSprite";

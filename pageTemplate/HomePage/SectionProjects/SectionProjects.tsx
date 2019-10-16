@@ -5,18 +5,19 @@ import Text from '../../../components/Text/Text';
 import Row from '../../../components/Row/Row';
 import Col from '../../../components/Col/Col';
 import ProjectCard from "../../../components/ProjectCard/ProjectCard";
-import {ButtonElementEnum, Project, ViewportSizeEnum} from '../../../types/types';
+import {ButtonElementEnum, ViewportSizeEnum} from '../../../types/types';
 import Button from "../../../components/Button/Button";
-import {ProjectsMock} from "../../../mock";
 import Link from "../../../components/Link/Link";
 import {useTranslation} from "../../../libs/i18n";
+import {Project} from "../../../types/projectTypes";
 
 interface ISectionProjectsProps {
+  projectList?: Project[];
   [prop: string]: any
 }
 
 
-const SectionProjects: React.FC<ISectionProjectsProps> = () => {
+const SectionProjects: React.FC<ISectionProjectsProps> = ({projectList}) => {
   const {t} = useTranslation(['home']);
 
   return (
@@ -30,16 +31,19 @@ const SectionProjects: React.FC<ISectionProjectsProps> = () => {
       <Container mb={80}>
         <Row className="section-projects_grid">
           {
-            ProjectsMock.map((item: Project, index: number) =>
+            projectList
+            && projectList.map((item: Project, index: number) =>
               <Col key={index}>
-                <ProjectCard withInfo={false} {...item}/>
+                <ProjectCard
+                  href={`/project/${item.slug}`}
+                  withInfo={false} {...item}/>
               </Col>)
           }
         </Row>
       </Container>
 
       <Container>
-        <Row center={ViewportSizeEnum.sm}>
+        <Row center={ViewportSizeEnum.xs}>
 
           <Link href={'/projects'}>
             <Button aria-label={'show all projects'} mods={['m']} element={ButtonElementEnum.circle}>

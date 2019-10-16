@@ -4,7 +4,7 @@ import Container from '../../components/Container/Container';
 import Col from '../../components/Col/Col';
 import Row from '../../components/Row/Row';
 import Text from '../../components/Text/Text';
-import {Project} from '../../types/types';
+import {Project} from '../../types/projectTypes';
 import ReactIdSwiper, {SwiperInstance} from "react-id-swiper";
 import CustomCursor from "../../components/CustomCursor/CustomCursor";
 import {useTranslation} from "../../libs/i18n";
@@ -34,7 +34,9 @@ const params = {
 const ProjectSimilar: React.FC<IProjectSimilarProps> = ({projects}) => {
   const {t} = useTranslation('common');
 
-
+  if (!projects || !projects.length) {
+    return null;
+  }
   return (
     <Col mb={[60, 100]}>
       <Container as={'section'} id={'similar'}>
@@ -54,7 +56,7 @@ const ProjectSimilar: React.FC<IProjectSimilarProps> = ({projects}) => {
           {
             // @ts-ignore
             projects
-            && projects.map((item: any, index)=> {
+            && projects.map((item: any, index) => {
               if (index === 0) {
                 return (<Col key={index} className={'project-detail-similar_first-item'}>
 

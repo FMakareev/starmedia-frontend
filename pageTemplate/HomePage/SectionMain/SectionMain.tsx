@@ -9,26 +9,36 @@ import CustomCursor from '../../../components/CustomCursor/CustomCursor';
 import Container from '../../../components/Container/Container';
 import {MainSection, ViewportSizeEnum} from "../../../types/types";
 import SectionMainTitle from './SectionMainTitle';
-import {ProjectsMock} from "../../../mock";
 import SectionMainCatalogFormat from "./SectionMainCatalogFormat";
 import SectionMainBg from './SectionMainBG';
 import SectionMainWatchOnline from './SectionMainWatchOnline';
-// @ts-ignore
-import SectionMainBottom from './SectionMainBottom';
+
 import SectionMainBottomSwiper from './SectionMainBottomSwiper';
 
 interface ISectionMainProps extends MainSection {
   [prop: string]: any
 }
 
+/**
+ * Админка
+ * 1. Увеличить шрифты
+ * 2. Расположить разделы в меню в порядке как на сайте
+ * 3. Дизайн админки доработать
+ *
+ * Сайт
+ * 1. чекнуть размеры и начертания шрифтов
+ * 2. сжать шрифты
+ * 3. добавить favicon
+ * 4.
+ * */
 
 const SectionMain: React.FC<ISectionMainProps> = (
   {
     title,
-    animatedText
+    animatedText,
+    projectList,
   }
 ) => {
-
 
   const [currentSlide, setNewSlideIndex] = React.useState(0);
 
@@ -36,7 +46,7 @@ const SectionMain: React.FC<ISectionMainProps> = (
   return (
     <div className={'section-main'}>
 
-      <SectionMainBg project={ProjectsMock[currentSlide]}/>
+      <SectionMainBg project={undefined}/>
 
       <Container mb={50}>
         <Row end={ViewportSizeEnum.xs}>
@@ -55,17 +65,12 @@ const SectionMain: React.FC<ISectionMainProps> = (
       <CustomCursor>
 
         <SectionMainBottomSwiper
+          projectList={projectList}
           currentSlide={currentSlide}
           setNewSlideIndex={setNewSlideIndex}
           title={title}
           animatedText={animatedText}
         />
-        {/*<SectionMainBottom*/}
-        {/*  currentSlide={currentSlide}*/}
-        {/*  setNewSlideIndex={setNewSlideIndex}*/}
-        {/*  title={title}*/}
-        {/*  animatedText={animatedText}*/}
-        {/*/>*/}
 
         <Col md={'none'} lg={'none'} sm={'none'} pl={24} pr={24}>
           <SectionMainWatchOnline/>

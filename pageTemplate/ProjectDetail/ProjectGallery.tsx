@@ -41,6 +41,10 @@ const ProjectGallery: React.FC<IProjectGalleryProps> = (
 ) => {
   const {t} = useTranslation('common');
 
+  if (!gallery || !gallery.length) {
+    return null;
+  }
+
   return (
     <Col
       as={'section'}
