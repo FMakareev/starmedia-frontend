@@ -17,7 +17,9 @@ const ContactListStrings: React.FC<IContactListStringsProps> = (
 ) => <Fragment>
   {
     contacts && contacts.map((contact: string, index: number) => {
-      return (<Button
+      return (
+        <Fragment>
+        <Button
         style={{
           fontWeight: 'normal',
           textTransform: 'inherit'
@@ -30,7 +32,9 @@ const ContactListStrings: React.FC<IContactListStringsProps> = (
         key={index}
       >
               {contact}
-      </Button>)
+      </Button>{index < contacts.lenght - 1?', ':''}
+        </Fragment>
+      )
     })
   }
 </Fragment>;
