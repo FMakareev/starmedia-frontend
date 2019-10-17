@@ -43,12 +43,14 @@
 
     .swiper-slide {
       width: 280px;
-      img{
+
+      img {
         width: 100%;
       }
-      @media(min-width: 768px){
+
+      @media(min-width: 768px) {
         width: auto;
-        img{
+        img {
           width: auto;
         }
       }
@@ -60,10 +62,14 @@
     }
 
     &-first-item {
+      width: auto!important;
       height: 300px !important;
       // swiper не дает через свое api гибко менять размер отступа и задает его инлайново,
       // на этом разрешении его нужно перебить и сделать меньше
       margin-right: 16px !important;
+      @media(min-width: 768px) {
+        width: auto;
+      }
       @media only screen and (min-width: map_get($screen, "lg")) {
         margin-right: 0 !important;
         width: 104px !important;
@@ -191,7 +197,7 @@
 
 .project-detail-similar {
   &_first-item {
-    width: 0!important;
+    width: 0 !important;
     margin-right: 16px !important;
     @media only screen and (min-width: map_get($screen, "lg")) {
       margin-right: 24px !important;
