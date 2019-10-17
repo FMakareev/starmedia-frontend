@@ -26,6 +26,7 @@ const ContactRoles: React.FC<IContactRolesProps> = (
         {
           mainContacts && mainContacts[currentCity]
           && Array.isArray(mainContacts[currentCity].departaments)
+          && mainContacts[currentCity].departaments
           && mainContacts[currentCity].departaments.map((item: Departament, index: number) => (<Col
             key={index}
             xs={12}

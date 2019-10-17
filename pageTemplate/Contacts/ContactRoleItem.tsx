@@ -4,6 +4,7 @@ import AnimateHeight from 'react-animate-height';
 import Text from '../../components/Text/Text';
 import {Departament, Person} from "../../types/types";
 import {GetLocalizationString} from "../../libs/GetLocalizationString";
+// @ts-ignore
 import ContactListStrings from "./ContactListStrings";
 
 interface IContactRoleItemProps extends Departament {
@@ -19,6 +20,7 @@ const ContactRoleItem: React.FC<IContactRoleItemProps> = (
     persons
   }
 ) => {
+  console.log('persons: ', persons);
   return (
     <div className={classNames('contact-role_item', {
       'contact-role_item--active': isOpen,
@@ -51,16 +53,16 @@ const ContactRoleItem: React.FC<IContactRoleItemProps> = (
                 }
               </Text>
               <Text mb={20} size={'m'} font={'root'}>
-                <ContactListStrings
-                  typeHref={'tel:'}
-                  contacts={item.phones}
-                />
-                <br/>
-                <ContactListStrings
-                  typeHref={'mailto:'}
-                  contacts={item.emails}
-                />
-                <br/>
+                {/*<ContactListStrings*/}
+                {/*  typeHref={'tel:'}*/}
+                {/*  contacts={item.phones}*/}
+                {/*/>*/}
+                {/*<br/>*/}
+                {/*<ContactListStrings*/}
+                {/*  typeHref={'mailto:'}*/}
+                {/*  contacts={item.emails}*/}
+                {/*/>*/}
+                {/*<br/>*/}
               </Text>
             </div>))
           }
