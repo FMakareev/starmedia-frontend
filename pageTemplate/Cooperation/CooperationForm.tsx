@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {Field, Form} from 'react-final-form'
 import TextField from '../../components/TextField/TextField';
-// import Select from "../../components/Select/Select";
 import Text from "../../components/Text/Text";
 import Row from "../../components/Row/Row";
 import Col from '../../components/Col/Col';
@@ -13,6 +12,7 @@ import Checkbox from "../../components/Checkbox";
 import {useTranslation} from "../../libs/i18n";
 import Link from "next/link";
 import dynamic from 'next/dynamic';
+import SendFeedbackFormHoc from "../../libs/SendFeedbackFormHOC";
 
 interface ICooperationFormProps {
   [prop: string]: any
@@ -72,10 +72,11 @@ const CooperationForm: React.FC<ICooperationFormProps> = (
 
   return  (
     <Form
-      onSubmit={() => {
-        onSubmit && onSubmit()
+      onSubmit={onSubmit}
+      initialValues={{
+        ...initialValues(i18n.language),
+        ...forms,
       }}
-      initialValues={initialValues(i18n.language)}
       validate={validate}
       render={({handleSubmit}) => (
         <form onSubmit={handleSubmit}>
@@ -109,7 +110,7 @@ const CooperationForm: React.FC<ICooperationFormProps> = (
             </Col>
             <Col mb={40} xs={12} sm={6}>
               <Field
-                name="fio"
+                name="name"
                 type={'text'}
                 label={t("form-field_label-fio")}
                 render={TextField}
@@ -138,13 +139,13 @@ const CooperationForm: React.FC<ICooperationFormProps> = (
               </Text>
             </Col>
 
-            <Col mb={40} xs={12} sm={12}>
+            <Col style={{overflow: 'hidden'}} mb={40} xs={12} sm={12}>
               <Field
-                name="link"
+                name="file"
                 labelOtherFile={t('form-field_label2-file')}
                 label={t("form-field_label-file")}
                 placeholder={t("form-field_placeholder-file")}
-                type={'url'}
+                type={'file'}
                 render={(props: any) => <DropFieldWithHOC {...props}/>}
               />
             </Col>
@@ -183,4 +184,4 @@ const CooperationForm: React.FC<ICooperationFormProps> = (
   );
 }
 
-export default CooperationForm;
+export default SendFeedbackFormHoc(CooperationForm);

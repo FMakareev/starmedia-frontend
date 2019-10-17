@@ -55,7 +55,7 @@ export const DropFieldHoc = (WrapperComponent: React.FC<any>) => () => {
 
     addFile = (event: BaseSyntheticEvent<Element, EventTarget, SyntheticEventFileTarget>) => {
       try {
-        const {onChange} = this.props;
+        const {input:{onChange}} = this.props;
         const files: IFile[] = event.target.files;
 
         this.setState((state) => ({
@@ -71,7 +71,7 @@ export const DropFieldHoc = (WrapperComponent: React.FC<any>) => () => {
 
     removeFile = (name: string) => {
       try {
-        const {onChange} = this.props;
+        const {input:{onChange}} = this.props;
         this.setState((state) => ({
           ...state,
           fileList: state.fileList.filter((item: IFile) => item.name !== name)

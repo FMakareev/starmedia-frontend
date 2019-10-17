@@ -22,14 +22,15 @@ const SendFeedbackFormHoc: any = (WrapperComponent: any) =>
 
       const {uploadFile, SendFeedback, callBack} = this.props;
       let file: any = null;
-      if (typeof values.avatar === 'object' && values.avatar.file) {
-        file = await uploadFile(typeof values.avatar === 'object' && values.avatar.file);
+      if (typeof values.file === 'object' && values.file[0]) {
+        file = await uploadFile(typeof values.file[0] === 'object' && values.file[0]);
       }
 
 
       const result = await SendFeedback({
         variables: {
           feedback: {
+            ...values,
             file: file && file.file_data && file.file_data.id,
             email: values.email,
             phone: values.email,
