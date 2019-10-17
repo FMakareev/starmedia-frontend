@@ -77,7 +77,7 @@ const ProjectFilter: React.FC<IProjectFilterProps> = (
   return (
     <Container mb={56} mt={32}>
       <Row>
-        <Col md={3}>
+        <Col mb={16} xs={12} md={3}>
           <SelectSlim
             label={t('filter_format-label')}
             input={{
@@ -97,7 +97,7 @@ const ProjectFilter: React.FC<IProjectFilterProps> = (
             }}
           />
         </Col>
-        <Col md={3}>
+        <Col mb={16} xs={12} md={3}>
           <SelectSlim
             label={t('filter_genre-label')}
             input={{
@@ -117,7 +117,7 @@ const ProjectFilter: React.FC<IProjectFilterProps> = (
             }}
           />
         </Col>
-        <Col md={3}>
+        <Col xs={12} md={3}>
           <SelectSlim
             label={t('filter_year-label')}
             input={{
@@ -132,7 +132,7 @@ const ProjectFilter: React.FC<IProjectFilterProps> = (
             options={[optionAll, ...yearList]}
           />
         </Col>
-        <Col md={3}>
+        <Col xs={12} md={3}>
 
           <TextField
             input={{

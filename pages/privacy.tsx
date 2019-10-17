@@ -29,7 +29,7 @@ const Privacy = () => {
   return (
     <Fragment>
       <Head
-        seoTags={data && data.getPrivacyPolicy.seoTags}
+        seoTags={data && data.getPrivacyPolicy && data.getPrivacyPolicy.seoTags}
         title={t('nav-privacy-policy')}
       />
       <LayoutTitleWithContent title={t('nav-privacy-policy')}>
@@ -39,6 +39,8 @@ const Privacy = () => {
               <Typeset
                 content={data &&
                 data.getPrivacyPolicy &&
+                // @ts-ignore
+                (i18n.language in data.getPrivacyPolicy.content) &&
                 // @ts-ignore
                 data.getPrivacyPolicy.content[i18n.language]}
               />

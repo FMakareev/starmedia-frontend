@@ -29,7 +29,7 @@ const AboutUs: React.FC<IAboutUsProps> = () => {
     <Fragment>
       <Head
         title={t('nav-about_us')}
-        seoTags={data && data.getAboutUsPage.seoTags}
+        seoTags={data && data.getAboutUsPage && data.getAboutUsPage.seoTags}
       />
       <LayoutTitleWithContent
         titleStyle={{

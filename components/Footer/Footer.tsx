@@ -77,7 +77,7 @@ const Footer: React.FC<IFooterProps> = () => {
           <Col md={3} sm={'none'} xs={'none'}>
             <ul className={'footer_nav-list  mb-32'}>
               {
-                data && data.getFormat.map((item: FormatGQL, index: number) => ( <li key={index} className={'footer_nav-item'}>
+                data && data.getFormat && data.getFormat.map((item: FormatGQL, index: number) => ( <li key={index} className={'footer_nav-item'}>
                   <Button
                     className={'text_align-left'}
                     mods={['light', 'm']}

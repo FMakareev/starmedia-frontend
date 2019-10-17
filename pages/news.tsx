@@ -33,7 +33,7 @@ const News: React.FC<INewsProps> = ({t}) => {
       uk: NewsPaginationUK,
     }
   });
-  console.log('loading: ', loading);
+  console.log('data.newsPagination.items: ', data);
   return (
     <Fragment>
       <Head
@@ -51,14 +51,20 @@ const News: React.FC<INewsProps> = ({t}) => {
           data={data && data.newsPagination.items}
         />
 
-        <Pagination
-          disabled={isDisabledPagination()}
-          forcePage={page-1}
-          loading={loading}
-          onFetchMore={onFetchMore}
-          onPageChange={onPaginationFetchMore}
-          pageCount={calculatePageCount()}
-        />
+        {
+          data
+          && data.newsPagination.items
+          && data.newsPagination.items.length > 0
+          && (<Pagination
+            disabled={isDisabledPagination()}
+            forcePage={page - 1}
+            loading={loading}
+            onFetchMore={onFetchMore}
+            onPageChange={onPaginationFetchMore}
+            pageCount={calculatePageCount()}
+          />)
+        }
+
 
       </LayoutTitleWithContent>
     </Fragment>

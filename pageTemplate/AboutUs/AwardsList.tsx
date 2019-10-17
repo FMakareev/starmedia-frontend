@@ -62,16 +62,21 @@ const AwardsList: React.FC<IAwardsListProps> = () => {
           }
         </TransitionGroup>
       </Col>
-      <Row center={ViewportSizeEnum.sm}>
-        <Pagination
-          isPagination={false}
-          forcePage={page + 1}
-          loading={loading}
-          onFetchMore={onFetchMore}
-          onPageChange={onPaginationFetchMore}
-          pageCount={calculatePageCount()}
-        />
-      </Row>
+      {
+        data
+        && data.awardPagination.items
+        && data.awardPagination.items.length > 0 &&
+				<Row center={ViewportSizeEnum.sm}>
+					<Pagination
+						isPagination={false}
+						forcePage={page + 1}
+						loading={loading}
+						onFetchMore={onFetchMore}
+						onPageChange={onPaginationFetchMore}
+						pageCount={calculatePageCount()}
+					/>
+				</Row>
+      }
     </Container>
   );
 };
