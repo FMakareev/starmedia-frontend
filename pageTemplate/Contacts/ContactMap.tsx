@@ -47,7 +47,7 @@ const ContactMap: React.FC<IContactMapProps> = (
   const {addresses} = mainContacts && mainContacts[currentCity] || {};
 
   const centerMap = addresses && calculateMiddleBetweenTwoPoints(addresses.map((address: Address) =>
-    address.gpsPoints ? [address.gpsPoints.lng, address.gpsPoints.lat] : [])) || null;
+    address.gpsPoints ? [address.gpsPoints.lat, address.gpsPoints.lng] : [])) || null;
 
   if (!centerMap) {
     return null;
@@ -69,8 +69,8 @@ const ContactMap: React.FC<IContactMapProps> = (
           addresses &&
           addresses.map((item: Address, index: number) => (<AnyReactComponent
             key={index}
-            lat={item && item.gpsPoints && item.gpsPoints.lng}
-            lng={item && item.gpsPoints && item.gpsPoints.lat}
+            lat={item && item.gpsPoints && item.gpsPoints.lat}
+            lng={item && item.gpsPoints && item.gpsPoints.lng}
           />))
         }
 
