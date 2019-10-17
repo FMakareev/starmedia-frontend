@@ -134,7 +134,7 @@ const CooperationForm: React.FC<ICooperationFormProps> = (
             </Col>
 
             <Col mb={40} xs={12}>
-              <Text>
+              <Text font={'root'}>
                 {t("form-or")}
               </Text>
             </Col>
@@ -151,7 +151,7 @@ const CooperationForm: React.FC<ICooperationFormProps> = (
             </Col>
           </Row>
           <Row>
-            <Col xs={12} mb={[20,20,'0']} md={7}>
+            <Col xs={12} mb={[20,20,20,'0']} lg={7}>
               <Field
                 name="privacy"
                 label={<Text
@@ -172,7 +172,7 @@ const CooperationForm: React.FC<ICooperationFormProps> = (
                 render={Checkbox}
               />
             </Col>
-            <Col xs={12} md={5}>
+            <Col xs={12} lg={5}>
               <Button className={'button--full'} element={ButtonElementEnum.primary}>
                 {t("form-field_submit")}
               </Button>

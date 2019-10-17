@@ -10,7 +10,7 @@ const hokCompose = compose(
     name: 'SendFeedback'
   }),
   FileUpload,
-)
+);
 
 const SendFeedbackFormHoc: any = (WrapperComponent: any) =>
 
