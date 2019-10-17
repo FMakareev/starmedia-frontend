@@ -21,6 +21,7 @@ const ContactRoleItem: React.FC<IContactRoleItemProps> = (
   }
 ) => {
   console.log('persons: ', persons);
+  console.log('name: ', name);
   return (
     <div className={classNames('contact-role_item', {
       'contact-role_item--active': isOpen,
