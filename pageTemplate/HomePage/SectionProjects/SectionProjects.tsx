@@ -10,6 +10,7 @@ import Button from "../../../components/Button/Button";
 import Link from "../../../components/Link/Link";
 import {useTranslation} from "../../../libs/i18n";
 import {Project} from "../../../types/projectTypes";
+import ReactHtmlParser from "react-html-parser";
 
 interface ISectionProjectsProps {
   projectList?: Project[];
@@ -48,7 +49,11 @@ const SectionProjects: React.FC<ISectionProjectsProps> = ({projectList}) => {
 
           <Link href={'/projects'}>
             <Button aria-label={'show all projects'} mods={['m']} element={ButtonElementEnum.circle}>
-              {t('section_project_btn-all-projects')}
+              <span>
+                 {
+                   ReactHtmlParser(t('section_project_btn-all-projects'))
+                 }
+              </span>
             </Button>
           </Link>
         </Row>

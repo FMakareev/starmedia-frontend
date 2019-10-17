@@ -77,15 +77,35 @@
   &_circle {
     @extend .text_font-object;
     @extend .text_size-s;
-    background-color: $color-link-default;
+    background-color: $color-bg-secondary;
     color: $color-typo-secondary;
     fill: $color-typo-secondary;
     border-radius: 50%;
     text-align: center;
     position: relative;
 
+    &:before{
+      @include transitionHover;
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      background-color: $color-bg-secondary;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      z-index: 0;
+    }
+    *{
+      z-index: 1;
+      position: relative;
+    }
+
     &:hover {
-      background-color: $color-base-accent;
+      &:before{
+        transform: translate(-50%,-50%) scale(1.2);
+      }
     }
 
     &:disabled {
@@ -128,7 +148,9 @@
       color: $color-link-default;
       fill: $color-link-default;
       background-color: $color-typo-secondary;
-
+      &:before {
+        background-color: $color-typo-secondary;
+      }
       &:hover {
         background-color: $color-typo-secondary;
       }
@@ -138,7 +160,9 @@
       color: $color-typo-primary;
       fill: $color-typo-primary;
       background-color: $color-typo-placeholder;
-
+      &:before {
+        background-color: $color-typo-placeholder;
+      }
       &:hover {
         color: $color-link-default;
         fill: $color-link-default;

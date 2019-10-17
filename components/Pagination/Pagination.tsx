@@ -8,6 +8,7 @@ import Button from "../Button/Button";
 import ArrowLargeLeft from '../Icons/ArrowLargeLeft';
 import ArrowLargeRight from "../Icons/ArrowLargeRight";
 import {useTranslation} from "../../libs/i18n";
+import ReactHtmlParser from "react-html-parser";
 
 interface IPaginationProps {
   onFetchMore: () => any,
@@ -45,7 +46,11 @@ const Pagination: React.FC<IPaginationProps> = (
           mods={['m']}
           element={ButtonElementEnum.circle}
         >
-          {t('button_show-more')}
+          <span>
+            {
+              ReactHtmlParser(t('button_show-more'))
+            }
+          </span>
         </Button>
       </Row>
       {

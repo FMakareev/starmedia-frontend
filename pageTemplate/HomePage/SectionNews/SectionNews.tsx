@@ -12,6 +12,7 @@ import { News } from '../../../types/newsTypes';
 import {SocialLinkTypeEnum} from "../../../types/socialLink";
 import {useLocalizationQuery} from "../../../libs/useLocalizationQuery";
 import {NewsPaginationEN, NewsPaginationRU, NewsPaginationUK} from "../../../apollo/query/GetNewsQuery";
+import ReactHtmlParser from "react-html-parser";
 
 
 interface ISectionNewsProps {
@@ -57,7 +58,11 @@ const SectionNews: React.FC<ISectionNewsProps> = (
         </Row>
         <Row mb={22} center={ViewportSizeEnum.xs}>
           <Button aria-label={'show all news'} mods={['m']} element={ButtonElementEnum.circle}>
-            {t('section_news_btn-all-news')}
+            <span>
+              {
+                ReactHtmlParser(t('section_news_btn-all-news'))
+              }
+            </span>
           </Button>
         </Row>
         <div className="section-news_bottom">

@@ -54,6 +54,9 @@ const AboutDescription: React.FC<IAboutDescriptionProps> = (
         <Col xs={12} md={'auto'}>
           <div className="about-description_bubble">
             <Text
+              style={{
+                maxWidth: '260px',
+              }}
               type={'secondary'}
               size={'m'}
               className={'text_uppercase'}

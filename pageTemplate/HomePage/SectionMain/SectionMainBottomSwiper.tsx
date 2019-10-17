@@ -75,7 +75,9 @@ const SectionMainBottom: React.FC<ISectionMainBottomProps> = (
             if (index === 0) {
               return ( <Col
                 key={0}
-                className={'section-main_bottom-left'}>
+                className={'section-main_bottom-left'}
+                pb={20}
+              >
                 <SectionMainTitle
                   title={title}
                   animatedText={animatedText}
