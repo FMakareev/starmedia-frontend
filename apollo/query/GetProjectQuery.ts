@@ -18,9 +18,9 @@ export const GetProjectRUQuery = gql`
                     ru
                 }
                 trailer
-#                preview {
-#                    url
-#                }
+                trailerPreview {
+                    url
+                }
                 projectInfo {
                     genre {
                         ru
@@ -140,9 +140,9 @@ export const GetProjectENQuery = gql`
                     en
                 }
                 trailer
-#                preview {
-#                    url
-#                }
+                trailerPreview {
+                    url
+                }
                 projectInfo {
                     genre {
                         en
@@ -261,9 +261,9 @@ export const GetProjectUKQuery = gql`
                     uk
                 }
                 trailer
-#                preview {
-#                    url
-#                }
+                trailerPreview {
+                    url
+                }
                 projectInfo {
                     genre {
                         uk
