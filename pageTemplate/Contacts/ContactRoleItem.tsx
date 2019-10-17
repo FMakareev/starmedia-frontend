@@ -6,6 +6,7 @@ import {Departament, Person} from "../../types/types";
 import {GetLocalizationString} from "../../libs/GetLocalizationString";
 // @ts-ignore
 import ContactListStrings from "./ContactListStrings";
+import {useTranslation} from "../../libs/i18n";
 
 interface IContactRoleItemProps extends Departament {
   [prop: string]: any
@@ -20,6 +21,8 @@ const ContactRoleItem: React.FC<IContactRoleItemProps> = (
     persons
   }
 ) => {
+  const {i18n} = useTranslation();
+
   console.log('persons: ', persons);
   console.log('name: ', name);
   return (
@@ -28,7 +31,7 @@ const ContactRoleItem: React.FC<IContactRoleItemProps> = (
     })}>
       <div onClick={onClick} className="contact-role_item-toggle">
         <Text font={'object'} className={'text_uppercase'} size={'xs'}>
-          {name && GetLocalizationString(name)}
+          {name && GetLocalizationString(name, i18n)}
         </Text>
         <div className="contact-role_item-toggle-icon">
 
@@ -45,25 +48,25 @@ const ContactRoleItem: React.FC<IContactRoleItemProps> = (
             >
               <Text size={'m'} font={'root'}>
                 {
-                  GetLocalizationString(item.name)
+                  GetLocalizationString(item.name, i18n)
                 }
               </Text>
               <Text mb={12} size={'m'} font={'root'} type={'placeholder'}>
                 {
-                  GetLocalizationString(item.position)
+                  GetLocalizationString(item.position, i18n)
                 }
               </Text>
               <Text mb={20} size={'m'} font={'root'}>
-                {/*<ContactListStrings*/}
-                {/*  typeHref={'tel:'}*/}
-                {/*  contacts={item.phones}*/}
-                {/*/>*/}
-                {/*<br/>*/}
-                {/*<ContactListStrings*/}
-                {/*  typeHref={'mailto:'}*/}
-                {/*  contacts={item.emails}*/}
-                {/*/>*/}
-                {/*<br/>*/}
+                <ContactListStrings
+                  typeHref={'tel:'}
+                  contacts={item.phones}
+                />
+                <br/>
+                <ContactListStrings
+                  typeHref={'mailto:'}
+                  contacts={item.emails}
+                />
+                <br/>
               </Text>
             </div>))
           }
