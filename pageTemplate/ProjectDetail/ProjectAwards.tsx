@@ -38,6 +38,9 @@ const ProjectAwards: React.FC<IProjectAwardsProps> = (
   }
 ) => {
   const {t} = useTranslation('common');
+  if (!awards || awards && !awards.length) {
+    return null;
+  }
 
   return (
     <Col as={'section'} id={'awards'} mb={100} className={'project-detail_awards'}>
@@ -59,9 +62,9 @@ const ProjectAwards: React.FC<IProjectAwardsProps> = (
               {...params}
             >
               {
-                awards && [{},...awards].map((award: Award, index: number)=>{
+                awards && [{}, ...awards].map((award: Award, index: number) => {
 
-                  if(index === 0){
+                  if (index === 0) {
                     return (<Col key={index} className={'project-detail_awards-slider-first-item'}>
 
                     </Col>)
