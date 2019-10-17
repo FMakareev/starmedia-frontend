@@ -9,6 +9,8 @@ import HeaderBurgerButton from './HeaderBurgerButton';
 import HeaderSearch from './HeaderSearch';
 import {MainContact, Maybe} from '../../types/types';
 import {SocialLinkTypeEnum} from "../../types/socialLink";
+// @ts-ignore
+import Row from '../../components/Row/Row';
 
 interface IHeaderDesktopTopProps {
   contact?: Maybe<MainContact>;
@@ -34,7 +36,8 @@ const HeaderDesktopTop: React.FC<IHeaderDesktopTopProps> = (
       </Col>
       <Col sm={'none'} xs={'none'} className={'header_right'}>
         <Col className="header_phone-wrapper">
-          <Text aria-label={'company phone number'} size={'m'} as={'a'} font={'root'} type={'inherit'} href={`tel:${phone}`}>
+          <Text aria-label={'company phone number'} size={'m'} as={'a'} font={'root'} type={'inherit'}
+                href={`tel:${phone}`}>
             {
               phone
             }
@@ -44,14 +47,17 @@ const HeaderDesktopTop: React.FC<IHeaderDesktopTopProps> = (
           <HeaderSearch/>
         </Col>
 
-        <Col className="header_social-list-wrapper">
-          <SocialLinkList
-            exclude={[SocialLinkTypeEnum.GOOGLE_PLUS, SocialLinkTypeEnum.IMDB]}
-          />
-        </Col>
-        <div className="header_lang-switcher-wrapper">
-          <LangSwitcher/>
-        </div>
+        <Row  className="header_right-right">
+          <Col className="header_social-list-wrapper">
+            <SocialLinkList
+              exclude={[SocialLinkTypeEnum.GOOGLE_PLUS, SocialLinkTypeEnum.IMDB, SocialLinkTypeEnum.TWITTER]}
+            />
+          </Col>
+          <div className="header_lang-switcher-wrapper">
+            <LangSwitcher/>
+          </div>
+        </Row>
+
       </Col>
     </Container>
   );

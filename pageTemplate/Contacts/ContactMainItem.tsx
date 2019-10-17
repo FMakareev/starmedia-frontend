@@ -66,6 +66,8 @@ const ContactMainItem: React.FC<IContactMainItemProps> = (
               font={'root'}
               size={'m'}
               mb={8}
+              as={'a'}
+              href={`tel:${item}`}
             >
               {item}
             </Text>))
@@ -78,6 +80,8 @@ const ContactMainItem: React.FC<IContactMainItemProps> = (
               type={'inherit'}
               font={'root'}
               size={'m'}
+              as={'a'}
+              href={`mailto:${item}`}
             >
               {item}
             </Text>))

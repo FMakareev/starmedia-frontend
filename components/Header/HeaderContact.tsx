@@ -18,7 +18,11 @@ const HeaderContact: React.FC<IHeaderContactProps> = (
   const {i18n} = useTranslation();
   return (
     <React.Fragment>
-      <Text font={'object'} size={'m'} className={'mb-60 mt-8 text_uppercase'}>
+      <Text
+        style={{display:'block'}}
+        as={'a'}
+        href={`mailto:${contact && contact.emails && contact.emails[0]}`} font={'object'} size={'m'}
+        className={'mb-60 mt-8 text_uppercase'}>
         {
           contact && contact.emails && contact.emails[0]
         }

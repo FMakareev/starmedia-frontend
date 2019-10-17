@@ -219,7 +219,7 @@
   }
 
   &_search-wrapper {
-    margin-right: 10%;
+    //margin-right: 10%;
   }
 
   &_search-button {
@@ -237,8 +237,15 @@
     }
   }
 
+  &_right-right {
+    width: 290px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   &_social-list-wrapper {
-    margin-right: 8%;
+    //margin-right: 8%;
     height: 40px;
 
     .social-links_link {
@@ -250,6 +257,7 @@
         fill: $color-typo-brand;
       }
     }
+
   }
 
   &_lang-switcher-wrapper {

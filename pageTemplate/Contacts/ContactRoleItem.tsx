@@ -52,10 +52,12 @@ const ContactRoleItem: React.FC<IContactRoleItemProps> = (
               </Text>
               <Text mb={20} size={'m'} font={'root'}>
                 <ContactListStrings
+                  typeHref={'tel:'}
                   contacts={item.phones}
                 />
                 <br/>
                 <ContactListStrings
+                  typeHref={'mailto:'}
                   contacts={item.emails}
                 />
                 <br/>

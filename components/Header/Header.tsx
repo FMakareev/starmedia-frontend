@@ -23,16 +23,16 @@ const gettransparent = (route: string, isActive: boolean): boolean => {
   return false;
 }
 
-const GetContactByCurrentLang = (data?: GetContacts, language?: string): MainContact | undefined => {
+const GetContactByCurrentLang = (language: string, data?: GetContacts): MainContact | undefined => {
   if (data && data.getContacts.mainContacts) {
-    return data.getContacts.mainContacts.find((contact: MainContact): boolean => contact.locale === language)
+    return data.getContacts.mainContacts.find(
+      (contact: MainContact): boolean => typeof contact.locale === 'string' && contact.locale.toLowerCase() === language.toLowerCase())
   }
   return undefined;
 };
 
 const Header: React.FC<IHeaderProps> = (
-  {
-  }
+  {}
 ) => {
   const {route} = useRouter();
   const {i18n} = useTranslation();
@@ -72,7 +72,7 @@ const Header: React.FC<IHeaderProps> = (
   }, {
     skip: false,
   });
-  const contacts = GetContactByCurrentLang(data, i18n.language)
+  const contacts = GetContactByCurrentLang(i18n.language, data)
   return (
     <header className={classNames('header', {
       'header--is-scroll': isScroll,

@@ -17,6 +17,7 @@
   }
 
   &_label {
+    @extend .text_font-root;
     text-transform: uppercase;
     color: $color-typo-secondary;
     fill: $color-typo-secondary;
@@ -56,6 +57,7 @@
     color: $color-typo-primary;
     margin-bottom: 16px;
     cursor: pointer;
+    @extend .text_font-root;
     @include transitionHover;
 
     &:hover {

@@ -58,7 +58,7 @@ const Contacts: React.FC<IContactsProps> = () => {
       />
       <LayoutTitleWithContent
         titleStyle={{
-          mb: 32,
+          mb: 40,
         }}
         title={t('nav-contacts')}>
         <MainContacts

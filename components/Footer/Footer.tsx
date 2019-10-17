@@ -116,7 +116,7 @@ const Footer: React.FC<IFooterProps> = () => {
               {tFooter("we-are-in-social-networks")}
             </Text>
             <SocialLinkList
-              exclude={[SocialLinkTypeEnum.GOOGLE_PLUS, SocialLinkTypeEnum.IMDB]}
+              exclude={[SocialLinkTypeEnum.GOOGLE_PLUS, SocialLinkTypeEnum.IMDB, SocialLinkTypeEnum.TWITTER]}
             />
           </Col>
         </Row>

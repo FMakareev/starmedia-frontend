@@ -22,7 +22,8 @@ const props = {
   },
   zoom: 12
 };
-
+const regexpCoords = new RegExp(/^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/, 'i');
+const coordsValidation = (coords: string) => regexpCoords.test(coords);
 
 const calculateMiddleBetweenTwoPoints = (pointList: any[]) => {
   let middleCoords = [0, 0];
@@ -58,7 +59,7 @@ const ContactMap: React.FC<IContactMapProps> = (
 
       <GoogleMapReact
         bootstrapURLKeys={{key: API_KEY}}
-        center={centerMap.length && {
+        center={centerMap.length && coordsValidation(`${centerMap[0]}, ${centerMap[1]}`) && {
           lat: centerMap[0],
           lng: centerMap[1],
         }}
@@ -67,11 +68,17 @@ const ContactMap: React.FC<IContactMapProps> = (
       >
         {
           addresses &&
-          addresses.map((item: Address, index: number) => (<AnyReactComponent
-            key={index}
-            lat={item && item.gpsPoints && item.gpsPoints.lat}
-            lng={item && item.gpsPoints && item.gpsPoints.lng}
-          />))
+          addresses.map((item: Address, index: number) => {
+            if(!coordsValidation(`${item && item.gpsPoints && item.gpsPoints.lat}, ${item && item.gpsPoints && item.gpsPoints.lng}`)){
+              return null;
+            }
+
+            return (<AnyReactComponent
+              key={index}
+              lat={item && item.gpsPoints && item.gpsPoints.lat}
+              lng={item && item.gpsPoints && item.gpsPoints.lng}
+            />)
+          })
         }
 
       </GoogleMapReact>

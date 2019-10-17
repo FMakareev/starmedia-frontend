@@ -31,10 +31,10 @@ const MainContacts: React.FC<IMainContactsProps> = (
           mainContacts
           && mainContacts.sort((prev: MainContact, next: MainContact) => {
 
-            if(prev.locale === i18n.language){
+            if(prev.locale && prev.locale.toLowerCase() === i18n.language){
               return -1;
             }
-            if(next.locale === i18n.language){
+            if(next.locale && next.locale.toLowerCase() === i18n.language){
               return 1;
             }
             return 0;
