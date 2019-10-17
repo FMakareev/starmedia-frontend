@@ -15,6 +15,7 @@ const SelectSlim: React.FC<ISelectSlimProps> = (
     label,
     placeholder,
     options,
+    style,
     input: {
       value,
       onChange
@@ -37,7 +38,7 @@ const SelectSlim: React.FC<ISelectSlimProps> = (
 
   }, []);
 
-  return (<div>
+  return (<div style={style}>
     <Text font={'root'} mb={8}>
       {label}
     </Text>

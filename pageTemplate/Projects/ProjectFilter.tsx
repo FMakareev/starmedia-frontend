@@ -120,6 +120,9 @@ const ProjectFilter: React.FC<IProjectFilterProps> = (
         <Col xs={12} md={3}>
           <SelectSlim
             label={t('filter_year-label')}
+            style={{
+              width: '144px'
+            }}
             input={{
               value: filters.year,
               onChange: (event: any) => {

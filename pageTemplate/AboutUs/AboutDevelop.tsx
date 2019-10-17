@@ -6,6 +6,7 @@ import Text from '../../components/Text/Text';
 import {AboutUs, ViewportSizeEnum, AboutUsBabble} from "../../types/types";
 import {GetLocalizationString} from "../../libs/GetLocalizationString";
 import {useTranslation} from "react-i18next";
+import ReactHtmlParser from "react-html-parser";
 
 interface IAboutDevelopProps extends AboutUs {
   [prop: string]: any
@@ -28,7 +29,7 @@ const AboutDevelop: React.FC<IAboutDevelopProps> = (
             className={'text_uppercase'}
           >
             {
-              GetLocalizationString(titleTVBroadcast, i18n)
+              ReactHtmlParser(GetLocalizationString(titleTVBroadcast, i18n))
             }
           </Text>
         </Col>
@@ -49,12 +50,12 @@ const AboutDevelop: React.FC<IAboutDevelopProps> = (
                     >
                       <div className="about-develop_bubble-title">
                         {
-                          GetLocalizationString(item.title, i18n)
+                          ReactHtmlParser(GetLocalizationString(item.title, i18n))
                         }
                       </div>
                       <div className="about-develop_bubble-text">
                         {
-                          GetLocalizationString(item.content, i18n)
+                          ReactHtmlParser(GetLocalizationString(item.content, i18n))
                         }
                       </div>
                     </div>)

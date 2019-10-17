@@ -30,7 +30,7 @@ const AboutDescription: React.FC<IAboutDescriptionProps> = (
             className={'text_uppercase'}
           >
             {
-              GetLocalizationString(title,i18n)
+              GetLocalizationString(title, i18n)
             }
 
           </Text>
@@ -47,7 +47,7 @@ const AboutDescription: React.FC<IAboutDescriptionProps> = (
 
         <Col xs={12} md={8} mb={20}>
           <Typeset
-            content={GetLocalizationString(content,i18n)}
+            content={GetLocalizationString(content, i18n)}
           />
         </Col>
 
@@ -63,9 +63,9 @@ const AboutDescription: React.FC<IAboutDescriptionProps> = (
               font={'object'}
               align={'center'}
             >
-              {
-                GetLocalizationString(redBabble,i18n)
-              }
+              <Typeset
+                content={GetLocalizationString(redBabble, i18n)}
+              />
             </Text>
           </div>
         </Col>
