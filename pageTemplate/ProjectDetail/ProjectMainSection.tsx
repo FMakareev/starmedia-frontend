@@ -26,6 +26,7 @@ const ProjectMainSection: React.FC<IProjectMainSectionProps> = (
     title,
     preview,
     trailer,
+    trailerPreview,
   }
 ) => {
   const {t,i18n} = useTranslation('common');
@@ -60,7 +61,8 @@ const ProjectMainSection: React.FC<IProjectMainSectionProps> = (
           <Row mb={['0', '0', 72]}>
             <Col xs={12} md={6} mb={40}>
               <ProjectTrailer
-                trailer={trailer}
+                trailerPreview={trailerPreview}
+              trailer={trailer}
               />
             </Col>
             <Col xs={12} md={6}>
