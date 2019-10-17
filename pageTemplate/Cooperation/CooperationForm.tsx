@@ -75,7 +75,7 @@ const CooperationForm: React.FC<ICooperationFormProps> = (
       onSubmit={onSubmit}
       initialValues={{
         ...initialValues(i18n.language),
-        ...forms,
+        form: forms && forms.id,
       }}
       validate={validate}
       render={({handleSubmit}) => (

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Col from '../../components/Col/Col';
 import Row from '../../components/Row/Row';
+import Text from '../../components/Text/Text';
 import Container from "../../components/Container/Container";
 import Button from "../../components/Button/Button";
 import {ButtonElementEnum, Cooperation} from "../../types/types";
@@ -84,6 +85,20 @@ const CooperationTabs: React.FC<ICooperationTabsProps> = (
         </Col>
       </Row>
       <Row>
+        <Col mb={50} xs={12} sm={6}>
+          <Text
+            size={'m'}
+            font={'object'}
+            mb={24}
+          >
+            { tabs &&
+            tabs[isActive] &&
+            // @ts-ignore
+            tabs[isActive].name &&
+            // @ts-ignore
+            GetLocalizationString(tabs[isActive].name)}
+          </Text>
+        </Col>
         <Col mb={50} xs={12} sm={6}>
           <Typeset
             content={ tabs &&
