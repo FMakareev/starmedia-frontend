@@ -1,6 +1,9 @@
 {
+  "error-page_title": "Ошибка",
+  "error-page_description": "Произошла неизвестная ошибка, попробуйте перезагрузить страницу.",
 
-
+  "error-page-404_title": "Ошибка",
+  "error-page-404_description": "Страница не найдена.",
 
   "button_detail": "Подробнее",
   "button_detail-project": "Подробнее о проекте",

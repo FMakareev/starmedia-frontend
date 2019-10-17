@@ -1,4 +1,10 @@
 {
+  "Error-page_title": "Помилка",
+  "Error-page_description": "Виникла невідома помилка, спробуйте перезавантажити сторінку.",
+
+  "Error-page-404_title": "Помилка",
+  "Error-page-404_description": "Сторінку не знайдено.",
+
   "button_detail": "Докладніше",
   "button_detail-project": "Докладніше про проект",
   "button_show-more": "Показати ще",

@@ -1,4 +1,10 @@
 {
+  "error-page_title": "Error",
+  "error-page_description": "An unknown error has occurred, try reloading the page.",
+
+  "error-page-404_title": "Error",
+  "error-page-404_description": "Page not found.",
+
   "button_detail": "Details",
   "button_detail-project": "About the project",
   "button_show-more": "Show more",
