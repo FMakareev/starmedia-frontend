@@ -21,7 +21,7 @@ const ContactRoles: React.FC<IContactRolesProps> = (
     currentCity,
   }
   ) => {
-  // const {isOpen, toggle} = useAccordion();
+  const {isOpen, toggle} = useAccordion([]);
   console.log('mainContacts: ', mainContacts);
   console.log('currentCity: ', currentCity);
   return (
@@ -38,11 +38,11 @@ const ContactRoles: React.FC<IContactRolesProps> = (
               xs={12}
               md={6}
             >
-              {/*<ContactRoleItem*/}
-              {/*  {...item}*/}
-              {/*  onClick={() => toggle(index)}*/}
-              {/*  isOpen={isOpen.includes(index)}*/}
-              {/*/>*/}
+              <ContactRoleItem
+                {...item}
+                onClick={() => toggle(index)}
+                isOpen={isOpen.includes(index)}
+              />
             </Col>)
           })
         }
