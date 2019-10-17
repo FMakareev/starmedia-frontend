@@ -13,6 +13,7 @@ import Preloader from "../../components/Preloader/Preloader";
 import Head from "../../components/Head/Head";
 import { GetProjectPage } from '../../types/projectTypes';
 import {GetLocalizationString} from "../../libs/GetLocalizationString";
+import {useTranslation} from "react-i18next";
 
 interface IProjectDetailProps {
   [prop: string]: any
@@ -22,7 +23,7 @@ interface IProjectDetailProps {
 const ProjectDetail: React.FC<IProjectDetailProps> = () => {
   const {query} = useRouter();
 
-
+  const {i18n} = useTranslation();
   const {data, loading} = useLocalizationQuery<GetProjectPage>({
     ru: GetProjectRUQuery,
     en: GetProjectENQuery,
@@ -41,7 +42,7 @@ const ProjectDetail: React.FC<IProjectDetailProps> = () => {
     <Fragment>
       <Head
         seoTags={data && data.getProjectPage.seoTags}
-        title={GetLocalizationString(data && data.getProjectPage.project.title)}
+        title={GetLocalizationString(data && data.getProjectPage.project.title, i18n)}
       />
       <ProjectMainSection
         {...(data && data.getProjectPage.project)}

@@ -17,7 +17,7 @@ const AwardCard: React.FC<IAwardCardProps> = (
     slug
   }
 ) => {
-  const {t} = useTranslation('common');
+  const {t,i18n} = useTranslation('common');
 
   return (
     <Link href={`/award/${slug}`}>
@@ -29,7 +29,7 @@ const AwardCard: React.FC<IAwardCardProps> = (
             </div>
             <div className="award-card_title">
               {
-                GetLocalizationString(name)
+                GetLocalizationString(name,i18n)
               }
             </div>
           </div>

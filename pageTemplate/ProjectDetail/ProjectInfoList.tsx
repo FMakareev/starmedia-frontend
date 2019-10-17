@@ -13,7 +13,7 @@ interface IProjectInfoProps {
 
 const ProjectInfoList: React.FC<IProjectInfoProps> = ({projectInfo}) => {
 
-  const {t} = useTranslation('common');
+  const {t,i18n} = useTranslation('common');
 
   return (
     <ul className={'project-info_list'}>
@@ -30,7 +30,7 @@ const ProjectInfoList: React.FC<IProjectInfoProps> = ({projectInfo}) => {
                 (typeof value === 'number') && value
               }
               {
-                (typeof value !== 'string') && GetLocalizationString(value)
+                (typeof value !== 'string') && GetLocalizationString(value,i18n)
               }
             </Text>
           </li>)

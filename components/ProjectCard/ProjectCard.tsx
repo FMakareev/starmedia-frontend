@@ -78,7 +78,7 @@ const ProjectCard: React.FC<IProjectCardProps> = ({withInfo, href, title, projec
             }
 
             {
-              GetLocalizationString(projectInfo && projectInfo.genre)
+              GetLocalizationString(projectInfo && projectInfo.genre,i18n)
             }
 					</div>
 				</div>

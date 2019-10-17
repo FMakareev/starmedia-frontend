@@ -21,7 +21,7 @@ const ShareButton = dynamic(
 
 
 const ProjectDescription: React.FC<IProjectDescriptionProps> = ({description}) => {
-  const {t} = useTranslation('common');
+  const {t,i18n} = useTranslation('common');
 
   return (
     <Container as={'section'} id={'description'} mb={[40, 40, 80]}>
@@ -34,7 +34,7 @@ const ProjectDescription: React.FC<IProjectDescriptionProps> = ({description}) =
           </Text>
           <Text font={'root'} size={'m'}>
             <Typeset
-              content={GetLocalizationString(description)}
+              content={GetLocalizationString(description,i18n)}
             />
           </Text>
         </Col>

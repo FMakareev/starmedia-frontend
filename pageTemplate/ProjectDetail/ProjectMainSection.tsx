@@ -28,7 +28,7 @@ const ProjectMainSection: React.FC<IProjectMainSectionProps> = (
     trailer,
   }
 ) => {
-  const {t} = useTranslation('common');
+  const {t,i18n} = useTranslation('common');
 
   return (
     <Col mb={[40, 80]} pb={40} pt={130} className={'project-detail-main_wrapper'}>
@@ -70,7 +70,7 @@ const ProjectMainSection: React.FC<IProjectMainSectionProps> = (
                 </Col>
                 <Text as={'h1'} className={'text_uppercase'} mb={24} font={'object'} size={'l'} type={'secondary'}>
                   {
-                    GetLocalizationString(title)
+                    GetLocalizationString(title,i18n)
                   }
                 </Text>
                 <ProjectInfoList projectInfo={projectInfo}/>
