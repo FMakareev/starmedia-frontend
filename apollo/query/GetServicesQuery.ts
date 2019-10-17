@@ -12,7 +12,6 @@ export const GetServicesRUQuery=gql`
                     ru
                 }
                 contacts {
-                    locale
                     name {
                         ru
                     }
@@ -165,7 +164,6 @@ export const GetServicesENQuery=gql`
                     en
                 }
                 contacts {
-                    locale
                     name {
                         en
                     }
@@ -318,7 +316,6 @@ export const GetServicesUKQuery=gql`
                     uk
                 }
                 contacts {
-                    locale
                     name {
                         uk
                     }
