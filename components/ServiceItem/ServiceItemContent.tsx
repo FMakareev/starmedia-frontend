@@ -7,6 +7,7 @@ import {GetLocalizationString} from "../../libs/GetLocalizationString";
 import Button from '../../components/Button/Button';
 import MailSmallIcon from "../Icons/MailSmallIcon";
 import DownloadSmallIcon from "../Icons/DownloadSmallIcon";
+import Typeset from '../../components/Typeset/Typeset';
 
 interface IServiceItemContentProps {
   [prop: string]: any
@@ -14,7 +15,7 @@ interface IServiceItemContentProps {
 
 const ServicesFormPopup = dynamic(
   () => import("../ServicesFormPopup/ServicesFormPopup"),
-  { ssr: false }
+  {ssr: false}
 );
 
 const FormIconMap: any = {
@@ -26,18 +27,20 @@ const ServiceItemContent: React.FC<IServiceItemContentProps> = (
   {
     content,
     contacts,
-    forms
+    formPresentation,
+    formTesting,
+    ...rest
   }
 ) => {
+  console.log('rest: ', rest);
   const [currentOpenForm, openForm] = React.useState<Maybe<Forms>>(null);
+
 
   return (
     <div className="service_item-content">
-
-      {
-        content
-      }
-
+      <Typeset
+        content={content}
+      />
       {
         contacts &&
 				<div className="service_item-content-row">
@@ -97,47 +100,71 @@ const ServiceItemContent: React.FC<IServiceItemContentProps> = (
 				</div>
       }
 
-      {
-        forms
-        && Array.isArray(forms) &&
-				<div className="service_item-content-form_list">
-          {
-            forms.map((form: Forms, index: number) => (<div
-              key={index}
-              className="service_item-content-form_item"
-              onClick={() => {
-                openForm(form);
-              }}
-            >
-              <div
-                className={'text_uppercase service_item-content-form_item-label'}
-              >
-                {
-                  GetLocalizationString(form.name)
-                }
-              </div>
-              <Button
-                element={ButtonElementEnum.circle}
+      <div className="service_item-content-form_list">
 
-              >
-                {
-                  // @ts-ignore
-                  form && FormIconMap[form.type]
-                }
-              </Button>
-            </div>))
-          }
-				</div>
-      }
+        {/** formTesting */}
+        <div
+          className="service_item-content-form_item"
+          onClick={() => {
+            openForm(formTesting);
+          }}
+        >
+          <div
+            className={'text_uppercase service_item-content-form_item-label'}
+          >
+            {
+              GetLocalizationString(formTesting && formTesting.name)
+            }
+          </div>
+          <Button
+            element={ButtonElementEnum.circle}
+
+          >
+            {
+              // @ts-ignore
+              FormIconMap['formTesting']
+            }
+          </Button>
+        </div>
+
+        {/** formPresentation */}
+        <div
+          className="service_item-content-form_item"
+          onClick={() => {
+            openForm(formPresentation);
+          }}
+        >
+          <div
+            className={'text_uppercase service_item-content-form_item-label'}
+          >
+            {
+              GetLocalizationString(formPresentation && formPresentation.name)
+            }
+          </div>
+          <Button
+            element={ButtonElementEnum.circle}
+          >
+            {
+              // @ts-ignore
+              FormIconMap['formPresentation']
+            }
+          </Button>
+        </div>
+      </div>
 
       {
-        forms && <ServicesFormPopup
+        currentOpenForm && <ServicesFormPopup
 					onClose={() => {
             openForm(null);
+          }}
+					initialValues={{
+            form: currentOpenForm && currentOpenForm.id
           }}
 					isVisible={currentOpenForm}
 				/>
       }
+
+
     </div>
   );
 };

@@ -20,9 +20,15 @@ export const GetServicesRUQuery=gql`
                 }
                 formTesting {
                     id
+                    name {
+                        ru
+                    }
                 }
                 formPresentation{
                     id
+                    name {
+                        ru
+                    }
                 }
                 presentation {
                     url
@@ -169,9 +175,15 @@ export const GetServicesENQuery=gql`
                 }
                 formTesting {
                     id
+                    name {
+                        en
+                    }
                 }
                 formPresentation{
                     id
+                    name {
+                        en
+                    }
                 }
                 presentation {
                     url
@@ -318,9 +330,16 @@ export const GetServicesUKQuery=gql`
                 }
                 formTesting {
                     id
+                    name {
+                        uk
+                    }
                 }
                 formPresentation{
                     id
+
+                    name {
+                        uk
+                    }
                 }
                 presentation {
                     url

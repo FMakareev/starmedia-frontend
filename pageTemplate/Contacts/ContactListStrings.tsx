@@ -31,8 +31,8 @@ const ContactListStrings: React.FC<IContactListStringsProps> = (
         href={`${typeHref}${contact}`}
         key={index}
       >
-              {contact}
-        </Button>{index < contacts.lenght - 1?<span>, </span>:''}
+              {contact}{index < contacts.length - 1 ? ', ' : ''}
+        </Button>
         </Fragment>
       )
     })

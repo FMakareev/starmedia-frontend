@@ -165,8 +165,8 @@ export type Director = {
 
 
 export enum FormEnum {
-  GET_PRESENTATION = "GET_PRESENTATION",
-  FREE_TESTING = "FREE_TESTING"
+  GET_PRESENTATION = "formPresentation",
+  FREE_TESTING = "formTesting"
 }
 
 export type Forms = {

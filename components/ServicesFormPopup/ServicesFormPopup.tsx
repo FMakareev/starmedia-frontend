@@ -28,6 +28,7 @@ const myBigGreenDialog = {
 const ServicesFormPopup: React.FC<IServicesFormPopupProps> = (
   {
     onClose,
+    initialValues,
     isVisible
   }
 ) => {
@@ -54,10 +55,9 @@ const ServicesFormPopup: React.FC<IServicesFormPopupProps> = (
         }}
       >
         <ServicesForm
-
+          initialValues={initialValues}
           description={isVisible && isVisible.description}
           name={isVisible && isVisible.name}
-          type={isVisible && isVisible.type}
           onCloseClicked={onClose}
         />
       </Col>

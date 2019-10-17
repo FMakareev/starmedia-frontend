@@ -9,8 +9,9 @@ import Checkbox from "../Checkbox";
 import Button from "../Button/Button";
 import {ButtonElementEnum, FormEnum, Forms} from "../../types/types";
 import {GetLocalizationString} from "../../libs/GetLocalizationString";
+import SendFeedbackFormHoc from "../../libs/SendFeedbackFormHOC";
 
-interface IServicesFormProps extends Forms{
+interface IServicesFormProps extends Forms {
   [prop: string]: any
 }
 
@@ -20,18 +21,20 @@ const ServicesForm: React.FC<IServicesFormProps> = (
     name,
     description,
     type,
+    onSubmit,
+    initialValues,
   }
-  ) => {
+) => {
 
   const {t} = useTranslation('common');
   return (
     <Form
-      onSubmit={() => {
-      }}
+      initialValues={initialValues}
+      onSubmit={onSubmit}
       render={({handleSubmit}) => (
         <form className={'section-get-catalog_form'} onSubmit={handleSubmit}>
           <a
-            onClick={(event)=>{
+            onClick={(event) => {
               event.preventDefault();
               onCloseClicked();
             }}
@@ -67,7 +70,7 @@ const ServicesForm: React.FC<IServicesFormProps> = (
             </Col>
             <Col mb={40} xs={12} sm={12}>
               <Field
-                name="fio"
+                name="name"
                 type={'text'}
                 label={t("form-field_label-fio")}
                 render={TextField}
@@ -135,4 +138,6 @@ const ServicesForm: React.FC<IServicesFormProps> = (
       )}/>)
 };
 
-export default ServicesForm;
+
+
+export default SendFeedbackFormHoc(ServicesForm);

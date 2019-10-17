@@ -29,14 +29,12 @@ const SendFeedbackFormHoc: any = (WrapperComponent: any) =>
 
       const result = await SendFeedback({
         variables: {
-          feedback: {
-            ...values,
-            file: file && file.file_data && file.file_data.id,
-            email: values.email,
-            phone: values.email,
-            form: values.form,
-            date: new Date().toISOString(),
-          }
+          ...values,
+          file: file && file.file_data && file.file_data.id,
+          email: values.email,
+          phone: values.email,
+          form: values.form,
+          date: new Date().toISOString(),
         }
       });
       console.log('result: ', result);

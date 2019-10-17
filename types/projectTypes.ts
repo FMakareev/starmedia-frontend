@@ -23,12 +23,12 @@ export type ProjectInfo = {
   format?: Maybe<LocalizedString>;
   productionYear?: Maybe<LocalizedString>;
   numberOfEpisodes?: Maybe<Scalars["Int"]>;
-  directors?: Maybe<LocalizedString>;
-  scenario?: Maybe<LocalizedString>;
-  operator?: Maybe<LocalizedString>;
-  composer?: Maybe<LocalizedString>;
-  producer?: Maybe<LocalizedString>;
-  cast?: Maybe<LocalizedString>;
+  directors?: Maybe<Array<LocalizedString>>;
+  scenario?: Maybe<Array<LocalizedString>>;
+  operator?: Maybe<Array<LocalizedString>>;
+  composer?: Maybe<Array<LocalizedString>>;
+  producer?: Maybe<Array<LocalizedString>>;
+  cast?: Maybe<Array<LocalizedString>>;
 };
 
 export type ProjectPage = {

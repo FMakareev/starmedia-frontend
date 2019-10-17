@@ -32,6 +32,7 @@ const ServiceItem: React.FC<IServiceItemProps> = (
     content,
     contacts,
     forms,
+    ...rest
   }
 ) => {
 
@@ -58,6 +59,7 @@ const ServiceItem: React.FC<IServiceItemProps> = (
         height={isOpen ? 'auto' : 0}
       >
         <ServiceItemContent
+          {...rest}
           content={content}
           contacts={contacts}
           forms={forms}
