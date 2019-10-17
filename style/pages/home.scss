@@ -367,9 +367,11 @@
 }
 
 .skylight-wrapper {
-  .skylight-dialog {
-    overflow: auto;
-    min-height: 100vh!important;
+  .skylight-dialog {    overflow: auto;
+
+    @media(max-width: 767px) {
+      min-height: 100vh!important;
+    }
   }
 
 }
