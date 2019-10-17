@@ -49,7 +49,7 @@ const MainContacts: React.FC<IMainContactsProps> = (
                 }}
                 key={index}
                 // @ts-ignore
-                src={item && item.locale && BGMap[item.locale]}
+                src={item && item.locale && BGMap[item.locale.toLowerCase()]}
               />))
         }
       </ul>
