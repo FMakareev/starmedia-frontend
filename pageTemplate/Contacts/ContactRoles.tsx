@@ -22,8 +22,7 @@ const ContactRoles: React.FC<IContactRolesProps> = (
   }
   ) => {
   const {isOpen, toggle} = useAccordion([]);
-  console.log('mainContacts: ', mainContacts);
-  console.log('currentCity: ', currentCity);
+
   return (
     <Container pt={80} pb={100}>
       <Row>
@@ -32,7 +31,6 @@ const ContactRoles: React.FC<IContactRolesProps> = (
           && Array.isArray(mainContacts[currentCity].departaments)
           && mainContacts[currentCity].departaments
           && mainContacts[currentCity].departaments.map((item: Departament, index: number) => {
-            console.log('item: ', item);
             return (<Col
               key={index}
               xs={12}
