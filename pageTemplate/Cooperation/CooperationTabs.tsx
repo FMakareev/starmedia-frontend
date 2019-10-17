@@ -44,7 +44,9 @@ const CooperationTabs: React.FC<ICooperationTabsProps> = (
 
   const {t} = useTranslation('common');
   const [isActive, setActive] = React.useState<TypesC>(TypesC.actors);
-
+  console.log('tabs isActive: ',isActive);
+  console.log('tabs: ',tabs);
+  console.log('tabs: ',tabs && tabs[isActive]);
   return (
     <Container mb={32}>
       <Row mb={56}>

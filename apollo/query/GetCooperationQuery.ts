@@ -1,56 +1,56 @@
 import {gql} from "apollo-boost";
 
 export const GetCooperationRUQuery = gql`
-    {
-        getCooperation {
-            actors {
-                form {
-                    type
-                    name {
+    query{
+        getCooperation{
+            actors{
+                form{
+                    id
+                    name{
                         ru
                     }
-                    description {
+                    description{
                         ru
                     }
                 }
-                name {
+                name{
                     ru
                 }
-                description {
+                description{
                     ru
                 }
             }
             scripts {
-                form {
-                    type
-                    name {
+                form{
+                    id
+                    name{
                         ru
                     }
-                    description {
+                    description{
                         ru
                     }
                 }
-                name {
+                name{
                     ru
                 }
-                description {
+                description{
                     ru
                 }
             }
             director {
-                form {
-                    type
-                    name {
+                form{
+                    id
+                    name{
                         ru
                     }
-                    description {
+                    description{
                         ru
                     }
                 }
-                name {
+                name{
                     ru
                 }
-                description {
+                description{
                     ru
                 }
             }
@@ -61,20 +61,20 @@ export const GetCooperationENQuery = gql`
     {
         getCooperation {
             actors {
-                form {
+                form{
                     id
-                    name {
-                        en
+                    name{
+                        ru
                     }
-                    description {
-                        en
+                    description{
+                        ru
                     }
                 }
-                name {
-                    en
+                name{
+                    ru
                 }
-                description {
-                    en
+                description{
+                    ru
                 }
             }
             scripts{
