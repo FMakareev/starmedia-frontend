@@ -76,19 +76,40 @@ const Footer: React.FC<IFooterProps> = () => {
           </Col>
           <Col md={3} sm={'none'} xs={'none'}>
             <ul className={'footer_nav-list  mb-32'}>
-              {
-                data && data.getFormat && data.getFormat.map((item: FormatGQL, index: number) => ( <li key={index} className={'footer_nav-item'}>
+              <li className={'footer_nav-item'}>
+                <Link
+                  href={`/projects`}
+                >
                   <Button
                     className={'text_align-left'}
                     mods={['light', 'm']}
                     element={ButtonElementEnum.link}
-                    href={'/projects'}
+                    href={`/projects`}
                     as={'a'}
                   >
                     {
-                      GetLocalizationString(item.name, i18n)
+                      tNav('nav-project-list')
                     }
                   </Button>
+                </Link>
+              </li>
+              {
+                data && data.getFormat && data.getFormat.map((item: FormatGQL, index: number) => ( <li key={index} className={'footer_nav-item'}>
+                 <Link
+                   href={`/projects?format=${GetLocalizationString(item.name, i18n)}`}
+                 >
+                   <Button
+                     className={'text_align-left'}
+                     mods={['light', 's']}
+                     element={ButtonElementEnum.link}
+                     href={`/projects?format=${GetLocalizationString(item.name, i18n)}`}
+                     as={'a'}
+                   >
+                     {
+                       GetLocalizationString(item.name, i18n)
+                     }
+                   </Button>
+                 </Link>
                 </li>))
               }
             </ul>

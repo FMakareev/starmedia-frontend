@@ -24,7 +24,7 @@ const Projects: React.FC<IProjectsProps> = ({t}) => {
   const [filters, setFilter] = React.useState({
     genre: query && query.ganre || '',
     format: query && query.format || '',
-    year: query && query.year || '',
+    year: query && query.year || 0,
     search: query && query.search || '',
   });
 

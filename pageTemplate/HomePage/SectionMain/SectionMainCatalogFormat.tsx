@@ -24,7 +24,7 @@ const SectionMainCatalogFormat: React.FC<ISectionMainCatalogFormatProps> = () =>
           key={index}
           className={'section-main_catalog-format-item'}
         >
-          <Link href={'/projects?format=films'}>
+          <Link  href={`/projects?format=${GetLocalizationString(item.name, i18n)}`}>
             <a
               className={'section-main_catalog-format-link'}
               href={`/projects?format=${GetLocalizationString(item.name, i18n)}`}
