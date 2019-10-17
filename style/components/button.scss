@@ -111,6 +111,9 @@
     &:disabled {
       background-color: $color-link-disabled;
       color: $color-typo-disabled;
+      &:before{
+        background-color: $color-link-disabled;
+      }
     }
 
     &--l {
