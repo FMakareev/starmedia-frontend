@@ -181,7 +181,8 @@ export type Protection = {
   name?: Maybe<LocalizedString>,
   content?: Maybe<LocalizedString>,
   contacts?: Maybe<Array<MainContact>>,
-  forms?: Maybe<Array<Forms>>,
+  formTesting?: Maybe<Array<Forms>>,
+  formPresentation?: Maybe<Array<Forms>>,
   presentation?: Maybe<File>,
 }
 export type VehicleRental = {

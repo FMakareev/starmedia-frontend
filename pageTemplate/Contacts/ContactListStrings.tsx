@@ -32,7 +32,7 @@ const ContactListStrings: React.FC<IContactListStringsProps> = (
         key={index}
       >
               {contact}
-      </Button>{index < contacts.lenght - 1?', ':''}
+        </Button>{index < contacts.lenght - 1?<span>, </span>:''}
         </Fragment>
       )
     })

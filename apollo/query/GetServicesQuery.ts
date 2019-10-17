@@ -18,14 +18,11 @@ export const GetServicesRUQuery=gql`
                     phones 
                     emails
                 }
-                forms {
-#                    type
-                    name {
-                        ru
-                    }
-                    description {
-                        ru
-                    }
+                formTesting {
+                    id
+                }
+                formPresentation{
+                    id
                 }
                 presentation {
                     url
@@ -170,14 +167,11 @@ export const GetServicesENQuery=gql`
                     phones
                     emails
                 }
-                forms {
-#                    type
-                    name {
-                        en
-                    }
-                    description {
-                        en
-                    }
+                formTesting {
+                    id
+                }
+                formPresentation{
+                    id
                 }
                 presentation {
                     url
@@ -322,14 +316,11 @@ export const GetServicesUKQuery=gql`
                     phones
                     emails
                 }
-                forms {
-#                    type
-                    name {
-                        uk
-                    }
-                    description {
-                        uk
-                    }
+                formTesting {
+                    id
+                }
+                formPresentation{
+                    id
                 }
                 presentation {
                     url
