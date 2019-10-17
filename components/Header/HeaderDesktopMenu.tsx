@@ -14,6 +14,7 @@ import {Menu} from '../../mock';
 import {useTranslation} from "../../libs/i18n";
 import ShowComponentInLocales from "../ShowComponentInLocales/ShowComponentInLocales";
 import ExternalLink from "../Icons/ExternalLink";
+import {SocialLinkTypeEnum} from "../../types/socialLink";
 
 interface IHeaderDesktopMenuProps {
   contact?: Maybe<MainContact>;
@@ -109,6 +110,7 @@ const HeaderDesktopMenu: React.FC<IHeaderDesktopMenuProps> = (
             md={'none'}
           >
             <SocialLinkList
+              exclude={[SocialLinkTypeEnum.GOOGLE_PLUS, SocialLinkTypeEnum.IMDB, SocialLinkTypeEnum.TWITTER]}
               mods={[]}
             />
           </Col>
