@@ -71,7 +71,7 @@ const SectionMainBottom: React.FC<ISectionMainBottomProps> = (
 
         {
           projectList
-          && [undefined, ...projectList, ...projectList, ...projectList].map((item: Project, index: number) => {
+          && [undefined, ...projectList].map((item: Project, index: number) => {
             if (index === 0) {
               return ( <Col
                 key={0}

@@ -71,10 +71,10 @@ const Contacts: React.FC<IContactsProps> = () => {
         {/*  currentCity={currentCity}*/}
         {/*  {...(data && data.getContacts ? data.getContacts : {})}*/}
         {/*/>*/}
-        {/*<ContactRoles*/}
-        {/*  {...(data && data.getContacts ? data.getContacts : {})}*/}
-        {/*  currentCity={currentCity}*/}
-        {/*/>*/}
+        <ContactRoles
+          {...(data && data.getContacts ? data.getContacts : {})}
+          currentCity={currentCity}
+        />
 
 
       </LayoutTitleWithContent>
