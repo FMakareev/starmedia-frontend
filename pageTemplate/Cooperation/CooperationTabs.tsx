@@ -98,8 +98,6 @@ const CooperationTabs: React.FC<ICooperationTabsProps> = (
             // @ts-ignore
             GetLocalizationString(tabs[isActive].name)}
           </Text>
-        </Col>
-        <Col mb={50} xs={12} sm={6}>
           <Typeset
             content={ tabs &&
             tabs[isActive] &&
