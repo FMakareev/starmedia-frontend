@@ -1,4 +1,5 @@
 import * as React from 'react';
+// @ts-ignore
 import ContactRoles from "../pageTemplate/Contacts/ContactRoles";
 import MainContacts from '../pageTemplate/Contacts/MainContacts';
 import LayoutTitleWithContent from "../components/Layout/LayoutTitleWithContent";
@@ -18,7 +19,7 @@ import dynamic from "next-server/dynamic";
 interface IContactsProps {
   [prop: string]: any
 }
-
+// @ts-ignore
 const ContactMap = dynamic(() => import('../pageTemplate/Contacts/ContactMap'),{
   ssr: false,
 });
@@ -66,14 +67,14 @@ const Contacts: React.FC<IContactsProps> = () => {
           currentCity={currentCity}
           {...(data && data.getContacts ? data.getContacts : {})}
         />
-        <ContactMap
-          currentCity={currentCity}
-          {...(data && data.getContacts ? data.getContacts : {})}
-        />
-        <ContactRoles
-          {...(data && data.getContacts ? data.getContacts : {})}
-          currentCity={currentCity}
-        />
+        {/*<ContactMap*/}
+        {/*  currentCity={currentCity}*/}
+        {/*  {...(data && data.getContacts ? data.getContacts : {})}*/}
+        {/*/>*/}
+        {/*<ContactRoles*/}
+        {/*  {...(data && data.getContacts ? data.getContacts : {})}*/}
+        {/*  currentCity={currentCity}*/}
+        {/*/>*/}
 
 
       </LayoutTitleWithContent>
