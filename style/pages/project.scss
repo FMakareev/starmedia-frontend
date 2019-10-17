@@ -42,7 +42,16 @@
   &_gallery {
 
     .swiper-slide {
-      width: auto;
+      width: 280px;
+      img{
+        width: 100%;
+      }
+      @media(min-width: 768px){
+        width: auto;
+        img{
+          width: auto;
+        }
+      }
     }
 
     .swiper-wrapper {

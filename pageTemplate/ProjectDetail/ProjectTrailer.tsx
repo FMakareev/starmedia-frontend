@@ -34,9 +34,8 @@ const ProjectTrailer: React.FC<IProjectTrailerProps> = (
 
   const togglePlayer = () => {
     setWatch(!watch);
-  }
-  console.log(trailer);
-  console.log(youtubeParser(trailer));
+  };
+
   return (
     <div className={'project-trailer_wrapper'}>
       {
