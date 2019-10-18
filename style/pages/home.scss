@@ -123,6 +123,10 @@
 
   &_title-animated {
     text-align: right;
+    * {
+      display: block;
+      width: 100%;
+    }
   }
 
 

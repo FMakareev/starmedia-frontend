@@ -16,14 +16,14 @@ export const GetHomePageRUQuery = gql`
                 title {
                     ru
                 }
-#                backgroudVideo {
-#                    preview {
-#                        url
-#                    }
-#                    video {
-#                        url
-#                    }
-#                }
+                backgroundVideo{
+                    video{
+                        url
+                    }
+                    preview{
+                        url
+                    }
+                }
             }
             orderCatalog {
                 title {
@@ -129,14 +129,14 @@ export const GetHomePageENQuery = gql`
                 title {
                     en
                 }
-#                backgroudVideo {
-#                    preview {
-#                        url
-#                    }
-#                    video {
-#                        url
-#                    }
-#                }
+                backgroundVideo{
+                    video{
+                        url
+                    }
+                    preview{
+                        url
+                    }
+                }
             }
             orderCatalog {
                 title {
@@ -242,14 +242,14 @@ export const GetHomePageUKQuery = gql`
                 title {
                     uk
                 }
-#                backgroudVideo {
-#                    preview {
-#                        url
-#                    }
-#                    video {
-#                        url
-#                    }
-#                }
+                backgroundVideo{
+                    video{
+                        url
+                    }
+                    preview{
+                        url
+                    }
+                }
             }
             orderCatalog {
                 title {

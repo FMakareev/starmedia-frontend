@@ -19,10 +19,11 @@ interface ISectionAboutUsProps extends AboutUsSection {
 const SectionAboutUs: React.FC<ISectionAboutUsProps> = (
   {
     title,
-    backgroudVideo
+    backgroundVideo
   }
 ) => {
-
+  console.log(title);
+  console.log(backgroundVideo);
   const {t} = useTranslation('home');
 
   return (
@@ -30,12 +31,20 @@ const SectionAboutUs: React.FC<ISectionAboutUsProps> = (
 
 
       <video
-        width={'1000%'}
-        height={'1000%'}
-        poster={backgroudVideo && backgroudVideo.preview && backgroudVideo.preview.url || ''}
+        autoPlay
+        loop
+        playsInline
+        muted
+        width={'100%'}
+        height={'100%'}
+        poster={backgroundVideo && backgroundVideo.preview && backgroundVideo.preview.url || '/static/video/f186a09c00195a9368fd7b4d740df086.jpg'}
         className="section-about-us_video"
       >
-
+          <source
+            type="video/mp4"
+            src={'/static/video/b0e66d933f82fab0e575b5e9e742dd2c.mp4'}
+          />
+        Your browser does not support the video tag.
       </video>
 
       <div className="section-about-us_content">
