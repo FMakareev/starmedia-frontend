@@ -6,12 +6,20 @@ import Button from "../../components/Button/Button";
 // @ts-ignore
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import {useTranslation} from "../../libs/i18n";
+import classNames from 'classnames';
 
 interface IProjectDetailMainBottomProps {
   [prop: string]: any
 }
 
-const ProjectDetailMainBottom: React.FC<IProjectDetailMainBottomProps> = () => {
+const ProjectDetailMainBottom: React.FC<IProjectDetailMainBottomProps> = (
+  {
+    isBottomDescription,
+    isBottomAwards,
+    isBottomGallery,
+    isBottomSimilar,
+  }
+) => {
   const {t} = useTranslation('common');
 
   return (
@@ -19,7 +27,9 @@ const ProjectDetailMainBottom: React.FC<IProjectDetailMainBottomProps> = () => {
       <Col xs={12} sm={3} md={3}>
         <AnchorLink href='#description'>
           <Button
-            className={'text_align-left text_uppercase'}
+            className={classNames('text_align-left text_uppercase', {
+              'button_link--disabled': !isBottomDescription,
+            })}
             mods={['light', 's']}
             element={ButtonElementEnum.link}
             href={'item.href'}
@@ -34,7 +44,9 @@ const ProjectDetailMainBottom: React.FC<IProjectDetailMainBottomProps> = () => {
       <Col xs={12} sm={3} md={3}>
         <AnchorLink href={'#awards'}>
           <Button
-            className={'text_align-left text_uppercase'}
+            className={classNames('text_align-left text_uppercase', {
+              'button_link--disabled': !isBottomAwards,
+            })}
             mods={['light', 's']}
             element={ButtonElementEnum.link}
             href={'item.href'}
@@ -49,7 +61,9 @@ const ProjectDetailMainBottom: React.FC<IProjectDetailMainBottomProps> = () => {
       <Col xs={12} sm={3} md={3}>
         <AnchorLink href={'#gallery'}>
           <Button
-            className={'text_align-left text_uppercase'}
+            className={classNames('text_align-left text_uppercase', {
+              'button_link--disabled': !isBottomGallery,
+            })}
             mods={['light', 's']}
             element={ButtonElementEnum.link}
             href={'item.href'}
@@ -62,7 +76,9 @@ const ProjectDetailMainBottom: React.FC<IProjectDetailMainBottomProps> = () => {
       <Col xs={12} sm={3} md={3}>
         <AnchorLink href={'#similar'}>
           <Button
-            className={'text_align-left text_uppercase'}
+            className={classNames('text_align-left text_uppercase', {
+              'button_link--disabled': !isBottomSimilar,
+            })}
             mods={['light', 's']}
             element={ButtonElementEnum.link}
             href={'item.href'}

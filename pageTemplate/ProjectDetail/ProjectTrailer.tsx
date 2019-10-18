@@ -64,11 +64,14 @@ const ProjectTrailer: React.FC<IProjectTrailerProps> = (
               />
             }
 					</ProgressiveImage>
-					<div className="project-trailer_play">
-						<Button aria-label={'play video'} element={ButtonElementEnum.circle} mods={['inverse', 's']}>
-							<PlayIcon/>
-						</Button>
-					</div>
+          {
+            trailer &&
+						<div className="project-trailer_play">
+							<Button aria-label={'play video'} element={ButtonElementEnum.circle} mods={['inverse', 's']}>
+								<PlayIcon/>
+							</Button>
+						</div>
+          }
 				</div>
       }
 

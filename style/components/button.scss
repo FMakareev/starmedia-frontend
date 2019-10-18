@@ -53,6 +53,15 @@
       fill: $color-link-default;
       opacity: 1;
     }
+
+    &--disabled {
+      color: $color-typo-placeholder;
+
+      &:hover {
+        color: $color-typo-placeholder;
+        fill: $color-typo-placeholder;
+      }
+    }
   }
 
   &_primary {

@@ -16,10 +16,25 @@ const SectionMainWatchOnline: React.FC<ISectionMainWatchOnlineProps> = (
   }
 ) => {
   const {t} = useTranslation('common');
-
+  console.log('SectionMainWatchOnline: ', onMouseEnter);
+  console.log('SectionMainWatchOnline: ', onMouseLeave);
   return (
-    <Button className={'watch-online'} onMouseLeave={onMouseLeave} onMouseEnter={onMouseEnter} element={ButtonElementEnum.transparent}>
-      <Button mr={16} as={'div'} element={ButtonElementEnum.circle} mods={['inverse', 's']}>
+    <Button
+      className={'watch-online'}
+      onMouseLeave={() => {
+        onMouseLeave && onMouseLeave();
+      }}
+      onMouseEnter={() => {
+        onMouseEnter && onMouseEnter()
+      }}
+      element={ButtonElementEnum.transparent}
+    >
+      <Button
+        mr={16}
+        as={'div'}
+        element={ButtonElementEnum.circle}
+        mods={['inverse', 's']}
+      >
         <PlayIcon/>
       </Button>
       <Text as={'span'} font={'root'} type={'inherit'}>

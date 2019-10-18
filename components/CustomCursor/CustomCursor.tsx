@@ -1,5 +1,4 @@
 import * as React from 'react';
-import classNames from 'classnames';
 
 interface ICustomCursorProps {
   [prop: string]: any
@@ -37,28 +36,29 @@ const CustomCursor: React.FC<ICustomCursorProps> = (
       }, true);
       // @ts-ignore
       ContainerRef.current.addEventListener('mousemove', (e: any) => {
-        console.log(e);
         if (e) {
-
-          e.path.find((className: any) => {
-            // setHiddenCursor(false)
-            if (className.className
-              && typeof className.className === 'string'
-              && className.className.indexOf('watch-online') > 0) {
-              if (setHiddenCursor && !setHiddenCursor) {
-                setHiddenCursor(true)
-              }
-              console.log(className.className);
-            } else if (setHiddenCursor && setHiddenCursor) {
-              setHiddenCursor(false)
-
-            }
-            // watch-online
-          })
           // @ts-ignore
           window.customCursor.clientX = e.clientX;
           // @ts-ignore
           window.customCursor.clientY = e.clientY;
+
+          // e.path.find((className: any) => {
+          //   // setHiddenCursor(false)
+          //   if (className.className
+          //     && typeof className.className === 'string'
+          //     && className.className.indexOf('watch-online') > 0) {
+          //     if (setHiddenCursor && !hiddenCursor) {
+          //       setHiddenCursor(true)
+          //     }
+          //     console.log('className: ',hiddenCursor,className.className);
+          //     return
+          //   }
+          //   if (setHiddenCursor && hiddenCursor) {
+          //     setHiddenCursor(false)
+          //     return
+          //   }
+          //   // watch-online
+          // })
         }
       }, false);
       // @ts-ignore
@@ -81,9 +81,7 @@ const CustomCursor: React.FC<ICustomCursorProps> = (
 
   return <div
     ref={ContainerRef}
-    className={classNames('cursor_container', {
-      'cursor_container-hidden': hiddenCursor,
-    })}
+    className={'cursor_container'}
   >
     {children}
     {

@@ -17,7 +17,7 @@ const SectionMainTitle: React.FC<ISectionMainTitleProps> = (
 
   return (
     <h1 className="section-main_title">
-      <div className="section-main_title-static">
+      <div  className="section-main_title-static reset-style">
         {
           ReactHtmlParser(GetLocalizationString(title))
         }

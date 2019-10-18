@@ -31,6 +31,12 @@ export const GetHomePageRUQuery = gql`
                 }
                 form {
                     id
+                    description{
+                        ru
+                    }
+                    name{
+                        ru
+                    }
                 }
             }
             seoTags {
@@ -144,6 +150,12 @@ export const GetHomePageENQuery = gql`
                 }
                 form {
                     id
+                    description{
+                        ru
+                    }
+                    name{
+                        ru
+                    }
                 }
             }
             seoTags {
@@ -257,6 +269,12 @@ export const GetHomePageUKQuery = gql`
                 }
                 form {
                     id
+                    description{
+                        ru
+                    }
+                    name{
+                        ru
+                    }
                 }
             }
             seoTags {

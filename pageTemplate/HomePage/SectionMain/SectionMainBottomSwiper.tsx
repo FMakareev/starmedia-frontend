@@ -38,7 +38,8 @@ const SectionMainBottom: React.FC<ISectionMainBottomProps> = (
     title,
     animatedText,
     setNewSlideIndex,
-    projectList
+    projectList,
+    setHiddenCursor,
   }
 ) => {
   const [disabled] = React.useState(false);
@@ -81,7 +82,16 @@ const SectionMainBottom: React.FC<ISectionMainBottomProps> = (
                   title={title}
                   animatedText={animatedText}
                 />
-                <SectionMainWatchOnline/>
+                <SectionMainWatchOnline
+                  onMouseEnter={() => {
+                    console.log('onMouseEnter', setHiddenCursor);
+                    setHiddenCursor(true)
+                  }}
+                  onMouseLeave={() => {
+                    console.log('onMouseLeave', setHiddenCursor);
+                    setHiddenCursor(false)
+                  }}
+                />
               </Col>)
             }
 

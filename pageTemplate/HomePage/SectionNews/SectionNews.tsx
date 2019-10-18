@@ -58,7 +58,7 @@ const SectionNews: React.FC<ISectionNewsProps> = (
         </Row>
         <Row mb={22} center={ViewportSizeEnum.xs}>
           <Button aria-label={'show all news'} mods={['m']} element={ButtonElementEnum.circle}>
-            <span>
+            <span className={'reset-style'}>
               {
                 ReactHtmlParser(t('section_news_btn-all-news'))
               }

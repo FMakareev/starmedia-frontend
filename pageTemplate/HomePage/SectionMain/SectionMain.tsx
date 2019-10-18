@@ -43,11 +43,7 @@ const SectionMain: React.FC<ISectionMainProps> = (
   const [currentSlide, setNewSlideIndex] = React.useState(0);
 
   const [hiddenCursor, setHiddenCursor] = React.useState<boolean>(false);
-
-  console.log('currentSlide: ', currentSlide);
-  console.log('projectList: ', projectList);
-
-
+  console.log('hiddenCursor: ', hiddenCursor);
   return (
     <div className={'section-main'}>
 
@@ -60,7 +56,6 @@ const SectionMain: React.FC<ISectionMainProps> = (
           </Col>
         </Row>
       </Container>
-
       <Col md={'none'} lg={'none'} sm={'none'} pl={24} pr={24} mb={24}>
         <SectionMainTitle
           title={title}
@@ -70,6 +65,7 @@ const SectionMain: React.FC<ISectionMainProps> = (
       <CustomCursor setHiddenCursor={setHiddenCursor} hiddenCursor={hiddenCursor}>
 
         <SectionMainBottomSwiper
+          setHiddenCursor={setHiddenCursor}
           projectList={projectList}
           currentSlide={currentSlide}
           setNewSlideIndex={setNewSlideIndex}
@@ -78,7 +74,14 @@ const SectionMain: React.FC<ISectionMainProps> = (
         />
 
         <Col md={'none'} lg={'none'} sm={'none'} pl={24} pr={24}>
-          <SectionMainWatchOnline/>
+          <SectionMainWatchOnline
+            onMouseEnter={() => {
+              setHiddenCursor(true)
+            }}
+            onMouseLeave={() => {
+              setHiddenCursor(false)
+            }}
+          />
         </Col>
       </CustomCursor>
 

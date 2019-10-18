@@ -23,7 +23,7 @@ const SectionProjects: React.FC<ISectionProjectsProps> = ({projectList}) => {
 
   return (
     <Col pt={60} pb={60} className={'section-projects'}>
-      <Container mb={[24, 80]}>
+      <Container mb={[24, 90]}>
         <Text className={'text_uppercase'} size={'l'} as={'h2'}>
           {t('section_project_title')}
         </Text>
@@ -49,7 +49,7 @@ const SectionProjects: React.FC<ISectionProjectsProps> = ({projectList}) => {
 
           <Link href={'/projects'}>
             <Button aria-label={'show all projects'} mods={['m']} element={ButtonElementEnum.circle}>
-              <span>
+              <span className={'reset-style'}>
                  {
                    ReactHtmlParser(t('section_project_btn-all-projects'))
                  }

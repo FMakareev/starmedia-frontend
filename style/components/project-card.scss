@@ -4,7 +4,6 @@
   &_wrapper {
     cursor: pointer;
     display: block;
-
     &--disabled {
       pointer-events: none;
     }
@@ -42,6 +41,7 @@
   &_preview {
     overflow: hidden;
     position: relative;
+    border: 1px solid $color-border-primary;
 
     &:after {
       @include transitionHover;

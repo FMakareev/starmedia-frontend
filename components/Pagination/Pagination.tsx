@@ -46,7 +46,7 @@ const Pagination: React.FC<IPaginationProps> = (
           mods={['m']}
           element={ButtonElementEnum.circle}
         >
-          <span>
+          <span className={'reset-style'}>
             {
               ReactHtmlParser(t('button_show-more'))
             }

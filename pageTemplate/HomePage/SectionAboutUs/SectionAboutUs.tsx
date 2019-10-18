@@ -49,7 +49,7 @@ const SectionAboutUs: React.FC<ISectionAboutUsProps> = (
 
       <div className="section-about-us_content">
 
-        <Text as={'h2'} className="section-about-us_title" size={'l'}>
+        <Text as={'h2'}  className="section-about-us_title reset-style" size={'l'}>
           {
             ReactHtmlParser(GetLocalizationString(title))
           }

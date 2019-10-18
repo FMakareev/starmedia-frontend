@@ -26,7 +26,7 @@ const AboutDevelop: React.FC<IAboutDevelopProps> = (
           <Text
             font={'object'}
             size={'m'}
-            className={'text_uppercase'}
+            className={'text_uppercase reset-style'}
           >
             {
               ReactHtmlParser(GetLocalizationString(titleTVBroadcast, i18n))
@@ -48,12 +48,12 @@ const AboutDevelop: React.FC<IAboutDevelopProps> = (
                       className="about-develop_bubble"
                       key={index}
                     >
-                      <div className="about-develop_bubble-title">
+                      <div className="about-develop_bubble-title reset-style">
                         {
                           ReactHtmlParser(GetLocalizationString(item.title, i18n))
                         }
                       </div>
-                      <div className="about-develop_bubble-text">
+                      <div className="about-develop_bubble-text reset-style">
                         {
                           ReactHtmlParser(GetLocalizationString(item.content, i18n))
                         }

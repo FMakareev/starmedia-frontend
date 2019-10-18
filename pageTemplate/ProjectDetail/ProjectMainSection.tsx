@@ -27,9 +27,13 @@ const ProjectMainSection: React.FC<IProjectMainSectionProps> = (
     preview,
     trailer,
     trailerPreview,
+    isBottomDescription,
+    isBottomAwards,
+    isBottomGallery,
+    isBottomSimilar,
   }
 ) => {
-  const {t,i18n} = useTranslation('common');
+  const {t, i18n} = useTranslation('common');
 
   return (
     <Col mb={[40, 80]} pb={40} pt={130} className={'project-detail-main_wrapper'}>
@@ -46,7 +50,7 @@ const ProjectMainSection: React.FC<IProjectMainSectionProps> = (
             <Col xs={12}>
               <Link href={'/projects'}>
                 <Button as={'a'} href={'/projects'} element={ButtonElementEnum.transparent} mods={['light', 'icon']}>
-                  <Col style={{height:'24px'}} mr={8}>
+                  <Col style={{height: '24px'}} mr={8}>
                     <BackIcon/>
                   </Col>
                   <Text font={'root'} size={'s'} type={'inherit'} as={'span'}>
@@ -62,7 +66,7 @@ const ProjectMainSection: React.FC<IProjectMainSectionProps> = (
             <Col xs={12} md={6} mb={40}>
               <ProjectTrailer
                 trailerPreview={trailerPreview}
-              trailer={trailer}
+                trailer={trailer}
               />
             </Col>
             <Col xs={12} md={6}>
@@ -72,10 +76,10 @@ const ProjectMainSection: React.FC<IProjectMainSectionProps> = (
                 </Col>
                 <Text as={'h1'} className={'text_uppercase'} mb={34} font={'object'} size={'l'} type={'secondary'}>
                   {
-                    GetLocalizationString(title,i18n)
+                    GetLocalizationString(title, i18n)
                   }
                 </Text>
-                <ProjectInfoList projectInfo={projectInfo|| {}}/>
+                <ProjectInfoList projectInfo={projectInfo || {}}/>
               </Col>
 
             </Col>
@@ -88,7 +92,13 @@ const ProjectMainSection: React.FC<IProjectMainSectionProps> = (
           mb={40}
         />
         <Col xs={'none'} className="project-detail-main_bottom">
-          <ProjectDetailMainBottom/>
+          <ProjectDetailMainBottom
+            isBottomDescription={isBottomDescription}
+            isBottomAwards={isBottomAwards}
+            isBottomGallery={isBottomGallery}
+            isBottomSimilar={isBottomSimilar}
+
+          />
         </Col>
       </Container>
     </Col>

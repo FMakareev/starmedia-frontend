@@ -10,34 +10,25 @@ import Button from "../Button/Button";
 import {ButtonElementEnum} from "../../types/types";
 
 import SendFeedbackFormHoc from '../../libs/SendFeedbackFormHOC';
+import {GetLocalizationString} from "../../libs/GetLocalizationString";
+import ReactHtmlParser from "react-html-parser";
 
 interface ICatalogFormProps {
   [prop: string]: any
 }
 
-const CatalogForm: React.FC<ICatalogFormProps> = ({onCloseClicked, initialValues,onSubmit,}) => {
+const CatalogForm: React.FC<ICatalogFormProps> = (
+  {
+    onCloseClicked,
+    initialValues,
+    onSubmit,
+    title,
+    description
+  }
+) => {
   const {t} = useTranslation('common');
   const {t: tHome} = useTranslation('home');
 
-  //
-  // const onSubmitA = async (values: any) => {
-  //   console.log('values: ', values);
-  //   const result = await mutation({
-  //     variables: {
-  //       feedback: {
-  //         email: values.email,
-  //         phone: values.email,
-  //         form: values.form,
-  //         date: new Date().toISOString(),
-  //       }
-  //     },
-  //   }).then((response: any) => response)
-  //     .catch((error: any) => {
-  //       return error;
-  //     });
-  //   console.log(result);
-  //   onCloseClicked();
-  // };
 
   return (
     <Form
@@ -64,9 +55,10 @@ const CatalogForm: React.FC<ICatalogFormProps> = ({onCloseClicked, initialValues
               <Text
                 font={'object'}
                 size={'m'}
+                className={'reset-style text_uppercase'}
               >
                 {
-                  tHome('section_send-order_form-title')
+                  title && ReactHtmlParser(GetLocalizationString(title)) || tHome('section_send-order_form-title')
                 }
               </Text>
             </Col>
@@ -74,9 +66,10 @@ const CatalogForm: React.FC<ICatalogFormProps> = ({onCloseClicked, initialValues
               <Text
                 size={'m'}
                 font={'root'}
+                className={'reset-style'}
               >
                 {
-                  tHome('section_send-order_form-description')
+                  title && ReactHtmlParser(GetLocalizationString(description)) ||tHome('section_send-order_form-description')
                 }
               </Text>
             </Col>

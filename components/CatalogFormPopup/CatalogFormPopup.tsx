@@ -46,7 +46,7 @@ const CatalogFormPopup: React.FC<ICatalogFormPopupProps> = (
           style={{
             backgroundColor: "#fff",
             position: 'absolute',
-            maxWidth: "420px",
+            maxWidth: "520px",
             width: '100%',
             minHeight: "400px",
             left: '50%',
@@ -56,6 +56,8 @@ const CatalogFormPopup: React.FC<ICatalogFormPopupProps> = (
           }}
         >
           <CatalogForm
+            title={form && form.name}
+            description={form && form.description}
             initialValues={{
               title,
               form: form && form.id,

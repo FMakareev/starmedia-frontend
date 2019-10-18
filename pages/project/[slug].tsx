@@ -11,7 +11,7 @@ import {useLocalizationQuery} from "../../libs/useLocalizationQuery";
 import {GetProjectUKQuery, GetProjectENQuery, GetProjectRUQuery} from '../../apollo/query/GetProjectQuery';
 import Preloader from "../../components/Preloader/Preloader";
 import Head from "../../components/Head/Head";
-import { GetProjectPage } from '../../types/projectTypes';
+import {GetProjectPage} from '../../types/projectTypes';
 import {GetLocalizationString} from "../../libs/GetLocalizationString";
 import {useTranslation} from "react-i18next";
 
@@ -38,6 +38,8 @@ const ProjectDetail: React.FC<IProjectDetailProps> = () => {
     return <Preloader/>
   }
   console.log('data: ', data);
+  console.log('gallery: ', data && data.getProjectPage.project.gallery);
+  console.log('similarProject: ', data && data.getProjectPage.project.similarProject);
   return (
     <Fragment>
       <Head
@@ -46,6 +48,14 @@ const ProjectDetail: React.FC<IProjectDetailProps> = () => {
       />
       <ProjectMainSection
         {...(data && data.getProjectPage.project)}
+
+        isBottomDescription={!!(data && data.getProjectPage.project.description)}
+        isBottomAwards={!!(data && data.getProjectPage.project.awards && data.getProjectPage.project.awards.length)}
+        isBottomGallery={!!(data && data.getProjectPage.project.gallery && data.getProjectPage.project.gallery.length)}
+        isBottomSimilar={!!(data
+          && data.getProjectPage.project.similarProject
+          && data.getProjectPage.project.similarProject.length
+        )}
       />
       <ProjectDescription
         {...(data && data.getProjectPage.project)}

@@ -14,6 +14,7 @@ import { Parallax } from "react-scroll-parallax"
 // @ts-ignore
 import Tilt from 'react-tilt'
 import {useTranslation} from "../../../libs/i18n";
+import {GetLocalizationString} from "../../../libs/GetLocalizationString";
 
 
 interface ISectionGetCatalogProps extends OrderCatalog{
@@ -63,9 +64,14 @@ const SectionGetCatalog: React.FC<ISectionGetCatalogProps> = (
           middle={ViewportSizeEnum.sm}
         >
           <Col xs={12} sm={'auto'} pl={16} mb={[44, 0]}>
-            <Text className="section-get-catalog_title" size={'l'} type={'secondary'} font={'object'}>
+            <Text
+              className="section-get-catalog_title reset-style"
+              size={'l'}
+              type={'secondary'}
+              font={'object'}
+            >
               {
-                ReactHtmlParser(t('section_send-order_title'))
+                ReactHtmlParser(GetLocalizationString(title))
               }
             </Text>
           </Col>
@@ -107,7 +113,6 @@ const SectionGetCatalog: React.FC<ISectionGetCatalogProps> = (
           togglePopup(false);
         }}
         form={form}
-        title={title}
         isVisible={isVisible}
         onClose={() => {
           togglePopup(false);

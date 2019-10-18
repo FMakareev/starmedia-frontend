@@ -119,6 +119,10 @@
 
   &_title-static {
     text-align: left;
+    *{
+      padding: 0!important;
+      margin: 0!important;
+    }
   }
 
   &_title-animated {
@@ -357,10 +361,10 @@
         }
 
         &:nth-child(2) {
-          margin-top: 104px;
+          margin-top: 188pxpx;
         }
         &:nth-child(3n+6) {
-          margin-top: -104px;
+          margin-top: -188pxpx;
         }
       }
 
@@ -495,4 +499,12 @@
   }
 
 
+}
+
+
+.watch-online {
+  cursor: pointer!important;
+  * {
+    cursor: pointer!important;
+  }
 }

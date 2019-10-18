@@ -41,7 +41,7 @@ const CookiePopup: React.FC<ICookiePopupProps> = () => {
       <Text
         font={'root'}
         size={'m'}
-        className={'cookie-popup_text'}
+        className={'cookie-popup_text reset-style'}
       >
         {
           ReactHtmlParser(
