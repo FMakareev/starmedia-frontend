@@ -101,11 +101,11 @@ const ProjectFilter: React.FC<IProjectFilterProps> = (
           <SelectSlim
             label={t('filter_genre-label')}
             input={{
-              value: filters.genres,
+              value: filters.genre,
               onChange: (event: any) => {
                 setFilters({
                   ...filters,
-                  genres: event,
+                  genre: event,
                 })
               }
             }}

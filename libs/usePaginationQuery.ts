@@ -114,7 +114,7 @@ export const usePaginationQuery = <TQuery = any, TVariables = any>(
       }
     });
   };
-
+  console.log('variables: ', variables);
   if (variables) {
     watchChangeVariables(variables, () => {
       moreData(1);

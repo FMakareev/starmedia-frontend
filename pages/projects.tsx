@@ -20,8 +20,8 @@ const Projects: React.FC<IProjectsProps> = ({t}) => {
   const {query} = useRouter();
 
   const [filters, setFilter] = React.useState({
-    genre: query && query.ganre || '',
-    format: query && query.format || '',
+    genre: query && query.genre || null,
+    format: query && query.format || null,
     // @ts-ignore
     year: query && parseInt(query.year) || 0,
     search: query && query.search || '',
@@ -44,13 +44,13 @@ const Projects: React.FC<IProjectsProps> = ({t}) => {
       uk: ProjectPaginationUK,
     },
     variables: {
-      genre: filters.genre,
-      format: filters.format,
+      genre: filters.genre || '',
+      format: filters.format|| '',
       year: parseInt(filters.year||0),
-      query: filters.search,
+      query: filters.search|| '',
     },
   });
-
+  console.log(filters);
   return (
     <LayoutTitleWithContent
       title={t('nav-project-list')}
