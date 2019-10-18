@@ -10,6 +10,7 @@ import {useTranslation} from '../../../libs/i18n';
 import Link from 'next/link';
 import {GetLocalizationString} from "../../../libs/GetLocalizationString";
 import ShowComponentInLocales from "../../../components/ShowComponentInLocales/ShowComponentInLocales";
+import ReactHtmlParser from "react-html-parser";
 
 interface ISectionAboutUsProps extends AboutUsSection {
   [prop: string]: any
@@ -41,7 +42,7 @@ const SectionAboutUs: React.FC<ISectionAboutUsProps> = (
 
         <Text as={'h2'} className="section-about-us_title" size={'l'}>
           {
-            GetLocalizationString(title)
+            ReactHtmlParser(GetLocalizationString(title))
           }
         </Text>
 
