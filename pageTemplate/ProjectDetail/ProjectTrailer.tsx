@@ -33,7 +33,9 @@ const ProjectTrailer: React.FC<IProjectTrailerProps> = (
   const [watch, setWatch] = React.useState(false);
 
   const togglePlayer = () => {
-    setWatch(!watch);
+    if (trailer) {
+      setWatch(!watch);
+    }
   };
 
   return (
