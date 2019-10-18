@@ -12,7 +12,6 @@ import Head from "../../components/Head/Head";
 import {DateFormat} from "../../libs/DateFormat";
 import Typeset from '../../components/Typeset/Typeset';
 
-// Яндекс -
 
 const AwardDetail = () => {
   const {t} = useTranslation('common');
@@ -46,7 +45,7 @@ const AwardDetail = () => {
        title={title}
        date={data && DateFormat(data.getAward.date || '')}
        goBackLabel={t('awards_go-back')}
-       goBackLink={'/about-us'}
+       goBackLink={'/about-us#awards'}
      >
        <Typeset
         content={content}
