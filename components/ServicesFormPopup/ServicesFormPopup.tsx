@@ -29,7 +29,7 @@ const ServicesFormPopup: React.FC<IServicesFormPopupProps> = (
   {
     onClose,
     initialValues,
-    isVisible
+    isVisible,
   }
 ) => {
 
@@ -55,10 +55,12 @@ const ServicesFormPopup: React.FC<IServicesFormPopupProps> = (
         }}
       >
         <ServicesForm
+          callBack={onClose}
           initialValues={initialValues}
           description={isVisible && isVisible.description}
           name={isVisible && isVisible.name}
           onCloseClicked={onClose}
+          type={isVisible && isVisible.type}
         />
       </Col>
     </SkyLightStateless>

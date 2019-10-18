@@ -12,21 +12,6 @@ interface ITextProps {
 }
 
 
-// const getTextAlign = (align?: string) => {
-//
-//   const AlignMap: any = {
-//     'left': 'text_align--left',
-//     'center': 'text_align--center',
-//     'right': 'text_align--right',
-//   }
-//
-//   if(align && AlignMap[align]){
-//     return {
-//       [AlignMap[align]]: true,
-//     }
-//   }
-//   return {}
-// };
 const getTextSize = (size?: string) => {
 
   const TextSizeMap: any = {

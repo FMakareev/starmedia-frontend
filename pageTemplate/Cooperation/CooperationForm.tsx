@@ -126,7 +126,7 @@ const CooperationForm: React.FC<ICooperationFormProps> = (
             </Col>
             <Col mb={40} xs={12} sm={12}>
               <Field
-                name="link"
+                name="url"
                 label={t(linkLabel)}
                 type={'url'}
                 render={TextField}

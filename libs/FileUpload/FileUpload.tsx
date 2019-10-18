@@ -64,8 +64,9 @@ const FileUpload = (WrapperComponent: React.ElementType) => {
     uploadFile = (file: any): Promise<IResponseUploadFile> => {
       const formData = new FormData();
       formData.append('file', file);
+      formData.append('title', file.name);
       this.toggleLoading();
-      return fetch(`/uploader`,
+      return fetch(`${window.location.origin}/uploader`,
         {
           credentials: 'include',
           method: 'POST',
@@ -91,7 +92,7 @@ const FileUpload = (WrapperComponent: React.ElementType) => {
           this.toggleLoading();
           return error;
         })
-    };
+    }
 
     render() {
       return (<WrapperComponent

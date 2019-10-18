@@ -31,7 +31,6 @@ export const DropFieldHoc = (WrapperComponent: React.FC<any>) => () => {
 
   return class extends React.Component<IDropFieldHocProps, IDropFieldHocState> {
 
-
     constructor(props: IDropFieldHocProps) {
       super(props);
 
@@ -51,19 +50,17 @@ export const DropFieldHoc = (WrapperComponent: React.FC<any>) => () => {
       }
     }
 
-
-
     addFile = (event: BaseSyntheticEvent<Element, EventTarget, SyntheticEventFileTarget>) => {
       try {
-        const {input:{onChange}} = this.props;
+        const {input: {onChange, value}} = this.props;
         const files: IFile[] = event.target.files;
+        console.log('files: ', files);
+        if(Array.isArray(value)){
+          onChange && onChange([...value,...files])
+        } else {
+          onChange && onChange([...files])
+        }
 
-        this.setState((state) => ({
-          ...state,
-          fileList: [...state.fileList, ...files]
-        }), () => {
-          onChange && onChange(this.state.fileList)
-        });
       } catch (error) {
         console.error('[ERROR]:addFile: ', error);
       }
@@ -71,23 +68,21 @@ export const DropFieldHoc = (WrapperComponent: React.FC<any>) => () => {
 
     removeFile = (name: string) => {
       try {
-        const {input:{onChange}} = this.props;
-        this.setState((state) => ({
-          ...state,
-          fileList: state.fileList.filter((item: IFile) => item.name !== name)
-        }),() => {
-          onChange && onChange(this.state.fileList)
-        })
+        const {input: {onChange, value}} = this.props;
+
+        if(Array.isArray(value)){
+          onChange && onChange(value.filter((item: IFile) => item.name !== name))
+        }
       } catch (error) {
         console.error('[ERROR]:removeFile: ', error);
       }
     };
 
     render() {
-      const {fileList} = this.state;
+      const {input: {value}} = this.props;
 
       return (<WrapperComponent
-        fileList={fileList}
+        fileList={Array.isArray(value)?value:[]}
         addFile={this.addFile}
         removeFile={this.removeFile}
         {...this.props}

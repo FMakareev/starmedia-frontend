@@ -61,6 +61,7 @@ const CatalogFormPopup: React.FC<ICatalogFormPopupProps> = (
               form: form && form.id,
             }}
             onCloseClicked={onClose}
+            callBack={onClose}
           />
         </Col>
       </SkyLightStateless>

@@ -3,6 +3,7 @@ import {graphql} from 'react-apollo';
 import {SendFeedbackMutation} from "../apollo/query/SendFeedbackMutation";
 import FileUpload from './FileUpload/FileUpload';
 import  {compose} from 'recompose';
+import {ReplacePropEqualNull} from "./removePropEqualNull";
 
 
 const hokCompose = compose(
@@ -17,8 +18,9 @@ const SendFeedbackFormHoc: any = (WrapperComponent: any) =>
   hokCompose(class extends React.Component<any, any> {
 
 
-    onSubmit = async (values: any) => {
+    onSubmit = async (values: any, form:any) => {
       console.log(values);
+      console.log(form);
 
       const {uploadFile, SendFeedback, callBack} = this.props;
       let file: any = null;
@@ -27,18 +29,23 @@ const SendFeedbackFormHoc: any = (WrapperComponent: any) =>
       }
 
 
+      const variables = {
+        city: '',
+        url: '',
+        ...values,
+        file: file && file.file_data && file.file_data.id,
+        email: values.email,
+        phone: values.email,
+        form: values.form,
+        date: new Date().toISOString(),
+      }
+
       const result = await SendFeedback({
-        variables: {
-          ...values,
-          file: file && file.file_data && file.file_data.id,
-          email: values.email,
-          phone: values.email,
-          form: values.form,
-          date: new Date().toISOString(),
-        }
+        variables: ReplacePropEqualNull(variables, '')
       });
       console.log('result: ', result);
 
+     setTimeout(()=> form.reset(this.props.initialValues),100);
       if(callBack){
         callBack()
       }

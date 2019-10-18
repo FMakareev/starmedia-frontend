@@ -52,6 +52,7 @@ const ServicesForm: React.FC<IServicesFormProps> = (
               <Text
                 font={'object'}
                 size={'m'}
+                className={'text_uppercase'}
               >
                 {
                   GetLocalizationString(name)
@@ -125,10 +126,12 @@ const ServicesForm: React.FC<IServicesFormProps> = (
                 element={ButtonElementEnum.primary}
               >
                 {
-                  type === FormEnum.GET_PRESENTATION && t("form-field_submit-get-presentation")
+                  type === FormEnum.GET_PRESENTATION
+                  && t("form-field_submit-get-presentation")
                 }
                 {
-                  type === FormEnum.FREE_TESTING && t("form-field_submit-send-request")
+                  type === FormEnum.FREE_TESTING
+                  && t("form-field_submit-send-request")
                 }
 
               </Button>

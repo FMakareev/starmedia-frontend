@@ -99,58 +99,67 @@ const ServiceItemContent: React.FC<IServiceItemContentProps> = (
 					</div>
 				</div>
       }
+      {
+        formTesting
+        && formPresentation &&
+				<div className="service_item-content-form_list">
 
-      <div className="service_item-content-form_list">
+          {/** formTesting */}
+					<div
+						className="service_item-content-form_item"
+						onClick={() => {
+              openForm({
+                ...formTesting,
+                type: FormEnum.FREE_TESTING,
+              });
+            }}
+					>
+						<div
+							className={'text_uppercase service_item-content-form_item-label'}
+						>
+              {
+                GetLocalizationString(formTesting && formTesting.name)
+              }
+						</div>
+						<Button
+							element={ButtonElementEnum.circle}
 
-        {/** formTesting */}
-        <div
-          className="service_item-content-form_item"
-          onClick={() => {
-            openForm(formTesting);
-          }}
-        >
-          <div
-            className={'text_uppercase service_item-content-form_item-label'}
-          >
-            {
-              GetLocalizationString(formTesting && formTesting.name)
-            }
-          </div>
-          <Button
-            element={ButtonElementEnum.circle}
+						>
+              {
+                // @ts-ignore
+                FormIconMap['formTesting']
+              }
+						</Button>
+					</div>
 
-          >
-            {
-              // @ts-ignore
-              FormIconMap['formTesting']
-            }
-          </Button>
-        </div>
-
-        {/** formPresentation */}
-        <div
-          className="service_item-content-form_item"
-          onClick={() => {
-            openForm(formPresentation);
-          }}
-        >
-          <div
-            className={'text_uppercase service_item-content-form_item-label'}
-          >
-            {
-              GetLocalizationString(formPresentation && formPresentation.name)
-            }
-          </div>
-          <Button
-            element={ButtonElementEnum.circle}
-          >
-            {
-              // @ts-ignore
-              FormIconMap['formPresentation']
-            }
-          </Button>
-        </div>
-      </div>
+          {/** formPresentation */}
+					<div
+						className="service_item-content-form_item"
+						onClick={() => {
+              openForm({
+                ...formPresentation,
+                type: FormEnum.GET_PRESENTATION
+              });
+            }}
+					>
+						<div
+							className={'text_uppercase service_item-content-form_item-label'}
+						>
+              {
+                GetLocalizationString(formPresentation && formPresentation.name)
+              }
+						</div>
+						<Button
+							element={ButtonElementEnum.circle}
+						>
+              {
+                // @ts-ignore
+                FormIconMap['formPresentation']
+              }
+						</Button>
+					</div>
+				</div>
+      }
 
       {
         currentOpenForm && <ServicesFormPopup

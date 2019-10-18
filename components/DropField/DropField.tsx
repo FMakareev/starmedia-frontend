@@ -14,7 +14,7 @@ export interface IDropFieldProps {
 }
 
 export const DropField: React.FC<IDropFieldProps> = ({help, labelOtherFile, label, placeholder, addFile, fileList, removeFile}) => {
-
+  console.log('DropField: ', fileList);
   return (
     <React.Fragment>
       {

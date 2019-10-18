@@ -32,10 +32,11 @@ const ServiceItem: React.FC<IServiceItemProps> = (
     content,
     contacts,
     forms,
+
     ...rest
   }
 ) => {
-
+  console.log(rest);
   return (
     <li className={classNames("service_item", {
       "service_item--active": isOpen,
