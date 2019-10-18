@@ -19,8 +19,6 @@ const Projects: React.FC<IProjectsProps> = ({t}) => {
 
   const {query} = useRouter();
 
-  console.log('query: ', query);
-
   const [filters, setFilter] = React.useState({
     genre: query && query.ganre || '',
     format: query && query.format || '',

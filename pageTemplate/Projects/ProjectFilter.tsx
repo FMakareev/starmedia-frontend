@@ -39,9 +39,9 @@ const generateYearArray = memo((start: number, end: number) => {
 
 
 const OptionFormat = memo((options: LocalizedString[], language: AppLanguages) => {
-  return options.map((option: LocalizedString, index: number) => ({
+  return options.map((option: LocalizedString) => ({
     label: language in option && option[language],
-    value: `${language in option && option[language]}${index}`, // TODO: убрать индекс
+    value: `${language in option && option[language]}`,
   }))
 });
 
