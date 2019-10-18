@@ -24,6 +24,9 @@ const ProjectInfoItemValue = (
       (typeof value === 'number') && value
     }
     {
+      (typeof value === 'string') && value
+    }
+    {
       Array.isArray(value) && value.map((item: any, index) => (
         <span key={index}>
           {
