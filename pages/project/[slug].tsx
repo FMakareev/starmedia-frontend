@@ -37,7 +37,7 @@ const ProjectDetail: React.FC<IProjectDetailProps> = () => {
   if (loading) {
     return <Preloader/>
   }
-
+  console.log('data: ', data);
   return (
     <Fragment>
       <Head

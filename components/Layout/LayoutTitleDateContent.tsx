@@ -36,7 +36,7 @@ const LayoutTitleDateContent: React.FC<ILayoutTitleDateContentProps> = (
           <Col mb={[24, 24, 40]}>
             <Link href={goBackLink}>
               <Button href={goBackLink} as={'a'} element={ButtonElementEnum.transparent} mods={['dark', 'icon']}>
-                <Col mr={8}>
+                <Col style={{height:'24px'}} mr={8}>
                   <BackIcon/>
                 </Col>
                 <Text font={'root'} size={'s'} type={'inherit'} as={'span'}>

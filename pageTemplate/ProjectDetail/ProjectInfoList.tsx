@@ -40,7 +40,7 @@ const ProjectInfoItemValue = (
 const ProjectInfoList: React.FC<IProjectInfoProps> = ({projectInfo}) => {
 
   const {t} = useTranslation('common');
-
+  console.log('projectInfo: ', projectInfo);
   return (
     <ul className={'project-info_list'}>
 
@@ -77,14 +77,7 @@ const ProjectInfoList: React.FC<IProjectInfoProps> = ({projectInfo}) => {
           value={projectInfo && projectInfo.scenario}
         />
       </li>
-      <li className={'project-info_item'}>
-        <Text type={'secondary'} font={'object'} className={'project-info_label'}>
-          {t('project-info_scenario')}
-        </Text>
-        <ProjectInfoItemValue
-          value={projectInfo && projectInfo.scenario}
-        />
-      </li>
+
       <li className={'project-info_item'}>
         <Text type={'secondary'} font={'object'} className={'project-info_label'}>
           {t('project-info_operator')}
