@@ -43,12 +43,12 @@ const SectionGetCatalog: React.FC<ISectionGetCatalogProps> = (
 
       <div className="section-get-catalog_bg">
         <Parallax
-          y={[-30, 10]}
+          y={[-20, 20]}
           tagOuter="figure"
         >
           <img
             style={{
-              transform: 'scale(1)',
+              transform: 'scale(1.2)',
             }}
             src={'../../../static/images/Grey bg.jpg'}
             alt=""
