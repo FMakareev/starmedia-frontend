@@ -20,5 +20,28 @@
 
   &_icon {
     fill: inherit;
+
+    &-yt {
+      width: 18px;
+      height: 13px;
+    }
+    &-fb {
+      width: 8px;
+      height: 18px;
+    }
+    &-vk {
+      width: 19px;
+      height: 11px;
+    }
+    &-ok {
+      width: 12px;
+      height: 20px;
+    }
+    &-in {
+      width: 16px;
+      height: 15px;
+    }
+    &-t {}
+
   }
 }

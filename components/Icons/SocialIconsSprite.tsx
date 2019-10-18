@@ -9,8 +9,8 @@ const SocialIconsSprite: React.FC<ISocialIconsSpriteProps> = () => {
   return (
     <svg style={{display: 'none'}} width="0" height="0" className="hidden">
       <symbol
-        width="24px"
-        height="24px"
+        width="8px"
+        height="18px"
         viewBox="0 0 8 18"
         fill="inherit"
         xmlns="http://www.w3.org/2000/svg"
@@ -25,6 +25,8 @@ const SocialIconsSprite: React.FC<ISocialIconsSpriteProps> = () => {
         />
       </symbol>
       <symbol
+        width={'16px'}
+        height={'15px'}
         viewBox="0 0 16 15"
         fill="inherit"
         xmlns="http://www.w3.org/2000/svg"
@@ -36,6 +38,8 @@ const SocialIconsSprite: React.FC<ISocialIconsSpriteProps> = () => {
         />
       </symbol>
       <symbol
+        width={'12px'}
+        height={'20px'}
         viewBox="0 0 12 20"
         fill="inherit"
         xmlns="http://www.w3.org/2000/svg"
@@ -51,6 +55,8 @@ const SocialIconsSprite: React.FC<ISocialIconsSpriteProps> = () => {
       </symbol>
       <symbol
         viewBox="0 0 19 11"
+        width={'19px'}
+        height={'11px'}
         fill="inherit"
         xmlns="http://www.w3.org/2000/svg"
         id={SocialLinkTypeEnum.VK}
@@ -63,6 +69,8 @@ const SocialIconsSprite: React.FC<ISocialIconsSpriteProps> = () => {
         />
       </symbol>
       <symbol
+        width={'18px'}
+        height={'13px'}
         viewBox="0 0 18 13"
         fill="inherit"
         xmlns="http://www.w3.org/2000/svg"
@@ -77,6 +85,9 @@ const SocialIconsSprite: React.FC<ISocialIconsSpriteProps> = () => {
       </symbol>
 
       <symbol
+        width={'16px'}
+        height={'13px'}
+
         viewBox="0 0 16 13"
         fill="inherit"
         xmlns="http://www.w3.org/2000/svg"
@@ -93,6 +104,9 @@ const SocialIconsSprite: React.FC<ISocialIconsSpriteProps> = () => {
       <symbol
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 50 50"
+
+        width={'18px'}
+        height={'18px'}
         fill="inherit"
         id={SocialLinkTypeEnum.GOOGLE_PLUS}
       >
@@ -106,6 +120,8 @@ const SocialIconsSprite: React.FC<ISocialIconsSpriteProps> = () => {
       <svg
         id={SocialLinkTypeEnum.IMDB}
         viewBox="0 0 400 166"
+        width="24px"
+        height="18px"
         fill="inherit"
         xmlns="http://www.w3.org/2000/svg"
       >
