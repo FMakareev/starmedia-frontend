@@ -24,6 +24,7 @@ export type ProjectInfo = {
   productionYear?: Maybe<LocalizedString>;
   numberOfEpisodes?: Maybe<Scalars["Int"]>;
   directors?: Maybe<Array<LocalizedString>>;
+  productionDesigner?: Maybe<Array<LocalizedString>>;
   scenario?: Maybe<Array<LocalizedString>>;
   operator?: Maybe<Array<LocalizedString>>;
   composer?: Maybe<Array<LocalizedString>>;

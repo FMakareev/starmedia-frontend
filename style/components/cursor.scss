@@ -15,6 +15,11 @@
   position: relative;
   cursor: none;
 
+  &-hidden{
+    opacity: 0;
+    display: none;
+  }
+
   &:hover {
     .cursor {
       opacity: 1;

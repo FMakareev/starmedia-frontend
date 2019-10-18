@@ -54,9 +54,9 @@ const SectionMainBottom: React.FC<ISectionMainBottomProps> = (
   React.useEffect(() => {
     if (typeof window !== undefined) {
       if (window.innerWidth > -768) {
-        swiperConfig.slidesOffsetAfter = window.innerWidth - 390;
+        swiperConfig.slidesOffsetAfter = window.innerWidth - 780;
         window.addEventListener('resize', () => {
-          swiperConfig.slidesOffsetAfter = window.innerWidth - 390;
+          swiperConfig.slidesOffsetAfter = window.innerWidth - 780;
         });
       }
     }
@@ -65,10 +65,9 @@ const SectionMainBottom: React.FC<ISectionMainBottomProps> = (
     <div className="section-main_bottom">
       <ReactIdSwiper
         // @ts-ignore
-        slidesOffsetAfter={1530}
+        slidesOffsetAfter={780}
         {...swiperConfig}
       >
-
         {
           projectList
           && [undefined, ...projectList].map((item: Project, index: number) => {
@@ -90,10 +89,10 @@ const SectionMainBottom: React.FC<ISectionMainBottomProps> = (
               key={index + 1}
               className={'section-main_slide-project'}
             >
-              <Link href={`/project/slug`}>
+              <Link href={`/project/${item.slug}`}>
                 <ProjectCard
                   disabled={disabled}
-                  href={`/project/slug`} key={index} withInfo={false} {...item}/>
+                  href={`/project/${item.slug}`} key={index} withInfo={false} {...item}/>
               </Link>
             </Col>)
           })

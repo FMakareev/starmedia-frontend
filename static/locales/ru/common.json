@@ -40,11 +40,14 @@
   "form-field_submit-get-presentation": "Получить презентацию",
   "form-field_submit-send-request": "Отправить заявку",
 
+  "form-field_validation-required": "Поле обязательно для заполнения",
+  "form-field_validation-required-file-url": "Обязательно передайте ссылку или файл.",
+
   "form-field_label-city": "Город",
-  "form-field_label-fio": "Имя и фамилия",
+  "form-field_label-fio": "Имя и Фамилия",
   "form-field_label-email": "Email",
   "form-field_label-company": "Компания",
-  "form-field_label-position": "Позиция",
+  "form-field_label-position": "Должность",
   "form-field_label-file": "Ваш сценарий в pdf, doc или zip",
   "form-field_label2-file": "Выбрать другой файл",
   "form-field_placeholder-file": "Перетащите файл в это окошко \nили нажмите чтобы выбрать файл",
@@ -72,7 +75,8 @@
   "project-info_directors": "Режисер",
   "project-info_scenario": "Сеценарист",
   "project-info_operator": "Оператор",
-  "project-info_composer": "Компоситор",
-  "project-info_producer": "Продюссер",
+  "project-info_composer": "Композитор",
+  "project-info_producer": "Продюсер",
+  "project-info_production-designer": "Художник-постановщик",
   "project-info_cast": "В ролях"
 }

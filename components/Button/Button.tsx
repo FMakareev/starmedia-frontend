@@ -35,7 +35,7 @@ const transparentModMap: any = {
   dark: 'button_transparent--dark',
 };
 
-const otherModMap:any = {
+const otherModMap: any = {
   'icon': 'button--icon',
 }
 
@@ -91,12 +91,23 @@ export function getClassListWithButton(props: any): any {
   }
 
 
-
   return classNameList;
 }
 
 
-export const Button = ({as = 'button', Component, className, children, href, onClick, ...rest}: Props) => {
+export const Button = (
+  {
+    as = 'button',
+    Component,
+    className,
+    children,
+    href,
+    onClick,
+    onMouseLeave,
+    onMouseEnter,
+    ...rest
+  }: Props
+) => {
 
   return React.createElement(as, {
     className: classNames('button', className, {
@@ -107,6 +118,8 @@ export const Button = ({as = 'button', Component, className, children, href, onC
     ),
     href,
     onClick,
+    onMouseEnter,
+    onMouseLeave,
     ...rest,
   }, children)
 

@@ -230,7 +230,8 @@
     color: inherit;
     fill: inherit;
     padding: 0;
-
+    display: flex;
+    align-items: center;
     &:hover {
       color: $color-typo-brand;
       fill: $color-typo-brand;

@@ -420,6 +420,13 @@
       position: relative !important;
       margin: 0 auto;
     }
+    @media(max-height: 800px) {
+      left: inherit !important;
+      top: inherit !important;
+      transform: inherit !important;
+      position: relative !important;
+      margin: 0 auto;
+    }
     @media(min-width: 768px) {
       padding: 48px 48px 56px 48px;
     }

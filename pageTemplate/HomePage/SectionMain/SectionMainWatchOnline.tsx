@@ -9,11 +9,16 @@ interface ISectionMainWatchOnlineProps {
   [prop: string]: any
 }
 
-const SectionMainWatchOnline: React.FC<ISectionMainWatchOnlineProps> = () => {
+const SectionMainWatchOnline: React.FC<ISectionMainWatchOnlineProps> = (
+  {
+    onMouseEnter,
+    onMouseLeave,
+  }
+) => {
   const {t} = useTranslation('common');
 
   return (
-    <Button element={ButtonElementEnum.transparent}>
+    <Button className={'watch-online'} onMouseLeave={onMouseLeave} onMouseEnter={onMouseEnter} element={ButtonElementEnum.transparent}>
       <Button mr={16} as={'div'} element={ButtonElementEnum.circle} mods={['inverse', 's']}>
         <PlayIcon/>
       </Button>

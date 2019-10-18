@@ -39,8 +39,11 @@
   "form-field_submit-get-presentation": "Отримати презентацію",
   "form-field_submit-send-request": "Відправити заявку",
 
+  "form-field_validation-required": "Поле обов'язкове для заповнення",
+  "form-field_validation-required-file-url": "Обов'язково передайте посилання або файл.",
+
   "form-field_label-city": "Місто",
-  "form-field_label-fio": "Ім'я та прізвище",
+  "form-field_label-fio": "Ім'я та Прізвище",
   "form-field_label-email": "Email",
   "form-field_label-company": "Компанія",
   "form-field_label-position": "Посада",
@@ -65,7 +68,7 @@
   "project_share": "Поделится",
 
   "project-info_genre": "Жанр",
-  "project-info_format": "Форма",
+  "project-info_format": "Формат",
   "project-info_productionYear": "Рік виробництва",
   "project-info_numberOfEpisodes": "Кількість епізодів",
   "project-info_directors": "Режисер",
@@ -73,5 +76,6 @@
   "project-info_operator": "Оператор",
   "project-info_composer": "Компосітор",
   "project-info_producer": "Продюсер",
+  "project-info_production-designer": "Художник-постановник",
   "project-info_cast": "У ролях"
 }

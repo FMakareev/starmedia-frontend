@@ -42,11 +42,16 @@ const SectionMain: React.FC<ISectionMainProps> = (
 
   const [currentSlide, setNewSlideIndex] = React.useState(0);
 
+  const [hiddenCursor, setHiddenCursor] = React.useState<boolean>(false);
+
+  console.log('currentSlide: ', currentSlide);
+  console.log('projectList: ', projectList);
+
 
   return (
     <div className={'section-main'}>
 
-      <SectionMainBg project={undefined}/>
+      <SectionMainBg project={projectList && projectList[currentSlide]}/>
 
       <Container mb={50}>
         <Row end={ViewportSizeEnum.xs}>
@@ -62,7 +67,7 @@ const SectionMain: React.FC<ISectionMainProps> = (
           animatedText={animatedText}
         />
       </Col>
-      <CustomCursor>
+      <CustomCursor setHiddenCursor={setHiddenCursor} hiddenCursor={hiddenCursor}>
 
         <SectionMainBottomSwiper
           projectList={projectList}
@@ -76,6 +81,7 @@ const SectionMain: React.FC<ISectionMainProps> = (
           <SectionMainWatchOnline/>
         </Col>
       </CustomCursor>
+
     </div>
   );
 };

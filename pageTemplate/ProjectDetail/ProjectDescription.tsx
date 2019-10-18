@@ -39,7 +39,7 @@ const ProjectDescription: React.FC<IProjectDescriptionProps> = ({description}) =
           </Text>
         </Col>
         <Col mdOffset={1} md={4} xs={12}>
-          <Text mb={8} font={'object'} size={'m'} className={'text_uppercase'}>
+          <Text mb={8} font={'object'} size={'m'}>
             {
               t('project_share')
             }

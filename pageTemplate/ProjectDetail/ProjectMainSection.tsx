@@ -42,11 +42,11 @@ const ProjectMainSection: React.FC<IProjectMainSectionProps> = (
       </div>
       <Container>
         <div className="project-detail-main_top">
-          <Row mb={40}>
+          <Row mb={38}>
             <Col xs={12}>
               <Link href={'/projects'}>
                 <Button as={'a'} href={'/projects'} element={ButtonElementEnum.transparent} mods={['light', 'icon']}>
-                  <Col mr={8}>
+                  <Col style={{height:'24px'}} mr={8}>
                     <BackIcon/>
                   </Col>
                   <Text font={'root'} size={'s'} type={'inherit'} as={'span'}>
@@ -58,7 +58,7 @@ const ProjectMainSection: React.FC<IProjectMainSectionProps> = (
           </Row>
         </div>
         <div className="project-detail-main_content">
-          <Row mb={['0', '0', 72]}>
+          <Row mb={['0', '0', 52]}>
             <Col xs={12} md={6} mb={40}>
               <ProjectTrailer
                 trailerPreview={trailerPreview}
@@ -67,15 +67,15 @@ const ProjectMainSection: React.FC<IProjectMainSectionProps> = (
             </Col>
             <Col xs={12} md={6}>
               <Col pl={['0', '0', 32]}>
-                <Col mb={20}>
+                <Col mb={8}>
                   <ProjectTags tags={tags}/>
                 </Col>
-                <Text as={'h1'} className={'text_uppercase'} mb={24} font={'object'} size={'l'} type={'secondary'}>
+                <Text as={'h1'} className={'text_uppercase'} mb={34} font={'object'} size={'l'} type={'secondary'}>
                   {
                     GetLocalizationString(title,i18n)
                   }
                 </Text>
-                <ProjectInfoList projectInfo={projectInfo}/>
+                <ProjectInfoList projectInfo={projectInfo|| {}}/>
               </Col>
 
             </Col>

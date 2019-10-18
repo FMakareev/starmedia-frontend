@@ -21,6 +21,7 @@ const TextField: React.FC<ITextFieldProps> = (
     icon
   }: any
 ) => {
+
   return (
     <div className={'text-field_wrapper'}>
       {
@@ -52,7 +53,7 @@ const TextField: React.FC<ITextFieldProps> = (
 
       </div>
       {
-        touched && error || submitError &&
+        touched && (error || submitError) &&
 				<Text
 					className={'mt-8'}
 					type={'alert'}

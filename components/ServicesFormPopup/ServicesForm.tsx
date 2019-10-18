@@ -10,6 +10,7 @@ import Button from "../Button/Button";
 import {ButtonElementEnum, FormEnum, Forms} from "../../types/types";
 import {GetLocalizationString} from "../../libs/GetLocalizationString";
 import SendFeedbackFormHoc from "../../libs/SendFeedbackFormHOC";
+import Link from 'next/link';
 
 interface IServicesFormProps extends Forms {
   [prop: string]: any
@@ -75,6 +76,7 @@ const ServicesForm: React.FC<IServicesFormProps> = (
                 type={'text'}
                 label={t("form-field_label-fio")}
                 render={TextField}
+                validate={(value: string) => !value ? t('form-field_validation-required') : undefined}
               />
             </Col>
             <Col mb={40} xs={12} sm={12}>
@@ -83,6 +85,7 @@ const ServicesForm: React.FC<IServicesFormProps> = (
                 label={t("form-field_label-email")}
                 type={'email'}
                 render={TextField}
+                validate={(value: string) => !value ? t('form-field_validation-required') : undefined}
               />
             </Col>
             <Col mb={40} xs={12} sm={12}>
@@ -104,18 +107,24 @@ const ServicesForm: React.FC<IServicesFormProps> = (
 
             <Col xs={12} mb={32}>
               <Field
+                validate={(value: string) => !value ? t('form-field_validation-required') : undefined}
+
                 name="privacy"
                 label={<Text
                   font={'root'}
                   size={'s'}
                 >
-                  {t('form-privacy_agree')}<a
-                  href="/"
-                  target={'_blank'}
-                  className={'button_link button_link--font-root button_link--decoration'}
-                >
-                  {t('form-privacy_link')}
-                </a>
+                  {t('form-privacy_agree')}
+                  <Link
+                    href="/privacy">
+                    <a
+                      href="/privacy"
+                      target={'_blank'}
+                      className={'button_link button_link--font-root button_link--decoration'}
+                    >
+                      {t('form-privacy_link')}
+                    </a>
+                  </Link>
                 </Text>}
                 type={'checkbox'}
                 render={Checkbox}
@@ -140,7 +149,6 @@ const ServicesForm: React.FC<IServicesFormProps> = (
         </form>
       )}/>)
 };
-
 
 
 export default SendFeedbackFormHoc(ServicesForm);

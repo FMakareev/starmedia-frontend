@@ -38,8 +38,11 @@
   "form-field_submit-get-presentation": "Get presentation",
   "form-field_submit-send-request": "Send request",
 
+  "form-field_validation-required": "Required field",
+  "form-field_validation-required-file-url": "Be sure to send the link or file.",
+
   "form-field_label-city": "City",
-  "form-field_label-fio": "First and last name",
+  "form-field_label-fio": "First and Last name",
   "form-field_label-email": "Email",
   "form-field_label-company": "Company",
   "form-field_label-position": "Position",
@@ -73,6 +76,7 @@
   "project-info_operator": "Operator",
   "project-info_composer": "Composer",
   "project-info_producer": "Producer",
+  "project-info_production-designer": "Production designer",
   "project-info_cast": "Cast"
 
 

@@ -85,6 +85,7 @@ const CatalogForm: React.FC<ICatalogFormProps> = ({onCloseClicked, initialValues
                 name={'name'}
                 type={'text'}
                 label={t("form-field_label-fio")}
+                validate={(value: string) => !value ? t('form-field_validation-required') : undefined}
                 render={TextField}
               />
             </Col>
@@ -93,12 +94,14 @@ const CatalogForm: React.FC<ICatalogFormProps> = ({onCloseClicked, initialValues
                 name={'email'}
                 label={t("form-field_label-email")}
                 type={'email'}
+                validate={(value: string) => !value ? t('form-field_validation-required') : undefined}
                 render={TextField}
               />
             </Col>
             <Col xs={12} mb={32}>
               <Field
                 name={'privacy'}
+                validate={(value: string) => !value ? t('form-field_validation-required') : undefined}
                 label={<Text
                   font={'root'}
                   size={'s'}
