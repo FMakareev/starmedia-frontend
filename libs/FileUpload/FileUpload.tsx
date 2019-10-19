@@ -66,7 +66,10 @@ const FileUpload = (WrapperComponent: React.ElementType) => {
       formData.append('file', file);
       formData.append('title', file.name);
       this.toggleLoading();
-      return fetch(`${window.location.origin}/uploader`,
+
+      const url = `${window.location.origin}/uploader`;
+      console.log('url: ', url);
+      return fetch(url,
         {
           credentials: 'include',
           method: 'POST',
