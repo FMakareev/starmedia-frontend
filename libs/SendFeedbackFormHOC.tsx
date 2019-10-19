@@ -24,7 +24,7 @@ const SendFeedbackFormHoc: any = (WrapperComponent: any) =>
 
       const {uploadFile, SendFeedback, callBack} = this.props;
       let file: any = null;
-      if (typeof values.file === 'object' && values.file[0]) {
+      if (values.file && typeof values.file === 'object' && values.file[0]) {
         file = await uploadFile(typeof values.file[0] === 'object' && values.file[0]);
       }
 
