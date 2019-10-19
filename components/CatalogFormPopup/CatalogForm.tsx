@@ -12,6 +12,7 @@ import {ButtonElementEnum} from "../../types/types";
 import SendFeedbackFormHoc from '../../libs/SendFeedbackFormHOC';
 import {GetLocalizationString} from "../../libs/GetLocalizationString";
 import ReactHtmlParser from "react-html-parser";
+import Link from "next/link";
 
 interface ICatalogFormProps {
   [prop: string]: any
@@ -100,13 +101,15 @@ const CatalogForm: React.FC<ICatalogFormProps> = (
                   size={'s'}
                 >
                   {t('form-privacy_agree')}
-                  <a
-                    href="/"
-                    target={'_blank'}
-                    className={'button_link button_link--font-root button_link--decoration'}
-                  >
-                    {t('form-privacy_link')}
-                  </a>
+                  <Link href="/privacy">
+                    <a
+                      href="/privacy"
+                      target={'_blank'}
+                      className={'button_link button_link--font-root button_link--decoration'}
+                    >
+                      {t('form-privacy_link')}
+                    </a>
+                  </Link>
                 </Text>}
                 type={'checkbox'}
                 render={Checkbox}
