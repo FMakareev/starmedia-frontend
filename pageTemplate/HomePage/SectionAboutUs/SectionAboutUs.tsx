@@ -22,8 +22,7 @@ const SectionAboutUs: React.FC<ISectionAboutUsProps> = (
     backgroundVideo
   }
 ) => {
-  console.log(title);
-  console.log(backgroundVideo);
+
   const {t} = useTranslation('home');
 
   return (

@@ -15,7 +15,6 @@ const SectionMainCatalogFormat: React.FC<ISectionMainCatalogFormatProps> = () =>
 
   const {data} = useGetFormatQuery();
 
-  console.log(data && data.getFormat);
   return (
     <ul className={'section-main_catalog-format-list'}>
 

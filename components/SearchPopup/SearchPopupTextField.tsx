@@ -8,11 +8,11 @@ interface ISearchPopupTextFieldProps {
 
 const SearchPopupTextField: React.FC<ISearchPopupTextFieldProps> = ({input}) => {
   const {t} = useTranslation('common');
-
   return (
     <label aria-label={'search field'} className={'search-popup-text-field_wrapper'}>
       <input
         {...input}
+        value={input.value || ''}
         className={'search-popup-text-field'}
         type="text"
       />

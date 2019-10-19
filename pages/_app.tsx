@@ -9,6 +9,7 @@ import {appWithTranslation} from '../libs/i18n'
 import SocialIconsSprite from "../components/Icons/SocialIconsSprite";
 import CookiePopup from "../components/CookiePopup/CookiePopup";
 import withApollo from "../apollo/withApollo/withApollo";
+import SearchBySiteProvider from "../libs/SearchBySiteProvider";
 
 
 
@@ -22,11 +23,13 @@ class RootApp extends App<any> {
 
     return (
       <ApolloProvider client={apollo}>
-        <Layout title={''}>
-          <SocialIconsSprite/>
-          <Component {...pageProps} />
-          <CookiePopup/>
-        </Layout>
+        <SearchBySiteProvider>
+          <Layout title={''}>
+            <SocialIconsSprite/>
+            <Component {...pageProps} />
+            <CookiePopup/>
+          </Layout>
+        </SearchBySiteProvider>
       </ApolloProvider>
     );
   }

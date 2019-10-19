@@ -16,8 +16,7 @@ const SectionMainWatchOnline: React.FC<ISectionMainWatchOnlineProps> = (
   }
 ) => {
   const {t} = useTranslation('common');
-  console.log('SectionMainWatchOnline: ', onMouseEnter);
-  console.log('SectionMainWatchOnline: ', onMouseLeave);
+
   return (
     <Button
       className={'watch-online'}

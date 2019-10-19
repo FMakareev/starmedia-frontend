@@ -21,8 +21,8 @@ interface IProjectCardProps extends Project {
 
 const ProjectCard: React.FC<IProjectCardProps> = ({withInfo, href, title, projectInfo, preview, disabled}) => {
   const {t, i18n} = useTranslation();
-
-  const localTitle = GetLocalizationString(title);
+  const localTitle = GetLocalizationString(title,i18n);
+  const localGenre = GetLocalizationString(projectInfo && projectInfo.genre,i18n);
   return (<Link href={href}>
     <a
       href={href}
@@ -64,21 +64,14 @@ const ProjectCard: React.FC<IProjectCardProps> = ({withInfo, href, title, projec
 
       {
         withInfo && <div className="project-card_info">
-					<div className="project-card_info-title">
+					<div className="project-card_info-title mb-8">
             {
               localTitle
             }
 					</div>
 					<div className="project-card_info-genre">
             {
-              projectInfo
-              && projectInfo.genre
-              // @ts-ignore
-              && projectInfo.genre[i18n.language] ? projectInfo.genre[i18n.language] : null
-            }
-
-            {
-              GetLocalizationString(projectInfo && projectInfo.genre,i18n)
+              localGenre
             }
 					</div>
 				</div>

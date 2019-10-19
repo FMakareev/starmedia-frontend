@@ -33,7 +33,7 @@ const AboutUs: React.FC<IAboutUsProps> = () => {
       />
       <LayoutTitleWithContent
         titleStyle={{
-          mb: 32,
+          mb: 84,
         }}
         title={t('nav-about_us')}
       >
@@ -50,7 +50,7 @@ const AboutUs: React.FC<IAboutUsProps> = () => {
       </LayoutTitleWithContent>
       <LayoutTitleWithContent
         titleStyle={{
-          mb: 32,
+          mb: 48,
         }}
         titleAs={'h2'}
         titleId={'awards'}

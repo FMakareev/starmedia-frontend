@@ -19,6 +19,55 @@ import Preloader from "../components/Preloader/Preloader";
 import {GetHomePage} from "../types/types";
 
 
+
+const projectList:any = [
+  {
+    "slug": "zabitievoghdi",
+    "preview": {
+      "url": "https://starmedia.expanse.systems/uploads/kra_na_rad_zabuti_kermanichi.jpeg"
+    },
+    "title": {
+      "ru": "Страна советов. Забытые вожди"
+    }
+  },
+  {
+    "slug": "revolyuciya",
+    "preview": {
+      "url": "https://starmedia.expanse.systems/uploads/posterrevolyuciya.png"
+    },
+    "title": {
+      "ru": "Подлинная история Русской революции"
+    }
+  },
+  {
+    "slug": "ryurikovichi",
+    "preview": {
+      "url": "https://starmedia.expanse.systems/uploads/poster.png"
+    },
+    "title": {
+      "ru": "Рюриковичи"
+    }
+  },
+  {
+    "slug": "polskij_slid",
+    "preview": {
+      "url": "https://starmedia.expanse.systems/uploads/posterpolskiisled.jpeg"
+    },
+    "title": {
+      "ru": "Польский след"
+    }
+  },
+  {
+    "slug": "a_zori_tut_tihi",
+    "preview": {
+      "url": "https://starmedia.expanse.systems/uploads/a_zori_tut_tihi.jpg"
+    },
+    "title": {
+      "ru": "А зори здесь тихие..."
+    }
+  }
+]
+
 const Homepage = () => {
 
   const {data, loading} = useLocalizationQuery<GetHomePage>({
@@ -26,7 +75,6 @@ const Homepage = () => {
     en: GetHomePageENQuery,
     uk: GetHomePageUKQuery,
   });
-  console.log('data: ', data);
 
   if (loading) {
     return (<Preloader/>)
@@ -39,7 +87,8 @@ const Homepage = () => {
           seoTags={data && data.getHomePage && data.getHomePage.seoTags}
         />
         <SectionMain
-          projectList={data && data.projectPagination && data.projectPagination.items}
+          // projectList={data && data.projectPagination && data.projectPagination.items}
+          projectList={projectList}
           {...(data && data.getHomePage && data.getHomePage.mainSection)}
         />
         <SectionNews

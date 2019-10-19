@@ -37,9 +37,7 @@ const ProjectDetail: React.FC<IProjectDetailProps> = () => {
   if (loading) {
     return <Preloader/>
   }
-  console.log('data: ', data);
-  console.log('gallery: ', data && data.getProjectPage.project.gallery);
-  console.log('similarProject: ', data && data.getProjectPage.project.similarProject);
+
   return (
     <Fragment>
       <Head

@@ -30,6 +30,9 @@ export const GetProjectRUQuery = gql`
                     }
                     productionYear
                     numberOfEpisodes
+                    productionDesigner {
+                        ru
+                    }
                     directors {
                         ru
                     }
@@ -152,6 +155,9 @@ export const GetProjectENQuery = gql`
                     }
                     productionYear 
                     numberOfEpisodes
+                    productionDesigner {
+                        ru
+                    }
                     directors {
                         en
                     }
@@ -273,6 +279,9 @@ export const GetProjectUKQuery = gql`
                     }
                     productionYear 
                     numberOfEpisodes
+                    productionDesigner {
+                        ru
+                    }
                     directors {
                         uk
                     }
@@ -390,6 +399,11 @@ export const ProjectPaginationRU = gql`
                 title {
                     ru
                 }
+                projectInfo {
+                    genre {
+                        ru
+                    }
+                }
             }
         }
     }
@@ -414,6 +428,11 @@ export const ProjectPaginationEN = gql`
                 title{
                     en
                 }
+                projectInfo {
+                    genre {
+                        en
+                    }
+                }
             }
         }
     }
@@ -436,6 +455,11 @@ export const ProjectPaginationUK = gql`
                 }
                 title {
                     uk
+                }
+                projectInfo {
+                    genre {
+                        uk
+                    }
                 }
             }
         }

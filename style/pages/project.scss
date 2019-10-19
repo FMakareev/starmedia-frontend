@@ -98,6 +98,7 @@
     }
 
     .swiper-scrollbar-drag {
+      min-width: 200px;
       border-radius: 0;
       background-color: $color-bg-secondary;
     }
@@ -148,13 +149,13 @@
 
   &_label {
     @media only screen and (min-width: map_get($screen, "sm")) {
-      width: 150px;
+      width: 168px;
     }
   }
 
   &_value {
     @media only screen and (min-width: map_get($screen, "sm")) {
-      width: calc(100% - 150px);
+      width: calc(100% - 168px);
     }
   }
 }

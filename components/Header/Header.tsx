@@ -72,7 +72,8 @@ const Header: React.FC<IHeaderProps> = (
   }, {
     skip: false,
   });
-  const contacts = GetContactByCurrentLang(i18n.language, data)
+  const contacts = GetContactByCurrentLang(i18n.language, data);
+
   return (
     <header className={classNames('header', {
       'header--is-scroll': isScroll,

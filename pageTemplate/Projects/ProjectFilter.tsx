@@ -75,7 +75,7 @@ const ProjectFilter: React.FC<IProjectFilterProps> = (
   };
 
   return (
-    <Container mb={56} mt={32}>
+    <Container mb={40} mt={24}>
       <Row>
         <Col mb={16} xs={12} md={3}>
           <SelectSlim

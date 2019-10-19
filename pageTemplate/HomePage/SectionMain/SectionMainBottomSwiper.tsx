@@ -19,6 +19,7 @@ const params = ({onSlideChange}: any) => ({
   centeredSlides: false,
   freeModeMomentum: true,
   spaceBetween: 0,
+  slidesOffsetAfter: changeSlidesOffsetAfter(),
   getSwiper: (swiper: SwiperInstance) => {
     swiper && swiper.on('slideChange', () => {
       onSlideChange && onSlideChange(swiper.activeIndex)
@@ -33,15 +34,47 @@ const params = ({onSlideChange}: any) => ({
   }
 });
 
+const changeSlidesOffsetAfter = () => {
+  try {
+    if (typeof window !== undefined) {
+      if (window.innerWidth >= 768) {
+        if (window.innerWidth >= 1600) {
+          return 370 * 4
+        }
+        if (window.innerWidth >= 1440) {
+          return 370*3;
+        }
+        if (window.innerWidth >= 1300) {
+          return 370*2;
+        }
+        if (window.innerWidth >= 1200) {
+          return 370*1.5;
+        }
+        if (window.innerWidth >= 1024) {
+          return 370;
+        }
+      }
+      return 40;
+    }
+  } catch (e) {
+    console.log(e);
+
+  }
+
+};
+
 const SectionMainBottom: React.FC<ISectionMainBottomProps> = (
   {
     title,
     animatedText,
     setNewSlideIndex,
+    // @ts-ignore
     projectList,
     setHiddenCursor,
   }
 ) => {
+
+
   const [disabled] = React.useState(false);
 
   const swiperConfig: any = params({
@@ -52,12 +85,12 @@ const SectionMainBottom: React.FC<ISectionMainBottomProps> = (
     }
   });
 
+
   React.useEffect(() => {
     if (typeof window !== undefined) {
-      if (window.innerWidth > -768) {
-        swiperConfig.slidesOffsetAfter = window.innerWidth - 780;
+      if (window.innerWidth > 768) {
         window.addEventListener('resize', () => {
-          swiperConfig.slidesOffsetAfter = window.innerWidth - 780;
+          swiperConfig.slidesOffsetAfter = changeSlidesOffsetAfter();
         });
       }
     }
@@ -73,7 +106,7 @@ const SectionMainBottom: React.FC<ISectionMainBottomProps> = (
           projectList
           && [undefined, ...projectList].map((item: Project, index: number) => {
             if (index === 0) {
-              return ( <Col
+              return (<Col
                 key={0}
                 className={'section-main_bottom-left'}
                 pb={20}
@@ -84,11 +117,9 @@ const SectionMainBottom: React.FC<ISectionMainBottomProps> = (
                 />
                 <SectionMainWatchOnline
                   onMouseEnter={() => {
-                    console.log('onMouseEnter', setHiddenCursor);
                     setHiddenCursor(true)
                   }}
                   onMouseLeave={() => {
-                    console.log('onMouseLeave', setHiddenCursor);
                     setHiddenCursor(false)
                   }}
                 />

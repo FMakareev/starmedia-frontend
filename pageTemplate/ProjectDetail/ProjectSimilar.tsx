@@ -56,7 +56,7 @@ const ProjectSimilar: React.FC<IProjectSimilarProps> = ({projects}) => {
           {
             // @ts-ignore
             projects
-            && projects.map((item: any, index) => {
+            && [undefined, ...projects].map((item: any, index) => {
               if (index === 0) {
                 return (<Col key={index} className={'project-detail-similar_first-item'}>
 

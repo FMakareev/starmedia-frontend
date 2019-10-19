@@ -35,7 +35,7 @@ export interface UsePaginationQueryProps {
 }
 
 // @ts-ignore
-const watchChangeVariables = memo((props: any, callback: any) => {
+export const WatchChangeVariables = memo((props: any, callback: any) => {
   callback();
   return props;
 });
@@ -116,7 +116,7 @@ export const usePaginationQuery = <TQuery = any, TVariables = any>(
   };
   console.log('variables: ', variables);
   if (variables) {
-    watchChangeVariables(variables, () => {
+    WatchChangeVariables(variables, () => {
       moreData(1);
       void fetchMore({
         variables: {

@@ -24,7 +24,7 @@ const ContactRoles: React.FC<IContactRolesProps> = (
   const {isOpen, toggle} = useAccordion([]);
 
   return (
-    <Container pt={80} pb={100}>
+    <Container pt={54} pb={36}>
       <Row>
         {
           mainContacts && mainContacts[currentCity]

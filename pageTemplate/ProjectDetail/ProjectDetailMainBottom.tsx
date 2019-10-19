@@ -25,7 +25,7 @@ const ProjectDetailMainBottom: React.FC<IProjectDetailMainBottomProps> = (
   return (
     <Row between={ViewportSizeEnum.sm}>
       <Col xs={12} sm={3} md={3}>
-        <AnchorLink href='#description'>
+        <AnchorLink offset='100' href='#description'>
           <Button
             className={classNames('text_align-left text_uppercase', {
               'button_link--disabled': !isBottomDescription,
@@ -42,7 +42,7 @@ const ProjectDetailMainBottom: React.FC<IProjectDetailMainBottomProps> = (
         </AnchorLink>
       </Col>
       <Col xs={12} sm={3} md={3}>
-        <AnchorLink href={'#awards'}>
+        <AnchorLink offset='100' href={'#awards'}>
           <Button
             className={classNames('text_align-left text_uppercase', {
               'button_link--disabled': !isBottomAwards,
@@ -59,7 +59,7 @@ const ProjectDetailMainBottom: React.FC<IProjectDetailMainBottomProps> = (
         </AnchorLink>
       </Col>
       <Col xs={12} sm={3} md={3}>
-        <AnchorLink href={'#gallery'}>
+        <AnchorLink offset='100' href={'#gallery'}>
           <Button
             className={classNames('text_align-left text_uppercase', {
               'button_link--disabled': !isBottomGallery,
@@ -74,7 +74,7 @@ const ProjectDetailMainBottom: React.FC<IProjectDetailMainBottomProps> = (
         </AnchorLink>
       </Col>
       <Col xs={12} sm={3} md={3}>
-        <AnchorLink href={'#similar'}>
+        <AnchorLink offset='100' href={'#similar'}>
           <Button
             className={classNames('text_align-left text_uppercase', {
               'button_link--disabled': !isBottomSimilar,

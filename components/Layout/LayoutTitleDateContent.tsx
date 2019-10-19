@@ -30,7 +30,7 @@ const LayoutTitleDateContent: React.FC<ILayoutTitleDateContentProps> = (
 ) => {
   const {t} = useTranslation('common');
   return (
-    <Container pt={[32, 32, 48]}>
+    <Container pt={[32, 32, 40]}>
       <Row mb={[30, 30, 72]}>
         <Col xs={12}>
           <Col mb={[24, 24, 40]}>

@@ -29,10 +29,8 @@ const ServiceItemContent: React.FC<IServiceItemContentProps> = (
     contacts,
     formPresentation,
     formTesting,
-    ...rest
   }
 ) => {
-  console.log('rest: ', rest);
   const [currentOpenForm, openForm] = React.useState<Maybe<Forms>>(null);
 
 

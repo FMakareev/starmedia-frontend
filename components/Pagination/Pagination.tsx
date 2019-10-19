@@ -56,6 +56,7 @@ const Pagination: React.FC<IPaginationProps> = (
       {
         isPagination && <Row center={ViewportSizeEnum.sm}>
 					<ReactPaginate
+						disabled={disabled}
 						pageCount={pageCount}
 						onPageChange={onPageChange}
 						forcePage={forcePage}

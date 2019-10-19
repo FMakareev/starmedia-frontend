@@ -54,7 +54,6 @@ export const DropFieldHoc = (WrapperComponent: React.FC<any>) => () => {
       try {
         const {input: {onChange, value}} = this.props;
         const files: IFile[] = event.target.files;
-        console.log('files: ', files);
         if(Array.isArray(value)){
           onChange && onChange([...value,...files])
         } else {

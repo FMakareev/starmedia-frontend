@@ -66,7 +66,7 @@ const ProjectGallery: React.FC<IProjectGalleryProps> = (
       <CustomCursor>
         <ReactIdSwiper {...params}>
           {
-            gallery && gallery.map((item: File, index: number) => {
+            gallery && [{}, ...gallery].map((item: File, index: number) => {
               if (index === 0) {
                 return (<Col key={index} className={'project-detail_gallery-first-item'}>
 

@@ -39,7 +39,7 @@ const SelectSlim: React.FC<ISelectSlimProps> = (
   }, []);
 
   return (<div style={style}>
-    <Text font={'root'} mb={8}>
+    <Text font={'root'} mb={10}>
       {label}
     </Text>
     <select id='select' ref={Ref}>

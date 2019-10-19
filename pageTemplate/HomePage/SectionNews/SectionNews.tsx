@@ -22,9 +22,7 @@ interface ISectionNewsProps {
 
 
 const SectionNews: React.FC<ISectionNewsProps> = (
-  {
-    news,
-  }
+
 ) => {
 
   const {data} = useLocalizationQuery({
@@ -38,8 +36,6 @@ const SectionNews: React.FC<ISectionNewsProps> = (
     }
   });
 
-
-  console.log('news: ', news);
   const {t} = useTranslation('home');
 
   return (

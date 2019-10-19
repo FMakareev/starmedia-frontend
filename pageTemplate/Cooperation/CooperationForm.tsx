@@ -55,7 +55,6 @@ const CooperationForm: React.FC<ICooperationFormProps> = (
     forms,
   }
 ) => {
-  console.log('forms:', forms);
   const {t, i18n} = useTranslation('common');
 
   return (

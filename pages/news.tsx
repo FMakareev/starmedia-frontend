@@ -33,7 +33,6 @@ const News: React.FC<INewsProps> = ({t}) => {
       uk: NewsPaginationUK,
     }
   });
-  console.log('data.newsPagination.items: ', data);
   return (
     <Fragment>
       <Head

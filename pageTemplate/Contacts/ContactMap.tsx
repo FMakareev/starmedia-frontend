@@ -53,9 +53,8 @@ const ContactMap: React.FC<IContactMapProps> = (
   if (!centerMap) {
     return null;
   }
-  console.log('centerMap: ', centerMap);
   return (
-    <Col mb={80} style={{height: '440px', width: '100%'}}>
+    <Col style={{height: '440px', width: '100%'}}>
 
       <GoogleMapReact
         bootstrapURLKeys={{key: API_KEY}}

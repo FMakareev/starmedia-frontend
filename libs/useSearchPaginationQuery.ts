@@ -1,8 +1,8 @@
 import {useLocalizationQuery, UseLocalizationQueryProps} from "./useLocalizationQuery";
 import {default as React, useEffect} from "react";
 import {i18n} from "./i18n";
-import {useRouter} from "next/router";
 import {SearchPagination, SearchPaginationVariable} from "../types/types";
+import {WatchChangeVariables} from "./usePaginationQuery";
 
 
 export interface UseSearchPaginationProps {
@@ -47,22 +47,25 @@ export const usePagination = (
 export interface UseSearchPaginationQueryProps {
   defaultLimit: number,
   localizationQuery: UseLocalizationQueryProps,
+  searchQuery?: string,
 }
 
 export const useSearchPaginationQuery = (
   {
     defaultLimit,
     localizationQuery,
+    searchQuery,
   }: UseSearchPaginationQueryProps
 ) => {
-  const {query} = useRouter();
+
+  console.log('searchQuery: ', searchQuery);
   const {
     moreData,
     page,
     limit,
     searchWord,
     updatePagination,
-  } = usePagination({defaultLimit, searchWord: query.search});
+  } = usePagination({defaultLimit, searchWord: searchQuery});
 
   const {data, loading, fetchMore, updateQuery} = useLocalizationQuery<SearchPagination, SearchPaginationVariable>(localizationQuery, {
     // skip: !searchWord,
@@ -180,6 +183,7 @@ export const useSearchPaginationQuery = (
     }
   };
 
+
   /** @desc load pagination data */
   const onPaginationFetchMore = ({selected}: any): void => {
     const pageInfo = GetPageInfo();
@@ -251,6 +255,11 @@ export const useSearchPaginationQuery = (
     }
     return false;
   };
+
+
+  WatchChangeVariables(searchQuery, () => {
+    onUpdateQuery && onUpdateQuery(searchQuery || '');
+  });
 
   return {
     searchWord,

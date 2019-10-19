@@ -31,6 +31,9 @@ const HeaderContact: React.FC<IHeaderContactProps> = (
         contact && contact.addresses && contact.addresses.map((address: Address, index: number) => (
           <Text key={index} font={'root'} size={'m'} className={'mb-24'}>
             {
+              GetLocalizationString(contact.name, i18n)
+            },{' '}
+            {
               GetLocalizationString(address.addresses, i18n)
             }
           </Text>))

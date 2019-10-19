@@ -5,12 +5,14 @@ import Container from '../components/Container/Container';
 import Pagination from "../components/Pagination/Pagination";
 import {Trans, useTranslation} from "../libs/i18n";
 import Head from "../components/Head/Head";
+import Text from "../components/Text/Text";
 import {Fragment} from "react";
 import SearchHead from '../pageTemplate/Search/SearchHead';
 import {useSearchPaginationQuery} from "../libs/useSearchPaginationQuery";
 import {SearchQueryRU, SearchQueryEN, SearchQueryUK} from '../apollo/query/SearchQuery';
 import Preloader from "../components/Preloader/Preloader";
 import SearchResultList from "../pageTemplate/Search/SearchResultList";
+import {SearchBySiteConnect} from "../libs/SearchBySiteProvider";
 
 interface ISearchProps {
   [prop: string]: any
@@ -20,7 +22,9 @@ interface ISearchProps {
  *
  * @desc
  * */
-const Search: React.FC<ISearchProps> = () => {
+const Search: React.FC<ISearchProps> = (
+  {query}:any
+) => {
   const {i18n} = useTranslation('common');
   const {t: tNav} = useTranslation('nav');
 
@@ -43,6 +47,7 @@ const Search: React.FC<ISearchProps> = () => {
         uk: SearchQueryUK,
       },
       defaultLimit: 2,
+      searchQuery: query,
     });
 
   const setValue = (value: string) => {
@@ -64,9 +69,11 @@ const Search: React.FC<ISearchProps> = () => {
             countSearchResult={countSearchResult}
           />
           {
-            !loading && countSearchResult === 0 && (<Trans i18n={i18n} i18nKey={'search_not-found'}>
-              Нам жаль, но по вашему запросу "<span>{{searchWord}}</span>" ничего не найдено
-            </Trans>)
+            !loading && countSearchResult === 0 && (<Text size={'m'} font={'root'}>
+              <Trans i18n={i18n} i18nKey={'search_not-found'}>
+                Нам жаль, но по вашему запросу "<span>{{searchWord}}</span>" ничего не найдено
+              </Trans>
+            </Text>)
           }
           {
             loading && (<Preloader/>)
@@ -98,4 +105,4 @@ const Search: React.FC<ISearchProps> = () => {
   );
 };
 
-export default Search;
+export default SearchBySiteConnect(Search);

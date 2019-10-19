@@ -43,13 +43,12 @@ const SectionMain: React.FC<ISectionMainProps> = (
   const [currentSlide, setNewSlideIndex] = React.useState(0);
 
   const [hiddenCursor, setHiddenCursor] = React.useState<boolean>(false);
-  console.log('hiddenCursor: ', hiddenCursor);
   return (
     <div className={'section-main'}>
 
       <SectionMainBg project={projectList && projectList[currentSlide]}/>
 
-      <Container mb={50}>
+      <Container mb={64}>
         <Row end={ViewportSizeEnum.xs}>
           <Col>
             <SectionMainCatalogFormat/>

@@ -50,7 +50,6 @@ const Projects: React.FC<IProjectsProps> = ({t}) => {
       query: filters.search|| '',
     },
   });
-  console.log(filters);
   return (
     <LayoutTitleWithContent
       title={t('nav-project-list')}

@@ -14,23 +14,28 @@ const ServiceList: React.FC<IServiceListProps> = (
   }
 ) => {
   const {isOpen, toggle} = useAccordion();
-
+  console.log('getServices: ', getServices);
   return (
     <ul className="service_list">
 
       {
         getServices && Object.entries(getServices)
           .filter(([key],) => key !== 'seoTags' && key !== '__typename')
-          .map(([key, value], index) => (<ServiceItem
-            id={key}
-            onClick={() => toggle(index)}
-            isOpen={isOpen.includes(index)}
-            number={`0${index + 1}`}
-            key={index}
-            {...value}
-            title={GetLocalizationString(value && value.name)}
-            content={GetLocalizationString(value && value.content)}
-          />))
+          .map(([key, value], index) => {
+            if (!value) {
+              return null;
+            }
+            return (<ServiceItem
+              id={key}
+              onClick={() => toggle(index)}
+              isOpen={isOpen.includes(index)}
+              number={`0${index + 1}`}
+              key={index}
+              {...value}
+              title={GetLocalizationString(value && value.name)}
+              content={GetLocalizationString(value && value.content)}
+            />)
+          })
       }
 
     </ul>
