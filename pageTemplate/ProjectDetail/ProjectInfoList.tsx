@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Text from "../../components/Text/Text";
 import {useTranslation} from "../../libs/i18n";
-import {GetLocalizationString} from "../../libs/GetLocalizationString";
+import {GetLocalizationString, ArrayIsLocalizationString} from "../../libs/GetLocalizationString";
 import {ProjectInfo} from '../../types/projectTypes';
 
 interface IProjectInfoProps {
@@ -38,11 +38,36 @@ const ProjectInfoItemValue = (
       (!Array.isArray(value) && typeof value !== 'string') && GetLocalizationString(value, i18n)
     }
   </Text>)
+};
+
+
+const ProjectInfoItem = (
+  {
+    label,
+    value
+  }: any
+) => {
+  const {t, i18n} = useTranslation('common');
+
+  if (!value || Array.isArray(value) && !value.length) {
+    return null;
+  }
+
+  if( Array.isArray(value) && !ArrayIsLocalizationString(value, i18n)) {
+    return null
+  }
+  return (<li className={'project-info_item'}>
+    <Text type={'secondary'} font={'object'} className={'project-info_label'}>
+      {t(label)}
+    </Text>
+    <ProjectInfoItemValue
+      value={value}
+    />
+  </li>)
 }
 
 const ProjectInfoList: React.FC<IProjectInfoProps> = ({projectInfo}) => {
 
-  const {t} = useTranslation('common');
   if (!projectInfo) {
     return null;
   }
@@ -51,104 +76,42 @@ const ProjectInfoList: React.FC<IProjectInfoProps> = ({projectInfo}) => {
     <ul className={'project-info_list'}>
 
 
-      {
-        projectInfo.genre &&
-				<li className={'project-info_item'}>
-					<Text type={'secondary'} font={'object'} className={'project-info_label'}>
-            {t('project-info_genre')}
-					</Text>
-					<ProjectInfoItemValue
-						value={projectInfo && projectInfo.genre}
-					/>
-				</li>
-      }
-
-      {
-        projectInfo.productionYear && <li className={'project-info_item'}>
-					<Text type={'secondary'} font={'object'} className={'project-info_label'}>
-            {t('project-info_productionYear')}
-					</Text>
-					<ProjectInfoItemValue
-						value={projectInfo && projectInfo.productionYear}
-					/>
-				</li>
-      }
-
-      {
-        !!(projectInfo.directors && projectInfo.directors.length) && <li className={'project-info_item'}>
-					<Text type={'secondary'} font={'object'} className={'project-info_label'}>
-            {t('project-info_directors')}
-					</Text>
-					<ProjectInfoItemValue
-						value={projectInfo && projectInfo.directors}
-					/>
-				</li>
-      }
-
-      {
-        !!(projectInfo.scenario && projectInfo.scenario.length ) && <li className={'project-info_item'}>
-					<Text type={'secondary'} font={'object'} className={'project-info_label'}>
-            {t('project-info_scenario')}
-					</Text>
-					<ProjectInfoItemValue
-						value={projectInfo && projectInfo.scenario}
-					/>
-				</li>
-      }
-
-      {
-        !!(projectInfo.operator && projectInfo.operator.length) && <li className={'project-info_item'}>
-					<Text type={'secondary'} font={'object'} className={'project-info_label'}>
-            {t('project-info_operator')}
-					</Text>
-					<ProjectInfoItemValue
-						value={projectInfo && projectInfo.operator}
-					/>
-				</li>
-      }
-      {
-        !!(projectInfo.productionDesigner && projectInfo.productionDesigner.length) && <li className={'project-info_item'}>
-					<Text type={'secondary'} font={'object'} className={'project-info_label'}>
-            {t('project-info_production-designer')}
-					</Text>
-					<ProjectInfoItemValue
-						value={projectInfo && projectInfo.productionDesigner}
-					/>
-				</li>
-      }
-
-      {
-        !!(projectInfo.composer && projectInfo.composer.length) && <li className={'project-info_item'}>
-					<Text type={'secondary'} font={'object'} className={'project-info_label'}>
-            {t('project-info_composer')}
-					</Text>
-					<ProjectInfoItemValue
-						value={projectInfo && projectInfo.composer}
-					/>
-				</li>
-      }
-
-      {
-        !!(projectInfo.producer && projectInfo.producer.length)  && <li className={'project-info_item'}>
-					<Text type={'secondary'} font={'object'} className={'project-info_label'}>
-            {t('project-info_producer')}
-					</Text>
-					<ProjectInfoItemValue
-						value={projectInfo && projectInfo.producer}
-					/>
-				</li>
-      }
-
-      {
-        !!(projectInfo.cast && projectInfo.cast.length) && <li className={'project-info_item'}>
-					<Text type={'secondary'} font={'object'} className={'project-info_label'}>
-            {t('project-info_cast')}
-					</Text>
-					<ProjectInfoItemValue
-						value={projectInfo && projectInfo.cast}
-					/>
-				</li>
-      }
+      <ProjectInfoItem
+        label={'project-info_genre'}
+        value={projectInfo && projectInfo.genre}
+      />
+      <ProjectInfoItem
+        label={'project-info_productionYear'}
+        value={projectInfo && projectInfo.productionYear}
+      />
+      <ProjectInfoItem
+        label={'project-info_directors'}
+        value={projectInfo && projectInfo.directors}
+      />
+      <ProjectInfoItem
+        label={'project-info_scenario'}
+        value={projectInfo && projectInfo.scenario}
+      />
+      <ProjectInfoItem
+        label={'project-info_operator'}
+        value={projectInfo && projectInfo.operator}
+      />
+      <ProjectInfoItem
+        label={'project-info_production-designer'}
+        value={projectInfo && projectInfo.productionDesigner}
+      />
+      <ProjectInfoItem
+        label={'project-info_composer'}
+        value={projectInfo && projectInfo.composer}
+      />
+      <ProjectInfoItem
+        label={'project-info_producer'}
+        value={projectInfo && projectInfo.producer}
+      />
+      <ProjectInfoItem
+        label={'project-info_cast'}
+        value={projectInfo && projectInfo.cast}
+      />
 
     </ul>
   );

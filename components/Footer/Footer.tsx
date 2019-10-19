@@ -15,6 +15,7 @@ import {SocialLinkTypeEnum} from "../../types/socialLink";
 import {useGetFormatQuery} from "../../apollo/query/GetFormatQuery";
 import {FormatGQL} from "../../types/projectTypes";
 import {GetLocalizationString} from "../../libs/GetLocalizationString";
+import {ExcludeSocialLinkByLocale} from "../../libs/ExcludeSocialLinkByLocale";
 
 interface IFooterProps {
   [prop: string]: any
@@ -43,6 +44,7 @@ export const Menu: any[] = [
     label: 'nav-contacts'
   },
 ];
+
 
 
 const Footer: React.FC<IFooterProps> = () => {
@@ -94,23 +96,24 @@ const Footer: React.FC<IFooterProps> = () => {
                 </Link>
               </li>
               {
-                data && data.getFormat && data.getFormat.map((item: FormatGQL, index: number) => ( <li key={index} className={'footer_nav-item'}>
-                 <Link
-                   href={`/projects?format=${GetLocalizationString(item.name, i18n)}`}
-                 >
-                   <Button
-                     className={'text_align-left'}
-                     mods={['light', 's']}
-                     element={ButtonElementEnum.link}
-                     href={`/projects?format=${GetLocalizationString(item.name, i18n)}`}
-                     as={'a'}
-                   >
-                     {
-                       GetLocalizationString(item.name, i18n)
-                     }
-                   </Button>
-                 </Link>
-                </li>))
+                data && data.getFormat && data.getFormat.map((item: FormatGQL, index: number) => (
+                  <li key={index} className={'footer_nav-item'}>
+                    <Link
+                      href={`/projects?format=${GetLocalizationString(item.name, i18n)}`}
+                    >
+                      <Button
+                        className={'text_align-left'}
+                        mods={['light', 's']}
+                        element={ButtonElementEnum.link}
+                        href={`/projects?format=${GetLocalizationString(item.name, i18n)}`}
+                        as={'a'}
+                      >
+                        {
+                          GetLocalizationString(item.name, i18n)
+                        }
+                      </Button>
+                    </Link>
+                  </li>))
               }
             </ul>
             <ShowComponentInLocales locales={['uk']}>
@@ -137,7 +140,14 @@ const Footer: React.FC<IFooterProps> = () => {
               {tFooter("we-are-in-social-networks")}
             </Text>
             <SocialLinkList
-              exclude={[SocialLinkTypeEnum.GOOGLE_PLUS, SocialLinkTypeEnum.IMDB, SocialLinkTypeEnum.TWITTER]}
+              exclude={ExcludeSocialLinkByLocale(
+                {
+                  ru: [SocialLinkTypeEnum.GOOGLE_PLUS, SocialLinkTypeEnum.IMDB, SocialLinkTypeEnum.TWITTER],
+                  en: [SocialLinkTypeEnum.VK, SocialLinkTypeEnum.OK],
+                  uk: [SocialLinkTypeEnum.VK, SocialLinkTypeEnum.OK],
+                },
+                i18n
+              )}
             />
           </Col>
         </Row>

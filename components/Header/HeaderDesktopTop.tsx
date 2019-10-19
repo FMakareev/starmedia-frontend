@@ -11,6 +11,8 @@ import {MainContact, Maybe} from '../../types/types';
 import {SocialLinkTypeEnum} from "../../types/socialLink";
 // @ts-ignore
 import Row from '../../components/Row/Row';
+import {ExcludeSocialLinkByLocale} from "../../libs/ExcludeSocialLinkByLocale";
+import {useTranslation} from "react-i18next";
 
 interface IHeaderDesktopTopProps {
   contact?: Maybe<MainContact>;
@@ -27,7 +29,7 @@ const HeaderDesktopTop: React.FC<IHeaderDesktopTopProps> = (
 ) => {
 
   const phone = contact && contact.phones && contact.phones[0];
-
+  const {i18n} = useTranslation();
   return (
     <Container className={'header_container'}>
       <Col className={'header_left'}>
@@ -50,7 +52,14 @@ const HeaderDesktopTop: React.FC<IHeaderDesktopTopProps> = (
         <Row  className="header_right-right">
           <Col className="header_social-list-wrapper">
             <SocialLinkList
-              exclude={[SocialLinkTypeEnum.GOOGLE_PLUS, SocialLinkTypeEnum.IMDB, SocialLinkTypeEnum.TWITTER]}
+              exclude={ExcludeSocialLinkByLocale(
+                {
+                  ru: [SocialLinkTypeEnum.GOOGLE_PLUS, SocialLinkTypeEnum.IMDB, SocialLinkTypeEnum.TWITTER],
+                  en: [SocialLinkTypeEnum.VK, SocialLinkTypeEnum.OK],
+                  uk: [SocialLinkTypeEnum.VK, SocialLinkTypeEnum.OK],
+                },
+                i18n
+              )}
             />
           </Col>
           <div className="header_lang-switcher-wrapper">
