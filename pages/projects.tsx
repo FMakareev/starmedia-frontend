@@ -37,7 +37,7 @@ const Projects: React.FC<IProjectsProps> = ({t}) => {
     isDisabledPagination,
   } = usePaginationQuery<ProjectPagination, PaginationVariables>({
     queryName: 'projectPagination',
-    defaultLimit: 6,
+    defaultLimit: 12,
     localizationQuery: {
       ru: ProjectPaginationRU,
       en: ProjectPaginationEN,
