@@ -35,7 +35,10 @@ const HeaderContact: React.FC<IHeaderContactProps> = (
             },{' '}<br/>
             {
               GetLocalizationString(address.addresses, i18n)
-            },<br/>
+            },<br/><br/>
+            {
+              GetLocalizationString(contact.name, i18n)
+            },{' '}<br/>
             {
               GetLocalizationString(address.addresses, i18n)
             }
