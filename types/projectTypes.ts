@@ -21,7 +21,7 @@ export type ProjectInfo = {
   __typename?: "ProjectInfo";
   genre?: Maybe<LocalizedString>;
   format?: Maybe<LocalizedString>;
-  productionYear?: Maybe<LocalizedString>;
+  productionYear?: Maybe<"Int">;
   numberOfEpisodes?: Maybe<Scalars["Int"]>;
   directors?: Maybe<Array<LocalizedString>>;
   productionDesigner?: Maybe<Array<LocalizedString>>;

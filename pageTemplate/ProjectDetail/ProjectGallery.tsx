@@ -23,6 +23,12 @@ const params = {
   centeredSlides: false,
   spaceBetween: 24,
   getSwiper:(swiper: SwiperInstance)=>{
+    console.log('swiper: ', swiper);
+
+    setTimeout(()=>{
+      console.log('swiper setTimeout: ', swiper);
+      swiper.scrollbar.updateSize()
+    }, 200);
     swiper && swiper.on('touchMove',(event: any)=>{
       // @ts-ignore
       window.customCursor.clientX = event.clientX;
