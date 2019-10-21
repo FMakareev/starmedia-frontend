@@ -8,6 +8,7 @@ import Button from '../../components/Button/Button';
 import MailSmallIcon from "../Icons/MailSmallIcon";
 import DownloadSmallIcon from "../Icons/DownloadSmallIcon";
 import Typeset from '../../components/Typeset/Typeset';
+import ReactHtmlParser from "react-html-parser";
 
 interface IServiceItemContentProps {
   [prop: string]: any
@@ -113,10 +114,10 @@ const ServiceItemContent: React.FC<IServiceItemContentProps> = (
             }}
 					>
 						<div
-							className={'text_uppercase service_item-content-form_item-label'}
+							className={'text_uppercase service_item-content-form_item-label reset-style'}
 						>
               {
-                GetLocalizationString(formTesting && formTesting.name)
+                ReactHtmlParser(GetLocalizationString(formTesting && formTesting.name))
               }
 						</div>
 						<Button
@@ -141,10 +142,10 @@ const ServiceItemContent: React.FC<IServiceItemContentProps> = (
             }}
 					>
 						<div
-							className={'text_uppercase service_item-content-form_item-label'}
+							className={'text_uppercase service_item-content-form_item-label reset-style'}
 						>
               {
-                GetLocalizationString(formPresentation && formPresentation.name)
+                ReactHtmlParser(GetLocalizationString(formPresentation && formPresentation.name))
               }
 						</div>
 						<Button

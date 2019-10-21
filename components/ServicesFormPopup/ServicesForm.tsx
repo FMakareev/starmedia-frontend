@@ -11,6 +11,7 @@ import {ButtonElementEnum, FormEnum, Forms} from "../../types/types";
 import {GetLocalizationString} from "../../libs/GetLocalizationString";
 import SendFeedbackFormHoc from "../../libs/SendFeedbackFormHOC";
 import Link from 'next/link';
+import ReactHtmlParser from "react-html-parser";
 
 interface IServicesFormProps extends Forms {
   [prop: string]: any
@@ -53,10 +54,10 @@ const ServicesForm: React.FC<IServicesFormProps> = (
               <Text
                 font={'object'}
                 size={'m'}
-                className={'text_uppercase'}
+                className={'text_uppercase reset-style'}
               >
                 {
-                  GetLocalizationString(name)
+                  ReactHtmlParser(GetLocalizationString(name))
                 }
               </Text>
             </Col>
@@ -64,9 +65,10 @@ const ServicesForm: React.FC<IServicesFormProps> = (
               <Text
                 size={'m'}
                 font={'root'}
+                className={'reset-style'}
               >
                 {
-                  GetLocalizationString(description)
+                  ReactHtmlParser(GetLocalizationString(description))
                 }
               </Text>
             </Col>
