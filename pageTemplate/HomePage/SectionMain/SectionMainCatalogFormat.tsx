@@ -4,10 +4,12 @@ import {useTranslation} from "../../../libs/i18n";
 import {useGetFormatQuery} from "../../../apollo/query/GetFormatQuery";
 import {FormatGQL} from '../../../types/projectTypes';
 import {GetLocalizationString} from "../../../libs/GetLocalizationString";
+import {memoSpliceArray} from "../../../libs/memoSpliceArray";
 
 interface ISectionMainCatalogFormatProps {
   [prop: string]: any
 }
+
 
 const SectionMainCatalogFormat: React.FC<ISectionMainCatalogFormatProps> = () => {
   const {i18n} = useTranslation(['nav']);
@@ -15,15 +17,16 @@ const SectionMainCatalogFormat: React.FC<ISectionMainCatalogFormatProps> = () =>
 
   const {data} = useGetFormatQuery();
 
+
   return (
     <ul className={'section-main_catalog-format-list'}>
 
       {
-        data && data.getFormat && data.getFormat.map((item: FormatGQL, index: number) => (<li
+        data && data.getFormat && memoSpliceArray(data.getFormat, 0,3).map((item: FormatGQL, index: number) => (<li
           key={index}
           className={'section-main_catalog-format-item'}
         >
-          <Link  href={`/projects?format=${GetLocalizationString(item.name, i18n)}`}>
+          <Link href={`/projects?format=${GetLocalizationString(item.name, i18n)}`}>
             <a
               className={'section-main_catalog-format-link'}
               href={`/projects?format=${GetLocalizationString(item.name, i18n)}`}

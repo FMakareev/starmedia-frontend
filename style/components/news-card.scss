@@ -50,7 +50,6 @@
   &_middle {
     @media(min-width: 1024px) {
       padding-left: 16px;
-      padding-top: 16px;
       max-width: 300px;
       width: 100%;
     }
@@ -59,7 +58,7 @@
   &_description {
     padding-top: 16px;
     @media(min-width: 1024px) {
-      padding-top: 30px;
+      padding-top: 34px;
       padding-left: 16px;
       max-width: 392px;
       width: 100%;

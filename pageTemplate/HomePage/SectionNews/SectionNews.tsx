@@ -8,7 +8,7 @@ import SocialLinkList, {SocialLinkVariantEnum} from "../../../components/SocialL
 import SectionNewsList from './SectionNewsList';
 import Link from "../../../components/Link/Link";
 import {useTranslation} from "../../../libs/i18n";
-import { News } from '../../../types/newsTypes';
+import {News} from '../../../types/newsTypes';
 import {SocialLinkTypeEnum} from "../../../types/socialLink";
 import {useLocalizationQuery} from "../../../libs/useLocalizationQuery";
 import {NewsPaginationEN, NewsPaginationRU, NewsPaginationUK} from "../../../apollo/query/GetNewsQuery";
@@ -17,13 +17,12 @@ import ReactHtmlParser from "react-html-parser";
 
 interface ISectionNewsProps {
   news?: News[];
+
   [prop: string]: any
 }
 
 
-const SectionNews: React.FC<ISectionNewsProps> = (
-
-) => {
+const SectionNews: React.FC<ISectionNewsProps> = () => {
 
   const {data} = useLocalizationQuery({
     ru: NewsPaginationRU,
@@ -53,15 +52,17 @@ const SectionNews: React.FC<ISectionNewsProps> = (
           />
         </Row>
         <Row mb={22} center={ViewportSizeEnum.xs}>
-        <Link href={'/news'}>
-          <Button as={'a'} href={'/news'} aria-label={'show all news'} mods={['m']} element={ButtonElementEnum.circle}>
-            <span className={'reset-style'}>
-              {
-                ReactHtmlParser(t('section_news_btn-all-news'))
-              }
-            </span>
-          </Button>
-        </Link>
+          <Link href={'/news'}>
+            <a href={'/news'}>
+              <Button aria-label={'show all news'} mods={['m']} element={ButtonElementEnum.circle}>
+                <span className={'reset-style'}>
+                  {
+                    ReactHtmlParser(t('section_news_btn-all-news'))
+                  }
+                </span>
+              </Button>
+            </a>
+          </Link>
         </Row>
         <div className="section-news_bottom">
           <Link href={'/news'}>

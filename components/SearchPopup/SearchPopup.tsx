@@ -4,7 +4,7 @@ import {SkyLightStateless} from "react-skylight"
 import SearchPopupTextField from './SearchPopupTextField';
 import {useRouter} from "next/router";
 import {SearchBySiteConnect} from "../../libs/SearchBySiteProvider";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 
 interface ISearchPopupProps {
   onClose(): void;
@@ -41,19 +41,19 @@ const SearchPopup: React.FC<ISearchPopupProps> = ({
                                                     onClose,
                                                     isVisible,
                                                     setQuery,
-                                                    query: searchQuery
                                                   }) => {
-  // const [value, setState] = useState<any>(searchQuery);
+  const [value, setState] = useState<any>(null);
   const route = useRouter();
 
   const onChange = (event: any) => {
-    setQuery(event.target.value);
+    setState(event.target.value);
   };
 
   const onKeyDown = (event: any) => {
     if (event.key === 'Enter') {
-      // setState(null);
+      setState(null);
       onClose();
+      setQuery(event.target.value);
       route.push(`/search?search=${event.target.value}`);
     }
   };
@@ -72,7 +72,7 @@ const SearchPopup: React.FC<ISearchPopupProps> = ({
     >
       <SearchPopupTextField
         input={{
-          value: searchQuery,
+          value: value,
           onChange,
           onKeyDown,
         }}

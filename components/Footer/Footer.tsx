@@ -17,6 +17,7 @@ import {FormatGQL} from "../../types/projectTypes";
 import {GetLocalizationString} from "../../libs/GetLocalizationString";
 import {ExcludeSocialLinkByLocale} from "../../libs/ExcludeSocialLinkByLocale";
 import { useGetStarMediaSchoolLink } from '../../apollo/query/GetHomePageQuery';
+import {memoSpliceArray} from "../../libs/memoSpliceArray";
 
 interface IFooterProps {
   [prop: string]: any
@@ -98,7 +99,7 @@ const Footer: React.FC<IFooterProps> = () => {
                 </Link>
               </li>
               {
-                data && data.getFormat && data.getFormat.map((item: FormatGQL, index: number) => (
+                data && data.getFormat && memoSpliceArray(data.getFormat,0,3).map((item: FormatGQL, index: number) => (
                   <li key={index} className={'footer_nav-item'}>
                     <Link
                       href={`/projects?format=${GetLocalizationString(item.name, i18n)}`}
