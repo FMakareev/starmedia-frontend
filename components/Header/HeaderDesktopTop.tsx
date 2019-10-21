@@ -28,7 +28,7 @@ const HeaderDesktopTop: React.FC<IHeaderDesktopTopProps> = (
   }
 ) => {
 
-  const phone = contact && contact.phones && contact.phones[0];
+  const phone = contact && contact.addresses && contact.addresses[0]&& contact.addresses[0].phone;
   const {i18n} = useTranslation();
   return (
     <Container className={'header_container'}>

@@ -131,7 +131,9 @@ export type Address = {
   __typename?: "Address";
   gpsPoints: Maybe<GpsPoint>,
   addresses: Maybe<LocalizedString>
-
+  index: string,
+  email: string,
+  phone: string,
 }
 
 export type GetCooperation = {

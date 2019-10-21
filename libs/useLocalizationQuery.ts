@@ -1,6 +1,7 @@
 import {DocumentNode} from "graphql";
 import {useTranslation} from "react-i18next";
-import {useQuery} from "@apollo/react-hooks";
+import { useQuery} from "@apollo/react-hooks";
+import {QueryFunctionOptions} from "@apollo/react-common";
 
 export type UseLocalizationQueryProps = {
   ru: DocumentNode,
@@ -14,7 +15,7 @@ export const useLocalizationQuery = <T, VT = any>(
     en,
     uk,
   }: UseLocalizationQueryProps,
-  options?: any,
+  options?:QueryFunctionOptions<any, any>
 ) => {
 
   const {i18n} = useTranslation();

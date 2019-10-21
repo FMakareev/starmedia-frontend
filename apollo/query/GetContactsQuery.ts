@@ -72,6 +72,9 @@ export const GetContactsENQuery = gql`
                     addresses  {
                         en
                     }
+                    index
+                    email
+                    phone
                 }
                 phones 
                 emails 
@@ -114,6 +117,9 @@ export const GetContactsRUQuery = gql`
                     addresses {
                         ru
                     }
+                    index
+                    email
+                    phone
                 }
                 phones 
                 emails 
@@ -156,6 +162,9 @@ export const GetContactsUKQuery = gql`
                     addresses {
                         uk
                     }
+                    index
+                    email
+                    phone
                 }
                 phones
                 emails 

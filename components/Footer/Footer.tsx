@@ -124,7 +124,7 @@ const Footer: React.FC<IFooterProps> = () => {
                 className={'text_align-left'}
                 mods={['light', 'm']}
                 element={ButtonElementEnum.link}
-                href={dataSchoolLink && dataSchoolLink.getHomePage.starSchool}
+                href={dataSchoolLink && dataSchoolLink.getHomePage && dataSchoolLink.getHomePage.starSchool}
                 as={'a'}
               >
                 star media school

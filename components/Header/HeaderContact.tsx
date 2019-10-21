@@ -3,6 +3,7 @@ import Text from "../Text/Text";
 import {Address, MainContact, Maybe} from "../../types/types";
 import {GetLocalizationString} from "../../libs/GetLocalizationString";
 import {useTranslation} from "react-i18next";
+import ReactHtmlParser from "react-html-parser";
 
 interface IHeaderContactProps {
   contact?: Maybe<MainContact>;
@@ -16,15 +17,19 @@ const HeaderContact: React.FC<IHeaderContactProps> = (
   }
 ) => {
   const {i18n} = useTranslation();
+
+
+const email = contact && contact.addresses && contact.addresses[0].email;
+
   return (
     <React.Fragment>
       <Text
         style={{display:'block'}}
         as={'a'}
-        href={`mailto:${contact && contact.emails && contact.emails[0]}`} font={'object'} size={'m'}
+        href={`mailto:${email}`} font={'object'} size={'m'}
         className={'mb-60 mt-8 text_uppercase'}>
         {
-          contact && contact.emails && contact.emails[0]
+          email
         }
       </Text>
       {
@@ -32,16 +37,16 @@ const HeaderContact: React.FC<IHeaderContactProps> = (
           <Text key={index} font={'root'} size={'m'} className={'mb-24'}>
             {
               GetLocalizationString(contact.name, i18n)
-            },{' '}<br/>
+            }, {address.index}<br/>
+            <div className={'reset-style'}>
+              {
+                ReactHtmlParser( GetLocalizationString(address.addresses, i18n))
+              }
+            </div>
             {
-              GetLocalizationString(address.addresses, i18n)
-            },<br/><br/>
-            {
-              GetLocalizationString(contact.name, i18n)
-            },{' '}<br/>
-            {
-              GetLocalizationString(address.addresses, i18n)
+             address.phone
             }
+            <br/><br/>
           </Text>))
       }
     </React.Fragment>

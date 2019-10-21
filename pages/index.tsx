@@ -88,7 +88,7 @@ const Homepage = () => {
         />
         <SectionMain
           projectList={data && data.projectPagination && data.projectPagination.items}
-          watchOnline={data && data.getHomePage.watchOnline}
+          watchOnline={data && data.getHomePage && data.getHomePage.watchOnline}
           {...(data && data.getHomePage && data.getHomePage.mainSection)}
         />
         <SectionNews

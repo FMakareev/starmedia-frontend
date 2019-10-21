@@ -15,12 +15,14 @@ import {
   CSSTransition,
   TransitionGroup,
 } from 'react-transition-group';
+import {useRouter} from "next/router";
 
 interface IAwardsListProps {
   [prop: string]: any
 }
 
 const AwardsList: React.FC<IAwardsListProps> = () => {
+  const route: any = useRouter();
 
   const {
     data,
@@ -37,11 +39,31 @@ const AwardsList: React.FC<IAwardsListProps> = () => {
       ru: AwardPaginationRU,
       en: AwardPaginationEN,
       uk: AwardPaginationUK,
+    },
+    options: {
+      onCompleted: () => {
+        // goToAnchor('awards', false)
+        try {
+          if (route.asPath.indexOf('#awards') > 0 && window.pageYOffset < 700) {
+            window.scrollTo(0,0);
+            setTimeout(() => {
+              window.scrollTo({
+                // @ts-ignore
+                top: document.getElementById('awards').getBoundingClientRect().top - 100,
+                behavior: "smooth"
+              })
+            }, 250)
+          }
+        } catch (e) {
+          console.log(e);
+        }
+      }
     }
   });
 
   return (
     <Container>
+
       <Col
         mb={[40, 40, 72]}
       >

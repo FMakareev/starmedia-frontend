@@ -3,6 +3,7 @@ import {useLocalizationQuery, UseLocalizationQueryProps} from "./useLocalization
 import {i18n} from "./i18n";
 import {useEffect} from "react";
 import memo from 'fast-memoize';
+import {QueryFunctionOptions} from "@apollo/react-common";
 
 
 export interface UsePaginationProps {
@@ -32,6 +33,7 @@ export interface UsePaginationQueryProps {
   defaultLimit: number,
   localizationQuery: UseLocalizationQueryProps,
   variables?: any,
+  options?: QueryFunctionOptions,
 }
 
 // @ts-ignore
@@ -46,6 +48,7 @@ export const usePaginationQuery = <TQuery = any, TVariables = any>(
     defaultLimit,
     localizationQuery,
     variables,
+    options,
   }: UsePaginationQueryProps
 ) => {
 
@@ -58,7 +61,8 @@ export const usePaginationQuery = <TQuery = any, TVariables = any>(
       page: 1,
       limit: defaultLimit,
       ...variables,
-    }
+    },
+    ...options,
   });
 
   useEffect(() => {

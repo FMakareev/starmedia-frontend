@@ -94,7 +94,7 @@ const HeaderDesktopMenu: React.FC<IHeaderDesktopMenuProps> = (
                     className={'text_align-left'}
                     mods={['l']}
                     element={ButtonElementEnum.link}
-                    href={dataSchoolLink && dataSchoolLink.getHomePage.starSchool}
+                    href={dataSchoolLink && dataSchoolLink.getHomePage && dataSchoolLink.getHomePage.starSchool}
                     as={'a'}
                   >
                     star media school
