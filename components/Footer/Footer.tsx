@@ -16,6 +16,7 @@ import {useGetFormatQuery} from "../../apollo/query/GetFormatQuery";
 import {FormatGQL} from "../../types/projectTypes";
 import {GetLocalizationString} from "../../libs/GetLocalizationString";
 import {ExcludeSocialLinkByLocale} from "../../libs/ExcludeSocialLinkByLocale";
+import { useGetStarMediaSchoolLink } from '../../apollo/query/GetHomePageQuery';
 
 interface IFooterProps {
   [prop: string]: any
@@ -51,6 +52,7 @@ const Footer: React.FC<IFooterProps> = () => {
   const {t: tNav, i18n} = useTranslation('nav');
   const {t: tFooter} = useTranslation('footer');
   const {data} = useGetFormatQuery();
+  const {data: dataSchoolLink} = useGetStarMediaSchoolLink();
 
   return (
     <footer className={'footer'}>
@@ -121,7 +123,7 @@ const Footer: React.FC<IFooterProps> = () => {
                 className={'text_align-left'}
                 mods={['light', 'm']}
                 element={ButtonElementEnum.link}
-                href={'http://starmediaschool.com/'}
+                href={dataSchoolLink && dataSchoolLink.getHomePage.starSchool}
                 as={'a'}
               >
                 star media school

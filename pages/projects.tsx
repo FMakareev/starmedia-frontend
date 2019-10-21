@@ -15,6 +15,22 @@ interface IProjectsProps {
   [prop: string]: any
 }
 
+// @ts-ignore
+const getDefaultLimitsByWindowWidth = (): number => {
+  try {
+    if (typeof window !== undefined) {
+      if (window.innerWidth >= 1024) {
+        return 12
+      } else if (window.innerWidth >= 768) {
+        return 9
+      }
+      return 6
+    }
+  } catch (e) {
+    return 12;
+  }
+};
+
 const Projects: React.FC<IProjectsProps> = ({t}) => {
 
   const {query} = useRouter();
@@ -37,7 +53,7 @@ const Projects: React.FC<IProjectsProps> = ({t}) => {
     isDisabledPagination,
   } = usePaginationQuery<ProjectPagination, PaginationVariables>({
     queryName: 'projectPagination',
-    defaultLimit: 12,
+    defaultLimit: getDefaultLimitsByWindowWidth(),
     localizationQuery: {
       ru: ProjectPaginationRU,
       en: ProjectPaginationEN,
@@ -45,9 +61,9 @@ const Projects: React.FC<IProjectsProps> = ({t}) => {
     },
     variables: {
       genre: filters.genre || '',
-      format: filters.format|| '',
-      year: parseInt(filters.year||0),
-      query: filters.search|| '',
+      format: filters.format || '',
+      year: parseInt(filters.year || 0),
+      query: filters.search || '',
     },
   });
   return (
@@ -66,7 +82,8 @@ const Projects: React.FC<IProjectsProps> = ({t}) => {
       }
       {
         data && data.projectPagination
-        && Array.isArray(data.projectPagination.items) && (data.projectPagination.items.length > 0) && <Pagination
+        && Array.isArray(data.projectPagination.items) && (data.projectPagination.items.length > 0) &&
+				<Pagination
 					disabled={isDisabledPagination()}
 					forcePage={page - 1}
 					loading={loading}

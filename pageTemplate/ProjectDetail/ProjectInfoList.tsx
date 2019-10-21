@@ -77,6 +77,10 @@ const ProjectInfoList: React.FC<IProjectInfoProps> = ({projectInfo}) => {
 
 
       <ProjectInfoItem
+        label={'project-info_format'}
+        value={projectInfo && projectInfo.format}
+      />
+      <ProjectInfoItem
         label={'project-info_genre'}
         value={projectInfo && projectInfo.genre}
       />

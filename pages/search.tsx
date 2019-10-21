@@ -40,7 +40,7 @@ const Search: React.FC<ISearchProps> = (
     onPaginationFetchMore,
     isDisabledPagination,
   } = useSearchPaginationQuery(
-    {
+      {
       localizationQuery: {
         ru: SearchQueryRU,
         en: SearchQueryEN,
@@ -48,7 +48,8 @@ const Search: React.FC<ISearchProps> = (
       },
       defaultLimit: 2,
       searchQuery: query,
-    });
+    }
+    );
 
   const setValue = (value: string) => {
     onUpdateQuery(value);

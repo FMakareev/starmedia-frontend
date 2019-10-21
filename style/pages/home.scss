@@ -98,6 +98,7 @@
   &_title {
     @extend .text_font-object;
     max-width: 610px;
+    width: 100%;
     text-transform: uppercase;
     color: $color-typo-secondary;
     overflow: hidden;
@@ -180,8 +181,11 @@
       padding-right: 32px;
     }
     @media(min-width: 1440px) {
-      max-width: 800px;
+      max-width: 860px;
       padding-left: calc((100vw - 1250px) / 2);
+    }
+    @media(min-width: 1920px) {
+      max-width: 1000px;
     }
 
     margin-right: 24px;

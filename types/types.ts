@@ -287,6 +287,7 @@ export type OrderCatalog = {
 
 
 export type HomePage = {
+  watchOnline: string,
   mainSection: MainSection,
   aboutUsSection: AboutUsSection,
   orderCatalog: OrderCatalog,

@@ -2,7 +2,6 @@ import * as React from 'react';
 import {Project} from '../../types/projectTypes';
 import Col from "../../components/Col/Col";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
-// import Row from '../../components/Row/Row';
 import Container from "../../components/Container/Container";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
 
@@ -14,7 +13,7 @@ interface IProjectListProps {
 
 const ProjectList: React.FC<IProjectListProps> = ({projects}) => {
   return (
-    <Container mb={64}>
+    <Container mb={[24,24,64]}>
       <TransitionGroup className={'row'}>
         {
           projects && projects.map((item: Project, index: number) =>

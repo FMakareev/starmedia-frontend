@@ -71,6 +71,7 @@ const SectionMainBottom: React.FC<ISectionMainBottomProps> = (
     // @ts-ignore
     projectList,
     setHiddenCursor,
+    watchOnline,
   }
 ) => {
 
@@ -116,6 +117,7 @@ const SectionMainBottom: React.FC<ISectionMainBottomProps> = (
                   animatedText={animatedText}
                 />
                 <SectionMainWatchOnline
+                  watchOnline={watchOnline}
                   onMouseEnter={() => {
                     setHiddenCursor(true)
                   }}

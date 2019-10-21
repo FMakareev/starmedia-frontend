@@ -57,8 +57,6 @@ export const useSearchPaginationQuery = (
     searchQuery,
   }: UseSearchPaginationQueryProps
 ) => {
-
-  console.log('searchQuery: ', searchQuery);
   const {
     moreData,
     page,

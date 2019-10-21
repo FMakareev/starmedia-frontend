@@ -65,7 +65,7 @@
 
   &_info {
     padding-top: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 36px;
   }
 
   &_info-title {
@@ -74,7 +74,7 @@
     @extend .text_primary;
     @extend .text_size-xs;
     text-transform: uppercase;
-
+    word-break: break-word;
   }
 
   &_info-genre {

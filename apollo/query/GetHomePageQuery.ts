@@ -1,9 +1,11 @@
 import {gql} from "apollo-boost";
+import {useQuery} from "@apollo/react-hooks";
 
 
 export const GetHomePageRUQuery = gql`
     {
         getHomePage {
+            watchOnline
             mainSection {
                 title {
                     ru
@@ -123,6 +125,7 @@ export const GetHomePageRUQuery = gql`
 export const GetHomePageENQuery = gql`
     {
         getHomePage {
+            watchOnline
             mainSection {
                 title {
                     en
@@ -242,6 +245,7 @@ export const GetHomePageENQuery = gql`
 export const GetHomePageUKQuery = gql`
     {
         getHomePage {
+            watchOnline
             mainSection {
                 title {
                     uk
@@ -357,3 +361,16 @@ export const GetHomePageUKQuery = gql`
         }
     }
 `;
+
+
+
+export const GetStarMediaSchoolLink = gql`
+    {
+        getHomePage{
+            starSchool
+        }
+    }
+`;
+
+
+export const useGetStarMediaSchoolLink = () => useQuery(GetStarMediaSchoolLink);

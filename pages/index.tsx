@@ -19,7 +19,7 @@ import Preloader from "../components/Preloader/Preloader";
 import {GetHomePage} from "../types/types";
 
 
-
+// @ts-ignore
 const projectList:any = [
   {
     "slug": "zabitievoghdi",
@@ -87,8 +87,8 @@ const Homepage = () => {
           seoTags={data && data.getHomePage && data.getHomePage.seoTags}
         />
         <SectionMain
-          // projectList={data && data.projectPagination && data.projectPagination.items}
-          projectList={projectList}
+          projectList={data && data.projectPagination && data.projectPagination.items}
+          watchOnline={data && data.getHomePage.watchOnline}
           {...(data && data.getHomePage && data.getHomePage.mainSection)}
         />
         <SectionNews

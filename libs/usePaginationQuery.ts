@@ -157,7 +157,7 @@ export const usePaginationQuery = <TQuery = any, TVariables = any>(
     // @ts-ignore
     if (data && data[queryName] && data[queryName].pageInfo) {
       // @ts-ignore
-      if ((selected + 1) >= calculatePageCount()) {
+      if (selected >= Math.ceil(calculatePageCount())) {
         return;
       }
     }

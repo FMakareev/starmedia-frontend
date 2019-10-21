@@ -37,6 +37,7 @@ const SectionMain: React.FC<ISectionMainProps> = (
     title,
     animatedText,
     projectList,
+    watchOnline,
   }
 ) => {
 
@@ -64,6 +65,7 @@ const SectionMain: React.FC<ISectionMainProps> = (
       <CustomCursor setHiddenCursor={setHiddenCursor} hiddenCursor={hiddenCursor}>
 
         <SectionMainBottomSwiper
+          watchOnline={watchOnline}
           setHiddenCursor={setHiddenCursor}
           projectList={projectList}
           currentSlide={currentSlide}
@@ -74,6 +76,7 @@ const SectionMain: React.FC<ISectionMainProps> = (
 
         <Col md={'none'} lg={'none'} sm={'none'} pl={24} pr={24}>
           <SectionMainWatchOnline
+            watchOnline={watchOnline}
             onMouseEnter={() => {
               setHiddenCursor(true)
             }}

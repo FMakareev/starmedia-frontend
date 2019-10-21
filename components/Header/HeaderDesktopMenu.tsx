@@ -15,6 +15,7 @@ import {useTranslation} from "../../libs/i18n";
 import ShowComponentInLocales from "../ShowComponentInLocales/ShowComponentInLocales";
 import ExternalLink from "../Icons/ExternalLink";
 import {SocialLinkTypeEnum} from "../../types/socialLink";
+import {useGetStarMediaSchoolLink} from "../../apollo/query/GetHomePageQuery";
 
 interface IHeaderDesktopMenuProps {
   contact?: Maybe<MainContact>;
@@ -31,6 +32,11 @@ const HeaderDesktopMenu: React.FC<IHeaderDesktopMenuProps> = (
   }
 ) => {
   const {t} = useTranslation('nav');
+
+  const {data: dataSchoolLink} = useGetStarMediaSchoolLink();
+
+
+
   return (
     <div
       className={classNames("header_menu-wrapper", {
@@ -88,7 +94,7 @@ const HeaderDesktopMenu: React.FC<IHeaderDesktopMenuProps> = (
                     className={'text_align-left'}
                     mods={['l']}
                     element={ButtonElementEnum.link}
-                    href={'http://starmediaschool.com/'}
+                    href={dataSchoolLink && dataSchoolLink.getHomePage.starSchool}
                     as={'a'}
                   >
                     star media school

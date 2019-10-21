@@ -13,12 +13,16 @@ const SectionMainWatchOnline: React.FC<ISectionMainWatchOnlineProps> = (
   {
     onMouseEnter,
     onMouseLeave,
+    watchOnline,
   }
 ) => {
   const {t} = useTranslation('common');
 
   return (
     <Button
+      as={'a'}
+      href={watchOnline}
+      target={'_blank'}
       className={'watch-online'}
       onMouseLeave={() => {
         onMouseLeave && onMouseLeave();

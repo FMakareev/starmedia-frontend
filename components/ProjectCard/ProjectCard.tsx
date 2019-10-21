@@ -64,7 +64,7 @@ const ProjectCard: React.FC<IProjectCardProps> = ({withInfo, href, title, projec
 
       {
         withInfo && <div className="project-card_info">
-					<div className="project-card_info-title mb-8">
+					<div className="project-card_info-title mb-4">
             {
               localTitle
             }
