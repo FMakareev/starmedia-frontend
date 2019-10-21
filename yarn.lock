@@ -1905,6 +1905,13 @@
     "@types/react" "*"
     "@types/webpack" "*"
 
+"@types/react-scrollable-anchor@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@types/react-scrollable-anchor/-/react-scrollable-anchor-0.6.0.tgz#dfc2f144f02ae05083ef20d3a83085e74267e295"
+  integrity sha512-oVHslt+VBrlgdR3cv2aOnhQk75afLA2lqzCRSC21FzEd6s6q33WUnO+dJUxDsWpgb9e8S63F0vyfgA19huIkYQ==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-select@^3.0.4":
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/@types/react-select/-/react-select-3.0.4.tgz#f19ad9651ad5ba42cc1b9bbd6616fdfb1b28dae5"
@@ -6664,6 +6671,11 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
+jump.js@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/jump.js/-/jump.js-1.0.1.tgz#0de2b1631ba9a1c2c6b8572ad277d877e8503600"
+  integrity sha1-DeKxYxupocLGuFcq0nfYd+hQNgA=
+
 keygrip@~1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/keygrip/-/keygrip-1.0.3.tgz#399d709f0aed2bab0a059e0cdd3a5023a053e1dc"
@@ -9137,6 +9149,14 @@ react-scroll-parallax@^2.2.0:
   resolved "https://registry.yarnpkg.com/react-scroll-parallax/-/react-scroll-parallax-2.2.0.tgz#604eb9d2d9c4343047b94fdc063d537269ed9c3f"
   integrity sha512-WXiLEwSwYU+lTS2G1mlVYVA+bKwhFpgMvqWMblyD/wjNRrxO1IAxpF2Y1dnaf6jz7wX4CvQHHuSQJfMQnxW0xQ==
   dependencies:
+    prop-types "^15.5.10"
+
+react-scrollable-anchor@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/react-scrollable-anchor/-/react-scrollable-anchor-0.6.1.tgz#fd6e78026c744f76414053d06903b82adccb54d9"
+  integrity sha1-/W54Amx0T3ZBQFPQaQO4KtzLVNk=
+  dependencies:
+    jump.js "1.0.1"
     prop-types "^15.5.10"
 
 react-select@^3.0.0:

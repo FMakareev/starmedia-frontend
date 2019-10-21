@@ -29,6 +29,7 @@ const AwardsList: React.FC<IAwardsListProps> = () => {
     onFetchMore,
     onPaginationFetchMore,
     calculatePageCount,
+    isDisabledPagination,
   } = usePaginationQuery<AwardPagination, PaginationVariables>({
     queryName: 'awardPagination',
     defaultLimit: 10,
@@ -68,6 +69,8 @@ const AwardsList: React.FC<IAwardsListProps> = () => {
         && data.awardPagination.items.length > 0 &&
 				<Row center={ViewportSizeEnum.sm}>
 					<Pagination
+						disabled={isDisabledPagination()}
+
 						isPagination={false}
 						forcePage={page + 1}
 						loading={loading}

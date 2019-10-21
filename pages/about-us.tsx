@@ -8,7 +8,9 @@ import Head from "../components/Head/Head";
 import {Fragment} from "react";
 import {useLocalizationQuery} from "../libs/useLocalizationQuery";
 import {GetAboutUsRUQuery, GetAboutUsENQuery, GetAboutUsUKQuery} from '../apollo/query/GetAboutUsQuery';
-import { GetAboutUs } from '../types/types';
+import {GetAboutUs} from '../types/types';
+// import {goToAnchor, configureAnchors, removeHash } from 'react-scrollable-anchor'
+// import {useRouter} from "next/router";
 
 interface IAboutUsProps {
   [prop: string]: any
@@ -16,6 +18,7 @@ interface IAboutUsProps {
 
 const AboutUs: React.FC<IAboutUsProps> = () => {
   const {t} = useTranslation('nav');
+  // const route: any = useRouter();
 
 
   const {data} = useLocalizationQuery<GetAboutUs>({
@@ -24,6 +27,17 @@ const AboutUs: React.FC<IAboutUsProps> = () => {
     uk: GetAboutUsUKQuery,
   });
 
+  // React.useEffect(() => {
+  //   configureAnchors({offset: 100, scrollDuration: 1000});
+  //
+  //   console.log('goToAnchor: ', goToAnchor);
+  //   console.log('goToAnchor: ', route.asPath.indexOf('#awards'));
+  //   if (route.asPath.indexOf('#awards') > 0) {
+  //     removeHash()
+  //     console.log('goToAnchor route:  ', route.asPath);
+  //     goToAnchor('#awards')
+  //   }
+  // }, []);
 
   return (
     <Fragment>

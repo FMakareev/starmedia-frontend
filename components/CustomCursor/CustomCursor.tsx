@@ -13,6 +13,7 @@ const CustomCursor: React.FC<ICustomCursorProps> = (
   }
 ) => {
 
+
   const CursorRef = React.useRef(null);
   const ContainerRef = React.useRef(null);
   React.useEffect(() => {
@@ -47,7 +48,6 @@ const CustomCursor: React.FC<ICustomCursorProps> = (
       ContainerRef.current.ondragstart = function () {
         return false;
       };
-
     }
 
     const render = () => {
