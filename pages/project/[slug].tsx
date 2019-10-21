@@ -14,6 +14,8 @@ import Head from "../../components/Head/Head";
 import {GetProjectPage} from '../../types/projectTypes';
 import {GetLocalizationString} from "../../libs/GetLocalizationString";
 import {useTranslation} from "react-i18next";
+// @ts-ignore
+import {data as DATA} from './data';
 
 interface IProjectDetailProps {
   [prop: string]: any
