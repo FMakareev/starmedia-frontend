@@ -13,6 +13,7 @@ import {SocialLinkTypeEnum} from "../../../types/socialLink";
 import {useLocalizationQuery} from "../../../libs/useLocalizationQuery";
 import {NewsPaginationEN, NewsPaginationRU, NewsPaginationUK} from "../../../apollo/query/GetNewsQuery";
 import ReactHtmlParser from "react-html-parser";
+import {ExcludeSocialLinkByLocale} from "../../../libs/ExcludeSocialLinkByLocale";
 
 
 interface ISectionNewsProps {
@@ -35,7 +36,7 @@ const SectionNews: React.FC<ISectionNewsProps> = () => {
     }
   });
 
-  const {t} = useTranslation('home');
+  const {t, i18n} = useTranslation('home');
 
   return (
     <div className={'section-news_wrapper'}>
@@ -68,12 +69,14 @@ const SectionNews: React.FC<ISectionNewsProps> = () => {
           <Link href={'/news'}>
             <SocialLinkList
               mods={['gray', 'm']}
-              exclude={[
-                SocialLinkTypeEnum.IMDB,
-                SocialLinkTypeEnum.GOOGLE_PLUS,
-                SocialLinkTypeEnum.TWITTER,
-                SocialLinkTypeEnum.YOUTUBE,
-              ]}
+              exclude={ExcludeSocialLinkByLocale(
+                {
+                  ru: [SocialLinkTypeEnum.GOOGLE_PLUS, SocialLinkTypeEnum.IMDB, SocialLinkTypeEnum.TWITTER, SocialLinkTypeEnum.YOUTUBE],
+                  en: [SocialLinkTypeEnum.GOOGLE_PLUS, SocialLinkTypeEnum.IMDB, SocialLinkTypeEnum.TWITTER, SocialLinkTypeEnum.YOUTUBE, SocialLinkTypeEnum.VK, SocialLinkTypeEnum.OK],
+                  uk: [SocialLinkTypeEnum.GOOGLE_PLUS, SocialLinkTypeEnum.IMDB, SocialLinkTypeEnum.TWITTER, SocialLinkTypeEnum.YOUTUBE, SocialLinkTypeEnum.VK, SocialLinkTypeEnum.OK],
+                },
+                i18n
+              )}
               variant={SocialLinkVariantEnum.shortName}
             />
           </Link>
