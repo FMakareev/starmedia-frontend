@@ -14,7 +14,6 @@ import Head from "../../components/Head/Head";
 import {GetProjectPage} from '../../types/projectTypes';
 import {GetLocalizationString} from "../../libs/GetLocalizationString";
 import {useTranslation} from "react-i18next";
-import {data} from './data';
 
 interface IProjectDetailProps {
   [prop: string]: any
@@ -26,7 +25,7 @@ const ProjectDetail: React.FC<IProjectDetailProps> = () => {
 
   const {i18n} = useTranslation();
   // @ts-ignore
-  const {data:datap, loading} = useLocalizationQuery<GetProjectPage>({
+  const {data, loading} = useLocalizationQuery<GetProjectPage>({
     ru: GetProjectRUQuery,
     en: GetProjectENQuery,
     uk: GetProjectUKQuery,
