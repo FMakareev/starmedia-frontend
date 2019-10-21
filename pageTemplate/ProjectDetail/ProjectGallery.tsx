@@ -27,7 +27,7 @@ const params = {
 
     setTimeout(()=>{
       console.log('swiper setTimeout: ', swiper);
-      swiper.scrollbar.updateSize()
+      swiper && swiper.scrollbar&& swiper.scrollbar.updateSize()
     }, 200);
     swiper && swiper.on('touchMove',(event: any)=>{
       // @ts-ignore
