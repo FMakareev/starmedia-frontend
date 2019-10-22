@@ -31,11 +31,12 @@ const ServiceList: React.FC<IServiceListProps> = (
             if(!GetLocalizationString(value && value.name) || !GetLocalizationString(value && value.content)){
               return null;
             }
+            counter+=1;
             return (<ServiceItem
               id={key}
               onClick={() => toggle(index)}
               isOpen={isOpen.includes(index)}
-              number={`0${counter + 1}`}
+              number={`0${counter}`}
               key={index}
               {...value}
               title={GetLocalizationString(value && value.name)}
