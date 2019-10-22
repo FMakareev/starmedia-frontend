@@ -15,6 +15,9 @@ const ServiceList: React.FC<IServiceListProps> = (
 ) => {
   const {isOpen, toggle} = useAccordion();
   console.log('getServices: ', getServices);
+
+  let counter = 0;
+
   return (
     <ul className="service_list">
 
@@ -32,7 +35,7 @@ const ServiceList: React.FC<IServiceListProps> = (
               id={key}
               onClick={() => toggle(index)}
               isOpen={isOpen.includes(index)}
-              number={`0${index + 1}`}
+              number={`0${counter + 1}`}
               key={index}
               {...value}
               title={GetLocalizationString(value && value.name)}
