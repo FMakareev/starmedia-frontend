@@ -68,3 +68,7 @@ export type FormatGQL = {
 export type GetFormat = {
   getFormat: FormatGQL[],
 }
+
+export type GetGenres = {
+  getGenres: FormatGQL[],
+}

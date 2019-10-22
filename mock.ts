@@ -18,10 +18,10 @@ export  const Menu: any[] = [
     href: '/services',
     label: 'nav-services'
   },
-  {
-    href: '/cooperation',
-    label: 'nav-cooperation'
-  },
+  // {
+  //   href: '/cooperation',
+  //   label: 'nav-cooperation'
+  // },
   {
     href: '/contacts',
     label: 'nav-contacts'

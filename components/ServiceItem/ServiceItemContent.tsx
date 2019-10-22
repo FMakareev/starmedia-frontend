@@ -10,6 +10,7 @@ import DownloadSmallIcon from "../Icons/DownloadSmallIcon";
 import Typeset from '../../components/Typeset/Typeset';
 import ReactHtmlParser from "react-html-parser";
 import {useTranslation} from "react-i18next";
+import ContactListStrings from '../../pageTemplate/Contacts/ContactListStrings';
 
 interface IServiceItemContentProps {
   [prop: string]: any
@@ -68,36 +69,24 @@ const ServiceItemContent: React.FC<IServiceItemContentProps> = (
                         GetLocalizationString(item.name)
                       }
                     </Text>
-                    <Text mb={16} font={'root'} size={'m'}>
-                      {
-                        item
-                        && item.phones
-                        && item.phones.map((phone: string, index) => {
-
-                          return (<span key={index}>
-                            {
-                              phone
-                            }
-                            <br/>
-                          </span>)
-                        })
-                      }
-                    </Text>
-                    <Text font={'root'} size={'m'}>
-                      {
-                        item
-                        && item.emails
-                        && item.emails.map((email: string, index) => {
-
-                          return (<span key={index}>
-                            {
-                              email
-                            }
-                            <br/>
-                          </span>)
-                        })
-                      }
-                    </Text>
+                    {
+                      item &&
+											<Text mb={16} font={'root'} size={'m'}>
+												<ContactListStrings
+													typeHref={'tel:'}
+													contacts={item.phones}
+												/>
+											</Text>
+                    }
+                    {
+                      item &&
+											<Text font={'root'} size={'m'}>
+												<ContactListStrings
+													typeHref={'mailto:'}
+													contacts={item.emails}
+												/>
+											</Text>
+                    }
                   </Col>)
                 })
               }

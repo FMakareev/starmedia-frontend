@@ -101,7 +101,25 @@ export const GetHomePageRUQuery = gql`
                 }
             }
         }
-        projectPagination(limit: 9, page: 1){
+        projectPaginationOnMain: projectPagination(limit: 9, page: 1, onHomePage: true){
+            pageInfo {
+                currentPage
+                limit
+                nextPage
+                prevPage
+            }
+            count
+            items {
+                slug
+                preview {
+                    url
+                }
+                title{
+                    ru
+                }
+            }
+        }
+        projectPagination(limit: 9, page: 1, onHomePage: false){
             pageInfo {
                 currentPage
                 limit
@@ -221,7 +239,25 @@ export const GetHomePageENQuery = gql`
                 }
             }
         }
-        projectPagination(limit: 9, page: 1){
+        projectPaginationOnMain: projectPagination(limit: 9, page: 1, onHomePage: true){
+            pageInfo {
+                currentPage
+                limit
+                nextPage
+                prevPage
+            }
+            count
+            items {
+                slug
+                preview {
+                    url
+                }
+                title{
+                    en
+                }
+            }
+        }
+        projectPagination(limit: 9, page: 1, onHomePage: false){
             pageInfo {
                 currentPage
                 limit
@@ -341,7 +377,25 @@ export const GetHomePageUKQuery = gql`
                 }
             }
         }
-        projectPagination(limit: 9, page: 1){
+        projectPaginationOnMain: projectPagination(limit: 9, page: 1, onHomePage: true){
+            pageInfo {
+                currentPage
+                limit
+                nextPage
+                prevPage
+            }
+            count
+            items {
+                slug
+                preview {
+                    url
+                }
+                title{
+                    uk
+                }
+            }
+        }
+        projectPagination(limit: 9, page: 1, onHomePage: false){
             pageInfo {
                 currentPage
                 limit

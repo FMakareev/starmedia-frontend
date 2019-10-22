@@ -79,6 +79,7 @@ const Homepage = () => {
   if (loading) {
     return (<Preloader/>)
   }
+  console.log('data: ', data);
   return (
     <ParallaxProvider>
       <Fragment>
@@ -87,7 +88,7 @@ const Homepage = () => {
           seoTags={data && data.getHomePage && data.getHomePage.seoTags}
         />
         <SectionMain
-          projectList={data && data.projectPagination && data.projectPagination.items}
+          projectList={data && data.projectPaginationOnMain && data.projectPaginationOnMain.items}
           watchOnline={data && data.getHomePage && data.getHomePage.watchOnline}
           {...(data && data.getHomePage && data.getHomePage.mainSection)}
         />

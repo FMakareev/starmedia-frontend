@@ -298,6 +298,12 @@ export type HomePage = {
 
 export interface GetHomePage extends NewsPagination, ProjectPagination {
   getHomePage: HomePage
+  projectPaginationOnMain: {
+    __typename: "ProjectPagination"
+    pageInfo?: PaginationPageInfo,
+    count: number,
+    items: Project[],
+  }
 }
 
 

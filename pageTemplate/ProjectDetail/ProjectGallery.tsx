@@ -14,7 +14,7 @@ interface IProjectGalleryProps {
   [prop: string]: any
 }
 
-const params = {
+const params = ()=>({
   scrollbar: {
     el: '.swiper-scrollbar',
     hide: false
@@ -37,7 +37,7 @@ const params = {
     })
   }
   // activeSlideKey: '2',
-};
+})
 
 const ProjectGallery: React.FC<IProjectGalleryProps> = (
   {
@@ -50,6 +50,8 @@ const ProjectGallery: React.FC<IProjectGalleryProps> = (
   if (!gallery || !gallery.length) {
     return null;
   }
+
+  const paramsConfig = params();
 
   return (
     <Col
@@ -70,7 +72,7 @@ const ProjectGallery: React.FC<IProjectGalleryProps> = (
         </Row>
       </Container>
       <CustomCursor>
-        <ReactIdSwiper {...params}>
+        <ReactIdSwiper {...paramsConfig}>
           {
             gallery && [{}, ...gallery].map((item: File, index: number) => {
               if (index === 0) {

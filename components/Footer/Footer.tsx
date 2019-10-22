@@ -12,13 +12,13 @@ import SocialLinkList from '../SocialLinkList/SocialLinkList';
 import {useTranslation} from "../../libs/i18n";
 import ShowComponentInLocales from '../../components/ShowComponentInLocales/ShowComponentInLocales';
 import {SocialLinkTypeEnum} from "../../types/socialLink";
-import {useGetFormatQuery} from "../../apollo/query/GetFormatQuery";
 import {FormatGQL} from "../../types/projectTypes";
 import {GetLocalizationString} from "../../libs/GetLocalizationString";
 import {ExcludeSocialLinkByLocale} from "../../libs/ExcludeSocialLinkByLocale";
 import {useGetStarMediaSchoolLink} from '../../apollo/query/GetHomePageQuery';
 import {memoSpliceArray} from "../../libs/memoSpliceArray";
 import ReactHtmlParser from "react-html-parser";
+import {useGetGenresQuery} from "../../apollo/query/GetGenresQuery";
 
 interface IFooterProps {
   [prop: string]: any
@@ -38,10 +38,10 @@ export const Menu: any[] = [
     href: '/services',
     label: 'nav-services'
   },
-  {
-    href: '/cooperation',
-    label: 'nav-cooperation'
-  },
+  // {
+  //   href: '/cooperation',
+  //   label: 'nav-cooperation'
+  // },
   {
     href: '/contacts',
     label: 'nav-contacts'
@@ -52,7 +52,7 @@ export const Menu: any[] = [
 const Footer: React.FC<IFooterProps> = () => {
   const {t: tNav, i18n} = useTranslation('nav');
   const {t: tFooter} = useTranslation('footer');
-  const {data} = useGetFormatQuery();
+  const {data} = useGetGenresQuery();
   const {data: dataSchoolLink} = useGetStarMediaSchoolLink();
 
   return (
@@ -99,16 +99,16 @@ const Footer: React.FC<IFooterProps> = () => {
                 </Link>
               </li>
               {
-                data && data.getFormat && memoSpliceArray(data.getFormat, 0, 3).map((item: FormatGQL, index: number) => (
+                data && data.getGenres && memoSpliceArray(data.getGenres, 0, 3).map((item: FormatGQL, index: number) => (
                   <li key={index} className={'footer_nav-item'}>
                     <Link
-                      href={`/projects?format=${GetLocalizationString(item.name, i18n)}`}
+                      href={`/projects?genre=${GetLocalizationString(item.name, i18n)}`}
                     >
                       <Button
                         className={'text_align-left'}
                         mods={['light', 's']}
                         element={ButtonElementEnum.link}
-                        href={`/projects?format=${GetLocalizationString(item.name, i18n)}`}
+                        href={`/projects?genre=${GetLocalizationString(item.name, i18n)}`}
                         as={'a'}
                       >
                         {
