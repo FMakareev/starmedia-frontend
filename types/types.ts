@@ -186,39 +186,45 @@ export type Protection = {
   formTesting?: Maybe<Array<Forms>>,
   formPresentation?: Maybe<Array<Forms>>,
   presentation?: Maybe<File>,
+  localization: string[]
 }
 export type VehicleRental = {
   name: LocalizedString,
   content: LocalizedString,
   contacts: MainContact,
-  icon: File
+  icon: File,
+  localization: string[]
 }
 export type EquipmentRental = {
   name: LocalizedString,
   content: LocalizedString,
   contacts: MainContact,
-  icon: File
+  icon: File,
+  localization: string[]
 }
 
 export type SeilzHouse = {
   name: LocalizedString,
   content: LocalizedString,
   contacts: MainContact,
-  icon: File
+  icon: File,
+  localization: string[]
 }
 
 export type CostumeRental = {
   name: LocalizedString,
   content: LocalizedString,
   contacts: MainContact,
-  icon: File
+  icon: File,
+  localization: string[]
 }
 
 export type RentalPremises = {
   name?: LocalizedString,
   content?: LocalizedString,
   contacts?: MainContact,
-  icon?: File
+  icon?: File,
+  localization: string[]
 }
 
 export type SeoTags = {

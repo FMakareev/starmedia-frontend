@@ -36,7 +36,7 @@ const ServiceItemContent: React.FC<IServiceItemContentProps> = (
 ) => {
   const [currentOpenForm, openForm] = React.useState<Maybe<Forms>>(null);
 
-  const {t} =useTranslation();
+  const {t} = useTranslation();
 
   return (
     <div className="service_item-content">

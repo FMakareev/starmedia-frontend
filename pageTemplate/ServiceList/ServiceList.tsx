@@ -3,6 +3,7 @@ import ServiceItem from "../../components/ServiceItem/ServiceItem";
 import {useAccordion} from "../../libs/useAccordion";
 import {GetServices} from "../../types/types";
 import {GetLocalizationString} from '../../libs/GetLocalizationString';
+import {useTranslation} from "react-i18next";
 
 interface IServiceListProps extends GetServices {
   [prop: string]: any
@@ -14,7 +15,7 @@ const ServiceList: React.FC<IServiceListProps> = (
   }
 ) => {
   const {isOpen, toggle} = useAccordion();
-
+  const {i18n} = useTranslation();
   let counter = 0;
 
   return (
@@ -30,6 +31,10 @@ const ServiceList: React.FC<IServiceListProps> = (
             if(!GetLocalizationString(value && value.name) || !GetLocalizationString(value && value.content)){
               return null;
             }
+            if(value.localization && !value.localization.find((item:string)=>item.toLowerCase() === i18n.language)){
+              return null;
+            }
+
             counter+=1;
             return (<ServiceItem
               id={key}

@@ -174,8 +174,8 @@ export const GetNewsUKQuery = gql`
 /** PAGINATION */
 
 export const NewsPaginationRU = gql`
-    query($limit: Int, $page: Int){
-        newsPagination(limit: $limit, page: $page){
+    query($limit: Int, $page: Int, $locale: String){
+        newsPagination(limit: $limit, page: $page,locale:$locale){
             pageInfo {
                 currentPage
                 limit
@@ -201,8 +201,8 @@ export const NewsPaginationRU = gql`
 `;
 
 export const NewsPaginationEN = gql`
-    query($limit: Int, $page: Int){
-        newsPagination(limit: $limit, page: $page){
+    query($limit: Int, $page: Int, $locale: String){
+        newsPagination(limit: $limit, page: $page,locale:$locale){
             pageInfo {
                 currentPage
                 limit
@@ -228,8 +228,8 @@ export const NewsPaginationEN = gql`
 `;
 
 export const NewsPaginationUK = gql`
-    query($limit: Int, $page: Int){
-        newsPagination(limit: $limit, page: $page){
+    query($limit: Int, $page: Int, $locale: String){
+        newsPagination(limit: $limit, page: $page,locale:$locale){
             pageInfo {
                 currentPage
                 limit

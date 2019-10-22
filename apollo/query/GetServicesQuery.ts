@@ -33,6 +33,7 @@ export const GetServicesRUQuery=gql`
                 presentation {
                     url
                 }
+                localization
             }
 
             vehicleRental {
@@ -49,6 +50,7 @@ export const GetServicesRUQuery=gql`
                     phones
                     emails
                 }
+                localization
             }
 
             equipmentRental  {
@@ -65,6 +67,7 @@ export const GetServicesRUQuery=gql`
                     phones
                     emails
                 }
+                localization
             }
             seilzHouse {
                 name {
@@ -80,6 +83,7 @@ export const GetServicesRUQuery=gql`
                     phones
                     emails
                 }
+                localization
             }
             costumeRental  {
                 name {
@@ -95,6 +99,7 @@ export const GetServicesRUQuery=gql`
                     phones
                     emails
                 }
+                localization
             }
             rentalPremises {
                 name {
@@ -110,6 +115,7 @@ export const GetServicesRUQuery=gql`
                     phones
                     emails
                 }
+                localization
             }
             seoTags {
                 description {
@@ -188,8 +194,8 @@ export const GetServicesENQuery=gql`
                 presentation {
                     url
                 }
+                localization
             }
-
             vehicleRental {
                 name {
                     en
@@ -204,6 +210,7 @@ export const GetServicesENQuery=gql`
                     phones
                     emails
                 }
+                localization
             }
 
             equipmentRental {
@@ -220,6 +227,7 @@ export const GetServicesENQuery=gql`
                     phones
                     emails
                 }
+                localization
             }
             seilzHouse {
                 name {
@@ -235,6 +243,7 @@ export const GetServicesENQuery=gql`
                     phones
                     emails
                 }
+                localization
             }
             costumeRental {
                 name {
@@ -250,6 +259,7 @@ export const GetServicesENQuery=gql`
                     phones
                     emails
                 }
+                localization
             }
             rentalPremises {
                 name {
@@ -265,6 +275,7 @@ export const GetServicesENQuery=gql`
                     phones
                     emails
                 }
+                localization
             }
             seoTags {
                 description {
@@ -315,6 +326,7 @@ export const GetServicesUKQuery=gql`
     {
         getServices {
             protection {
+                localization
                 name {
                     uk
                 }
@@ -360,6 +372,7 @@ export const GetServicesUKQuery=gql`
                     phones
                     emails
                 }
+                localization
             }
 
             equipmentRental {
@@ -376,6 +389,7 @@ export const GetServicesUKQuery=gql`
                     phones
                     emails
                 }
+                localization
             }
             seilzHouse {
                 name {
@@ -391,6 +405,7 @@ export const GetServicesUKQuery=gql`
                     phones
                     emails
                 }
+                localization
             }
             costumeRental {
                 name {
@@ -406,6 +421,7 @@ export const GetServicesUKQuery=gql`
                     phones
                     emails
                 }
+                localization
             }
             rentalPremises {
                 name {
@@ -421,6 +437,7 @@ export const GetServicesUKQuery=gql`
                     phones
                     emails
                 }
+                localization
             }
             seoTags {
                 description {

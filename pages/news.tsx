@@ -9,13 +9,14 @@ import {usePaginationQuery} from "../libs/usePaginationQuery";
 import {PaginationVariables} from "../types/types";
 import {NewsPaginationRU, NewsPaginationEN, NewsPaginationUK} from "../apollo/query/GetNewsQuery";
 import {NewsPagination} from "../types/newsTypes";
+import {useTranslation} from "react-i18next";
 
 interface INewsProps {
   [prop: string]: any
 }
 
 const News: React.FC<INewsProps> = ({t}) => {
-
+  const {i18n} = useTranslation();
   const {
     data,
     loading,
@@ -31,6 +32,9 @@ const News: React.FC<INewsProps> = ({t}) => {
       ru: NewsPaginationRU,
       en: NewsPaginationEN,
       uk: NewsPaginationUK,
+    },
+    variables: {
+      locale: i18n.language,
     }
   });
   return (
