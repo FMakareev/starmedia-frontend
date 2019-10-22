@@ -10,6 +10,7 @@ export const GetFiltersRU = gql`
             genres{
                 ru
             }
+            years
         }
     }
 `;
@@ -22,6 +23,7 @@ export const GetFiltersEN = gql`
             genres{
                 en
             }
+            years
         }
     }
 `;
@@ -34,6 +36,7 @@ export const GetFiltersUK = gql`
             genres{
                 uk
             }
+            years
         }
     }
 `;

@@ -56,6 +56,7 @@ export  type GetFilters = {
   getFilters: {
     formats: LocalizedString[],
     genres: LocalizedString[],
+    years: string[],
   }
 }
 

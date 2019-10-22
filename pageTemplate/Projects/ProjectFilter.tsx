@@ -2,7 +2,6 @@ import * as React from 'react';
 import Container from '../../components/Container/Container';
 import Col from '../../components/Col/Col';
 import Row from "../../components/Row/Row";
-// import Select from '../../components/Select/Select';
 import TextField from '../../components/TextField/TextField';
 import SearchIcon from '../../components/Icons/SearchIcon';
 import {useTranslation} from "../../libs/i18n";
@@ -21,21 +20,6 @@ const SelectSlim = dynamic(
 interface IProjectFilterProps {
   [prop: string]: any
 }
-
-
-const generateYearArray = memo((start: number, end: number) => {
-  let yearArray: object[] = [{
-    label: start,
-    value: start,
-  }];
-  for (let i = 1; i <= end - start; i += 1) {
-    yearArray.push({
-      label: start + i,
-      value: start + i,
-    });
-  }
-  return yearArray;
-});
 
 
 const OptionFormat = memo((options: LocalizedString[], language: AppLanguages) => {
@@ -68,7 +52,10 @@ const ProjectFilter: React.FC<IProjectFilterProps> = (
 
   const formats = OptionFormat(data && data.getFilters && data.getFilters.formats || [], lang);
   const genres = OptionFormat(data && data.getFilters && data.getFilters.genres || [], lang);
-  const yearList = generateYearArray(2006, new Date().getFullYear() + 1);
+  const yearList: any[] = data && data.getFilters && data.getFilters.years.map((item) => ({
+    label: item,
+    value: item,
+  })) || [];
   const optionAll = {
     label: t('filter_options-all'),
     value: '',
