@@ -31,6 +31,7 @@ const ProjectMainSection: React.FC<IProjectMainSectionProps> = (
     isBottomAwards,
     isBottomGallery,
     isBottomSimilar,
+    duration,
   }
 ) => {
   const {t, i18n} = useTranslation('common');
@@ -79,7 +80,7 @@ const ProjectMainSection: React.FC<IProjectMainSectionProps> = (
                     GetLocalizationString(title, i18n)
                   }
                 </Text>
-                <ProjectInfoList projectInfo={projectInfo || {}}/>
+                <ProjectInfoList projectInfo={{duration,...projectInfo} || {}}/>
               </Col>
 
             </Col>

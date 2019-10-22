@@ -15,6 +15,7 @@ export interface Project {
   gallery?: Maybe<Array<File>>;
   tags?: Maybe<Array<Tag>>;
   similarProject?: Array<Project>;
+  duration?: Maybe<Scalars["Int"]>;
 };
 
 export type ProjectInfo = {
@@ -23,6 +24,7 @@ export type ProjectInfo = {
   format?: Maybe<LocalizedString>;
   productionYear?: Maybe<"Int">;
   numberOfEpisodes?: Maybe<Scalars["Int"]>;
+  duration?: Maybe<Scalars["Int"]>;
   directors?: Maybe<Array<LocalizedString>>;
   productionDesigner?: Maybe<Array<LocalizedString>>;
   scenario?: Maybe<Array<LocalizedString>>;

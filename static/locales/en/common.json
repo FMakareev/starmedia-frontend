@@ -78,7 +78,12 @@
   "project-info_composer": "Composer",
   "project-info_producer": "Producer",
   "project-info_production-designer": "Production designer",
-  "project-info_cast": "Cast"
+  "project-info_cast": "Cast",
+  "project-info_duration": "Timing\nTiming\n",
+
+  "minutes_case-0": "minutes",
+  "minutes_case-1": "minutes",
+  "minutes_case-2": "minutes"
 
 
 }

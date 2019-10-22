@@ -78,5 +78,10 @@
   "project-info_composer": "Композитор",
   "project-info_producer": "Продюсер",
   "project-info_production-designer": "Художник-постановщик",
-  "project-info_cast": "В ролях"
+  "project-info_cast": "В ролях",
+  "project-info_duration": "Хронометраж",
+
+  "minutes_case-0": "минут",
+  "minutes_case-1": "минута",
+  "minutes_case-2": "минуты"
 }

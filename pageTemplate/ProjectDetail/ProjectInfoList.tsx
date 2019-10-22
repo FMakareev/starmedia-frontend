@@ -10,6 +10,25 @@ interface IProjectInfoProps {
   [prop: string]: any
 }
 
+//   "minutes_case-0": "минут",
+//   "minutes_case-1": "минута",
+//   "minutes_case-2": "минуты"
+
+const getMinutesCase = (_count?:number):string => {
+  if(!_count) return '';
+  let count = _count > 9 && _count !== 11 ? parseInt(_count.toString()[_count.toString().length - 1]) : _count
+  if (count > 1 && count < 5) {
+    return "minutes_case-2"
+  } else if (count > 4 || count === 0) {
+    return "minutes_case-0"
+  } else if (count === 1) {
+    return "minutes_case-1"
+  }
+  return '';
+}
+
+
+
 
 const ProjectInfoItemValue = (
   {
@@ -64,10 +83,11 @@ const ProjectInfoItem = (
       value={value}
     />
   </li>)
-}
+};
 
 const ProjectInfoList: React.FC<IProjectInfoProps> = ({projectInfo}) => {
 
+  const {t} = useTranslation();
   if (!projectInfo) {
     return null;
   }
@@ -87,6 +107,14 @@ const ProjectInfoList: React.FC<IProjectInfoProps> = ({projectInfo}) => {
       <ProjectInfoItem
         label={'project-info_productionYear'}
         value={projectInfo && projectInfo.productionYear}
+      />
+      <ProjectInfoItem
+        label={'project-info_numberOfEpisodes'}
+        value={projectInfo && projectInfo.numberOfEpisodes}
+      />
+      <ProjectInfoItem
+        label={'project-info_duration'}
+        value={projectInfo && `${projectInfo.duration} ${t(getMinutesCase(projectInfo && projectInfo.duration || undefined))}`}
       />
       <ProjectInfoItem
         label={'project-info_directors'}

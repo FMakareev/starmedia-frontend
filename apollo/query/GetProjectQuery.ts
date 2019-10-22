@@ -18,6 +18,7 @@ export const GetProjectRUQuery = gql`
                     ru
                 }
                 trailer
+                duration
                 trailerPreview {
                     url
                 }
@@ -143,6 +144,7 @@ export const GetProjectENQuery = gql`
                     en
                 }
                 trailer
+                duration
                 trailerPreview {
                     url
                 }
@@ -267,6 +269,7 @@ export const GetProjectUKQuery = gql`
                     uk
                 }
                 trailer
+                duration
                 trailerPreview {
                     url
                 }
