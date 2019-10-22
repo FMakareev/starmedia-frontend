@@ -16,8 +16,9 @@ import {useGetFormatQuery} from "../../apollo/query/GetFormatQuery";
 import {FormatGQL} from "../../types/projectTypes";
 import {GetLocalizationString} from "../../libs/GetLocalizationString";
 import {ExcludeSocialLinkByLocale} from "../../libs/ExcludeSocialLinkByLocale";
-import { useGetStarMediaSchoolLink } from '../../apollo/query/GetHomePageQuery';
+import {useGetStarMediaSchoolLink} from '../../apollo/query/GetHomePageQuery';
 import {memoSpliceArray} from "../../libs/memoSpliceArray";
+import ReactHtmlParser from "react-html-parser";
 
 interface IFooterProps {
   [prop: string]: any
@@ -46,7 +47,6 @@ export const Menu: any[] = [
     label: 'nav-contacts'
   },
 ];
-
 
 
 const Footer: React.FC<IFooterProps> = () => {
@@ -99,7 +99,7 @@ const Footer: React.FC<IFooterProps> = () => {
                 </Link>
               </li>
               {
-                data && data.getFormat && memoSpliceArray(data.getFormat,0,3).map((item: FormatGQL, index: number) => (
+                data && data.getFormat && memoSpliceArray(data.getFormat, 0, 3).map((item: FormatGQL, index: number) => (
                   <li key={index} className={'footer_nav-item'}>
                     <Link
                       href={`/projects?format=${GetLocalizationString(item.name, i18n)}`}
@@ -170,7 +170,9 @@ const Footer: React.FC<IFooterProps> = () => {
                 mods={['gray', 's']}
                 element={ButtonElementEnum.link}
               >
-                {tNav('nav-privacy-policy')}
+                {
+                  ReactHtmlParser(tFooter('privacy-policy'))
+                }
               </Button>
             </Link>
           </Col>
@@ -179,7 +181,9 @@ const Footer: React.FC<IFooterProps> = () => {
               font={'root'}
               type={'placeholder'}
             >
-              {tFooter('copyright')}
+              {
+                ReactHtmlParser(tFooter('copyright'))
+              }
             </Text>
           </Col>
         </Row>
@@ -189,7 +193,9 @@ const Footer: React.FC<IFooterProps> = () => {
               font={'root'}
               type={'placeholder'}
             >
-              {tFooter('copyright')}
+              {
+                ReactHtmlParser(tFooter('copyright'))
+              }
             </Text>
           </Col>
           <Col xs={12} md={3}>
@@ -201,7 +207,9 @@ const Footer: React.FC<IFooterProps> = () => {
                 mods={['gray', 's']}
                 element={ButtonElementEnum.link}
               >
-                {tNav('nav-privacy-policy')}
+                {
+                  ReactHtmlParser(tFooter('privacy-policy'))
+                }
               </Button>
             </Link>
 

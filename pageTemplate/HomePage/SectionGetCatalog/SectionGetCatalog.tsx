@@ -11,8 +11,6 @@ import {ButtonElementEnum, ViewportSizeEnum, OrderCatalog} from "../../../types/
 import PdfIcon from "../../../components/Icons/PDFIcon";
 import { Parallax } from "react-scroll-parallax"
 
-// @ts-ignore
-import Tilt from 'react-tilt'
 import {useTranslation} from "../../../libs/i18n";
 import {GetLocalizationString} from "../../../libs/GetLocalizationString";
 

@@ -14,7 +14,6 @@ const ServiceList: React.FC<IServiceListProps> = (
   }
 ) => {
   const {isOpen, toggle} = useAccordion();
-  console.log('getServices: ', getServices);
 
   let counter = 0;
 
