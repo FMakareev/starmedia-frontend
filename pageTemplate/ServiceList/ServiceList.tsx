@@ -25,6 +25,9 @@ const ServiceList: React.FC<IServiceListProps> = (
             if (!value) {
               return null;
             }
+            if(!GetLocalizationString(value && value.name) || !GetLocalizationString(value && value.content)){
+              return null;
+            }
             return (<ServiceItem
               id={key}
               onClick={() => toggle(index)}
