@@ -33,7 +33,8 @@ const SectionNews: React.FC<ISectionNewsProps> = () => {
     variables: {
       limit: 4,
       page: 1,
-    }
+    },
+    fetchPolicy: 'no-cache',
   });
 
   const {t, i18n} = useTranslation('home');

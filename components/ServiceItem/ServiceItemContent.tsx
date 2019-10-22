@@ -9,6 +9,7 @@ import MailSmallIcon from "../Icons/MailSmallIcon";
 import DownloadSmallIcon from "../Icons/DownloadSmallIcon";
 import Typeset from '../../components/Typeset/Typeset';
 import ReactHtmlParser from "react-html-parser";
+import {useTranslation} from "react-i18next";
 
 interface IServiceItemContentProps {
   [prop: string]: any
@@ -34,6 +35,7 @@ const ServiceItemContent: React.FC<IServiceItemContentProps> = (
 ) => {
   const [currentOpenForm, openForm] = React.useState<Maybe<Forms>>(null);
 
+  const {t} =useTranslation();
 
   return (
     <div className="service_item-content">
@@ -41,10 +43,12 @@ const ServiceItemContent: React.FC<IServiceItemContentProps> = (
         content={content}
       />
       {
-        contacts &&
+        contacts && !!(contacts.length) &&
 				<div className="service_item-content-row">
 					<div className="service_item-content-label">
-						Связаться с нами
+            {
+              t('services-contact_us')
+            }
 					</div>
 					<div className="service_item-content-value">
 
@@ -52,47 +56,50 @@ const ServiceItemContent: React.FC<IServiceItemContentProps> = (
 
               {
                 contacts
-                && contacts.map((item: Person, index: number) => (<Col
-                  mb={40}
-                  className="service_item-contacts_item"
-                  key={index}
-                >
-                  <Text mb={16} font={'object'} size={'s'}>
-                    {
-                      GetLocalizationString(item.name)
-                    }
-                  </Text>
-                  <Text mb={16} font={'root'} size={'m'}>
-                    {
-                      item
-                      && item.phones
-                      && item.phones.map((phone: string, index) => {
+                && contacts.map((item: Person, index: number) => {
 
-                        return (<span key={index}>
+                  return (<Col
+                    mb={40}
+                    className="service_item-contacts_item"
+                    key={index}
+                  >
+                    <Text mb={16} font={'object'} size={'s'}>
+                      {
+                        GetLocalizationString(item.name)
+                      }
+                    </Text>
+                    <Text mb={16} font={'root'} size={'m'}>
+                      {
+                        item
+                        && item.phones
+                        && item.phones.map((phone: string, index) => {
+
+                          return (<span key={index}>
                             {
                               phone
                             }
-                          <br/>
+                            <br/>
                           </span>)
-                      })
-                    }
-                  </Text>
-                  <Text font={'root'} size={'m'}>
-                    {
-                      item
-                      && item.emails
-                      && item.emails.map((email: string, index) => {
+                        })
+                      }
+                    </Text>
+                    <Text font={'root'} size={'m'}>
+                      {
+                        item
+                        && item.emails
+                        && item.emails.map((email: string, index) => {
 
-                        return (<span key={index}>
+                          return (<span key={index}>
                             {
                               email
                             }
-                          <br/>
+                            <br/>
                           </span>)
-                      })
-                    }
-                  </Text>
-                </Col>))
+                        })
+                      }
+                    </Text>
+                  </Col>)
+                })
               }
 						</div>
 					</div>

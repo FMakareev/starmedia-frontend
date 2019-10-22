@@ -43,9 +43,11 @@ const email = contact && contact.addresses && contact.addresses[0].email;
                 ReactHtmlParser( GetLocalizationString(address.addresses, i18n))
               }
             </div>
-            {
-             address.phone
-            }
+            <a className={'text text_font-root text_size-m text_inherit'} href={`tel:${address.phone}`}>
+              {
+                address.phone
+              }
+            </a>
             <br/><br/>
           </Text>))
       }
