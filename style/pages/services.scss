@@ -259,7 +259,7 @@
 
 .service_item-content-table {
   table {
-    width: 100%;
+    width: 100% !important;
     border: none !important;
     @media(max-width: 1023px) {
       display: block;
