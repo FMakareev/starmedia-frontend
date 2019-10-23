@@ -36,10 +36,7 @@ const SectionGetCatalog: React.FC<ISectionGetCatalogProps> = (
   const {t} = useTranslation('home');
 
   return (
-    <Parallax
-      bgImage={'../../../static/images/Grey bg.jpg'}
-      strength={-100}
-    >
+
       <div className={'section-get-catalog'}>
 
         <Container>
@@ -104,7 +101,6 @@ const SectionGetCatalog: React.FC<ISectionGetCatalogProps> = (
           }}
         />
       </div>
-    </Parallax>
   );
 };
 

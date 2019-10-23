@@ -28,14 +28,14 @@ const ServiceList: React.FC<IServiceListProps> = (
             if (!value) {
               return null;
             }
-            if(!GetLocalizationString(value && value.name) || !GetLocalizationString(value && value.content)){
+            if (!GetLocalizationString(value && value.name, i18n) || !GetLocalizationString(value && value.content, i18n)) {
               return null;
             }
-            if(value.localization && !value.localization.find((item:string)=>item.toLowerCase() === i18n.language)){
+            if (value.localization && !value.localization.find((item: string) => item.toLowerCase() === i18n.language)) {
               return null;
             }
 
-            counter+=1;
+            counter += 1;
             return (<ServiceItem
               id={key}
               onClick={() => toggle(index)}
@@ -43,8 +43,8 @@ const ServiceList: React.FC<IServiceListProps> = (
               number={`0${counter}`}
               key={index}
               {...value}
-              title={GetLocalizationString(value && value.name)}
-              content={GetLocalizationString(value && value.content)}
+              title={GetLocalizationString(value && value.name, i18n)}
+              content={GetLocalizationString(value && value.content, i18n)}
             />)
           })
       }
