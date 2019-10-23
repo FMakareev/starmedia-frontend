@@ -25,8 +25,13 @@ const gettransparent = (route: string, isActive: boolean): boolean => {
 
 const GetContactByCurrentLang = (language: string, data?: GetContacts): MainContact | undefined => {
   if (data && data.getContacts.mainContacts) {
-    return data.getContacts.mainContacts.find(
-      (contact: MainContact): boolean => typeof contact.locale === 'string' && contact.locale.toLowerCase() === language.toLowerCase())
+    let result =  data.getContacts.mainContacts.find(
+      (contact: MainContact): boolean => typeof contact.locale === 'string' && contact.locale.toLowerCase() === language.toLowerCase());
+    if(!result) {
+      return data.getContacts.mainContacts.find(
+        (contact: MainContact): boolean => typeof contact.locale === 'string' && contact.locale.toLowerCase() === 'RU');
+    }
+    return  result;
   }
   return undefined;
 };
