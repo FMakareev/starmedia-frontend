@@ -14,7 +14,7 @@ const ServiceList: React.FC<IServiceListProps> = (
     getServices
   }
 ) => {
-  const {isOpen, toggle} = useAccordion([0]);
+  const {isOpen, toggle} = useAccordion([]);
   const {i18n} = useTranslation();
   let counter = 0;
 
