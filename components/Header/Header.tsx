@@ -41,8 +41,12 @@ const Header: React.FC<IHeaderProps> = (
   const [isScroll, setScroll] = React.useState(false);
 
 
-  const toggleMenu = () => {
-    setActive(!isActive)
+  const toggleMenu = (_isActive?:boolean) => {
+    if(typeof _isActive === "boolean"){
+      setActive(_isActive)
+    } else {
+      setActive(!isActive)
+    }
   };
   React.useEffect(() => {
     if (typeof window !== undefined) {

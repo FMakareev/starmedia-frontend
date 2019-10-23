@@ -26,28 +26,31 @@ const CustomCursor: React.FC<ICustomCursorProps> = (
     }
     // @ts-ignore
     if (ContainerRef && ContainerRef.current) {
-      // @ts-ignore
-      ContainerRef.current.addEventListener('touchmove', (e: any) => {
-        if (e) {
-          // @ts-ignore
-          window.customCursor.clientX = e.clientX;
-          // @ts-ignore
-          window.customCursor.clientY = e.clientY;
-        }
-      }, true);
-      // @ts-ignore
-      ContainerRef.current.addEventListener('mousemove', (e: any) => {
-        if (e) {
-          // @ts-ignore
-          window.customCursor.clientX = e.clientX;
-          // @ts-ignore
-          window.customCursor.clientY = e.clientY;
-        }
-      }, false);
-      // @ts-ignore
-      ContainerRef.current.ondragstart = function () {
-        return false;
-      };
+      if (window.innerWidth >= 768) {
+        // @ts-ignore
+        ContainerRef.current.addEventListener('touchmove', (e: any) => {
+          if (e) {
+            // @ts-ignore
+            window.customCursor.clientX = e.clientX;
+            // @ts-ignore
+            window.customCursor.clientY = e.clientY;
+          }
+        }, true);
+        // @ts-ignore
+        ContainerRef.current.addEventListener('mousemove', (e: any) => {
+          if (e) {
+            // @ts-ignore
+            window.customCursor.clientX = e.clientX;
+            // @ts-ignore
+            window.customCursor.clientY = e.clientY;
+          }
+        }, false);
+        // @ts-ignore
+        ContainerRef.current.ondragstart = function () {
+          return false;
+        };
+      }
+
     }
 
     const render = () => {

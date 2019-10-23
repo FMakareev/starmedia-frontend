@@ -121,14 +121,16 @@
   &_title-static {
     text-align: left;
     position: relative;
-    *{
-      padding: 0!important;
-      margin: 0!important;
+
+    * {
+      padding: 0 !important;
+      margin: 0 !important;
     }
   }
 
   &_title-animated {
     text-align: right;
+
     * {
       display: block;
       width: 100%;
@@ -212,9 +214,12 @@
   }
 
   &_list {
-    margin-bottom: 80px;
+    margin-bottom: 40px;
     margin-right: -1rem;
     margin-left: -1rem;
+    @media(min-width: 768px) {
+      margin-bottom: 80px;
+    }
   }
 
   &_item-more {
@@ -382,10 +387,11 @@
 }
 
 .skylight-wrapper {
-  .skylight-dialog {    overflow: auto;
+  .skylight-dialog {
+    overflow: auto;
 
     @media(max-width: 767px) {
-      min-height: 100vh!important;
+      min-height: 100vh !important;
     }
   }
 
@@ -393,7 +399,6 @@
 
 .section-get-catalog {
   position: relative;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
   overflow: hidden;
   padding-top: 50px;
   padding-bottom: 50px;
@@ -453,24 +458,6 @@
     }
   }
 
-  &_bg {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-
-    img {
-      min-width: 100%;
-      min-height: 400px;
-
-      @media(min-width: 768px) {
-        min-height: 328px;
-      }
-    }
-  }
-
   &_title {
     text-align: left;
   }
@@ -510,8 +497,23 @@
 
 
 .watch-online {
-  cursor: pointer!important;
+  cursor: pointer !important;
+
   * {
-    cursor: pointer!important;
+    cursor: pointer !important;
+  }
+}
+
+.section-main_watch-online {
+
+  svg {
+    top: 4px;
+    width: 11px;
+    height: 18px;
+
+    @media (min-width: 768px) {
+      width: 8px;
+      height: 11px;
+    }
   }
 }

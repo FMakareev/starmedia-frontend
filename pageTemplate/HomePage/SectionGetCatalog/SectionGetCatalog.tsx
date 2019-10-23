@@ -9,19 +9,20 @@ import Text from '../../../components/Text/Text';
 import Button from '../../../components/Button/Button';
 import {ButtonElementEnum, ViewportSizeEnum, OrderCatalog} from "../../../types/types";
 import PdfIcon from "../../../components/Icons/PDFIcon";
-import { Parallax } from "react-scroll-parallax"
 
 import {useTranslation} from "../../../libs/i18n";
 import {GetLocalizationString} from "../../../libs/GetLocalizationString";
+// @ts-ignore
+import {Parallax} from "react-parallax";
 
 
-interface ISectionGetCatalogProps extends OrderCatalog{
+interface ISectionGetCatalogProps extends OrderCatalog {
   [prop: string]: any
 }
 
-const CatalogFormPopup:any = dynamic(
+const CatalogFormPopup: any = dynamic(
   () => import("../../../components/CatalogFormPopup/CatalogFormPopup"),
-  { ssr: false }
+  {ssr: false}
 );
 
 const SectionGetCatalog: React.FC<ISectionGetCatalogProps> = (
@@ -34,89 +35,76 @@ const SectionGetCatalog: React.FC<ISectionGetCatalogProps> = (
   const [isVisible, togglePopup] = React.useState(false);
   const {t} = useTranslation('home');
 
-
-
-
   return (
-    <div className={'section-get-catalog'}>
+    <Parallax
+      bgImage={'../../../static/images/Grey bg.jpg'}
+      strength={-100}
+    >
+      <div className={'section-get-catalog'}>
 
-      <div className="section-get-catalog_bg">
-        <Parallax
-          y={[-20, 20]}
-          tagOuter="figure"
-        >
-          <img
-            style={{
-              transform: 'scale(1.2)',
-            }}
-            src={'../../../static/images/Grey bg.jpg'}
-            alt=""
-          />
-        </Parallax>
-      </div>
-
-      <Container>
-        <Row
-          center={ViewportSizeEnum.xs}
-          between={ViewportSizeEnum.sm}
-          middle={ViewportSizeEnum.sm}
-        >
-          <Col xs={12} sm={'auto'} pl={16} mb={[44, 0]}>
-            <Text
-              className="section-get-catalog_title reset-style"
-              size={'l'}
-              type={'secondary'}
-              font={'object'}
-            >
-              {
-                ReactHtmlParser(GetLocalizationString(title))
-              }
-            </Text>
-          </Col>
-          <Col
-            mr={16}
-            className={'section-get-catalog_get-button'}
+        <Container>
+          <Row
+            center={ViewportSizeEnum.xs}
+            between={ViewportSizeEnum.sm}
+            middle={ViewportSizeEnum.sm}
           >
-            <Button
-              onClick={()=>{
-                togglePopup(true);
-              }}
-              mods={['l']}
-              element={ButtonElementEnum.circle}
-            >
-              <PdfIcon
-                className={'mb-20'}
-              />
+            <Col xs={12} sm={'auto'} pl={16} mb={[44, 0]}>
               <Text
+                className="section-get-catalog_title reset-style"
+                size={'l'}
                 type={'secondary'}
                 font={'object'}
               >
                 {
-                  t('section_send-order_button')
+                  ReactHtmlParser(GetLocalizationString(title))
                 }
               </Text>
-              <Text
-                style={{opacity: '0.7'}}
-                type={'secondary'}
-                font={'object'}
+            </Col>
+            <Col
+              mr={16}
+              className={'section-get-catalog_get-button'}
+            >
+              <Button
+                onClick={() => {
+                  togglePopup(true);
+                }}
+                mods={['l']}
+                element={ButtonElementEnum.circle}
               >
-                PDF 2,5 Мб
-              </Text>
-            </Button>
-          </Col>
-        </Row>
-      </Container>
-      <CatalogFormPopup
-        callBack={() => {
-          togglePopup(false);
-        }}
-        form={form}
-        isVisible={isVisible}
-        onClose={() => {
-          togglePopup(false);
-        }}
-      />
-    </div>
+                <PdfIcon
+                  className={'mb-20'}
+                />
+                <Text
+                  type={'secondary'}
+                  font={'object'}
+                >
+                  {
+                    t('section_send-order_button')
+                  }
+                </Text>
+                <Text
+                  style={{opacity: '0.7'}}
+                  type={'secondary'}
+                  font={'object'}
+                >
+                  PDF 2,5 Мб
+                </Text>
+              </Button>
+            </Col>
+          </Row>
+        </Container>
+        <CatalogFormPopup
+          callBack={() => {
+            togglePopup(false);
+          }}
+          form={form}
+          isVisible={isVisible}
+          onClose={() => {
+            togglePopup(false);
+          }}
+        />
+      </div>
+    </Parallax>
   );
 };
 

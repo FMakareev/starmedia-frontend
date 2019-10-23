@@ -9,6 +9,7 @@ import ReactIdSwiper, {SwiperInstance} from "react-id-swiper";
 import CustomCursor from "../../components/CustomCursor/CustomCursor";
 import {useTranslation} from "../../libs/i18n";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
+import {getSlidesOffsetBefore} from "../../libs/swiperUtils";
 
 interface IProjectSimilarProps {
   projects?: Project[];
@@ -16,10 +17,14 @@ interface IProjectSimilarProps {
   [prop: string]: any
 }
 
+
+
 const params = {
   slidesPerView: 'auto',
   centeredSlides: false,
+  watchOverflow: true,
   spaceBetween: 32,
+  slidesOffsetBefore: getSlidesOffsetBefore(),
   getSwiper: (swiper: SwiperInstance) => {
     swiper && swiper.on('touchMove', (event: any) => {
       // @ts-ignore
@@ -52,13 +57,15 @@ const ProjectSimilar: React.FC<IProjectSimilarProps> = ({projects}) => {
       </Container>
 
       <CustomCursor>
-        <ReactIdSwiper {...params}>
+        <ReactIdSwiper
+          {...params}
+        >
           {
             // @ts-ignore
             projects
-            && [undefined, ...projects].map((item: any, index) => {
+            && [undefined,...projects].map((item: any, index) => {
               if (index === 0) {
-                return (<Col key={index} className={'project-detail-similar_first-item'}>
+                return (<Col key={index} className={'swiper-slide_first'}>
 
                 </Col>)
               }

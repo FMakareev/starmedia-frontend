@@ -8,28 +8,32 @@ import 'react-id-swiper/lib/styles/scss/swiper.scss';
 import CustomCursor from "../../components/CustomCursor/CustomCursor";
 import {useTranslation} from "../../libs/i18n";
 import {File} from '../../types/types';
+import {getSlidesOffsetBefore} from "../../libs/swiperUtils";
 
 interface IProjectGalleryProps {
   gallery?: File[];
+
   [prop: string]: any
 }
 
-const params = ()=>({
+const params = () => ({
   scrollbar: {
     el: '.swiper-scrollbar',
     hide: false
   },
   slidesPerView: 'auto',
+  watchOverflow: true,
   centeredSlides: false,
-  spaceBetween: 24,
-  getSwiper:(swiper: SwiperInstance)=>{
+  spaceBetween: 32,
+  slidesOffsetBefore: getSlidesOffsetBefore(),
+  getSwiper: (swiper: SwiperInstance) => {
     console.log('swiper: ', swiper);
 
-    setTimeout(()=>{
+    setTimeout(() => {
       console.log('swiper setTimeout: ', swiper);
-      swiper && swiper.scrollbar&& swiper.scrollbar.updateSize()
-    }, 200);
-    swiper && swiper.on('touchMove',(event: any)=>{
+      swiper && swiper.scrollbar && swiper.scrollbar.updateSize()
+    }, 1000);
+    swiper && swiper.on('touchMove', (event: any) => {
       // @ts-ignore
       window.customCursor.clientX = event.clientX;
       // @ts-ignore
@@ -43,7 +47,6 @@ const ProjectGallery: React.FC<IProjectGalleryProps> = (
   {
     gallery,
   }
-
 ) => {
   const {t} = useTranslation('common');
 
@@ -76,7 +79,10 @@ const ProjectGallery: React.FC<IProjectGalleryProps> = (
           {
             gallery && [{}, ...gallery].map((item: File, index: number) => {
               if (index === 0) {
-                return (<Col key={index} className={'project-detail_gallery-first-item'}>
+                return (<Col
+                  key={index}
+                  className={'swiper-slide_first'}
+                >
 
                 </Col>)
               }

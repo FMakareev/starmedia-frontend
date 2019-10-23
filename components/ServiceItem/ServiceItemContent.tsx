@@ -40,9 +40,13 @@ const ServiceItemContent: React.FC<IServiceItemContentProps> = (
 
   return (
     <div className="service_item-content">
-      <Typeset
-        content={content}
-      />
+
+      <div className={'service_item-content-table'}>
+        <Typeset
+          content={content}
+        />
+      </div>
+
       {
         contacts && !!(contacts.length) &&
 				<div className="service_item-content-row">
@@ -118,10 +122,8 @@ const ServiceItemContent: React.FC<IServiceItemContentProps> = (
 						</div>
 						<Button
 							element={ButtonElementEnum.circle}
-
 						>
               {
-                // @ts-ignore
                 FormIconMap['formTesting']
               }
 						</Button>
@@ -170,7 +172,7 @@ const ServiceItemContent: React.FC<IServiceItemContentProps> = (
 
 
     </div>
-  );
+);
 };
 
 export default ServiceItemContent;

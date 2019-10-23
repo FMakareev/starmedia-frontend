@@ -25,6 +25,7 @@ interface ISectionNewsProps {
 
 const SectionNews: React.FC<ISectionNewsProps> = () => {
 
+  const {t, i18n} = useTranslation('home');
   const {data} = useLocalizationQuery({
     ru: NewsPaginationRU,
     en: NewsPaginationEN,
@@ -33,11 +34,11 @@ const SectionNews: React.FC<ISectionNewsProps> = () => {
     variables: {
       limit: 4,
       page: 1,
+      locale: i18n.language,
     },
     fetchPolicy: 'no-cache',
   });
 
-  const {t, i18n} = useTranslation('home');
 
   return (
     <div className={'section-news_wrapper'}>
@@ -53,7 +54,7 @@ const SectionNews: React.FC<ISectionNewsProps> = () => {
             news={data && data.newsPagination && data.newsPagination.items}
           />
         </Row>
-        <Row mb={22} center={ViewportSizeEnum.xs}>
+        <Row mb={40} center={ViewportSizeEnum.xs}>
           <Link href={'/news'}>
             <a href={'/news'}>
               <Button aria-label={'show all news'} mods={['m']} element={ButtonElementEnum.circle}>

@@ -83,24 +83,6 @@ export const GetHomePageRUQuery = gql`
                 }
             }
         }
-        newsPagination(limit: 4, page: 1){
-            pageInfo {
-                currentPage
-                limit
-                nextPage
-                prevPage
-            }
-            count
-            items {
-                slug
-                preview {
-                    url
-                }
-                name{
-                    ru
-                }
-            }
-        }
         projectPaginationOnMain: projectPagination(limit: 9, page: 1, onHomePage: true){
             pageInfo {
                 currentPage
@@ -221,24 +203,6 @@ export const GetHomePageENQuery = gql`
                 }
             }
         }
-        newsPagination(limit: 4, page: 1){
-            pageInfo {
-                currentPage
-                limit
-                nextPage
-                prevPage
-            }
-            count
-            items {
-                slug
-                preview {
-                    url
-                }
-                name{
-                    en
-                }
-            }
-        }
         projectPaginationOnMain: projectPagination(limit: 9, page: 1, onHomePage: true){
             pageInfo {
                 currentPage
@@ -279,7 +243,7 @@ export const GetHomePageENQuery = gql`
 `;
 
 export const GetHomePageUKQuery = gql`
-    {
+     {
         getHomePage {
             watchOnline
             mainSection {
@@ -359,24 +323,7 @@ export const GetHomePageUKQuery = gql`
                 }
             }
         }
-        newsPagination(limit: 4, page: 1){
-            pageInfo {
-                currentPage
-                limit
-                nextPage
-                prevPage
-            }
-            count
-            items {
-                slug
-                preview {
-                    url
-                }
-                name{
-                    uk
-                }
-            }
-        }
+       
         projectPaginationOnMain: projectPagination(limit: 9, page: 1, onHomePage: true){
             pageInfo {
                 currentPage

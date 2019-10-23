@@ -46,7 +46,9 @@ const HeaderDesktopTop: React.FC<IHeaderDesktopTopProps> = (
           </Text>
         </Col>
         <Col className="header_search-wrapper">
-          <HeaderSearch/>
+          <HeaderSearch
+            toggleMenu={toggleMenu}
+          />
         </Col>
 
         <Row  className="header_right-right">

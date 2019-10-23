@@ -9,6 +9,11 @@
   opacity: 0;
   transition: .225s opacity;
   pointer-events: none;
+  display: none;
+
+  @media (min-width: 768px) {
+    display: block;
+  }
 }
 
 .cursor_container {

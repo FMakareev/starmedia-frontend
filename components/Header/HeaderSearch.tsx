@@ -11,7 +11,11 @@ const SearchPopup = dynamic(
   () => import("../SearchPopup/SearchPopup"),
   { ssr: false }
 )
-const HeaderSearch: React.FC<IHeaderSearchProps> = () => {
+const HeaderSearch: React.FC<IHeaderSearchProps> = (
+  {
+    toggleMenu,
+  }
+) => {
   const [isVisible, togglePopup] = React.useState(false);
   const {t} = useTranslation('common');
 
@@ -37,6 +41,7 @@ const HeaderSearch: React.FC<IHeaderSearchProps> = () => {
       SearchPopup && <SearchPopup
 					isVisible={isVisible}
 					onClose={() => {
+            toggleMenu && toggleMenu(false);
             togglePopup(false);
           }}
 				/>

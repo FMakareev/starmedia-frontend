@@ -37,6 +37,7 @@ const SectionMainWatchOnline: React.FC<ISectionMainWatchOnlineProps> = (
         as={'div'}
         element={ButtonElementEnum.circle}
         mods={['inverse', 's']}
+        className={'section-main_watch-online'}
       >
         <PlayIcon/>
       </Button>

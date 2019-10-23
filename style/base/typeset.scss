@@ -1,5 +1,5 @@
 .typeset {
-
+  word-break: break-all;
   h1,
   h2,
   h3,
@@ -388,6 +388,8 @@
 .typeset embed, .typeset iframe, .typeset img, .typeset object {
   display: inline;
   max-width: 100%;
+  height: auto !important;
+  width: auto !important;
 }
 
 .typeset figure {

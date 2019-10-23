@@ -1,5 +1,4 @@
 import React, {Fragment} from 'react'
-import { ParallaxProvider } from "react-scroll-parallax"
 
 import SectionNews from '../pageTemplate/HomePage/SectionNews/SectionNews';
 import SectionAboutUs from "../pageTemplate/HomePage/SectionAboutUs/SectionAboutUs";
@@ -17,10 +16,10 @@ import {
 } from "../apollo/query/GetHomePageQuery";
 import Preloader from "../components/Preloader/Preloader";
 import {GetHomePage} from "../types/types";
-
+import {useTranslation} from "react-i18next";
 
 // @ts-ignore
-const projectList:any = [
+const projectList: any = [
   {
     "slug": "zabitievoghdi",
     "preview": {
@@ -70,18 +69,21 @@ const projectList:any = [
 
 const Homepage = () => {
 
+  const {i18n} = useTranslation();
   const {data, loading} = useLocalizationQuery<GetHomePage>({
     ru: GetHomePageRUQuery,
     en: GetHomePageENQuery,
     uk: GetHomePageUKQuery,
+  }, {
+    variables:{
+      locale: i18n.language,
+    }
   });
 
   if (loading) {
     return (<Preloader/>)
   }
-  console.log('data: ', data);
   return (
-    <ParallaxProvider>
       <Fragment>
         <Head
           title={'Star Media'}
@@ -105,7 +107,6 @@ const Homepage = () => {
           {...(data && data.getHomePage && data.getHomePage.orderCatalog)}
         />
       </Fragment>
-    </ParallaxProvider>
   );
 };
 
