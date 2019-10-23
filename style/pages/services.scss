@@ -260,6 +260,7 @@
 .service_item-content-table {
   table {
     width: 100%;
+    border: none !important;
     @media(max-width: 1023px) {
       display: block;
     }
@@ -277,6 +278,7 @@
     @extend .text_font-root;
     @extend .text_size-m;
     width: 100%;
+    padding: 0;
     @media(max-width: 1023px) {
       display: block;
     }

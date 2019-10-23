@@ -50,7 +50,7 @@ const SectionGetCatalog: React.FC<ISectionGetCatalogProps> = (
           >
             <Col xs={12} sm={'auto'} pl={16} mb={[44, 0]}>
               <Text
-                className="section-get-catalog_title reset-style"
+                className="section-get-catalog_title reset-style text_uppercase"
                 size={'l'}
                 type={'secondary'}
                 font={'object'}
