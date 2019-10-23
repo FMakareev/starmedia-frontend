@@ -29,7 +29,7 @@ const GetContactByCurrentLang = (language: string, data?: GetContacts): MainCont
       (contact: MainContact): boolean => typeof contact.locale === 'string' && contact.locale.toLowerCase() === language.toLowerCase());
     if(!result) {
       return data.getContacts.mainContacts.find(
-        (contact: MainContact): boolean => typeof contact.locale === 'string' && contact.locale.toLowerCase() === 'RU');
+        (contact: MainContact): boolean => typeof contact.locale === 'string' && contact.locale.toLowerCase() === 'ru');
     }
     return  result;
   }

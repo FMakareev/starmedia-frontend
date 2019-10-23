@@ -37,6 +37,12 @@ const MainContacts: React.FC<IMainContactsProps> = (
             if(next.locale && next.locale.toLowerCase() === i18n.language){
               return 1;
             }
+            if(prev.locale && prev.locale.toLowerCase() === 'ru'){
+              return -1;
+            }
+            if(next.locale && next.locale.toLowerCase() === 'ru'){
+              return 1;
+            }
             return 0;
 
           })

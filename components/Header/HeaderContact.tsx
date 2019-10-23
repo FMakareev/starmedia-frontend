@@ -17,14 +17,12 @@ const HeaderContact: React.FC<IHeaderContactProps> = (
   }
 ) => {
   const {i18n} = useTranslation();
-
-
-const email = contact && contact.addresses && contact.addresses[0].email;
+  const email = contact && contact.addresses && contact.addresses[0].email;
 
   return (
     <React.Fragment>
       <Text
-        style={{display:'block'}}
+        style={{display: 'block'}}
         as={'a'}
         href={`mailto:${email}`} font={'object'} size={'m'}
         className={'mb-60 mt-8 text_uppercase'}>
@@ -40,7 +38,7 @@ const email = contact && contact.addresses && contact.addresses[0].email;
             }, {address.index}<br/>
             <div className={'reset-style'}>
               {
-                ReactHtmlParser( GetLocalizationString(address.addresses, i18n))
+                ReactHtmlParser(GetLocalizationString(address.addresses, i18n))
               }
             </div>
             <a className={'text text_font-root text_size-m text_inherit'} href={`tel:${address.phone}`}>

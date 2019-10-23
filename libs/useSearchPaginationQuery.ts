@@ -188,7 +188,7 @@ export const useSearchPaginationQuery = (
     // @ts-ignore
     if (pageInfo) {
       // @ts-ignore
-      if ((selected + 1) >= calculatePageCount()) {
+      if (selected >= calculatePageCount()) {
         return;
       }
     }
@@ -209,7 +209,6 @@ export const useSearchPaginationQuery = (
 
   /** @desc получить кол-во результатов */
   const getSearchResultCount = (): number => {
-    console.log('getSearchResultCount: ', data);
     //@ts-ignore
     if (data && data.search) {
       //@ts-ignore
@@ -223,7 +222,7 @@ export const useSearchPaginationQuery = (
     // @ts-ignore
     if (data && data.search.projects && data.search.news && data.search.awards) {
       // @ts-ignore
-      return (getSearchResultCount() / defaultLimit) / 2;
+      return Math.ceil((getSearchResultCount() / defaultLimit));
     }
 
     return 0;

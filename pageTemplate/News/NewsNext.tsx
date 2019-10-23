@@ -10,13 +10,12 @@ interface INewsNextProps {
   [prop: string]: any
 }
 
-// TODO: еределать аргумент запроса на slug
 const NewsNext: React.FC<INewsNextProps> = (
   {
     slug,
   }
 ) => {
-  const {t} = useTranslation('common');
+  const {t, i18n} = useTranslation('common');
 
   if (!slug) return null;
   const {data, loading} = useLocalizationQuery({
@@ -26,6 +25,7 @@ const NewsNext: React.FC<INewsNextProps> = (
   }, {
     skip: !slug,
     variables: {
+      locale: i18n.language && i18n.language.toUpperCase(),
       slug: slug
     }
   });

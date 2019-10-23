@@ -260,8 +260,8 @@ export const NewsPaginationUK = gql`
 
 
 export const GetNextNewsRU = gql`
-    query ($slug: String!) {
-        getNextNews(slug: $slug) {
+    query ($slug: String!,$locale: String) {
+        getNextNews(slug: $slug,locale:$locale) {
             name {
                 ru
             }
@@ -275,8 +275,8 @@ export const GetNextNewsRU = gql`
 `;
 
 export const GetNextNewsEN = gql`
-    query ($slug: String!) {
-        getNextNews(slug: $slug) {
+    query ($slug: String!,$locale: String) {
+        getNextNews(slug: $slug,locale:$locale) {
             name {
                 en
             }
@@ -291,8 +291,8 @@ export const GetNextNewsEN = gql`
 
 
 export const GetNextNewsUK = gql`
-    query ($slug: String!) {
-        getNextNews(slug: $slug) {
+    query ($slug: String!,$locale: String) {
+        getNextNews(slug: $slug,locale:$locale) {
             name {
                 uk
             }

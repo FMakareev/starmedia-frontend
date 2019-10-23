@@ -9,6 +9,7 @@ import ArrowLargeLeft from '../Icons/ArrowLargeLeft';
 import ArrowLargeRight from "../Icons/ArrowLargeRight";
 import {useTranslation} from "../../libs/i18n";
 import ReactHtmlParser from "react-html-parser";
+import Col from "../Col/Col";
 
 interface IPaginationProps {
   onFetchMore: () => any,
@@ -55,27 +56,30 @@ const Pagination: React.FC<IPaginationProps> = (
       </Row>
       {
         isPagination && <Row center={ViewportSizeEnum.xs}>
-					<ReactPaginate
-						disabled={disabled}
-						pageCount={pageCount}
-						onPageChange={onPageChange}
-						forcePage={forcePage}
-						previousLabel={<ArrowLargeLeft/>}
-						nextLabel={<ArrowLargeRight/>}
-						containerClassName={'pagination_container'}
-						pageClassName={'pagination_page-item'}
-						pageLinkClassName={"pagination_page-link"}
-						previousClassName={'pagination_previous'}
-						nextClassName={'pagination_next'}
-						previousLinkClassName={"pagination_page-link"}
-						nextLinkClassName={'pagination_page-link'}
+					<Col xs={'auto'}>
+						<ReactPaginate
+							marginPagesDisplayed={1}
+							disabled={disabled}
+							pageCount={pageCount}
+							onPageChange={onPageChange}
+							forcePage={forcePage}
+							previousLabel={<ArrowLargeLeft/>}
+							nextLabel={<ArrowLargeRight/>}
+							containerClassName={'pagination_container'}
+							pageClassName={'pagination_page-item'}
+							pageLinkClassName={"pagination_page-link"}
+							previousClassName={'pagination_previous'}
+							nextClassName={'pagination_next'}
+							previousLinkClassName={"pagination_page-link"}
+							nextLinkClassName={'pagination_page-link'}
 
-						breakClassName={'pagination_page-item'}
-						breakLinkClassName={"pagination_page-link"}
+							breakClassName={'pagination_page-item'}
+							breakLinkClassName={"pagination_page-link"}
 
-						activeClassName={'pagination_page-item--active'}
+							activeClassName={'pagination_page-item--active'}
 
-					/>
+						/>
+          </Col>
 				</Row>
       }
 

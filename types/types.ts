@@ -122,6 +122,7 @@ export type MainContact = {
 
 export type Departament = {
   __typename?: "Departament";
+  index: number,
   name: Maybe<LocalizedString>,
   persons: Maybe<Array<Person>>
 }

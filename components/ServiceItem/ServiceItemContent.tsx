@@ -36,7 +36,7 @@ const ServiceItemContent: React.FC<IServiceItemContentProps> = (
 ) => {
   const [currentOpenForm, openForm] = React.useState<Maybe<Forms>>(null);
 
-  const {t} = useTranslation();
+  const {t, i18n} = useTranslation();
 
   return (
     <div className="service_item-content">
@@ -68,14 +68,14 @@ const ServiceItemContent: React.FC<IServiceItemContentProps> = (
                     className="service_item-contacts_item"
                     key={index}
                   >
-                    <Text mb={16} font={'object'} size={'s'}>
+                    <Text mb={24} font={'object'} size={'s'}>
                       {
-                        GetLocalizationString(item.name)
+                        GetLocalizationString(item.name, i18n)
                       }
                     </Text>
                     {
                       item &&
-											<Text mb={16} font={'root'} size={'m'}>
+											<Text mb={24} font={'root'} size={'m'}>
 												<ContactListStrings
 													typeHref={'tel:'}
 													contacts={item.phones}
