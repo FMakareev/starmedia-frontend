@@ -114,7 +114,7 @@ const ProjectInfoList: React.FC<IProjectInfoProps> = ({projectInfo}) => {
       />
       <ProjectInfoItem
         label={'project-info_duration'}
-        value={projectInfo && `${projectInfo.duration} ${t(getMinutesCase(projectInfo && projectInfo.duration || undefined))}`}
+        value={projectInfo && projectInfo.duration && `${projectInfo.duration} ${t(getMinutesCase(projectInfo && projectInfo.duration || undefined))}` || null}
       />
       <ProjectInfoItem
         label={'project-info_directors'}
