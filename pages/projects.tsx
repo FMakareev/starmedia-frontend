@@ -65,6 +65,9 @@ const Projects: React.FC<IProjectsProps> = ({t}) => {
       year: parseInt(filters.year || 0),
       query: filters.search || '',
     },
+    options: {
+      fetchPolicy: 'cache-and-network'
+    }
   });
   return (
     <LayoutTitleWithContent
