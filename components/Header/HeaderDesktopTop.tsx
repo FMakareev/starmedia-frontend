@@ -59,8 +59,8 @@ const HeaderDesktopTop: React.FC<IHeaderDesktopTopProps> = (
               exclude={ExcludeSocialLinkByLocale(
                 {
                   ru: [SocialLinkTypeEnum.GOOGLE_PLUS, SocialLinkTypeEnum.IMDB, SocialLinkTypeEnum.TWITTER],
-                  en: [SocialLinkTypeEnum.VK, SocialLinkTypeEnum.OK],
-                  uk: [SocialLinkTypeEnum.VK, SocialLinkTypeEnum.OK],
+                  en: [SocialLinkTypeEnum.GOOGLE_PLUS, SocialLinkTypeEnum.VK, SocialLinkTypeEnum.OK],
+                  uk: [SocialLinkTypeEnum.GOOGLE_PLUS, SocialLinkTypeEnum.VK, SocialLinkTypeEnum.OK],
                 },
                 i18n
               )}

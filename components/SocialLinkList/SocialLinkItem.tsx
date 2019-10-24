@@ -23,9 +23,9 @@ const SocialLinkItem: React.FC<ISocialLinkItemProps> = ({url, mods, shortName, v
       {
         variant === SocialLinkVariantEnum.icon &&
 				<svg
-          className={classNames("social-links_icon",`social-links_icon-${shortName}`)}
+          className={classNames("social-links_icon",`social-links_icon-${shortName && shortName.toLowerCase()}`)}
         >
-					<use xlinkHref={`#${shortName}`}/>
+					<use xlinkHref={`#${shortName && shortName.toLowerCase()}`}/>
 				</svg>
       }
       {

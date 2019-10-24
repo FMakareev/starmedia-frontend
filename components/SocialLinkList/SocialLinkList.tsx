@@ -94,7 +94,7 @@ const SocialLinkList: React.FC<ISocialLinkListProps> = (
   let SocialList: SocialLink[] = data && data.getSocialList || [];
 
   if (exclude) {
-    SocialList = SocialList.filter((link: SocialLink) => !(exclude.find((exLink: SocialLinkTypeEnum) => link.shortName === exLink)))
+    SocialList = SocialList.filter((link: SocialLink) => !(exclude.find((exLink: SocialLinkTypeEnum) => link.shortName && link.shortName.toLowerCase() === exLink)))
   }
 
   return (
