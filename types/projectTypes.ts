@@ -9,6 +9,9 @@ export interface Project {
   title?: Maybe<LocalizedString>;
   description?: Maybe<LocalizedString>;
   preview?: Maybe<File>;
+  previewRu?: Maybe<File>;
+  previewEn?: Maybe<File>;
+  previewUk?: Maybe<File>;
   trailer?: Maybe<Scalars["String"]>;
   projectInfo?: Maybe<ProjectInfo>;
   awards?: Maybe<Array<Award>>;

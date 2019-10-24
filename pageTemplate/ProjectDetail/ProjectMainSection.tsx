@@ -19,12 +19,34 @@ interface IProjectMainSectionProps extends Project {
   [prop: string]: any
 }
 
+const getLocalizationPreview = (
+  {
+    previewEn,
+    previewRu,
+    previewUk,
+    preview,
+  }: any,
+  language: string,
+) => {
+  if (language === 'ru') {
+    return previewRu && previewRu.url || preview && preview.url
+  }
+  if (language === 'en') {
+    return previewEn && previewEn.url || preview && preview.url
+  }
+  if (language === 'uk') {
+    return previewUk && previewUk.url || preview && preview.url
+  }
+  return preview.url
+};
+
+
 const ProjectMainSection: React.FC<IProjectMainSectionProps> = (
   {
     tags,
+    preview,
     projectInfo,
     title,
-    preview,
     trailer,
     trailerPreview,
     isBottomDescription,
@@ -32,6 +54,9 @@ const ProjectMainSection: React.FC<IProjectMainSectionProps> = (
     isBottomGallery,
     isBottomSimilar,
     duration,
+    previewEn,
+    previewRu,
+    previewUk,
   }
 ) => {
   const {t, i18n} = useTranslation('common');
@@ -40,7 +65,14 @@ const ProjectMainSection: React.FC<IProjectMainSectionProps> = (
     <Col mb={[40, 80]} pb={40} pt={130} className={'project-detail-main_wrapper'}>
       <div className="section-main_bg">
         <img
-          src={preview && preview.url || ''}
+          src={getLocalizationPreview({
+              preview,
+              previewEn,
+              previewRu,
+              previewUk,
+            },
+            i18n.language
+          )}
           alt=""
           className="project-detail-main_bg-img"
         />
@@ -80,7 +112,7 @@ const ProjectMainSection: React.FC<IProjectMainSectionProps> = (
                     GetLocalizationString(title, i18n)
                   }
                 </Text>
-                <ProjectInfoList projectInfo={{duration,...projectInfo} || {}}/>
+                <ProjectInfoList projectInfo={{duration, ...projectInfo} || {}}/>
               </Col>
 
             </Col>

@@ -35,6 +35,9 @@ const News: React.FC<INewsProps> = ({t}) => {
     },
     variables: {
       locale: i18n.language,
+    },
+    options: {
+      fetchPolicy: 'cache-and-network'
     }
   });
   return (

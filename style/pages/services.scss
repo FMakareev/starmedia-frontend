@@ -303,6 +303,15 @@
       padding-bottom: 0;
       padding-right: 24px;
 
+      * {
+        @extend .text_font-object;
+        @extend .text_size-xs;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        text-transform: uppercase;
+        font-style: normal;
+      }
       width: 100%;
       @media(min-width: 1024px) {
         width: 300px;

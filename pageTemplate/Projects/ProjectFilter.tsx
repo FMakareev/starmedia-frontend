@@ -52,7 +52,7 @@ const ProjectFilter: React.FC<IProjectFilterProps> = (
 
   const formats = OptionFormat(data && data.getFilters && data.getFilters.formats || [], lang);
   const genres = OptionFormat(data && data.getFilters && data.getFilters.genres || [], lang);
-  const yearList: any[] = data && data.getFilters && data.getFilters.years.map((item) => ({
+  const yearList: any[] = data && data.getFilters && data.getFilters.years && data.getFilters.years.map((item) => ({
     label: item,
     value: item,
   })) || [];

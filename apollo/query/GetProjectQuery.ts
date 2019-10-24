@@ -11,6 +11,9 @@ export const GetProjectRUQuery = gql`
                 preview {
                     url
                 }
+                previewRu {
+                    url
+                }
                 title {
                     ru
                 }
@@ -137,6 +140,9 @@ export const GetProjectENQuery = gql`
                 preview {
                     url
                 }
+                previewEn {
+                    url
+                }
                 title {
                     en
                 }
@@ -260,6 +266,9 @@ export const GetProjectUKQuery = gql`
             project {
                 slug
                 preview {
+                    url
+                }
+                previewUk {
                     url
                 }
                 title {
