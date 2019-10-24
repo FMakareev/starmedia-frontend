@@ -1,29 +1,43 @@
 import * as React from 'react';
 import Col from "../../../components/Col/Col";
 import SectionNewsItem from "./SectionNewsItem";
+import ReactIdSwiper from "react-id-swiper";
 
 interface ISectionNewsListProps {
   [prop: string]: any
 }
 
+const params = () => ({
+  slidesPerView: 'auto',
+  centeredSlides: false,
+  watchOverflow: true,
+  spaceBetween: 32,
+  slidesOffsetBefore: 16,
+  slidesOffsetAfter: 279*3,
+})
 const SectionNewsList: React.FC<ISectionNewsListProps> = ({news}) => {
+  const paramsInstance = params();
   return (
-    <React.Fragment>
-      {
-        news && news.map((item: any, index: any) => <Col
-          key={`${index}`}
-          xs={12}
-          sm={6}
-          md={3}
-          pb={16}
-          pt={16}
-        >
-          <SectionNewsItem
-            {...item}
-          />
-        </Col>)
-      }
-    </React.Fragment>
+    <Col>
+      <ReactIdSwiper
+        {...paramsInstance}
+      >
+        {
+          news && news.map((item: any, index: any) => <Col
+            key={`${index}`}
+            pb={16}
+            pt={16}
+            style={{
+              width: '279px'
+            }}
+          >
+            <SectionNewsItem
+              {...item}
+            />
+          </Col>)
+        }
+      </ReactIdSwiper>
+    </Col>
   );
 };
 

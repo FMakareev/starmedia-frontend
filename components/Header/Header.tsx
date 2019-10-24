@@ -28,7 +28,7 @@ const gettransparent = (route: string, isActive: boolean): boolean => {
 }
 
 const GetContactByCurrentLang = (language: string, data?: GetContacts): MainContact | undefined => {
-  if (data && data.getContacts.mainContacts) {
+  if (data && data.getContacts.mainContacts && language) {
     let result = data.getContacts.mainContacts.find(
       (contact: MainContact): boolean => typeof contact.locale === 'string' && contact.locale.toLowerCase() === language.toLowerCase());
     if (!result) {

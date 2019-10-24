@@ -26,7 +26,7 @@ interface ISectionNewsProps {
 const SectionNews: React.FC<ISectionNewsProps> = () => {
 
   const {t, i18n} = useTranslation('home');
-  const {data} = useLocalizationQuery({
+  const {data, loading} = useLocalizationQuery({
       ru: NewsPaginationRU,
       en: NewsPaginationEN,
       uk: NewsPaginationUK,
@@ -40,6 +40,10 @@ const SectionNews: React.FC<ISectionNewsProps> = () => {
       fetchPolicy: 'no-cache',
     }
   );
+
+  if (loading) {
+    return null;
+  }
 
 
   return (
