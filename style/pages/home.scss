@@ -402,7 +402,7 @@
   .skylight-dialog {
     overflow: auto;
 
-    @media(max-width: 767px) {
+    @media(orientation: landscape) and (max-width: 812px){
       min-height: 100vh !important;
     }
   }
