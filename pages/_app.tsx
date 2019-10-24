@@ -10,9 +10,10 @@ import SocialIconsSprite from "../components/Icons/SocialIconsSprite";
 import CookiePopup from "../components/CookiePopup/CookiePopup";
 import withApollo from "../apollo/withApollo/withApollo";
 import SearchBySiteProvider from "../libs/SearchBySiteProvider";
+import { documentOffsetTop } from "../libs/documentOffsetTop";
 
 
-
+documentOffsetTop();
 
 
 class RootApp extends App<any> {

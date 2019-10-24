@@ -5,6 +5,62 @@ import {useQuery} from "@apollo/react-hooks";
 import {GetSocials} from "../../apollo/query/GetSocials";
 
 
+// @ts-ignore
+const data:any =  {
+  "getSocialList": [
+    {
+      "id": "10",
+      "url": "googleplus",
+      "name": "googleplus",
+      "shortName": "gp"
+    },
+    {
+      "id": "13",
+      "url": "https://ok.ru/starmedia",
+      "name": "odnoklassniki",
+      "shortName": "OK"
+    },
+    {
+      "id": "14",
+      "url": "https://vk.com/starmediafilm",
+      "name": "vkontakte",
+      "shortName": "vk"
+    },
+    {
+      "id": "9",
+      "url": "https://www.youtube.com/user/starmedia",
+      "name": "youtube",
+      "shortName": "yt"
+    },
+    {
+      "id": "11",
+      "url": "https://www.facebook.com/starmediacompany/",
+      "name": "facebook",
+      "shortName": "fb"
+    },
+    {
+      "id": "12",
+      "url": "https://twitter.com/#!/StarMedia_2006",
+      "name": "twitter",
+      "shortName": "t"
+    },
+    {
+      "id": "15",
+      "url": "http://www.imdb.com/company/co0251864/?ref_=fn_al_co_1",
+      "name": "imdb",
+      "shortName": "imdb"
+    },
+    {
+      "id": "16",
+      "url": "https://www.instagram.com/starmediafilm/",
+      "name": "instagram",
+      "shortName": "in"
+    }
+  ]
+}
+
+
+
 export enum SocialLinkVariantEnum {
   icon = 'icon',
   shortName = 'shortName',
@@ -27,8 +83,8 @@ const SocialLinkList: React.FC<ISocialLinkListProps> = (
     exclude,
   }
 ) => {
-
-  const {data, error} = useQuery<GetSocialList>(GetSocials);
+  // @ts-ignore
+  const {data:ar, error} = useQuery<GetSocialList>(GetSocials);
 
   if (error) {
     console.error(error);

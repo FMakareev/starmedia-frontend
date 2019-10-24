@@ -10,6 +10,10 @@ import {useLocalizationQuery} from "../../libs/useLocalizationQuery";
 import {GetContacts, MainContact} from "../../types/types";
 import {GetContactsENQuery, GetContactsRUQuery, GetContactsUKQuery} from "../../apollo/query/GetContactsQuery";
 import {useTranslation} from "../../libs/i18n";
+import {MenuConnect} from "../../libs/MenuProvider";
+
+
+
 
 interface IHeaderProps {
   [prop: string]: any
@@ -25,34 +29,27 @@ const gettransparent = (route: string, isActive: boolean): boolean => {
 
 const GetContactByCurrentLang = (language: string, data?: GetContacts): MainContact | undefined => {
   if (data && data.getContacts.mainContacts) {
-    let result =  data.getContacts.mainContacts.find(
+    let result = data.getContacts.mainContacts.find(
       (contact: MainContact): boolean => typeof contact.locale === 'string' && contact.locale.toLowerCase() === language.toLowerCase());
-    if(!result) {
+    if (!result) {
       return data.getContacts.mainContacts.find(
         (contact: MainContact): boolean => typeof contact.locale === 'string' && contact.locale.toLowerCase() === 'ru');
     }
-    return  result;
+    return result;
   }
   return undefined;
 };
 
 const Header: React.FC<IHeaderProps> = (
-  {}
+  {
+    menuIsActive,
+  }
 ) => {
   const {route} = useRouter();
   const {i18n} = useTranslation();
 
-  const [isActive, setActive] = React.useState(false);
   const [isScroll, setScroll] = React.useState(false);
 
-
-  const toggleMenu = (_isActive?:boolean) => {
-    if(typeof _isActive === "boolean"){
-      setActive(_isActive)
-    } else {
-      setActive(!isActive)
-    }
-  };
   React.useEffect(() => {
     if (typeof window !== undefined) {
       if (window.pageYOffset > 50) {
@@ -86,22 +83,16 @@ const Header: React.FC<IHeaderProps> = (
   return (
     <header className={classNames('header', {
       'header--is-scroll': isScroll,
-      'header--transparent': gettransparent(route, isActive),
+      'header--transparent': gettransparent(route, menuIsActive),
     })}>
       <HeaderDesktopTop
         contact={contacts}
-        toggleMenu={toggleMenu}
-        isActive={isActive}
       />
       <HeaderDesktopMenu
         contact={contacts}
-        // @ts-ignore
-        toggleMenu={toggleMenu}
-        // @ts-ignore
-        isActive={isActive}
       />
     </header>
   );
 };
 
-export default Header;
+export default MenuConnect(Header);

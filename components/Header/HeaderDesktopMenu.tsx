@@ -16,6 +16,7 @@ import ShowComponentInLocales from "../ShowComponentInLocales/ShowComponentInLoc
 import ExternalLink from "../Icons/ExternalLink";
 import {SocialLinkTypeEnum} from "../../types/socialLink";
 import {useGetStarMediaSchoolLink} from "../../apollo/query/GetHomePageQuery";
+import {MenuConnect} from "../../libs/MenuProvider";
 
 interface IHeaderDesktopMenuProps {
   contact?: Maybe<MainContact>;
@@ -26,7 +27,7 @@ interface IHeaderDesktopMenuProps {
 
 const HeaderDesktopMenu: React.FC<IHeaderDesktopMenuProps> = (
   {
-    isActive,
+    menuIsActive,
     toggleMenu,
     contact,
   }
@@ -34,13 +35,10 @@ const HeaderDesktopMenu: React.FC<IHeaderDesktopMenuProps> = (
   const {t} = useTranslation('nav');
 
   const {data: dataSchoolLink} = useGetStarMediaSchoolLink();
-
-
-
   return (
     <div
       className={classNames("header_menu-wrapper", {
-        'header_menu-wrapper--active': isActive,
+        'header_menu-wrapper--active': menuIsActive,
       })}
     >
       <Container>
@@ -126,4 +124,4 @@ const HeaderDesktopMenu: React.FC<IHeaderDesktopMenuProps> = (
   );
 };
 
-export default HeaderDesktopMenu;
+export default MenuConnect(HeaderDesktopMenu);

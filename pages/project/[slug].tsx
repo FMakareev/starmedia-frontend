@@ -15,22 +15,26 @@ import {GetProjectPage} from '../../types/projectTypes';
 import {GetLocalizationString} from "../../libs/GetLocalizationString";
 import {useTranslation} from "react-i18next";
 // @ts-ignore
-const DATA:GetProjectPage = {
+const data:GetProjectPage = {
   "getProjectPage": {
     "project": {
-      "slug": "normandiya_neman",
+      "slug": "xreshhennya_rusi",
       "preview": {
-        "url": "https://starmedia.expanse.systems/uploads/posternormandiya_neman.jpeg"
+        "url": "https://starmedia.expanse.systems/uploads/posterxreshhennya_rusi.jpeg"
+      },
+      "previewRu": {
+        "url": "https://starmedia.expanse.systems/uploads/posterxreshhennya_rusi.jpeg"
       },
       "title": {
-        "ru": "Нормандия Неман"
+        "ru": "Крещение Руси"
       },
       "description": {
-        "ru": "<p>1942 год. Тегеран. Гадалка, указав на одного молодого француза, назвала его везучим. И действительно: из четверых друзей войну переживет только он &ndash; граф Ролан де ля Пуап. В ноябре 1942 года четырнадцать летчиков-истребителей, преодолев пол мира, прибыли в холодный и пугающий их мир - в СССР. Они мечтали бороться за свободу Франции и откликнулись на призыв генерала де Голля сражаться в рядах советских войск против общего врага - фашистской Германии. Авиаполк &laquo;Нормандия-Неман&raquo; воевал на советских &laquo;яках&raquo;, не уступающих в скорости и маневренности немецким истребителям. Пролетарии и аристократы, советские механики и французские пилоты, сплоченные фронтовым братством, делили поровну и смерть, и славу. Они были молоды, и они стали героями.<br />\r\nВ основу фильма, легли воспоминания Ролана де ля Пуапа - французского летчика легендарного авиаполка &laquo;Нормандия-Неман&raquo;. Используя возможности компьютерной графики, авторы воссоздают воздушные бои и военные будни французского истребительного авиаполка, воевавшего на стороне СССР во время Второй мировой войны.</p>"
+        "ru": "<p>Проект &quot;Крещение Руси&quot; рассказывает об удивительном периоде в истории, связанным с приходом и распространением Христианства на территории Древней Руси. Из фильма зритель узнает, как, из чего складывались взгляды и религиозные убеждения людей того времени, как менялся политическим менталитет, как зарождалось то, что сегодня мы называем древнерусской культурой и духовностью - все то, что в последствии подарило нам великую святую Русь с ее тысячелетней историей и непрерывной связью с сегодняшним днем.</p>"
       },
-      "trailer": "https://www.youtube.com/watch?v=lGiaDhdgOeA",
+      "trailer": "https://www.youtube.com/watch?v=ixTDeBtjflQ",
+      "duration": null,
       "trailerPreview": {
-        "url": "https://starmedia.expanse.systems/uploads/Снимок экрана 2019-10-19 в 15.52.12.png"
+        "url": "https://starmedia.expanse.systems/uploads/Снимок экрана 2019-10-19 в 14.53.14.png"
       },
       // @ts-ignore
       "projectInfo": {
@@ -38,39 +42,39 @@ const DATA:GetProjectPage = {
           "ru": "докудрама"
         },
         "format": {
-          "ru": "историческая реконструкция"
+          "ru": "сериал"
         },
-        "productionYear": 2015,
-        "numberOfEpisodes": null,
+        "productionYear": 2016,
+        "numberOfEpisodes": 4,
         "productionDesigner": [
           {
-            "ru": "Александр Якимов"
-          },
-          {
-            "ru": "Рашель Пэлокен"
+            "ru": "Александр Бурков"
           }
         ],
         "directors": [
           {
-            "ru": "Фредерик Тонолли"
+            "ru": "Максим Беспалый"
           }
         ],
         "scenario": [
           {
-            "ru": "Фредерик Тонолли"
+            "ru": "Максим Беспалый"
+          },
+          {
+            "ru": "Максим Кальсин"
+          },
+          {
+            "ru": "Марина Бандиленко"
           }
         ],
         "operator": [
           {
-            "ru": "Дмитрий Киптилый"
+            "ru": "Иван Бархварт"
           }
         ],
         "composer": [
           {
-            "ru": "Евгений Петрусенко"
-          },
-          {
-            "ru": "Жан-Мишель Дюньяш"
+            "ru": "Максим Войтов"
           }
         ],
         "producer": [
@@ -81,88 +85,97 @@ const DATA:GetProjectPage = {
             "ru": "Влад Ряшин"
           }
         ],
-        "cast": []
+        "cast": [
+          {
+            "ru": "Андрей Курилов"
+          },
+          {
+            "ru": "Антон Пампушный"
+          },
+          {
+            "ru": "Валерий Лукьянов"
+          },
+          {
+            "ru": "Виктор Куклин"
+          },
+          {
+            "ru": "Дмитрий Митюрич"
+          },
+          {
+            "ru": "Евгений Журавкин"
+          },
+          {
+            "ru": "Евгения Афонская"
+          },
+          {
+            "ru": "Екатерина Беспалая"
+          },
+          {
+            "ru": "Иван Латушко"
+          },
+          {
+            "ru": "Сергей Халиченко"
+          },
+          {
+            "ru": "Юлия Харьковская"
+          }
+        ]
       },
-      "awards": [],
+      "awards": [
+        {
+          "name": {
+            "ru": "Победа на международном фестивале православного кино!"
+          },
+          "slug": "pobeda_na_mezhdunarodnom_festivale_pravoslavnogo_kino",
+          "date": "2017-10-08T00:00:00+00:00"
+        }
+      ],
       "gallery": [
         {
-          "url": "https://starmedia.expanse.systems/uploads/0ff8809e87fb3ac0a07ada71aa437a7d496a7351.jpeg"
+          "url": "https://starmedia.expanse.systems/uploads/3c27e84f910ad037f38fad785186bc2a0c234788.jpg"
         },
         {
-          "url": "https://starmedia.expanse.systems/uploads/82506e7966529ab21fd0aab68e5b5cab42145368.jpeg"
+          "url": "https://starmedia.expanse.systems/uploads/5d6bde6f361edac91e2b02c56914a5e3d5994616.jpg"
         },
         {
-          "url": "https://starmedia.expanse.systems/uploads/ba455a88a06cdee0d8515fa35a2dea5642aac11c.jpeg"
+          "url": "https://starmedia.expanse.systems/uploads/6abde79eb38c42b243e9a1f38a7347ab0eab863e.jpg"
         },
         {
-          "url": "https://starmedia.expanse.systems/uploads/bfe9b8dd6635078e3230046ca3b06b8dc90078c2.jpeg"
+          "url": "https://starmedia.expanse.systems/uploads/8f643a803114a7aafe10d5732bc1dd435f13d07f.jpg"
         },
         {
-          "url": "https://starmedia.expanse.systems/uploads/c93005ec818fe9ef72e1e96f88e675220c14aa65.jpeg"
+          "url": "https://starmedia.expanse.systems/uploads/9e4ccbcf9155c77f77f9b6820ccf6706e69182d3.jpg"
         },
         {
-          "url": "https://starmedia.expanse.systems/uploads/d7dc917fd4ca4abe55a9ab38692fc95d3ef9bc94.jpeg"
+          "url": "https://starmedia.expanse.systems/uploads/21e7d9f487a7fbebd167ac59742597df649616ec.jpg"
         },
         {
-          "url": "https://starmedia.expanse.systems/uploads/d929a8745b3dc75633897ee4902caf73a9ab52b4.jpeg"
+          "url": "https://starmedia.expanse.systems/uploads/0962ffd31c0b4e52f493bca9f00a958676f48a1c.jpg"
+        },
+        {
+          "url": "https://starmedia.expanse.systems/uploads/a6ca01b84acb10ddf162aca94727b0ecd3f60a08.jpg"
+        },
+        {
+          "url": "https://starmedia.expanse.systems/uploads/bc9f4841ad495c1a6f80db4e2ff238c014e2ec8b.jpg"
+        },
+        {
+          "url": "https://starmedia.expanse.systems/uploads/fc4801dcff08d3fc3aa85223749aa439ec41c187.jpg"
         }
       ],
       "tags": [],
       "similarProject": [
         {
-          "slug": "delodabristov",
+          "slug": "ryurikovichi",
           "projectInfo": {
             "genre": {
               "ru": "докудрама"
             }
           },
           "preview": {
-            "url": "https://starmedia.expanse.systems/uploads/postersprava_dekabristiv.jpeg"
+            "url": "https://starmedia.expanse.systems/uploads/poster.png"
           },
           "title": {
-            "ru": "Дело Декабристов"
-          }
-        },
-        {
-          "slug": "nulova_mirovaya",
-          "projectInfo": {
-            "genre": {
-              "ru": "докудрама"
-            }
-          },
-          "preview": {
-            "url": "https://starmedia.expanse.systems/uploads/posternulova_cvitova.jpeg"
-          },
-          "title": {
-            "ru": "Нулевая мировая"
-          }
-        },
-        {
-          "slug": "xreshhennya_rusi",
-          "projectInfo": {
-            "genre": {
-              "ru": "докудрама"
-            }
-          },
-          "preview": {
-            "url": "https://starmedia.expanse.systems/uploads/posterxreshhennya_rusi.jpeg"
-          },
-          "title": {
-            "ru": "Крещение Руси"
-          }
-        },
-        {
-          "slug": "zabitievoghdi",
-          "projectInfo": {
-            "genre": {
-              "ru": "докудрама"
-            }
-          },
-          "preview": {
-            "url": "https://starmedia.expanse.systems/uploads/kra_na_rad_zabuti_kermanichi.jpeg"
-          },
-          "title": {
-            "ru": "Страна советов. Забытые вожди"
+            "ru": "Рюриковичи"
           }
         },
         {
@@ -180,20 +193,6 @@ const DATA:GetProjectPage = {
           }
         },
         {
-          "slug": "ryurikovichi",
-          "projectInfo": {
-            "genre": {
-              "ru": "докудрама"
-            }
-          },
-          "preview": {
-            "url": "https://starmedia.expanse.systems/uploads/poster.png"
-          },
-          "title": {
-            "ru": "Рюриковичи"
-          }
-        },
-        {
           "slug": "polskij_slid",
           "projectInfo": {
             "genre": {
@@ -205,6 +204,62 @@ const DATA:GetProjectPage = {
           },
           "title": {
             "ru": "Польский след"
+          }
+        },
+        {
+          "slug": "zabitievoghdi",
+          "projectInfo": {
+            "genre": {
+              "ru": "докудрама"
+            }
+          },
+          "preview": {
+            "url": "https://starmedia.expanse.systems/uploads/kra_na_rad_zabuti_kermanichi.jpeg"
+          },
+          "title": {
+            "ru": "Страна советов. Забытые вожди"
+          }
+        },
+        {
+          "slug": "nulova_mirovaya",
+          "projectInfo": {
+            "genre": {
+              "ru": "докудрама"
+            }
+          },
+          "preview": {
+            "url": "https://starmedia.expanse.systems/uploads/posternulova_cvitova.jpeg"
+          },
+          "title": {
+            "ru": "Нулевая мировая"
+          }
+        },
+        {
+          "slug": "delodabristov",
+          "projectInfo": {
+            "genre": {
+              "ru": "докудрама"
+            }
+          },
+          "preview": {
+            "url": "https://starmedia.expanse.systems/uploads/postersprava_dekabristiv.jpeg"
+          },
+          "title": {
+            "ru": "Дело Декабристов"
+          }
+        },
+        {
+          "slug": "normandiya_neman",
+          "projectInfo": {
+            "genre": {
+              "ru": "докудрама"
+            }
+          },
+          "preview": {
+            "url": "https://starmedia.expanse.systems/uploads/posternormandiya_neman.jpeg"
+          },
+          "title": {
+            "ru": "Нормандия Неман"
           }
         }
       ]
@@ -264,7 +319,7 @@ const ProjectDetail: React.FC<IProjectDetailProps> = () => {
 
   const {i18n} = useTranslation();
   // @ts-ignore
-  const {data, loading} = useLocalizationQuery<GetProjectPage>({
+  const {data:as, loading} = useLocalizationQuery<GetProjectPage>({
     ru: GetProjectRUQuery,
     en: GetProjectENQuery,
     uk: GetProjectUKQuery,

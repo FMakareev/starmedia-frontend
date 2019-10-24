@@ -9,15 +9,19 @@ interface IHeaderSearchProps {
 
 const SearchPopup = dynamic(
   () => import("../SearchPopup/SearchPopup"),
-  { ssr: false }
-)
+  {ssr: false}
+);
+
 const HeaderSearch: React.FC<IHeaderSearchProps> = (
-  {
-    toggleMenu,
-  }
+
 ) => {
+
   const [isVisible, togglePopup] = React.useState(false);
   const {t} = useTranslation('common');
+
+  const onClose = () => {
+    togglePopup(false);
+  }
 
   return (
     <React.Fragment>
@@ -38,12 +42,9 @@ const HeaderSearch: React.FC<IHeaderSearchProps> = (
         }
       </button>
       {
-      SearchPopup && <SearchPopup
+        SearchPopup && <SearchPopup
 					isVisible={isVisible}
-					onClose={() => {
-            toggleMenu && toggleMenu(false);
-            togglePopup(false);
-          }}
+					onClose={onClose}
 				/>
       }
 

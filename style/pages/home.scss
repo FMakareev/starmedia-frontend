@@ -206,10 +206,22 @@
 .section-news {
   $this: &;
 
+  &_top {
+    margin-bottom: 24px;
+    @media (min-width: 768px) {
+      margin-bottom: 44px;
+    }
+  }
+
   &_wrapper {
-    padding-top: 80px;
-    padding-bottom: 64px;
+    padding-top: 45px;
+    padding-bottom: 30px;
     background-color: $color-bg-primary;
+
+    @media (min-width: 768px) {
+      padding-top: 80px;
+      padding-bottom: 64px;
+    }
 
   }
 

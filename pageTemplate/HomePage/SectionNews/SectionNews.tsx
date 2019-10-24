@@ -27,23 +27,25 @@ const SectionNews: React.FC<ISectionNewsProps> = () => {
 
   const {t, i18n} = useTranslation('home');
   const {data} = useLocalizationQuery({
-    ru: NewsPaginationRU,
-    en: NewsPaginationEN,
-    uk: NewsPaginationUK,
-  }, {
-    variables: {
-      limit: 4,
-      page: 1,
-      locale: i18n.language,
+      ru: NewsPaginationRU,
+      en: NewsPaginationEN,
+      uk: NewsPaginationUK,
     },
-    fetchPolicy: 'no-cache',
-  });
+    {
+      variables: {
+        limit: 4,
+        page: 1,
+        locale: i18n.language,
+      },
+      fetchPolicy: 'no-cache',
+    }
+  );
 
 
   return (
     <div className={'section-news_wrapper'}>
       <Container>
-        <div className="section-news_top mb-44">
+        <div className="section-news_top">
           <Text className={'text_uppercase'} size={'l'} as={'h2'}>
             {t('section_news_title')}
           </Text>

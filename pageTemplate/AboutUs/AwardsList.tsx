@@ -42,17 +42,19 @@ const AwardsList: React.FC<IAwardsListProps> = () => {
     },
     options: {
       onCompleted: () => {
-        // goToAnchor('awards', false)
         try {
-          if (route.asPath.indexOf('#awards') > 0 && window.pageYOffset < 700) {
-            window.scrollTo(0,0);
+          if (route.asPath.indexOf('#awards') > 0) {
+            window.scrollTo(0, 0);
             setTimeout(() => {
+              const title: any = document.getElementById('awards');
+              const offsetTop:any = title.documentOffsetTop();
+
               window.scrollTo({
                 // @ts-ignore
-                top: document.getElementById('awards').getBoundingClientRect().top - 100,
+                top: offsetTop - 100,
                 behavior: "smooth"
               })
-            }, 250)
+            }, 500)
           }
         } catch (e) {
           console.log(e);

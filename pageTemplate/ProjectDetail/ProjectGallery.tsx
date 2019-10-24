@@ -38,10 +38,9 @@ const params = () => ({
       window.customCursor.clientX = event.clientX;
       // @ts-ignore
       window.customCursor.clientY = event.clientY;
-    })
+    });
   }
-  // activeSlideKey: '2',
-})
+});
 
 const ProjectGallery: React.FC<IProjectGalleryProps> = (
   {

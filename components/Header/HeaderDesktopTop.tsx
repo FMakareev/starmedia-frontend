@@ -13,6 +13,7 @@ import {SocialLinkTypeEnum} from "../../types/socialLink";
 import Row from '../../components/Row/Row';
 import {ExcludeSocialLinkByLocale} from "../../libs/ExcludeSocialLinkByLocale";
 import {useTranslation} from "react-i18next";
+import {MenuConnect} from "../../libs/MenuProvider";
 
 interface IHeaderDesktopTopProps {
   contact?: Maybe<MainContact>;
@@ -23,8 +24,8 @@ interface IHeaderDesktopTopProps {
 const HeaderDesktopTop: React.FC<IHeaderDesktopTopProps> = (
   {
     toggleMenu,
-    isActive,
     contact,
+    menuIsActive,
   }
 ) => {
 
@@ -33,7 +34,7 @@ const HeaderDesktopTop: React.FC<IHeaderDesktopTopProps> = (
   return (
     <Container className={'header_container'}>
       <Col className={'header_left'}>
-        <HeaderBurgerButton toggleMenu={toggleMenu} isActive={isActive}/>
+        <HeaderBurgerButton toggleMenu={toggleMenu} isActive={menuIsActive}/>
         <HeaderLogo/>
       </Col>
       <Col sm={'none'} xs={'none'} className={'header_right'}>
@@ -47,6 +48,7 @@ const HeaderDesktopTop: React.FC<IHeaderDesktopTopProps> = (
         </Col>
         <Col className="header_search-wrapper">
           <HeaderSearch
+            phone={phone}
             toggleMenu={toggleMenu}
           />
         </Col>
@@ -74,4 +76,4 @@ const HeaderDesktopTop: React.FC<IHeaderDesktopTopProps> = (
   );
 };
 
-export default HeaderDesktopTop;
+export default MenuConnect(HeaderDesktopTop);

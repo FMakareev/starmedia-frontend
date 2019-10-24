@@ -5,6 +5,7 @@ import SearchPopupTextField from './SearchPopupTextField';
 import {useRouter} from "next/router";
 import {SearchBySiteConnect} from "../../libs/SearchBySiteProvider";
 import {useEffect, useState} from "react";
+import {MenuConnect} from "../../libs/MenuProvider";
 
 interface ISearchPopupProps {
   onClose(): void;
@@ -37,11 +38,14 @@ const closeButtonStyle = {
 
 };
 
-const SearchPopup: React.FC<ISearchPopupProps> = ({
-                                                    onClose,
-                                                    isVisible,
-                                                    setQuery,
-                                                  }) => {
+const SearchPopup: React.FC<ISearchPopupProps> = (
+  {
+    onClose,
+    isVisible,
+    setQuery,
+    toggleMenu,
+  }
+) => {
   const [value, setState] = useState<any>(null);
   const route = useRouter();
 
@@ -52,6 +56,7 @@ const SearchPopup: React.FC<ISearchPopupProps> = ({
   const onKeyDown = (event: any) => {
     if (event.key === 'Enter') {
       setState(null);
+      toggleMenu();
       onClose();
       setQuery(event.target.value);
       route.push(`/search?search=${event.target.value}`);
@@ -81,4 +86,4 @@ const SearchPopup: React.FC<ISearchPopupProps> = ({
   );
 };
 
-export default SearchBySiteConnect(SearchPopup);
+export default SearchBySiteConnect(MenuConnect(SearchPopup));

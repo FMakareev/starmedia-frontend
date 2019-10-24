@@ -29,14 +29,17 @@ const NewsCardLarge: React.FC<INewsCardLargeProps> = (
   return (
     <div className={'news-card-large_wrapper'}>
       <div className="news-card-large_preview">
-
-        <ProgressiveImage src={preview && preview.url || ''} placeholder={placeholder}>
-          {(src: string) => (<img
-            src={src}
-            alt=""
-            className="news-card-large_preview-img"
-          />)}
-        </ProgressiveImage>
+        <Link href={`/news/${slug}`}>
+          <a href={`/news/${slug}`}>
+            <ProgressiveImage src={preview && preview.url || ''} placeholder={placeholder}>
+              {(src: string) => (<img
+                src={src}
+                alt=""
+                className="news-card-large_preview-img"
+              />)}
+            </ProgressiveImage>
+          </a>
+        </Link>
       </div>
       <div className="news-card-large_middle">
         <Text font={'root'} type={'placeholder'} mb={16}>
@@ -59,7 +62,7 @@ const NewsCardLarge: React.FC<INewsCardLargeProps> = (
           }
         </Text>
         <Link href={`/news/${slug}`}>
-          <Button as={'a'} href={`/news/${slug}`} >
+          <Button as={'a'} href={`/news/${slug}`}>
             {t('button_detail')}
           </Button>
         </Link>
