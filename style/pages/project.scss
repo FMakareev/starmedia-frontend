@@ -100,7 +100,7 @@
     }
 
     .swiper-scrollbar-drag {
-      min-width: 200px;
+      //min-width: 200px;
       border-radius: 0;
       background-color: $color-bg-secondary;
     }
@@ -191,6 +191,10 @@
 
     width: 64px;
     height: 64px;
+    svg {
+      width: 8px;
+      height: 11px;
+    }
   }
 }
 
