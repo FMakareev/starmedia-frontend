@@ -14,31 +14,13 @@ import ProjectTrailer from "./ProjectTrailer";
 import {useTranslation} from "../../libs/i18n";
 import {GetLocalizationString} from "../../libs/GetLocalizationString";
 import {Project} from "../../types/projectTypes";
+import {getLocalizationPreview} from "../../libs/getLocalizationPreview";
 
 interface IProjectMainSectionProps extends Project {
   [prop: string]: any
 }
 
-const getLocalizationPreview = (
-  {
-    previewEn,
-    previewRu,
-    previewUk,
-    preview,
-  }: any,
-  language: string,
-) => {
-  if (language === 'ru') {
-    return previewRu && previewRu.url || preview && preview.url
-  }
-  if (language === 'en') {
-    return previewEn && previewEn.url || preview && preview.url
-  }
-  if (language === 'uk') {
-    return previewUk && previewUk.url || preview && preview.url
-  }
-  return preview.url
-};
+
 
 
 const ProjectMainSection: React.FC<IProjectMainSectionProps> = (

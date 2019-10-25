@@ -12,6 +12,7 @@ import {useTranslation} from "../../libs/i18n";
 import classNames from 'classnames';
 import {GetLocalizationString} from "../../libs/GetLocalizationString";
 import Link from "next/link";
+import {getLocalizationPreview} from "../../libs/getLocalizationPreview";
 
 interface IProjectCardProps extends Project {
   withInfo?: boolean;
@@ -19,10 +20,22 @@ interface IProjectCardProps extends Project {
   [prop: string]: any
 }
 
-const ProjectCard: React.FC<IProjectCardProps> = ({withInfo, href, title, projectInfo, preview, disabled}) => {
+const ProjectCard: React.FC<IProjectCardProps> = (
+  {
+    withInfo,
+    href,
+    title,
+    projectInfo,
+    preview,
+    disabled,
+    previewEn,
+    previewRu,
+    previewUk,
+  }
+) => {
   const {t, i18n} = useTranslation();
-  const localTitle = GetLocalizationString(title,i18n);
-  const localGenre = GetLocalizationString(projectInfo && projectInfo.genre,i18n);
+  const localTitle = GetLocalizationString(title, i18n);
+  const localGenre = GetLocalizationString(projectInfo && projectInfo.genre, i18n);
   return (<Link href={href}>
     <a
       href={href}
@@ -38,7 +51,14 @@ const ProjectCard: React.FC<IProjectCardProps> = ({withInfo, href, title, projec
         >
 
           <ProgressiveImage
-            src={preview && preview.url || ''}
+            src={getLocalizationPreview({
+                preview,
+                previewEn,
+                previewRu,
+                previewUk,
+              },
+              i18n.language
+            )}
             placeholder={placeholder}
           >
             {

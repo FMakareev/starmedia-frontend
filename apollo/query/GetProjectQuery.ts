@@ -408,6 +408,9 @@ export const ProjectPaginationRU = gql`
                 preview {
                     url
                 }
+                previewRu {
+                    url
+                }
                 title {
                     ru
                 }
@@ -437,6 +440,9 @@ export const ProjectPaginationEN = gql`
                 preview {
                     url
                 }
+                previewEn {
+                    url
+                }
                 title{
                     en
                 }
@@ -463,6 +469,9 @@ export const ProjectPaginationUK = gql`
             items {
                 slug
                 preview {
+                    url
+                }
+                previewUk {
                     url
                 }
                 title {
