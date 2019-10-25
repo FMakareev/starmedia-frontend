@@ -15,26 +15,26 @@ import {GetProjectPage} from '../../types/projectTypes';
 import {GetLocalizationString} from "../../libs/GetLocalizationString";
 import {useTranslation} from "react-i18next";
 // @ts-ignore
-const DATA:GetProjectPage = {
+const DATA: GetProjectPage = {
   "getProjectPage": {
     "project": {
-      "slug": "xreshhennya_rusi",
+      "slug": "ryurikovichi",
       "preview": {
-        "url": "https://starmedia.expanse.systems/uploads/posterxreshhennya_rusi.jpeg"
+        "url": "https://starmedia.expanse.systems/uploads/poster.png"
       },
       "previewRu": {
-        "url": "https://starmedia.expanse.systems/uploads/posterxreshhennya_rusi.jpeg"
+        "url": "https://starmedia.expanse.systems/uploads/poster.png"
       },
       "title": {
-        "ru": "Крещение Руси"
+        "ru": "Рюриковичи"
       },
       "description": {
-        "ru": "<p>Проект &quot;Крещение Руси&quot; рассказывает об удивительном периоде в истории, связанным с приходом и распространением Христианства на территории Древней Руси. Из фильма зритель узнает, как, из чего складывались взгляды и религиозные убеждения людей того времени, как менялся политическим менталитет, как зарождалось то, что сегодня мы называем древнерусской культурой и духовностью - все то, что в последствии подарило нам великую святую Русь с ее тысячелетней историей и непрерывной связью с сегодняшним днем.</p>"
+        "ru": "<p>Яростная борьба за власть и высокое самопожертвование, завоевания и потери, интриги и законотворчество, взлет культуры и пепел пожарищ, любовь и предательство - настоящая история о династии. Рюриковичи укрепляли, обороняли, расширяли своё государство разными способами: кто-то &ndash; огнем и мечом, кто-то &ndash; миром и договором.<br />\r\nИменно во времена их правления сформировалась русская нация и русская культура. Именно Рюриковичи создали ту самую страну - трансконтинентальную полиэтническую державу, в которой мы сегодня живём.</p>"
       },
-      "trailer": "https://www.youtube.com/watch?v=ixTDeBtjflQ",
+      "trailer": "http://www.youtube.com/embed/wPFOujpQKZ4?wmode=transparent&rel=0&autoplay=0",
       "duration": null,
       "trailerPreview": {
-        "url": "https://starmedia.expanse.systems/uploads/Снимок экрана 2019-10-19 в 14.53.14.png"
+        "url": "https://starmedia.expanse.systems/uploads/poster.png"
       },
       // @ts-ignore
       "projectInfo": {
@@ -42,15 +42,11 @@ const DATA:GetProjectPage = {
           "ru": "докудрама"
         },
         "format": {
-          "ru": "сериал"
+          "ru": "историческая реконструкция"
         },
-        "productionYear": 2016,
-        "numberOfEpisodes": 4,
-        "productionDesigner": [
-          {
-            "ru": "Александр Бурков"
-          }
-        ],
+        "productionYear": "2019",
+        "numberOfEpisodes": 8,
+        "productionDesigner": [],
         "directors": [
           {
             "ru": "Максим Беспалый"
@@ -58,166 +54,140 @@ const DATA:GetProjectPage = {
         ],
         "scenario": [
           {
-            "ru": "Максим Беспалый"
-          },
-          {
-            "ru": "Максим Кальсин"
-          },
-          {
             "ru": "Марина Бандиленко"
           }
         ],
-        "operator": [
-          {
-            "ru": "Иван Бархварт"
-          }
-        ],
-        "composer": [
-          {
-            "ru": "Максим Войтов"
-          }
-        ],
+        "operator": [],
+        "composer": [],
         "producer": [
           {
             "ru": "Валерий Бабич"
           },
           {
             "ru": "Влад Ряшин"
+          },
+          {
+            "ru": "Константин Эрнст"
+          },
+          {
+            "ru": "Сергей Титинков"
           }
         ],
         "cast": [
           {
-            "ru": "Андрей Курилов"
+            "ru": "Александр Карпенко"
           },
           {
-            "ru": "Антон Пампушный"
+            "ru": "Алексей Артамонов"
           },
           {
-            "ru": "Валерий Лукьянов"
+            "ru": "Алексей Фролов"
           },
           {
-            "ru": "Виктор Куклин"
+            "ru": "Андрей Камин"
           },
           {
-            "ru": "Дмитрий Митюрич"
+            "ru": "Вадим Мельников"
           },
           {
-            "ru": "Евгений Журавкин"
+            "ru": "Валентина Неймеровец"
           },
           {
-            "ru": "Евгения Афонская"
+            "ru": "Владимир Кузнецов"
           },
           {
-            "ru": "Екатерина Беспалая"
+            "ru": "Денис Беспалый"
           },
           {
-            "ru": "Иван Латушко"
+            "ru": "Дмитрий Могучев"
           },
           {
-            "ru": "Сергей Халиченко"
+            "ru": "Евгений Капитонов"
           },
           {
-            "ru": "Юлия Харьковская"
+            "ru": "Иван Петков"
+          },
+          {
+            "ru": "Петр Лойко"
+          },
+          {
+            "ru": "Светлана Бакулина"
+          },
+          {
+            "ru": "Слава Баранов"
           }
         ]
       },
-      "awards": [
-        {
-          "name": {
-            "ru": "Победа на международном фестивале православного кино!"
-          },
-          "slug": "pobeda_na_mezhdunarodnom_festivale_pravoslavnogo_kino",
-          "date": "2017-10-08T00:00:00+00:00"
-        }
-      ],
+      "awards": [],
       "gallery": [
         {
-          "url": "https://starmedia.expanse.systems/uploads/3c27e84f910ad037f38fad785186bc2a0c234788.jpg"
+          "url": "https://starmedia.expanse.systems/uploads/Снимок экрана 2019-10-25 в 17.09.17.png"
         },
         {
-          "url": "https://starmedia.expanse.systems/uploads/5d6bde6f361edac91e2b02c56914a5e3d5994616.jpg"
+          "url": "https://starmedia.expanse.systems/uploads/Снимок экрана 2019-10-25 в 17.09.05.png"
         },
         {
-          "url": "https://starmedia.expanse.systems/uploads/6abde79eb38c42b243e9a1f38a7347ab0eab863e.jpg"
+          "url": "https://starmedia.expanse.systems/uploads/Снимок экрана 2019-10-25 в 17.08.57.png"
         },
         {
-          "url": "https://starmedia.expanse.systems/uploads/8f643a803114a7aafe10d5732bc1dd435f13d07f.jpg"
+          "url": "https://starmedia.expanse.systems/uploads/Снимок экрана 2019-10-25 в 17.08.49.png"
         },
         {
-          "url": "https://starmedia.expanse.systems/uploads/9e4ccbcf9155c77f77f9b6820ccf6706e69182d3.jpg"
+          "url": "https://starmedia.expanse.systems/uploads/Снимок экрана 2019-10-25 в 17.08.36.png"
         },
         {
-          "url": "https://starmedia.expanse.systems/uploads/21e7d9f487a7fbebd167ac59742597df649616ec.jpg"
+          "url": "https://starmedia.expanse.systems/uploads/Снимок экрана 2019-10-25 в 17.08.19.png"
         },
         {
-          "url": "https://starmedia.expanse.systems/uploads/0962ffd31c0b4e52f493bca9f00a958676f48a1c.jpg"
+          "url": "https://starmedia.expanse.systems/uploads/Снимок экрана 2019-10-25 в 16.59.37.png"
         },
         {
-          "url": "https://starmedia.expanse.systems/uploads/a6ca01b84acb10ddf162aca94727b0ecd3f60a08.jpg"
+          "url": "https://starmedia.expanse.systems/uploads/Снимок экрана 2019-10-25 в 17.09.54.png"
         },
         {
-          "url": "https://starmedia.expanse.systems/uploads/bc9f4841ad495c1a6f80db4e2ff238c014e2ec8b.jpg"
+          "url": "https://starmedia.expanse.systems/uploads/Снимок экрана 2019-10-25 в 17.09.43.png"
         },
         {
-          "url": "https://starmedia.expanse.systems/uploads/fc4801dcff08d3fc3aa85223749aa439ec41c187.jpg"
+          "url": "https://starmedia.expanse.systems/uploads/Снимок экрана 2019-10-25 в 17.09.35.png"
+        },
+        {
+          "url": "https://starmedia.expanse.systems/uploads/Снимок экрана 2019-10-25 в 17.09.26.png"
         }
       ],
-      "tags": [],
+      "tags": [
+        {
+          "name": {
+            "ru": "HD"
+          }
+        }
+      ],
       "similarProject": [
         {
-          "slug": "ryurikovichi",
+          "slug": "delodabristov",
           "projectInfo": {
             "genre": {
               "ru": "докудрама"
             }
           },
           "preview": {
-            "url": "https://starmedia.expanse.systems/uploads/poster.png"
+            "url": "https://starmedia.expanse.systems/uploads/postersprava_dekabristiv.jpeg"
           },
           "title": {
-            "ru": "Рюриковичи"
+            "ru": "Дело Декабристов"
           }
         },
         {
-          "slug": "revolyuciya",
+          "slug": "xreshhennya_rusi",
           "projectInfo": {
             "genre": {
               "ru": "докудрама"
             }
           },
           "preview": {
-            "url": "https://starmedia.expanse.systems/uploads/posterrevolyuciya.png"
+            "url": "https://starmedia.expanse.systems/uploads/posterxreshhennya_rusi.jpeg"
           },
           "title": {
-            "ru": "Подлинная история Русской революции"
-          }
-        },
-        {
-          "slug": "polskij_slid",
-          "projectInfo": {
-            "genre": {
-              "ru": "докудрама"
-            }
-          },
-          "preview": {
-            "url": "https://starmedia.expanse.systems/uploads/posterpolskiisled.jpeg"
-          },
-          "title": {
-            "ru": "Польский след"
-          }
-        },
-        {
-          "slug": "zabitievoghdi",
-          "projectInfo": {
-            "genre": {
-              "ru": "докудрама"
-            }
-          },
-          "preview": {
-            "url": "https://starmedia.expanse.systems/uploads/kra_na_rad_zabuti_kermanichi.jpeg"
-          },
-          "title": {
-            "ru": "Страна советов. Забытые вожди"
+            "ru": "Крещение Руси"
           }
         },
         {
@@ -232,20 +202,6 @@ const DATA:GetProjectPage = {
           },
           "title": {
             "ru": "Нулевая мировая"
-          }
-        },
-        {
-          "slug": "delodabristov",
-          "projectInfo": {
-            "genre": {
-              "ru": "докудрама"
-            }
-          },
-          "preview": {
-            "url": "https://starmedia.expanse.systems/uploads/postersprava_dekabristiv.jpeg"
-          },
-          "title": {
-            "ru": "Дело Декабристов"
           }
         },
         {
@@ -306,7 +262,7 @@ const DATA:GetProjectPage = {
       }
     }
   }
-};
+}
 
 
 interface IProjectDetailProps {

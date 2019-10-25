@@ -17,7 +17,7 @@
     color: $color-typo-secondary;
     fill: $color-typo-secondary;
 
-    #{$this}_burger{
+    #{$this}_burger {
       span {
         background-color: $color-typo-secondary;
       }
@@ -29,10 +29,13 @@
     background-color: #fff;
     color: $color-typo-primary;
     fill: $color-typo-primary;
-    #{$this}_burger{
+
+    #{$this}_burger {
       height: 64px;
+
       span {
         background-color: $color-typo-primary;
+
         &:nth-child(1) {
           top: 27px;
         }
@@ -42,10 +45,12 @@
         }
       }
     }
-    #{$this}_logo-wrapper{
+
+    #{$this}_logo-wrapper {
       height: 64px;
       padding-top: 12px;
       padding-bottom: 12px;
+
       svg {
         width: 49px;
         height: 35px;
@@ -53,6 +58,7 @@
     }
 
   }
+
   &_container {
     padding: 0;
     width: 100%;
@@ -63,7 +69,7 @@
     justify-content: space-between;
     align-items: center;
 
-    @media(min-width: 1440px){
+    @media(min-width: 1440px) {
       max-width: 1260px;
       width: 100%;
     }
@@ -77,10 +83,13 @@
     flex-direction: row-reverse;
     justify-content: space-between;
     width: 100%;
-    @media(min-width: 1024px){
+    @media(min-width: 1024px) {
       width: calc(184px + 32px);
       flex-direction: row;
       justify-content: normal;
+    }
+    @media(min-width: 1080px) {
+      width: calc(280px + 32px);
     }
   }
 
@@ -117,7 +126,7 @@
     transform: rotate(0deg);
     cursor: pointer;
 
-    @media(min-width: 1024px){
+    @media(min-width: 1024px) {
       height: 88px;
       max-width: 104px;
     }
@@ -147,14 +156,14 @@
       &:nth-child(1) {
         top: 27px;
 
-        @media(min-width: 1024px){
+        @media(min-width: 1024px) {
           top: 39px;
         }
       }
 
       &:nth-child(2) {
         top: 35px;
-        @media(min-width: 1024px){
+        @media(min-width: 1024px) {
           top: 47px;
         }
       }
@@ -169,7 +178,7 @@
       top: 50%;
       transform: rotate(135deg) translateX(0);
 
-      @media(min-width: 1024px){
+      @media(min-width: 1024px) {
         left: 30%;
       }
     }
@@ -179,7 +188,7 @@
       top: 50%;
       transform: rotate(-135deg) translateX(0);
 
-      @media(min-width: 1024px){
+      @media(min-width: 1024px) {
         left: 30%;
       }
     }
@@ -195,6 +204,7 @@
     text-align: center;
     height: 64px;
     cursor: pointer;
+
     svg {
       width: 49px;
       height: 35px;
@@ -203,6 +213,7 @@
         height: 45px;
       }
     }
+
     @media(min-width: 1024px) {
       height: auto;
       max-width: 184px;
@@ -232,6 +243,7 @@
     padding: 0;
     display: flex;
     align-items: center;
+
     &:hover {
       color: $color-typo-brand;
       fill: $color-typo-brand;
@@ -287,7 +299,7 @@
     background-color: $color-bg-default;
 
 
-    @media(max-width: 767px){
+    @media(max-width: 767px) {
       height: calc(100vh - 64px);
       overflow-y: auto;
     }
@@ -295,6 +307,7 @@
     @media(min-width: 1024px) {
       padding-top: 52px;
     }
+
     &--active {
       display: block;
     }

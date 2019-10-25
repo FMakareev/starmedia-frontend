@@ -16,6 +16,32 @@ interface IProjectGalleryProps {
   [prop: string]: any
 }
 
+const updateSizeScroll = () => {
+
+  let intervalID: any = null;
+
+  return (swiper: SwiperInstance) => {
+    console.log('intervalID: ', intervalID);
+    if (!intervalID) {
+      intervalID = setInterval(() => {
+        console.log('setInterval: ', intervalID,swiper);
+        console.log('setInterval: ', intervalID,swiper.virtualSize );
+        console.log('setInterval: ', intervalID,swiper.virtualSize  > window.innerWidth - 100);
+        if (swiper && swiper.scrollbar.trackSize === 0 ) {
+          console.log('setInterval: ', intervalID,swiper);
+          swiper.scrollbar.updateSize();
+        } else {
+          console.log('setInterval clearInterval: ', intervalID);
+          clearInterval(intervalID);
+        }
+      }, 500);
+    }
+
+
+  }
+};
+
+const updateSizeScrollInst = updateSizeScroll();
 const params = () => ({
   scrollbar: {
     el: '.swiper-scrollbar',
@@ -29,10 +55,8 @@ const params = () => ({
   getSwiper: (swiper: SwiperInstance) => {
     console.log('swiper: ', swiper);
 
-    setTimeout(() => {
-      console.log('swiper setTimeout: ', swiper);
-      swiper && swiper.scrollbar && swiper.scrollbar.updateSize()
-    }, 1000);
+    updateSizeScrollInst(swiper);
+
     swiper && swiper.on('touchMove', (event: any) => {
       // @ts-ignore
       window.customCursor.clientX = event.clientX;

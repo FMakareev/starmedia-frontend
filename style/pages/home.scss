@@ -414,7 +414,6 @@
   overflow: hidden;
   padding-top: 50px;
   padding-bottom: 50px;
-
   @media(min-width: 768px) {
 
     padding-top: 64px;
@@ -510,22 +509,21 @@
 
 .watch-online {
   cursor: pointer !important;
-
+  display: inline-flex;
+  align-items: center;
   * {
     cursor: pointer !important;
   }
 }
 
 .section-main_watch-online {
-
+  position: relative;
   svg {
-    top: 4px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
     width: 11px;
-    height: 18px;
-
-    @media (min-width: 768px) {
-      width: 8px;
-      height: 11px;
-    }
+    height: 14px;
   }
 }
