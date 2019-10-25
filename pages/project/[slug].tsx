@@ -15,7 +15,7 @@ import {GetProjectPage} from '../../types/projectTypes';
 import {GetLocalizationString} from "../../libs/GetLocalizationString";
 import {useTranslation} from "react-i18next";
 // @ts-ignore
-const data:GetProjectPage = {
+const DATA:GetProjectPage = {
   "getProjectPage": {
     "project": {
       "slug": "xreshhennya_rusi",
@@ -306,7 +306,7 @@ const data:GetProjectPage = {
       }
     }
   }
-}
+};
 
 
 interface IProjectDetailProps {
@@ -319,7 +319,7 @@ const ProjectDetail: React.FC<IProjectDetailProps> = () => {
 
   const {i18n} = useTranslation();
   // @ts-ignore
-  const {data:as, loading} = useLocalizationQuery<GetProjectPage>({
+  const {data, loading} = useLocalizationQuery<GetProjectPage>({
     ru: GetProjectRUQuery,
     en: GetProjectENQuery,
     uk: GetProjectUKQuery,
