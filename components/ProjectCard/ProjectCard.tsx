@@ -6,8 +6,6 @@ import ProgressiveImage from 'react-progressive-image';
 // @ts-ignore
 import Tilt from 'react-tilt'
 
-// @ts-ignore
-import placeholder from '../../static/images/project-placeholder.jpg';
 import {useTranslation} from "../../libs/i18n";
 import classNames from 'classnames';
 import {GetLocalizationString} from "../../libs/GetLocalizationString";
@@ -59,7 +57,7 @@ const ProjectCard: React.FC<IProjectCardProps> = (
               },
               i18n.language
             )}
-            placeholder={placeholder}
+            placeholder={'/static/images/project-placeholder.jpg'}
           >
             {
               (src: string) => <img
