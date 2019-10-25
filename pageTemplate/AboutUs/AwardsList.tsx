@@ -16,6 +16,7 @@ import {
   TransitionGroup,
 } from 'react-transition-group';
 import {useRouter} from "next/router";
+import {useTranslation} from "react-i18next";
 
 interface IAwardsListProps {
   [prop: string]: any
@@ -23,7 +24,7 @@ interface IAwardsListProps {
 
 const AwardsList: React.FC<IAwardsListProps> = () => {
   const route: any = useRouter();
-
+  const {i18n} = useTranslation();
   const {
     data,
     loading,
@@ -40,6 +41,9 @@ const AwardsList: React.FC<IAwardsListProps> = () => {
       en: AwardPaginationEN,
       uk: AwardPaginationUK,
     },
+    variables: {
+      locale: i18n.language,
+    },
     options: {
       onCompleted: () => {
         try {
@@ -47,7 +51,7 @@ const AwardsList: React.FC<IAwardsListProps> = () => {
             window.scrollTo(0, 0);
             setTimeout(() => {
               const title: any = document.getElementById('awards');
-              const offsetTop:any = title.documentOffsetTop();
+              const offsetTop: any = title.documentOffsetTop();
 
               window.scrollTo({
                 // @ts-ignore

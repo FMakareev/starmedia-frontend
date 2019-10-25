@@ -192,8 +192,8 @@ export const GetAwardUKQuery = gql`
 /** PAGINATION */
 
 export const AwardPaginationRU = gql`
-    query($limit: Int, $page: Int){
-        awardPagination(limit: $limit, page: $page){
+    query($limit: Int, $page: Int, $locale: String){
+        awardPagination(limit: $limit, page: $page, locale:$locale){
             pageInfo {
                 currentPage
                 limit
@@ -213,8 +213,8 @@ export const AwardPaginationRU = gql`
 `;
 
 export const AwardPaginationEN = gql`
-    query($limit: Int, $page: Int){
-        awardPagination(limit: $limit, page: $page){
+    query($limit: Int, $page: Int, $locale: String){
+        awardPagination(limit: $limit, page: $page, locale:$locale){
             pageInfo {
                 currentPage
                 limit
@@ -234,8 +234,8 @@ export const AwardPaginationEN = gql`
 `;
 
 export const AwardPaginationUK = gql`
-    query($limit: Int, $page: Int){
-        awardPagination(limit: $limit, page: $page){
+    query($limit: Int, $page: Int, $locale: String){
+        awardPagination(limit: $limit, page: $page, locale:$locale){
             pageInfo {
                 currentPage
                 limit
