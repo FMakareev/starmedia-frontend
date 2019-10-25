@@ -96,6 +96,9 @@ export const GetHomePageRUQuery = gql`
                 preview {
                     url
                 }
+                previewRu {
+                    url
+                }
                 title{
                     ru
                 }
@@ -112,6 +115,9 @@ export const GetHomePageRUQuery = gql`
             items {
                 slug
                 preview {
+                    url
+                }
+                previewRu {
                     url
                 }
                 title{
@@ -216,6 +222,9 @@ export const GetHomePageENQuery = gql`
                 preview {
                     url
                 }
+                previewEn {
+                    url
+                }
                 title{
                     en
                 }
@@ -232,6 +241,9 @@ export const GetHomePageENQuery = gql`
             items {
                 slug
                 preview {
+                    url
+                }
+                previewEn {
                     url
                 }
                 title{
@@ -337,6 +349,9 @@ export const GetHomePageUKQuery = gql`
                 preview {
                     url
                 }
+                previewUk {
+                    url
+                }
                 title{
                     uk
                 }
@@ -353,6 +368,9 @@ export const GetHomePageUKQuery = gql`
             items {
                 slug
                 preview {
+                    url
+                }
+                previewUk {
                     url
                 }
                 title{
