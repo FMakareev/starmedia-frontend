@@ -7,6 +7,9 @@ export const getLocalizationPreview = (
   }: any,
   language: string,
 ) => {
+  console.log('getLocalizationPreview: ', previewEn,
+    previewRu,
+    previewUk, language);
   if (language === 'ru') {
     return previewRu && previewRu.url || preview && preview.url
   }
@@ -16,5 +19,5 @@ export const getLocalizationPreview = (
   if (language === 'uk') {
     return previewUk && previewUk.url || preview && preview.url
   }
-  return preview.url
+  return previewRu.url
 };
