@@ -15,7 +15,6 @@ interface IProjectsProps {
   [prop: string]: any
 }
 
-// @ts-ignore
 const getDefaultLimitsByWindowWidth = (): number => {
   try {
     if (typeof window !== undefined) {
@@ -24,12 +23,13 @@ const getDefaultLimitsByWindowWidth = (): number => {
       } else if (window.innerWidth >= 768) {
         return 9
       }
-      return 6
     }
+    return 6
   } catch (e) {
     return 12;
   }
 };
+
 
 const Projects: React.FC<IProjectsProps> = ({t}) => {
 
@@ -38,8 +38,7 @@ const Projects: React.FC<IProjectsProps> = ({t}) => {
   const [filters, setFilter] = React.useState({
     genre: query && query.genre || null,
     format: query && query.format || null,
-    // @ts-ignore
-    year: query && parseInt(query.year) || 0,
+    year: query && typeof query.year === 'string' && parseInt(query.year) || 0,
     search: query && query.search || '',
   });
 
@@ -62,7 +61,7 @@ const Projects: React.FC<IProjectsProps> = ({t}) => {
     variables: {
       genre: filters.genre || '',
       format: filters.format || '',
-      year: parseInt(filters.year || 0),
+      year: filters && typeof filters.year === 'string' && parseInt(filters.year) || '0',
       query: filters.search || '',
     },
     options: {
