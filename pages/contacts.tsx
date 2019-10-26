@@ -1,5 +1,4 @@
 import * as React from 'react';
-// @ts-ignore
 import ContactRoles from "../pageTemplate/Contacts/ContactRoles";
 import MainContacts from '../pageTemplate/Contacts/MainContacts';
 import LayoutTitleWithContent from "../components/Layout/LayoutTitleWithContent";
@@ -19,12 +18,10 @@ import dynamic from "next-server/dynamic";
 interface IContactsProps {
   [prop: string]: any
 }
-// @ts-ignore
 const ContactMap = dynamic(() => import('../pageTemplate/Contacts/ContactMap'),{
   ssr: false,
 });
 
-// @ts-ignore
 const Contacts: React.FC<IContactsProps> = () => {
 
   const {t} = useTranslation('nav');
@@ -42,7 +39,7 @@ const Contacts: React.FC<IContactsProps> = () => {
   }
   if (error) {
     console.log(error);
-    return 'Error'
+    return (<div>Error</div>)
   }
 
   return (
