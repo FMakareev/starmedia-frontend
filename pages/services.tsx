@@ -16,7 +16,6 @@ interface IServicesProps {
 }
 
 
-// @ts-ignore
 const Services: React.FC<IServicesProps> = () => {
 
   const {t} = useTranslation('nav');
