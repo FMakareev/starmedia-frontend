@@ -31,6 +31,11 @@ const ProjectMainSection: React.FC<IProjectMainSectionProps> = (
     title,
     trailer,
     trailerPreview,
+
+    trailerPreviewRu,
+    trailerPreviewEn,
+    trailerPreviewUk,
+
     isBottomDescription,
     isBottomAwards,
     isBottomGallery,
@@ -76,11 +81,19 @@ const ProjectMainSection: React.FC<IProjectMainSectionProps> = (
             </Col>
           </Row>
         </div>
+
         <div className="project-detail-main_content">
           <Row mb={['0', '0', 52]}>
             <Col xs={12} md={6} mb={40}>
               <ProjectTrailer
-                trailerPreview={trailerPreview}
+                trailerPreview={getLocalizationPreview({
+                    preview: trailerPreview,
+                    previewRu:trailerPreviewRu,
+                    previewEn:trailerPreviewEn,
+                    previewUk:trailerPreviewUk,
+                  },
+                  i18n.language
+                )}
                 trailer={trailer}
               />
             </Col>

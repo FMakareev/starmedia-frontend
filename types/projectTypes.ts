@@ -12,6 +12,11 @@ export interface Project {
   previewRu?: Maybe<File>;
   previewEn?: Maybe<File>;
   previewUk?: Maybe<File>;
+
+  trailerPreviewRu?: Maybe<File>;
+  trailerPreviewEn?: Maybe<File>;
+  trailerPreviewUk?: Maybe<File>;
+
   trailer?: Maybe<Scalars["String"]>;
   projectInfo?: Maybe<ProjectInfo>;
   awards?: Maybe<Array<Award>>;

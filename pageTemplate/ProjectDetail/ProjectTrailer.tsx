@@ -56,7 +56,7 @@ const ProjectTrailer: React.FC<IProjectTrailerProps> = (
         !watch &&
 				<div onClick={togglePlayer} className="project-trailer_preview">
 					<ProgressiveImage
-						src={trailerPreview && trailerPreview.url || ''}
+						src={trailerPreview}
 						placeholder={placeholder}
 					>
             {
