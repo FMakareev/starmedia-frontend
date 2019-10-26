@@ -1,11 +1,11 @@
 import * as React from 'react';
+import {Fragment} from "react";
 import LayoutTitleWithContent from "../components/Layout/LayoutTitleWithContent";
 import AwardsList from '../pageTemplate/AboutUs/AwardsList';
 import AboutDevelop from '../pageTemplate/AboutUs/AboutDevelop';
 import AboutDescription from "../pageTemplate/AboutUs/AboutDescription";
 import {useTranslation} from "../libs/i18n";
 import Head from "../components/Head/Head";
-import {Fragment} from "react";
 import {useLocalizationQuery} from "../libs/useLocalizationQuery";
 import {GetAboutUsRUQuery, GetAboutUsENQuery, GetAboutUsUKQuery} from '../apollo/query/GetAboutUsQuery';
 import {GetAboutUs} from '../types/types';
