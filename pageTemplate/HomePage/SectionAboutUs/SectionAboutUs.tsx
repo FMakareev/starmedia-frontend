@@ -39,12 +39,14 @@ const SectionAboutUs: React.FC<ISectionAboutUsProps> = (
         muted
         width={'100%'}
         height={'100%'}
-        poster={backgroundVideo && backgroundVideo.preview && backgroundVideo.preview.url || '/static/video/10000000_156705418846576_2936494491409534675_n.mp4'}
+        poster={backgroundVideo && backgroundVideo.preview && backgroundVideo.preview.url || '/static/video/f186a09c00195a9368fd7b4d740df086.jpg'}
         className="section-about-us_video"
       >
           <source
             type="video/mp4"
-            src={'/static/video/b0e66d933f82fab0e575b5e9e742dd2c.mp4'}
+            src={
+              backgroundVideo && backgroundVideo.video && backgroundVideo.video.url || '/static/video/10000000_156705418846576_2936494491409534675_n.mp4'
+            }
           />
         Your browser does not support the video tag.
       </video>
