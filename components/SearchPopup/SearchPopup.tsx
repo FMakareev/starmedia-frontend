@@ -56,7 +56,7 @@ const SearchPopup: React.FC<ISearchPopupProps> = (
   const onKeyDown = (event: any) => {
     if (event.key === 'Enter') {
       setState(null);
-      toggleMenu();
+      toggleMenu(false);
       onClose();
       setQuery(event.target.value);
       route.push(`/search?search=${event.target.value}`);
