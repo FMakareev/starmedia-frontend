@@ -11,6 +11,7 @@ import Link from 'next/link';
 import {GetLocalizationString} from "../../../libs/GetLocalizationString";
 import ShowComponentInLocales from "../../../components/ShowComponentInLocales/ShowComponentInLocales";
 import ReactHtmlParser from "react-html-parser";
+import {useState} from "react";
 
 interface ISectionAboutUsProps extends AboutUsSection {
   [prop: string]: any
@@ -22,21 +23,23 @@ const SectionAboutUs: React.FC<ISectionAboutUsProps> = (
     backgroundVideo
   }
 ) => {
-
-  const {t} = useTranslation('home');
+  const [titleIsShow, toggleTitle]  = useState(true);
+  const {t, i18n} = useTranslation('home');
 
   return (
     <div className={'section-about-us'}>
 
-
       <video
+        onLoadedData={()=>{
+          toggleTitle && toggleTitle(false);
+        }}
         autoPlay
         loop
         playsInline
         muted
         width={'100%'}
         height={'100%'}
-        poster={backgroundVideo && backgroundVideo.preview && backgroundVideo.preview.url || '/static/video/f186a09c00195a9368fd7b4d740df086.jpg'}
+        poster={backgroundVideo && backgroundVideo.preview && backgroundVideo.preview.url || '/static/video/10000000_156705418846576_2936494491409534675_n.mp4'}
         className="section-about-us_video"
       >
           <source
@@ -47,13 +50,15 @@ const SectionAboutUs: React.FC<ISectionAboutUsProps> = (
       </video>
 
       <div className="section-about-us_content">
+        {
+          titleIsShow &&
+					<Text as={'h2'}  className="section-about-us_title reset-style" size={'l'}>
+            {
+              ReactHtmlParser(GetLocalizationString(title,i18n))
+            }
+					</Text>
 
-        <Text as={'h2'}  className="section-about-us_title reset-style" size={'l'}>
-          {
-            ReactHtmlParser(GetLocalizationString(title))
-          }
-        </Text>
-
+        }
         <Container className="section-about-us_bottom">
           <Row>
             <Col xs={12} sm={'auto'} mb={16} mr={30}>
