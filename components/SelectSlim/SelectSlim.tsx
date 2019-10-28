@@ -24,19 +24,18 @@ const SelectSlim: React.FC<ISelectSlimProps> = (
 ) => {
   const Ref = React.useRef(null);
 
-
   React.useEffect(() => {
     new SlimSelect({
       showSearch: false,
       // @ts-ignore
       select: Ref.current,
-      onChange:(event:any)=>{
+      onChange: (event: any) => {
         onChange(event.value)
       }
-    })
+    });
 
 
-  }, []);
+  }, [options]);
 
   return (<div style={style}>
     <Text font={'root'} mb={10}>
