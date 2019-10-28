@@ -62,6 +62,10 @@ const ProjectAwards: React.FC<IProjectAwardsProps> = (
 
   const Awards: Award[] = filterAwards(awards, i18n.language);
 
+  if (Awards && !Awards.length) {
+    return null;
+  }
+
   return (
     <Col as={'section'} id={'awards'} mb={100} className={'project-detail_awards'}>
       <Container mb={36}>
