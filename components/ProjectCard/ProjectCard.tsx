@@ -29,6 +29,7 @@ const ProjectCard: React.FC<IProjectCardProps> = (
     previewEn,
     previewRu,
     previewUk,
+    className,
   }
 ) => {
   const {t, i18n} = useTranslation();
@@ -45,7 +46,7 @@ const ProjectCard: React.FC<IProjectCardProps> = (
         options={{max: 5, scale: 1}}
       >
         <div
-          className="project-card_preview"
+          className={classNames('project-card_preview',className)}
         >
 
           <ProgressiveImage
