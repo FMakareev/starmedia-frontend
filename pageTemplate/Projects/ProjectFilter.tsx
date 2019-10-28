@@ -460,17 +460,20 @@ const CheckFilterOption = (language: AppLanguages) => (option: LocalizedString) 
   return false;
 };
 
-const OptionFormat = memo((options: LocalizedString[], language: AppLanguages) => {
+const OptionFormat = memo((options: LocalizedString[], optionAll:any, language: AppLanguages) => {
   let filteredOptions = options
     .filter(CheckFilterOption(language));
   let uniqueOption: any[] = [...new Set(filteredOptions.map(option => {
     // @ts-ignore
     return language in option && option[language].trim()
   }))];
-  return uniqueOption.map((option: any) => ({
-    label: option,
-    value: option,
-  }))
+  return [
+    optionAll,
+    ...uniqueOption.map((option: any) => ({
+      label: option,
+      value: option,
+    })),
+  ]
 });
 
 const removeUniqueInArray = (arr: any[]) => {
@@ -484,7 +487,7 @@ const removeUniqueInArray = (arr: any[]) => {
   return result;
 };
 
-const OptionYearFormat = memo((options: string[]) => {
+const OptionYearFormat = memo((options: string[],optionAll:any,_) => {
   let filterOption: any[] = options
     .filter((option: string) => {
       //@ts-ignore
@@ -494,11 +497,14 @@ const OptionYearFormat = memo((options: string[]) => {
       return false;
     });
 
-  return removeUniqueInArray(filterOption)
-    .map((item: any) => ({
-      label: item,
-      value: item,
-    }))
+  return [
+    optionAll,
+    ...removeUniqueInArray(filterOption)
+      .map((item: any) => ({
+        label: item,
+        value: item,
+      })),
+  ]
 });
 
 
@@ -521,15 +527,15 @@ const ProjectFilter: React.FC<IProjectFilterProps> = (
   }
   // @ts-ignore
   const lang: AppLanguages = i18n.language;
-
-  const formats = OptionFormat(data && data.getFilters && data.getFilters.formats || [], lang);
-  const genres = OptionFormat(data && data.getFilters && data.getFilters.genres || [], lang);
-
-  const yearList: any[] = OptionYearFormat(data && data.getFilters && data.getFilters.years && data.getFilters.years || []);
   const optionAll = {
     label: t('filter_options-all'),
     value: '',
   };
+
+  const formats = OptionFormat(data && data.getFilters && data.getFilters.formats || [], optionAll, lang);
+  const genres = OptionFormat(data && data.getFilters && data.getFilters.genres || [], optionAll, lang);
+
+  const yearList: any[] = OptionYearFormat(data && data.getFilters && data.getFilters.years && data.getFilters.years || [], optionAll, lang);
 
   return (
     <Container mb={40} mt={24}>
