@@ -65,6 +65,9 @@ export const GetProjectRUQuery = gql`
                     }
                     slug
                     date
+                    localizationUk
+                    localizationRu
+                    localizationEn
                 }
                 gallery {
                     url
@@ -197,6 +200,9 @@ export const GetProjectENQuery = gql`
                     }
                     slug
                     date
+                    localizationUk
+                    localizationRu
+                    localizationEn
                 }
                 gallery {
                     url
@@ -328,6 +334,9 @@ export const GetProjectUKQuery = gql`
                     }
                     slug
                     date
+                    localizationUk
+                    localizationRu
+                    localizationEn
                 }
                 gallery {
                     url
