@@ -13,6 +13,9 @@ export type Award = {
   description?: Maybe<LocalizedString>;
   shortDescription?: Maybe<LocalizedString>;
   content?: Maybe<LocalizedString>;
+  localizationUk?: boolean;
+  localizationRu?: boolean;
+  localizationEn?: boolean;
 };
 
 
