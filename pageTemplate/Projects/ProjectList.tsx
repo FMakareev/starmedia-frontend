@@ -30,6 +30,7 @@ const ProjectList: React.FC<IProjectListProps> = ({projects}) => {
                   key={`${index}`}
                 >
                   <ProjectCard
+                    className={'project-card_preview--catalog'}
                     withInfo={true}
                     href={`/project/${item.slug}`}
                     {...item}
