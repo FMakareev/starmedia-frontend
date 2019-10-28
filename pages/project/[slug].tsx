@@ -14,10 +14,27 @@ import Head from "../../components/Head/Head";
 import {GetProjectPage} from '../../types/projectTypes';
 import {GetLocalizationString} from "../../libs/GetLocalizationString";
 import {useTranslation} from "react-i18next";
+import memo from "fast-memoize";
+import {Award} from "../../types/awardsTypes";
 
 interface IProjectDetailProps {
   [prop: string]: any
 }
+
+const filterAwards = memo((awards: Award[], language: string): Award[] => {
+
+  if (language === 'ru') {
+    return awards.filter((award: Award) => award.localizationRu)
+  }
+  if (language === 'en') {
+    return awards.filter((award: Award) => award.localizationEn)
+  }
+  if (language === 'uk') {
+    return awards.filter((award: Award) => award.localizationUk)
+  }
+  return awards
+
+});
 
 
 const ProjectDetail: React.FC<IProjectDetailProps> = () => {
@@ -39,6 +56,7 @@ const ProjectDetail: React.FC<IProjectDetailProps> = () => {
     return <Preloader/>
   }
 
+  const Awards: Award[] = filterAwards(data && data.getProjectPage.project.awards && data.getProjectPage.project.awards || [], i18n.language);
   return (
     <Fragment>
       <Head
@@ -49,7 +67,7 @@ const ProjectDetail: React.FC<IProjectDetailProps> = () => {
         {...(data && data.getProjectPage.project)}
 
         isBottomDescription={!!(data && data.getProjectPage.project.description)}
-        isBottomAwards={!!(data && data.getProjectPage.project.awards && data.getProjectPage.project.awards.length)}
+        isBottomAwards={!!(Awards.length)}
         isBottomGallery={!!(data && data.getProjectPage.project.gallery && data.getProjectPage.project.gallery.length)}
         isBottomSimilar={!!(data
           && data.getProjectPage.project.similarProject
@@ -60,7 +78,7 @@ const ProjectDetail: React.FC<IProjectDetailProps> = () => {
         {...(data && data.getProjectPage.project)}
       />
       <ProjectAwards
-        awards={data && data.getProjectPage.project.awards || []}
+        awards={Awards || []}
       />
       <ProjectGallery
         gallery={data && data.getProjectPage.project.gallery || []}

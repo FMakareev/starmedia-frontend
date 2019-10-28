@@ -10,7 +10,6 @@ import AwardCard from '../../components/AwardCard/AwardCard';
 import ReactIdSwiper, {SwiperInstance} from 'react-id-swiper';
 import CustomCursor from "../../components/CustomCursor/CustomCursor";
 import {useTranslation} from "../../libs/i18n";
-import memo from 'fast-memoize';
 
 
 interface IProjectAwardsProps {
@@ -34,35 +33,14 @@ const params = {
 };
 
 
-const filterAwards = memo((awards: Award[], language: string): Award[] => {
-
-  if (language === 'ru') {
-    return awards.filter((award: Award) => award.localizationRu)
-  }
-  if (language === 'en') {
-    return awards.filter((award: Award) => award.localizationEn)
-  }
-  if (language === 'uk') {
-    return awards.filter((award: Award) => award.localizationUk)
-  }
-  return awards
-
-});
-
 
 const ProjectAwards: React.FC<IProjectAwardsProps> = (
   {
     awards
   }
 ) => {
-  const {t, i18n} = useTranslation('common');
+  const {t} = useTranslation('common');
   if (!awards || awards && !awards.length) {
-    return null;
-  }
-
-  const Awards: Award[] = filterAwards(awards, i18n.language);
-
-  if (Awards && !Awards.length) {
     return null;
   }
 
@@ -86,7 +64,7 @@ const ProjectAwards: React.FC<IProjectAwardsProps> = (
               {...params}
             >
               {
-                Awards && [{}, ...Awards].map((award: Award, index: number) => {
+                awards && [{}, ...awards].map((award: Award, index: number) => {
 
                   if (index === 0) {
                     return (<Col key={index} className={'project-detail_awards-slider-first-item'}>
