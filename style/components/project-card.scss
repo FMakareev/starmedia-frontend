@@ -55,6 +55,18 @@
       background-color: $color-bg-secondary;
       opacity: 0;
     }
+
+    &--catalog {
+      max-height: 398px;
+      padding-top: 140%;
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
   }
 
   &_preview-img {
