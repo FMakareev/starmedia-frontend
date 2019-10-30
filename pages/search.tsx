@@ -46,7 +46,7 @@ const Search: React.FC<ISearchProps> = (
         en: SearchQueryEN,
         uk: SearchQueryUK,
       },
-      defaultLimit: 2,
+      defaultLimit: 4,
       searchQuery: query,
     }
     );
@@ -69,6 +69,7 @@ const Search: React.FC<ISearchProps> = (
             setValue={setValue}
             countSearchResult={countSearchResult}
           />
+
           {
             !loading && countSearchResult === 0 && (<Text size={'m'} font={'root'}>
               <Trans i18n={i18n} i18nKey={'search_not-found'}>
@@ -76,9 +77,11 @@ const Search: React.FC<ISearchProps> = (
               </Trans>
             </Text>)
           }
+
           {
             loading && (<Preloader/>)
           }
+
           {
             !loading && (<SearchResultList
               searchQuery={searchWord}
