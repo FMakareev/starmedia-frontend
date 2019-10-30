@@ -552,7 +552,7 @@ const ProjectFilter: React.FC<IProjectFilterProps> = (
                 })
               }
             }}
-            options={[optionAll, ...formats]}
+            options={formats}
             styles={{
               container: {
                 width: '100%',
@@ -572,7 +572,7 @@ const ProjectFilter: React.FC<IProjectFilterProps> = (
                 })
               }
             }}
-            options={[optionAll, ...genres]}
+            options={genres}
             styles={{
               container: {
                 width: '100%',
@@ -595,7 +595,7 @@ const ProjectFilter: React.FC<IProjectFilterProps> = (
                 })
               }
             }}
-            options={[optionAll, ...yearList]}
+            options={yearList}
           />
         </Col>
         <Col xs={12} md={3}>
