@@ -9,6 +9,8 @@ import {PaginationVariables} from "../types/types";
 import {ProjectPaginationRU, ProjectPaginationEN, ProjectPaginationUK} from '../apollo/query/GetProjectQuery';
 import {ProjectPagination} from '../types/projectTypes';
 import {useRouter} from "next/router";
+import Head from "../components/Head/Head";
+
 
 
 interface IProjectsProps {
@@ -72,7 +74,10 @@ const Projects: React.FC<IProjectsProps> = ({t}) => {
     <LayoutTitleWithContent
       title={t('nav-project-list')}
     >
-
+      <Head
+        seoTags={{}}
+        title={t('nav-project-list')}
+      />
       <ProjectFilter
         filters={filters}
         setFilters={setFilter}
