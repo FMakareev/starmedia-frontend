@@ -47,6 +47,10 @@ const params = () => ({
     el: '.swiper-scrollbar',
     hide: false
   },
+  keyboard: {
+    enabled: true,
+    onlyInViewport: false,
+  },
   slidesPerView: 'auto',
   watchOverflow: true,
   centeredSlides: false,
