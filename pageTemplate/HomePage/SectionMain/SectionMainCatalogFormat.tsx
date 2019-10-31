@@ -22,7 +22,7 @@ const SectionMainCatalogFormat: React.FC<ISectionMainCatalogFormatProps> = () =>
     <ul className={'section-main_catalog-format-list'}>
 
       {
-        data && data.getGenres && memoSpliceArray(data.getGenres, 0,3).map((item: FormatGQL, index: number) => (<li
+        data && data.getGenres && memoSpliceArray(data.getGenres, 0,6).map((item: FormatGQL, index: number) => (<li
           key={index}
           className={'section-main_catalog-format-item'}
         >
