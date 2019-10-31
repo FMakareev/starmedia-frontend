@@ -28,7 +28,7 @@ const SectionMainTitle: React.FC<ISectionMainTitleProps> = (
             animatedText
             && animatedText.map((text: LocalizedString, index: number) => (<div style={{width: '100%'}} key={index}>
               {
-                GetLocalizationString(text)
+                ReactHtmlParser(GetLocalizationString(text))
               }
             </div>))
           }

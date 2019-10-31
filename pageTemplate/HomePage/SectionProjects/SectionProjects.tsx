@@ -36,6 +36,7 @@ const SectionProjects: React.FC<ISectionProjectsProps> = ({projectList}) => {
             && projectList.map((item: Project, index: number) =>{
               return (<Col key={index}>
                 <ProjectCard
+                  className={'project-card_preview--catalog'}
                   href={`/project/${item.slug}`}
                   withInfo={false} {...item}/>
               </Col>)

@@ -134,6 +134,7 @@ const SectionMainBottom: React.FC<ISectionMainBottomProps> = (
             >
               <Link href={`/project/${item.slug}`}>
                 <ProjectCard
+                  className={' project-card_preview--catalog'}
                   disabled={disabled}
                   href={`/project/${item.slug}`} key={index} withInfo={false} {...item}/>
               </Link>
