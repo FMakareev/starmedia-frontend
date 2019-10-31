@@ -59,11 +59,15 @@
     @media(min-width: 768px) {
       display: block;
       padding-right: 16px;
+      column-count: 2;
     }
   }
 
   &_catalog-format-item {
     margin-bottom: 16px;
+    @media(min-width: 768px) {
+      white-space: nowrap;
+    }
   }
 
   &_catalog-format-link {
@@ -114,6 +118,23 @@
 
       font-size: 48px;
       line-height: 64px;
+    }
+    * {
+      @extend .text_font-object;
+      all:unset;
+
+      font-size: 20px;
+      line-height: 30px;
+      @media(min-width: 768px) {
+
+        font-size: 32px;
+        line-height: 48px;
+      }
+      @media(min-width: 1024px) {
+
+        font-size: 48px;
+        line-height: 64px;
+      }
     }
 
   }
