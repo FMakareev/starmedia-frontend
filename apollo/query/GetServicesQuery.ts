@@ -322,7 +322,7 @@ export const GetServicesENQuery=gql`
     }
 `;
 
-export const GetServicesUKQuery=gql`
+export const GetServicesUKQuery =gql`
     {
         getServices {
             protection {
