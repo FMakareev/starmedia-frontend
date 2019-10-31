@@ -80,7 +80,7 @@ const Footer: React.FC<IFooterProps> = () => {
             </ul>
           </Col>
           <Col md={3} sm={'none'} xs={'none'}>
-            <ul className={'footer_nav-list  mb-32'}>
+            <ul className={'footer_nav-list'}>
               <li className={'footer_nav-item'}>
                 <Link
                   href={`/projects`}
@@ -98,8 +98,15 @@ const Footer: React.FC<IFooterProps> = () => {
                   </Button>
                 </Link>
               </li>
+            </ul>
+            <ul style={{
+              display: 'grid',
+              gridTemplateRows: '1fr 1fr',
+              gridTemplateColumns: '1fr 1fr'
+            }} className={'footer_nav-list mb-32'}>
+
               {
-                data && data.getGenres && memoSpliceArray(data.getGenres, 0, 3).map((item: FormatGQL, index: number) => (
+                data && data.getGenres && memoSpliceArray(data.getGenres, 0, 6).map((item: FormatGQL, index: number) => (
                   <li key={index} className={'footer_nav-item'}>
                     <Link
                       href={`/projects?genre=${GetLocalizationString(item.name, i18n)}`}
