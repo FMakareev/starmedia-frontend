@@ -24,17 +24,20 @@ const updateSizeScroll = () => {
     console.log('intervalID: ', intervalID);
     if (!intervalID) {
       intervalID = setInterval(() => {
-        console.log('setInterval: ', intervalID,swiper);
-        console.log('setInterval: ', intervalID,swiper.virtualSize );
-        console.log('setInterval: ', intervalID,swiper.virtualSize  > window.innerWidth - 100);
-        if (swiper && swiper.scrollbar.trackSize === 0 ) {
-          console.log('setInterval: ', intervalID,swiper);
-          swiper.scrollbar.updateSize();
-        } else {
-          console.log('setInterval clearInterval: ', intervalID);
-          clearInterval(intervalID);
+        // console.log('setInterval swiper: ', intervalID, swiper);
+        // console.log('setInterval trackSize: ', intervalID, swiper.scrollbar.trackSize);
+        // console.log('setInterval virtualSize: ', intervalID, swiper.virtualSize);
+        // console.log('setInterval window.innerWidth - 100: ', intervalID, window.innerWidth - 100);
+        if (swiper) {
+          if (swiper.scrollbar.trackSize === 0) {
+            console.log('setInterval: ', intervalID, swiper);
+            swiper.scrollbar.updateSize();
+          } else {
+            console.log('setInterval clearInterval: ', intervalID);
+            clearInterval(intervalID);
+          }
         }
-      }, 500);
+      }, 1000);
     }
 
 
