@@ -207,8 +207,13 @@
       max-width: 860px;
       padding-left: calc((100vw - 1250px) / 2);
     }
-    @media(min-width: 1920px) {
+
+    @media(min-width: 1800px) {
       max-width: 1000px;
+    }
+
+    @media(min-width: 1921px) {
+      max-width: 1300px;
     }
 
     margin-right: 24px;
