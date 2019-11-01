@@ -107,7 +107,7 @@ const Footer: React.FC<IFooterProps> = () => {
 
               {
                 data && data.getGenres && memoSpliceArray(data.getGenres, 0, 6).map((item: FormatGQL, index: number) => (
-                  <li style={{marginBottom: '26px'}} key={index} className={'footer_nav-item'}>
+                  <li style={{marginBottom: '28px'}} key={index} className={'footer_nav-item'}>
                     <Link
                       href={`/projects?genre=${GetLocalizationString(item.name, i18n)}`}
                     >
