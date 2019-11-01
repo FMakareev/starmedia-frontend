@@ -68,7 +68,7 @@ const ContactMainItem: React.FC<IContactMainItemProps> = (
               size={'m'}
               mb={index < addresses.length - 1? 16:0}
               as={'a'}
-              className={'display-block'}
+              className={'display-block text_ws-nowrap'}
               href={`tel:${item.phone}`}
             >
               {item.phone}
@@ -85,7 +85,7 @@ const ContactMainItem: React.FC<IContactMainItemProps> = (
               size={'m'}
               as={'a'}
               mb={index < addresses.length - 1? 16:0}
-              className={'display-block'}
+              className={'display-block text_ws-nowrap'}
               href={`mailto:${item.email}`}
             >
               {item.email}
