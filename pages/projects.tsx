@@ -54,6 +54,7 @@ const Projects: React.FC<IProjectsProps> = ({t}) => {
     isDisabledPagination,
   } = usePaginationQuery<ProjectPagination, PaginationVariables>({
     queryName: 'projectPagination',
+    defaultPage: 1,
     defaultLimit: getDefaultLimitsByWindowWidth(),
     localizationQuery: {
       ru: ProjectPaginationRU,
@@ -70,6 +71,7 @@ const Projects: React.FC<IProjectsProps> = ({t}) => {
       fetchPolicy: 'cache-and-network'
     }
   });
+
   return (
     <LayoutTitleWithContent
       title={t('nav-project-list')}
