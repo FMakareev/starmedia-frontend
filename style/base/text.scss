@@ -60,24 +60,24 @@
       text-align: center;
     }
 
-    @media(min-width: map_get($screen, "sm")){
+    @media(min-width: map_get($screen, "sm")) {
       &-sm-left {
         text-align: left;
       }
     }
-    @media(min-width: map_get($screen, "md")){
+    @media(min-width: map_get($screen, "md")) {
       &-md-left {
         text-align: left;
       }
     }
-    @media(min-width: map_get($screen, "lg")){
+    @media(min-width: map_get($screen, "lg")) {
       &-lg-left {
         text-align: left;
       }
     }
 
 
-    @media(min-width: map_get($screen, "sm")){
+    @media(min-width: map_get($screen, "sm")) {
       &-sm-center {
         text-align: center;
       }
@@ -87,12 +87,12 @@
         text-align: center;
       }
     }
-    @media(min-width: map_get($screen, "lg")){
+    @media(min-width: map_get($screen, "lg")) {
       &-lg-center {
         text-align: center;
       }
     }
-    @media(min-width: map_get($screen, "sm")){
+    @media(min-width: map_get($screen, "sm")) {
       &-sm-right {
         text-align: right;
       }
@@ -102,7 +102,7 @@
         text-align: right;
       }
     }
-    @media(min-width: map_get($screen, "lg")){
+    @media(min-width: map_get($screen, "lg")) {
       &-lg-right {
         text-align: right;
       }
@@ -120,15 +120,21 @@
   &_placeholder {
     color: $color-typo-placeholder;
   }
+
   &_alert {
     color: $color-typo-alert;
   }
+
   &_inherit {
     color: inherit;
   }
 
   &_uppercase {
     text-transform: uppercase;
+  }
+
+  &_ws-nowrap {
+    white-space: nowrap;
   }
 
 }
