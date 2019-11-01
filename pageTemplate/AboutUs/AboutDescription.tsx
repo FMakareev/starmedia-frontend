@@ -7,6 +7,7 @@ import {ViewportSizeEnum, AboutUs} from "../../types/types";
 import {GetLocalizationString} from "../../libs/GetLocalizationString";
 import {useTranslation} from "react-i18next";
 import Typeset from '../../components/Typeset/Typeset';
+import ReactHtmlParser from "react-html-parser";
 
 interface IAboutDescriptionProps extends AboutUs {
   [prop: string]: any
@@ -63,9 +64,9 @@ const AboutDescription: React.FC<IAboutDescriptionProps> = (
               font={'object'}
               align={'center'}
             >
-              <Typeset
-                content={GetLocalizationString(redBabble, i18n)}
-              />
+              {
+                ReactHtmlParser(GetLocalizationString(redBabble, i18n))
+              }
             </Text>
           </div>
         </Col>
