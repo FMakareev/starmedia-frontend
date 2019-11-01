@@ -14,6 +14,10 @@ interface ISectionMainBottomProps {
 }
 
 const params = ({onSlideChange}: any) => ({
+  keyboard: {
+    enabled: true,
+    onlyInViewport: false,
+  },
   slidesPerView: 'auto',
   freeMode: false,
   centeredSlides: false,
@@ -110,7 +114,7 @@ const SectionMainBottom: React.FC<ISectionMainBottomProps> = (
               return (<Col
                 key={0}
                 className={'section-main_bottom-left'}
-                pb={40}
+                pb={56}
               >
                 <SectionMainTitle
                   title={title}
