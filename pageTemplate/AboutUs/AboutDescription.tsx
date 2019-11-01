@@ -39,7 +39,7 @@ const AboutDescription: React.FC<IAboutDescriptionProps> = (
       </Row>
       <Row start={ViewportSizeEnum.xs}>
 
-        <Col xs={12} sm={8}>
+        <Col xs={12} sm={8} mb={[32,32,32,56]}>
           <Col as={'hr'}/>
         </Col>
       </Row>
