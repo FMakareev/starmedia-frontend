@@ -110,7 +110,7 @@ const SectionMainBottom: React.FC<ISectionMainBottomProps> = (
               return (<Col
                 key={0}
                 className={'section-main_bottom-left'}
-                pb={20}
+                pb={40}
               >
                 <SectionMainTitle
                   title={title}
