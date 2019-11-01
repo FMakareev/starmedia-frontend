@@ -11,14 +11,19 @@ export interface UsePaginationProps {
   limit: number,
 }
 
-export const usePagination = ({defaultLimit}: any) => {
+export const usePagination = ({defaultLimit, defaultPage = 1}: any) => {
   const [state, setState] = React.useState<UsePaginationProps>({
-    page: 1,
+    page: defaultPage,
     limit: defaultLimit,
   });
-
   return {
     ...state,
+    resetPagination: () => {
+      setState({
+        page: 1,
+        limit: defaultLimit,
+      })
+    },
     moreData: (page: number) => {
       setState({
         ...state,
@@ -31,6 +36,7 @@ export const usePagination = ({defaultLimit}: any) => {
 export interface UsePaginationQueryProps {
   queryName: string,
   defaultLimit: number,
+  defaultPage?: number,
   localizationQuery: UseLocalizationQueryProps,
   variables?: any,
   options?: QueryFunctionOptions,
@@ -46,6 +52,7 @@ export const usePaginationQuery = <TQuery = any, TVariables = any>(
   {
     queryName,
     defaultLimit,
+    defaultPage,
     localizationQuery,
     variables,
     options,
@@ -53,7 +60,7 @@ export const usePaginationQuery = <TQuery = any, TVariables = any>(
 ) => {
 
 
-  const {moreData, page, limit} = usePagination({defaultLimit});
+  const {moreData, resetPagination, page, limit} = usePagination({defaultLimit, defaultPage});
 
 
   const {data, loading, fetchMore, updateQuery} = useLocalizationQuery<TQuery, TVariables>(localizationQuery, {
@@ -66,35 +73,25 @@ export const usePaginationQuery = <TQuery = any, TVariables = any>(
   });
 
   useEffect(() => {
-    /** @desc проверяем есть ли данные в кеше если есть то обновляем счетчик пагинации */
-    // @ts-ignore
-    if (data && data[queryName].items.length) {
-      // @ts-ignore
-      moreData(Math.ceil(data[queryName].items.length / defaultLimit));
-    }
-
     /**
      * @desc callback function for i18n event listener.
      * after changing the language performs rest page counter and update query,
      * */
-    const callbackListener = (lng: string) => {
-      if (i18n.language !== lng) {
-        moreData(1);
-        updateQuery({
-          // @ts-ignore
-          variables: {
-            page: 1,
-            limit: defaultLimit,
-            ...variables,
-          },
-        });
-      }
+    const callbackListener = () => {
+      resetPagination();
+      updateQuery({
+        // @ts-ignore
+        variables: {
+          page: 1,
+          limit: defaultLimit,
+          ...variables,
+        },
+      });
     };
-
     i18n.on('languageChanged', callbackListener);
-
     /** @desc unsubscribe listener */
     return () => {
+      resetPagination();
       i18n.off('languageChanged', callbackListener);
     }
   }, []);
@@ -118,7 +115,6 @@ export const usePaginationQuery = <TQuery = any, TVariables = any>(
       }
     });
   };
-  console.log('variables: ', variables);
   if (variables) {
     WatchChangeVariables(variables, () => {
       moreData(1);
