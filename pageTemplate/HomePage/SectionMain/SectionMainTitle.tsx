@@ -3,6 +3,8 @@ import TextLoop from "react-text-loop";
 import {LocalizedString, MainSection} from "../../../types/types";
 import {GetLocalizationString} from "../../../libs/GetLocalizationString";
 import ReactHtmlParser from "react-html-parser";
+import classNames from 'classnames';
+import {useTranslation} from "react-i18next";
 
 interface ISectionMainTitleProps extends MainSection {
   [prop: string]: any
@@ -14,10 +16,13 @@ const SectionMainTitle: React.FC<ISectionMainTitleProps> = (
     animatedText,
   }
 ) => {
+  const {i18n} = useTranslation();
 
   return (
-    <h1 className="section-main_title">
-      <div  className="section-main_title-static reset-style">
+    <h1 className={classNames('section-main_title', {
+      'section-main_title--uk': i18n.language === 'uk',
+    })}>
+      <div className={'section-main_title-static reset-style'}>
         {
           ReactHtmlParser(GetLocalizationString(title))
         }
