@@ -60,13 +60,13 @@
   "form-field_label-phone": "Телефон",
   "form-field_submit": "Відправити",
 
-  "back_to-catalog": "Вернутся в каталог",
+  "back_to-catalog": "Повернутися до каталогу",
 
-  "project_description": "Описание",
-  "project_awards": "Награды",
+  "project_description": "Опис",
+  "project_awards": "Нагороди",
   "project_gallery": "Галерея",
-  "project_similar": "Похожие проекты",
-  "project_share": "Поделится",
+  "project_similar": "Схожі проекти",
+  "project_share": "Поділиться",
 
   "project-info_genre": "Жанр",
   "project-info_format": "Формат",
