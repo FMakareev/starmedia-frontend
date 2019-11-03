@@ -81,7 +81,7 @@ const Footer: React.FC<IFooterProps> = () => {
           </Col>
           <Col md={3} sm={'none'} xs={'none'}>
             <ul className={'footer_nav-list'}>
-              <li className={'footer_nav-item'}>
+              <li style={{marginBottom: '25px'}}  className={'footer_nav-item'}>
                 <Link
                   href={`/projects`}
                 >
@@ -107,7 +107,7 @@ const Footer: React.FC<IFooterProps> = () => {
 
               {
                 data && data.getGenres && memoSpliceArray(data.getGenres, 0, 6).map((item: FormatGQL, index: number) => (
-                  <li style={{marginBottom: '28px'}} key={index} className={'footer_nav-item'}>
+                  <li style={{marginBottom: '27px'}} key={index} className={'footer_nav-item'}>
                     <Link
                       href={`/projects?genre=${GetLocalizationString(item.name, i18n)}`}
                     >
@@ -153,8 +153,8 @@ const Footer: React.FC<IFooterProps> = () => {
               exclude={ExcludeSocialLinkByLocale(
                 {
                   ru: [SocialLinkTypeEnum.GOOGLE_PLUS, SocialLinkTypeEnum.IMDB, SocialLinkTypeEnum.TWITTER],
-                  en: [SocialLinkTypeEnum.VK, SocialLinkTypeEnum.OK],
-                  uk: [SocialLinkTypeEnum.VK, SocialLinkTypeEnum.OK],
+                  en: [SocialLinkTypeEnum.GOOGLE_PLUS, SocialLinkTypeEnum.VK, SocialLinkTypeEnum.OK],
+                  uk: [SocialLinkTypeEnum.GOOGLE_PLUS, SocialLinkTypeEnum.VK, SocialLinkTypeEnum.OK],
                 },
                 i18n
               )}
