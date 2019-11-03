@@ -42,7 +42,6 @@
     overflow: hidden;
     position: relative;
     border: 1px solid $color-border-primary;
-
     &:after {
       @include transitionHover;
       content: '';

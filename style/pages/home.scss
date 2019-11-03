@@ -119,6 +119,7 @@
       font-size: 48px;
       line-height: 64px;
     }
+
     * {
       @extend .text_font-object;
       all:unset;
@@ -137,6 +138,20 @@
       }
     }
 
+    &--uk{
+      * {
+        font-size: 20px;
+        line-height: 30px;
+        @media(min-width: 768px) {
+          font-size: 32px;
+          line-height: 48px;
+        }
+        @media(min-width: 1024px) {
+          font-size: 40px;
+          line-height: 56px;
+        }
+      }
+    }
   }
 
   &_title-static {
