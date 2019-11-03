@@ -10,42 +10,46 @@ import {useTranslation} from "../../libs/i18n";
 import {File} from '../../types/types';
 import {getSlidesOffsetBefore} from "../../libs/swiperUtils";
 
+
 interface IProjectGalleryProps {
   gallery?: File[];
 
   [prop: string]: any
 }
 
-const updateSizeScroll = () => {
+const updateSizeScroll = (gallery: File[]) => {
 
-  let intervalID: any = null;
 
   return (swiper: SwiperInstance) => {
-    console.log('intervalID: ', intervalID);
-    if (!intervalID) {
-      intervalID = setInterval(() => {
-        // console.log('setInterval swiper: ', intervalID, swiper);
-        // console.log('setInterval trackSize: ', intervalID, swiper.scrollbar.trackSize);
-        // console.log('setInterval virtualSize: ', intervalID, swiper.virtualSize);
-        // console.log('setInterval window.innerWidth - 100: ', intervalID, window.innerWidth - 100);
-        if (swiper) {
-          if (swiper.scrollbar.trackSize === 0) {
-            console.log('setInterval: ', intervalID, swiper);
-            swiper.scrollbar.updateSize();
-          } else {
-            console.log('setInterval clearInterval: ', intervalID);
-            clearInterval(intervalID);
-          }
+    if (typeof window === undefined && typeof document === undefined) return;
+    let Counter = 0;
+    let TotalImages = gallery.length;
+
+    try {
+      gallery.forEach((item: File) => {
+        if (item.url) {
+          const image = new Image();
+          image.onload = () => {
+            Counter++;
+            // Verify if the counter is less than the number of images
+            if (Counter < TotalImages) {
+              return;
+            }
+            swiper && swiper.scrollbar && swiper.scrollbar.updateSize();
+          };
+          image.src = item.url;
         }
-      }, 1000);
+      })
+    } catch (e) {
+      console.log(e);
     }
 
 
   }
 };
 
-const updateSizeScrollInst = updateSizeScroll();
-const params = () => ({
+
+const params = (gallery: File[]) => ({
   scrollbar: {
     el: '.swiper-scrollbar',
     hide: false
@@ -62,7 +66,7 @@ const params = () => ({
   getSwiper: (swiper: SwiperInstance) => {
     console.log('swiper: ', swiper);
 
-    updateSizeScrollInst(swiper);
+    updateSizeScroll(gallery)(swiper);
 
     swiper && swiper.on('touchMove', (event: any) => {
       // @ts-ignore
@@ -84,7 +88,7 @@ const ProjectGallery: React.FC<IProjectGalleryProps> = (
     return null;
   }
 
-  const paramsConfig = params();
+  const paramsConfig = params(gallery);
 
   return (
     <Col
@@ -118,7 +122,7 @@ const ProjectGallery: React.FC<IProjectGalleryProps> = (
               }
 
               return (<Col key={index}>
-                <img src={item.url || ''} alt=""/>
+                <img id={item.url || 'empty'} src={item.url || ''} alt=""/>
               </Col>)
             })
           }
