@@ -78,6 +78,18 @@ const Footer: React.FC<IFooterProps> = () => {
                 </li>))
               }
             </ul>
+            <ShowComponentInLocales locales={['uk']}>
+              <Button
+                className={'text_align-left'}
+                mods={['light', 'm']}
+                element={ButtonElementEnum.link}
+                href={dataSchoolLink && dataSchoolLink.getHomePage && dataSchoolLink.getHomePage.starSchool}
+                as={'a'}
+              >
+                star media school
+                <ExternalLink className={'ml-6'}/>
+              </Button>
+            </ShowComponentInLocales>
           </Col>
           <Col md={3} sm={'none'} xs={'none'}>
             <ul className={'footer_nav-list'}>
@@ -126,18 +138,6 @@ const Footer: React.FC<IFooterProps> = () => {
                   </li>))
               }
             </ul>
-            <ShowComponentInLocales locales={['uk']}>
-              <Button
-                className={'text_align-left'}
-                mods={['light', 'm']}
-                element={ButtonElementEnum.link}
-                href={dataSchoolLink && dataSchoolLink.getHomePage && dataSchoolLink.getHomePage.starSchool}
-                as={'a'}
-              >
-                star media school
-                <ExternalLink className={'ml-6'}/>
-              </Button>
-            </ShowComponentInLocales>
 
           </Col>
           <Col xs={12} md={3} className={'mb-20'}>
