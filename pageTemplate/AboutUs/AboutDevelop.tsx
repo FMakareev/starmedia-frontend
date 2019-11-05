@@ -11,6 +11,13 @@ import ReactHtmlParser from "react-html-parser";
 interface IAboutDevelopProps extends AboutUs {
   [prop: string]: any
 }
+// @ts-ignore
+const Icon: any = [
+  "/static/images/iconsTV/star-cinema-icon.png",
+  "/static/images/iconsTV/star-family-icon.png",
+  "/static/images/iconsTV/bold-icon.png",
+];
+
 
 const AboutDevelop: React.FC<IAboutDevelopProps> = (
   {
@@ -49,9 +56,10 @@ const AboutDevelop: React.FC<IAboutDevelopProps> = (
                       key={index}
                     >
                       <div className="about-develop_bubble-title reset-style">
-                        {
-                          ReactHtmlParser(GetLocalizationString(item.title, i18n))
-                        }
+                        <img src={Icon[index]} alt=""/>
+                        {/*{*/}
+                        {/*  ReactHtmlParser(GetLocalizationString(item.title, i18n))*/}
+                        {/*}*/}
                       </div>
                       <div className="about-develop_bubble-text reset-style">
                         {
