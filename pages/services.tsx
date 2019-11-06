@@ -29,6 +29,7 @@ const Services: React.FC<IServicesProps> = () => {
   if (loading) {
     return (<Preloader/>)
   }
+
   return (
     <Col className={'service_wrapper'} pt={80} pb={100}>
       <Head
