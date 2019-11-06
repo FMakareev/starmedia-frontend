@@ -18,6 +18,13 @@ export const GetServicesRUQuery=gql`
                     phones 
                     emails
                 }
+                contactsRu {
+                    name {
+                        ru
+                    }
+                    phones
+                    emails
+                }
                 formTesting {
                     id
                     name {
@@ -43,7 +50,7 @@ export const GetServicesRUQuery=gql`
                 content {
                     ru
                 }
-                contacts {
+                contactsRu {
                     name {
                         ru
                     }
@@ -60,7 +67,7 @@ export const GetServicesRUQuery=gql`
                 content {
                     ru
                 }
-                contacts {
+                contactsRu {
                     name {
                         ru
                     }
@@ -76,7 +83,7 @@ export const GetServicesRUQuery=gql`
                 content {
                     ru
                 }
-                contacts {
+                contactsRu {
                     name {
                         ru
                     }
@@ -92,7 +99,7 @@ export const GetServicesRUQuery=gql`
                 content {
                     ru
                 }
-                contacts {
+                contactsRu {
                     name {
                         ru
                     }
@@ -108,7 +115,7 @@ export const GetServicesRUQuery=gql`
                 content {
                     ru
                 }
-                contacts {
+                contactsRu {
                     name {
                         ru
                     }
@@ -172,7 +179,7 @@ export const GetServicesENQuery=gql`
                 content {
                     en
                 }
-                contacts {
+                contactsEn {
                     name {
                         en
                     }
@@ -203,7 +210,7 @@ export const GetServicesENQuery=gql`
                 content {
                     en
                 }
-                contacts {
+                contactsEn {
                     name {
                         en
                     }
@@ -220,7 +227,7 @@ export const GetServicesENQuery=gql`
                 content {
                     en
                 }
-                contacts {
+                contactsEn {
                     name {
                         en
                     }
@@ -236,7 +243,7 @@ export const GetServicesENQuery=gql`
                 content {
                     en
                 }
-                contacts {
+                contactsEn {
                     name {
                         en
                     }
@@ -252,7 +259,7 @@ export const GetServicesENQuery=gql`
                 content {
                     en
                 }
-                contacts {
+                contactsEn {
                     name {
                         en
                     }
@@ -268,7 +275,7 @@ export const GetServicesENQuery=gql`
                 content {
                     en
                 }
-                contacts {
+                contactsEn {
                     name {
                         en
                     }
@@ -333,7 +340,7 @@ export const GetServicesUKQuery =gql`
                 content {
                     uk
                 }
-                contacts {
+                contactsUk {
                     name {
                         uk
                     }
@@ -365,7 +372,7 @@ export const GetServicesUKQuery =gql`
                 content {
                     uk
                 }
-                contacts {
+                contactsUk {
                     name {
                         uk
                     }
@@ -382,7 +389,7 @@ export const GetServicesUKQuery =gql`
                 content {
                     uk
                 }
-                contacts {
+                contactsUk {
                     name {
                         uk
                     }
@@ -398,7 +405,7 @@ export const GetServicesUKQuery =gql`
                 content {
                     uk
                 }
-                contacts {
+                contactsUk {
                     name {
                         uk
                     }
@@ -414,7 +421,7 @@ export const GetServicesUKQuery =gql`
                 content {
                     uk
                 }
-                contacts {
+                contactsUk {
                     name {
                         uk
                     }
@@ -430,7 +437,7 @@ export const GetServicesUKQuery =gql`
                 content {
                     uk
                 }
-                contacts {
+                contactsUk {
                     name {
                         uk
                     }
