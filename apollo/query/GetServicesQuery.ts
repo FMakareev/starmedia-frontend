@@ -43,6 +43,23 @@ export const GetServicesRUQuery=gql`
                 localization
             }
 
+            cooperationAtYoutube {
+                name {
+                    ru
+                }
+                content {
+                    ru
+                }
+                contactsUk {
+                    name {
+                        ru
+                    }
+                    phones
+                    emails
+                }
+                localization
+            }
+            
             vehicleRental {
                 name {
                     ru
@@ -203,6 +220,24 @@ export const GetServicesENQuery=gql`
                 }
                 localization
             }
+
+            cooperationAtYoutube {
+                name {
+                    en
+                }
+                content {
+                    en
+                }
+                contactsUk {
+                    name {
+                        en
+                    }
+                    phones
+                    emails
+                }
+                localization
+            }
+            
             vehicleRental {
                 name {
                     en
@@ -365,6 +400,23 @@ export const GetServicesUKQuery =gql`
                 }
             }
 
+            cooperationAtYoutube {
+                name {
+                    uk
+                }
+                content {
+                    uk
+                }
+                contactsUk {
+                    name {
+                        uk
+                    }
+                    phones
+                    emails
+                }
+                localization
+            }
+            
             vehicleRental {
                 name {
                     uk

@@ -152,8 +152,8 @@ const Footer: React.FC<IFooterProps> = () => {
             <SocialLinkList
               exclude={ExcludeSocialLinkByLocale(
                 {
-                  ru: [SocialLinkTypeEnum.GOOGLE_PLUS, SocialLinkTypeEnum.IMDB],
-                  en: [SocialLinkTypeEnum.GOOGLE_PLUS, SocialLinkTypeEnum.VK, SocialLinkTypeEnum.OK],
+                  ru: [SocialLinkTypeEnum.GOOGLE_PLUS, SocialLinkTypeEnum.IMDB, SocialLinkTypeEnum.TWITTER],
+                  en: [SocialLinkTypeEnum.GOOGLE_PLUS, SocialLinkTypeEnum.VK, SocialLinkTypeEnum.OK, SocialLinkTypeEnum.TWITTER],
                   uk: [SocialLinkTypeEnum.GOOGLE_PLUS, SocialLinkTypeEnum.VK, SocialLinkTypeEnum.OK, SocialLinkTypeEnum.TWITTER],
                 },
                 i18n
