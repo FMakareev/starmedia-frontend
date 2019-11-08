@@ -268,6 +268,9 @@ export const GetNextNewsRU = gql`
             info {
                 ru
             }
+            preview{
+                url
+            }
             date
             slug
         }
@@ -282,6 +285,9 @@ export const GetNextNewsEN = gql`
             }
             info {
                 en
+            }
+            preview{
+                url
             }
             date
             slug
@@ -298,6 +304,9 @@ export const GetNextNewsUK = gql`
             }
             info {
                 uk
+            }
+            preview{
+                url
             }
             date
             slug
