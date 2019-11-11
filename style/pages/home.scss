@@ -1,5 +1,6 @@
 
 .section-main {
+  overflow: hidden;
   position: relative;
   margin-top: -64px;
   padding-bottom: 48px;
@@ -45,6 +46,8 @@
       width: 100%;
       z-index: 1;
       filter: blur(16px);
+      -ms-filter: blur(16px);
+      -webkit-filter: blur(16px);
     }
 
   }
@@ -216,7 +219,7 @@
     @media(min-width: 1024px) {
       max-width: 785px;
       padding-left: 104px;
-      padding-right: 32px;
+      padding-right: 0;
     }
     @media(min-width: 1440px) {
       max-width: 860px;

@@ -44,7 +44,7 @@ const ProjectSimilar: React.FC<IProjectSimilarProps> = ({projects}) => {
   }
   return (
     <Col mb={[60, 100]}>
-      <Container as={'section'} id={'similar'}>
+      <Container as={'section'} id={'similar'} className={'project-detail_project-similar'}>
         <Row mb={[34, 40]}>
           <Col xs={12}>
             <Text as={'h2'} font={'object'} size={'m'} className={'text_uppercase'}>
