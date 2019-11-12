@@ -215,6 +215,7 @@
     @media(min-width: 768px) {
       display: flex !important;
       height: 475px !important;
+      padding-right: 0;
     }
     @media(min-width: 1024px) {
       max-width: 785px;
