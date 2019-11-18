@@ -12,6 +12,7 @@ import {GetPrivacyPolicyENQuery, GetPrivacyPolicyRUQuery, GetPrivacyPolicyUKQuer
 import { GetPrivacyPolicy } from '../types/types';
 import Preloader from "../components/Preloader/Preloader";
 import Typeset from '../components/Typeset/Typeset';
+import {GetLocalizationString} from "../libs/GetLocalizationString";
 
 const Privacy = () => {
 
@@ -32,17 +33,12 @@ const Privacy = () => {
         seoTags={data && data.getPrivacyPolicy && data.getPrivacyPolicy.seoTags}
         title={t('nav-privacy-policy')}
       />
-      <LayoutTitleWithContent title={t('nav-privacy-policy')}>
+      <LayoutTitleWithContent title={GetLocalizationString(data && data.getPrivacyPolicy && data.getPrivacyPolicy.title,i18n)}>
         <Container pt={[16, 16, 32]}>
           <Row>
             <Col xs={12}>
               <Typeset
-                content={data &&
-                data.getPrivacyPolicy &&
-                // @ts-ignore
-                (i18n.language in data.getPrivacyPolicy.content) &&
-                // @ts-ignore
-                data.getPrivacyPolicy.content[i18n.language]}
+                content={GetLocalizationString(data && data.getPrivacyPolicy && data.getPrivacyPolicy.content,i18n)}
               />
             </Col>
           </Row>
