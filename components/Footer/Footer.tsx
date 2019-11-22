@@ -183,7 +183,7 @@ const Footer: React.FC<IFooterProps> = () => {
               </Button>
             </Link>
           </Col>
-          <Col xs={12} md={3}>
+          <Col xs={12} md={3}  className={'mb-16'}>
             <Text
               font={'root'}
               type={'placeholder'}
