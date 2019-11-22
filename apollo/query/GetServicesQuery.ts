@@ -50,7 +50,7 @@ export const GetServicesRUQuery=gql`
                 content {
                     ru
                 }
-                contactsUk {
+                contactsRu {
                     name {
                         ru
                     }
@@ -228,7 +228,7 @@ export const GetServicesENQuery=gql`
                 content {
                     en
                 }
-                contactsUk {
+                contactsEn {
                     name {
                         en
                     }
