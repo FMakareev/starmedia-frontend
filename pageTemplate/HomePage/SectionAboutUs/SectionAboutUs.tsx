@@ -20,43 +20,47 @@ interface ISectionAboutUsProps extends AboutUsSection {
 const SectionAboutUs: React.FC<ISectionAboutUsProps> = (
   {
     title,
-    backgroundVideo
   }
 ) => {
-  const [titleIsShow, toggleTitle]  = useState(true);
+  const [titleIsShow] = useState(true);
   const {t, i18n} = useTranslation('home');
 
   return (
     <div className={'section-about-us'}>
-
-      <video
-        onLoadedData={()=>{
-          toggleTitle && toggleTitle(false);
-        }}
-        autoPlay
-        loop
-        playsInline
-        muted
-        width={'100%'}
-        height={'100%'}
-        poster={backgroundVideo && backgroundVideo.preview && backgroundVideo.preview.url || '/static/video/f186a09c00195a9368fd7b4d740df086.jpg'}
+      <img
         className="section-about-us_video"
-      >
-          <source
-            type="video/mp4"
-            src={
-              backgroundVideo && backgroundVideo.video && backgroundVideo.video.url || '/static/video/10000000_156705418846576_2936494491409534675_n.mp4'
-            }
-          />
-        Your browser does not support the video tag.
-      </video>
+        src="/static/images/aboutusBg.jpg"
+        alt=""
+      />
+      {/*<video*/}
+      {/*  onLoadedData={()=>{*/}
+      {/*    toggleTitle && toggleTitle(false);*/}
+      {/*  }}*/}
+      {/*  autoPlay*/}
+      {/*  loop*/}
+      {/*  playsInline*/}
+      {/*  muted*/}
+      {/*  preload="yes"*/}
+      {/*  width={'100%'}*/}
+      {/*  height={'100%'}*/}
+      {/*  poster={backgroundVideo && backgroundVideo.preview && backgroundVideo.preview.url || '/static/video/f186a09c00195a9368fd7b4d740df086.jpg'}*/}
+      {/*  */}
+      {/*>*/}
+      {/*    <source*/}
+      {/*      type="video/mp4"*/}
+      {/*      src={*/}
+      {/*        backgroundVideo && backgroundVideo.video && backgroundVideo.video.url || '/static/video/10000000_156705418846576_2936494491409534675_n.mp4'*/}
+      {/*      }*/}
+      {/*    />*/}
+      {/*  Your browser does not support the video tag.*/}
+      {/*</video>*/}
 
       <div className="section-about-us_content">
         {
           titleIsShow &&
-					<Text as={'h2'}  className="section-about-us_title reset-style" size={'l'}>
+					<Text as={'h2'} className="section-about-us_title reset-style" size={'l'}>
             {
-              ReactHtmlParser(GetLocalizationString(title,i18n))
+              ReactHtmlParser(GetLocalizationString(title, i18n))
             }
 					</Text>
 
