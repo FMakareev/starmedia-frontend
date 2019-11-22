@@ -49,7 +49,8 @@ const SelectSlim: React.FC<ISelectSlimProps> = (
 				</option>
       }
       {
-        options && options.map((option: any) => (<option
+        options && options.map((option: any, index: number) => (<option
+          key={index}
           value={option.value}
           selected={option.value === value}
         >{option.label}</option>))
