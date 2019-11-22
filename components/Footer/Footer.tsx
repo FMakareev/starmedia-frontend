@@ -193,6 +193,27 @@ const Footer: React.FC<IFooterProps> = () => {
               }
             </Text>
           </Col>
+          <Col xs={12} md={3}>
+            <Text
+              font={'root'}
+              type={'placeholder'}
+              style={{display: 'inline'}}
+            >
+              Сделано в {' '}
+            </Text>
+            <Link href={'/privacy'}>
+              <Button
+                target={'_blank'}
+                href={'https://expanse.systems/'}
+                as={'a'}
+                className={'button_link--font-root'}
+                mods={['light', 's']}
+                element={ButtonElementEnum.link}
+              >
+                EXPANSE
+              </Button>
+            </Link>
+          </Col>
         </Row>
         <Row sm={'none'} xs={'none'}>
           <Col xs={12} md={3}>

@@ -51,6 +51,7 @@
     "react-html-parser": "^2.0.2",
     "react-id-swiper": "^2.3.2",
     "react-intl": "^3.3.0",
+    "react-native-app-auth": "^4.4.0",
     "react-paginate": "^6.3.0",
     "react-parallax": "^2.2.4",
     "react-progressive-image": "^0.6.0",
