@@ -219,7 +219,6 @@ const Footer: React.FC<IFooterProps> = () => {
                 }
               </Button>
             </Link>
-
           </Col>
           <ShowComponentInLocales locales={['ru']}>
             <Col xs={12} md={3}>
@@ -228,6 +227,28 @@ const Footer: React.FC<IFooterProps> = () => {
               </a>
             </Col>
           </ShowComponentInLocales>
+
+          <Col xs={12} md={3}>
+            <Text
+              font={'root'}
+              type={'placeholder'}
+              style={{display: 'inline'}}
+            >
+              Сделано в {' '}
+            </Text>
+            <Link href={'/privacy'}>
+              <Button
+                target={'_blank'}
+                href={'https://expanse.systems/'}
+                as={'a'}
+                className={'button_link--font-root'}
+                mods={['light', 's']}
+                element={ButtonElementEnum.link}
+              >
+               EXPANSE
+              </Button>
+            </Link>
+          </Col>
         </Row>
       </Container>
     </footer>
