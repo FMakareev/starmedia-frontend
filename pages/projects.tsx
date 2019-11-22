@@ -19,7 +19,7 @@ interface IProjectsProps {
 
 const getDefaultLimitsByWindowWidth = (): number => {
   try {
-    if (typeof window !== undefined) {
+    if (process.browser) {
       if (window.innerWidth >= 1024) {
         return 12
       } else if (window.innerWidth >= 768) {
