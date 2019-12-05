@@ -41,7 +41,7 @@ const updateSizeScroll = (gallery: File[]) => {
         }
       })
     } catch (e) {
-      console.log(e);
+      console.error(e);
     }
 
 
@@ -64,7 +64,6 @@ const params = (gallery: File[]) => ({
   spaceBetween: 32,
   slidesOffsetBefore: getSlidesOffsetBefore(),
   getSwiper: (swiper: SwiperInstance) => {
-    console.log('swiper: ', swiper);
 
     updateSizeScroll(gallery)(swiper);
 
