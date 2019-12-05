@@ -38,7 +38,7 @@ const Contacts: React.FC<IContactsProps> = () => {
     return (<Preloader/>)
   }
   if (error) {
-    console.log(error);
+    console.error('Error: ',error);
     return (<div>Error</div>)
   }
 
