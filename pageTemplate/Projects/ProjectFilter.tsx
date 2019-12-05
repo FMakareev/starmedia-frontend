@@ -533,7 +533,7 @@ const ProjectFilter: React.FC<IProjectFilterProps> = (
     label: t('filter_options-all'),
     value: '',
   };
-  console.log('data: ', data);
+
   const formats = OptionFormat(data && data.getFilters && data.getFilters.formats || [], optionAll, lang);
   const genres = OptionFormat(data && data.getFilters && data.getFilters.genres || [], optionAll, lang);
 
