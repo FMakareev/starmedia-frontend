@@ -4,6 +4,7 @@ import NewsNext from "../../pageTemplate/News/NewsNext";
 import {useTranslation} from "react-i18next";
 import {useLocalizationQuery} from "../../libs/useLocalizationQuery";
 import {useRouter} from "next/router";
+
 import Preloader from "../../components/Preloader/Preloader";
 import {GetLocalizationString} from "../../libs/GetLocalizationString";
 import {GetNewsRUQuery, GetNewsENQuery, GetNewsUKQuery} from '../../apollo/query/GetNewsQuery';
@@ -11,6 +12,7 @@ import Head from "../../components/Head/Head";
 import {Fragment} from "react";
 import {DateFormat} from "../../libs/DateFormat";
 import Typeset from "../../components/Typeset/Typeset";
+import {isBrowser} from "../../libs/isBrowser/isBrowser";
 
 interface ISlugProps {
   [prop: string]: any
@@ -18,9 +20,10 @@ interface ISlugProps {
 
 
 const NewsDetails: React.FC<ISlugProps> = () => {
+
   const {t} = useTranslation('common');
 
-  const {query} = useRouter();
+  const {query, push} = useRouter();
   const {data, loading} = useLocalizationQuery({
     ru: GetNewsRUQuery,
     en: GetNewsENQuery,
@@ -35,6 +38,13 @@ const NewsDetails: React.FC<ISlugProps> = () => {
 
   if (loading) {
     return <Preloader/>
+  }
+
+  if(!content || content && content.indexOf('None') >= 0){
+    if(isBrowser){
+     void push('/news');
+    }
+    return null;
   }
 
   return (
