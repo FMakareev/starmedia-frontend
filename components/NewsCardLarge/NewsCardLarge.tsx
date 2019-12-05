@@ -29,8 +29,8 @@ const NewsCardLarge: React.FC<INewsCardLargeProps> = (
   return (
     <div className={'news-card-large_wrapper'}>
       <div className="news-card-large_preview">
-        <Link href={`/news/${slug}`}>
-          <a href={`/news/${slug}`}>
+        <Link href={`/news/[slug]`} as={`/news/${slug}`}>
+          <a>
             <ProgressiveImage src={preview && preview.url || ''} placeholder={placeholder}>
               {(src: string) => (<img
                 src={src}

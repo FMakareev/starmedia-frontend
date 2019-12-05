@@ -20,7 +20,7 @@ const AwardCard: React.FC<IAwardCardProps> = (
   const {t,i18n} = useTranslation('common');
 
   return (
-    <Link href={`/award/${slug}`}>
+    <Link as={`/award/${slug}`} href={`/award/[slug]`}>
       <a href={`/award/${slug}`}>
         <div className={'award-card_wrapper'}>
           <div>

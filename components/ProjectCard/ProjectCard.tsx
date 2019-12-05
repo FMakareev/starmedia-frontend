@@ -30,14 +30,14 @@ const ProjectCard: React.FC<IProjectCardProps> = (
     previewRu,
     previewUk,
     className,
+    as,
   }
 ) => {
   const {t, i18n} = useTranslation();
   const localTitle = GetLocalizationString(title, i18n);
   const localGenre = GetLocalizationString(projectInfo && projectInfo.genre, i18n);
-  return (<Link href={href}>
+  return (<Link href={href} as={as}>
     <a
-      href={href}
       className={classNames('project-card_wrapper', {
         'project-card_wrapper--disabled': disabled
       })}

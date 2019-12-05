@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Link from 'next/link';
 import Container from '../../components/Container/Container';
 import Col from '../../components/Col/Col';
 import Row from '../../components/Row/Row';
@@ -73,13 +72,9 @@ const ProjectAwards: React.FC<IProjectAwardsProps> = (
                   }
 
                   return (<Col key={index} className={'project-detail_awards-slider-item'}>
-                    <Link href={`/award/${award.slug}`}>
-                      <a href={`/award/${award.slug}`}>
-                        <AwardCard
-                          {...award}
-                        />
-                      </a>
-                    </Link>
+                    <AwardCard
+                      {...award}
+                    />
                   </Col>)
                 })
               }

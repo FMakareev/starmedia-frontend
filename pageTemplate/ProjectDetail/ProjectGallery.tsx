@@ -9,6 +9,7 @@ import CustomCursor from "../../components/CustomCursor/CustomCursor";
 import {useTranslation} from "../../libs/i18n";
 import {File} from '../../types/types';
 import {getSlidesOffsetBefore} from "../../libs/swiperUtils";
+import {isBrowser} from "../../libs/isBrowser/isBrowser";
 
 
 interface IProjectGalleryProps {
@@ -21,7 +22,7 @@ const updateSizeScroll = (gallery: File[]) => {
 
 
   return (swiper: SwiperInstance) => {
-    if (typeof window === undefined && typeof document === undefined) return;
+    if (!isBrowser) return;
     let Counter = 0;
     let TotalImages = gallery.length;
 

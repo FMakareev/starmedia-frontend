@@ -37,7 +37,8 @@ const SectionProjects: React.FC<ISectionProjectsProps> = ({projectList}) => {
               return (<Col key={index}>
                 <ProjectCard
                   className={'project-card_preview--catalog'}
-                  href={`/project/${item.slug}`}
+                  href={`/project/[slug]`}
+                  as={`/project/${item.slug}`}
                   withInfo={false} {...item}/>
               </Col>)
             })

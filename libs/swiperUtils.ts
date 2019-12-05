@@ -1,9 +1,9 @@
-
+import {isBrowser} from "./isBrowser/isBrowser";
 
 
 export const getSlidesOffsetBefore = () => {
   try {
-    if (typeof window !== undefined && document) {
+    if (isBrowser) {
       if(window.innerWidth >= 1200){
         return 0;
       }
