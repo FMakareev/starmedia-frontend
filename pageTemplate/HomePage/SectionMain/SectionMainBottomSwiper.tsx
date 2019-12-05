@@ -61,7 +61,7 @@ const changeSlidesOffsetAfter = () => {
       return 40;
     }
   } catch (e) {
-    console.log(e);
+    console.error(e);
 
   }
 
