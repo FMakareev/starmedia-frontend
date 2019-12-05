@@ -18,7 +18,7 @@ function youtubeParser(url: string = ''): string {
     // @ts-ignore
     return (match && match[7] && match[7].length === 11) ? match[7] : false;
   } catch (e) {
-    console.log(e);
+    console.error(e);
     return '';
   }
 }
