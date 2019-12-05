@@ -86,8 +86,8 @@ const CooperationForm: React.FC<ICooperationFormProps> = (
         }
         return errors;
       }}
-      render={({handleSubmit, errors}) => {
-        console.log('errors: ', errors);
+      render={({handleSubmit}) => {
+
         return (
           <form onSubmit={handleSubmit}>
             <Row>
