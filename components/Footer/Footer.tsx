@@ -50,6 +50,7 @@ export const Menu: any[] = [
 
 
 const Footer: React.FC<IFooterProps> = () => {
+  const {t: tCommon} = useTranslation();
   const {t: tNav, i18n} = useTranslation('nav');
   const {t: tFooter} = useTranslation('footer');
   const {data} = useGetGenresQuery();
@@ -199,7 +200,8 @@ const Footer: React.FC<IFooterProps> = () => {
               type={'placeholder'}
               style={{display: 'inline'}}
             >
-              Сделано в {' '}
+
+              {tCommon('made_in')}{' '}
             </Text>
             <Link href={'/privacy'}>
               <Button
@@ -255,7 +257,7 @@ const Footer: React.FC<IFooterProps> = () => {
               type={'placeholder'}
               style={{display: 'inline'}}
             >
-              Сделано в {' '}
+              {tCommon('made_in')}{' '}
             </Text>
             <Link href={'/privacy'}>
               <Button
