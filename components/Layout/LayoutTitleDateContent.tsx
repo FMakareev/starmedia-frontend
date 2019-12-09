@@ -25,7 +25,8 @@ const LayoutTitleDateContent: React.FC<ILayoutTitleDateContentProps> = (
     date,
     bottom,
     goBackLink,
-    goBackLabel
+    goBackLabel,
+    goBackHref
   }
 ) => {
   const {t} = useTranslation('common');
@@ -34,7 +35,7 @@ const LayoutTitleDateContent: React.FC<ILayoutTitleDateContentProps> = (
       <Row mb={[30, 30, 72]}>
         <Col xs={12}>
           <Col mb={[24, 24, 40]}>
-            <Link href={goBackLink}>
+            <Link href={goBackHref} as={goBackLink}>
               <Button href={goBackLink} as={'a'} element={ButtonElementEnum.transparent} mods={['dark', 'icon']}>
                 <Col style={{height:'24px'}} mr={8}>
                   <BackIcon/>

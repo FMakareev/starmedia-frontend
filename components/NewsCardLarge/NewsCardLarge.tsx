@@ -47,7 +47,7 @@ const NewsCardLarge: React.FC<INewsCardLargeProps> = (
             date && DateFormat(date)
           }
         </Text>
-        <Link href={`/news/${slug}`}>
+        <Link href={`/news/[slug]`} as={`/news/${slug}`}>
           <a href={`/news/${slug}`} className="news-card-large_title">
             {
               GetLocalizationString(name)
@@ -61,7 +61,7 @@ const NewsCardLarge: React.FC<INewsCardLargeProps> = (
             GetLocalizationString(info)
           }
         </Text>
-        <Link href={`/news/${slug}`}>
+        <Link href={`/news/[slug]`} as={`/news/${slug}`}>
           <Button as={'a'} href={`/news/${slug}`}>
             {t('button_detail')}
           </Button>

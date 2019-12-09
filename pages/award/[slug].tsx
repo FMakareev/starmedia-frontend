@@ -46,6 +46,7 @@ const AwardDetail = () => {
        date={data && DateFormat(data.getAward.date || '')}
        goBackLabel={t('awards_go-back')}
        goBackLink={'/about-us#awards'}
+       goBackHref={'/about-us'}
      >
        <Typeset
         content={content}

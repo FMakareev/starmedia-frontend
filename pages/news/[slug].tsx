@@ -61,6 +61,7 @@ const NewsDetails: React.FC<ISlugProps> = () => {
         />}
         goBackLabel={t('news_go-back')}
         goBackLink={'/news'}
+        goBackHref={'/news'}
       >
         <Typeset
           content={content}
