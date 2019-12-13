@@ -1,0 +1,58 @@
+.social-links {
+
+  &_list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -8px;
+  }
+
+  &_item {
+    padding: 8px;
+  }
+
+  &_link {
+    display: block;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    @include transitionHover;
+  }
+
+  &_icon {
+    fill: inherit;
+
+    &-yt {
+      width: 18px;
+      height: 13px;
+    }
+    &-fb {
+      width: 8px;
+      height: 18px;
+    }
+    &-vk {
+      width: 19px;
+      height: 11px;
+    }
+    &-ok {
+      width: 12px;
+      height: 20px;
+    }
+    &-in {
+      width: 16px;
+      height: 15px;
+    }
+    &-t {
+      width: 16px;
+      height: 13px;
+    }
+    &-gp {
+      width: 19px;
+      height: 17px;
+    }
+    &-imdb {
+      width: 24px;
+      height: 18px;
+    }
+
+  }
+}

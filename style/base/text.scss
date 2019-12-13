@@ -1,0 +1,140 @@
+
+.text {
+  &_size {
+    &-xl {
+      font-size: $size-typo-mobile-xl;
+      line-height: $line-height-typo-mobile-xl;
+      @media (min-width: 768px) {
+        font-size: $size-typo-xl;
+        line-height: $line-height-typo-xl;
+      }
+    }
+
+    &-l {
+      font-size: $size-typo-mobile-l;
+      line-height: $line-height-typo-mobile-l;
+      @media (min-width: 768px) {
+        font-size: $size-typo-l;
+        line-height: $line-height-typo-l;
+      }
+    }
+
+    &-m {
+      font-size: $size-typo-m;
+      line-height: $line-height-typo-m;
+    }
+
+    &-s {
+      font-size: $size-typo-s;
+      line-height: $line-height-typo-s;
+    }
+
+    &-xs {
+      font-size: $size-typo-xs;
+      line-height: $line-height-typo-xs;
+    }
+  }
+
+  &_font {
+    &-object {
+      font-family: 'Object Sans', sans-serif;
+      font-weight: bold;
+    }
+
+    &-root {
+      font-family: 'PTRootUIWebMedium', sans-serif;
+    }
+
+  }
+
+  &_align {
+    &-left {
+      text-align: left;
+    }
+
+    &-right {
+      text-align: right;
+    }
+
+    &-center {
+      text-align: center;
+    }
+
+    @media(min-width: map_get($screen, "sm")) {
+      &-sm-left {
+        text-align: left;
+      }
+    }
+    @media(min-width: map_get($screen, "md")) {
+      &-md-left {
+        text-align: left;
+      }
+    }
+    @media(min-width: map_get($screen, "lg")) {
+      &-lg-left {
+        text-align: left;
+      }
+    }
+
+
+    @media(min-width: map_get($screen, "sm")) {
+      &-sm-center {
+        text-align: center;
+      }
+    }
+    @media(min-width: map_get($screen, "md")) {
+      &-md-center {
+        text-align: center;
+      }
+    }
+    @media(min-width: map_get($screen, "lg")) {
+      &-lg-center {
+        text-align: center;
+      }
+    }
+    @media(min-width: map_get($screen, "sm")) {
+      &-sm-right {
+        text-align: right;
+      }
+    }
+    @media(min-width: map_get($screen, "md")) {
+      &-md-right {
+        text-align: right;
+      }
+    }
+    @media(min-width: map_get($screen, "lg")) {
+      &-lg-right {
+        text-align: right;
+      }
+    }
+  }
+
+  &_primary {
+    color: $color-typo-primary;
+  }
+
+  &_secondary {
+    color: $color-typo-secondary;
+  }
+
+  &_placeholder {
+    color: $color-typo-placeholder;
+  }
+
+  &_alert {
+    color: $color-typo-alert;
+  }
+
+  &_inherit {
+    color: inherit;
+  }
+
+  &_uppercase {
+    text-transform: uppercase;
+  }
+
+  &_ws-nowrap {
+    white-space: nowrap;
+  }
+
+}

@@ -1,0 +1,87 @@
+{
+  "Error-page_title": "Помилка",
+  "Error-page_description": "Виникла невідома помилка, спробуйте перезавантажити сторінку.",
+
+  "Error-page-404_title": "Помилка",
+  "Error-page-404_description": "Сторінку не знайдено.",
+
+  "button_detail": "Докладніше",
+  "button_detail-project": "Докладніше про проект",
+  "button_show-more": "Показати <br/> ще",
+  "button_watch-online": "Дивитися онлайн",
+  "search_btn-label": "Пошук",
+  "search_placeholder": "Пошук по сайту",
+  "search_placeholder-search-by-name": "Пошук по назві",
+
+  "search_found-n-result": "Найдено {{count}} результата",
+  "search_not-found": "Нам жаль, но по вашему запросу \"{{searchWord}}\" ничего не найдено",
+  "search_not-found_not-result": "Немає результатів",
+
+
+  "services-contact_us": "Зв'язатися з нами",
+  "news_next-news": "Наступна новина",
+  "news_go-back": "Повернутися до списку новин",
+  "awards_go-back": "Повернутися до списку нагород",
+
+  "filter_format-label": "Формат",
+  "filter_genre-label": "Жанр",
+  "filter_year-label": "Рік",
+
+  "filter_options-all": "Усе",
+
+  "tabs_actors": "Актеры",
+  "tabs_scripts": "Сценарии",
+  "tabs_director": "Режисери",
+  "city_moscow": "Москва",
+  "city_kiev": "Київ",
+  "city_london": "Лондон",
+
+  "form-field_submit-get-catalog": "Отримати каталог",
+  "form-field_submit-get-presentation": "Отримати презентацію",
+  "form-field_submit-send-request": "Відправити заявку",
+
+  "form-field_validation-required": "Поле обов'язкове для заповнення",
+  "form-field_validation-required-file-url": "Обов'язково передайте посилання або файл.",
+
+  "form-field_label-city": "Місто",
+  "form-field_label-fio": "Ім'я та Прізвище",
+  "form-field_label-email": "Email",
+  "form-field_label-company": "Компанія",
+  "form-field_label-position": "Посада",
+  "form-field_label-file": "Ваш сценарій в pdf, doc або zip",
+  "form-field_label2-file": "Вибрати інший файл",
+  "form-field_placeholder-file": "Перетягніть файл в це віконце ілі натисніть щоб вибрати файл",
+  "form-field_label-link-portfolio": "Посилання на портфоліо",
+  "form-field_label-link-script": "Посилання на сценарій",
+  "form-field_label-link-works": "Посилання на роботи, фільмографія",
+  "form-or": "Або",
+  "form-privacy_agree": "Я згоден з",
+  "form-privacy_link": "Умовами обробки персональних даних",
+  "form-field_label-phone": "Телефон",
+  "form-field_submit": "Відправити",
+
+  "back_to-catalog": "Повернутися до каталогу",
+
+  "project_description": "Опис",
+  "project_awards": "Нагороди",
+  "project_gallery": "Галерея",
+  "project_similar": "Схожі проекти",
+  "project_share": "Поділитися",
+
+  "project-info_genre": "Жанр",
+  "project-info_format": "Формат",
+  "project-info_productionYear": "Рік виробництва",
+  "project-info_numberOfEpisodes": "Кількість епізодів",
+  "project-info_directors": "Режисер",
+  "project-info_scenario": "Сеценаріст",
+  "project-info_operator": "Оператор",
+  "project-info_composer": "Компосітор",
+  "project-info_producer": "Продюсер",
+  "project-info_production-designer": "Художник-постановник",
+  "project-info_cast": "У ролях",
+  "project-info_duration": "Хронометраж",
+
+  "minutes_case-0": "хвилин",
+  "minutes_case-1": "хвилина",
+  "minutes_case-2": "хвилини"
+}

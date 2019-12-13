@@ -1,0 +1,44 @@
+@font-face {
+    font-family: 'Object Sans';
+    src: local('Object Sans Heavy Slanted'), local('ObjectSans-HeavySlanted'),
+        url('ObjectSans-HeavySlanted.woff2') format('woff2'),
+        url('ObjectSans-HeavySlanted.woff') format('woff'),
+        url('ObjectSans-HeavySlanted.ttf') format('truetype'),
+        url('ObjectSans-HeavySlanted.svg#ObjectSans-HeavySlanted') format('svg');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Object Sans';
+    src: local('Object Sans Regular'), local('ObjectSans-Regular'),
+        url('ObjectSans-Regular.woff2') format('woff2'),
+        url('ObjectSans-Regular.woff') format('woff'),
+        url('ObjectSans-Regular.ttf') format('truetype'),
+        url('ObjectSans-Regular.svg#ObjectSans-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Object Sans Slanted';
+    src: local('Object Sans Slanted'), local('ObjectSans-Slanted'),
+        url('ObjectSans-Slanted.woff2') format('woff2'),
+        url('ObjectSans-Slanted.woff') format('woff'),
+        url('ObjectSans-Slanted.ttf') format('truetype'),
+        url('ObjectSans-Slanted.svg#ObjectSans-Slanted') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Object Sans';
+    src: local('Object Sans Heavy'), local('ObjectSans-Heavy'),
+        url('ObjectSans-Heavy.woff2') format('woff2'),
+        url('ObjectSans-Heavy.woff') format('woff'),
+        url('ObjectSans-Heavy.ttf') format('truetype'),
+        url('ObjectSans-Heavy.svg#ObjectSans-Heavy') format('svg');
+    font-weight: 800;
+    font-style: normal;
+}
+

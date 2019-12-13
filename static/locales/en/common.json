@@ -1,0 +1,89 @@
+{
+  "error-page_title": "Error",
+  "error-page_description": "An unknown error has occurred, try reloading the page.",
+
+  "error-page-404_title": "Error",
+  "error-page-404_description": "Page not found.",
+
+  "button_detail": "Details",
+  "button_detail-project": "About the project",
+  "button_show-more": "Show <br/> more",
+  "button_watch-online": "Watch online",
+  "search_btn-label": "Search",
+  "search_placeholder": "Site search",
+  "search_placeholder-search-by-name": "Search by name",
+
+  "search_found-n-result": "Found {{count}} results",
+  "search_not-found": "We are sorry, but at your request \"{{searchWord}}\" not found",
+  "search_not-found_not-result": "Not results",
+
+
+  "services-contact_us": "Contact us",
+  "news_next-news": "Next news",
+  "news_go-back": "Back to news list",
+  "awards_go-back": "Back to awards list",
+
+  "filter_format-label": "Format",
+  "filter_genre-label": "Genre",
+  "filter_year-label": "Year",
+  "filter_options-all": "All",
+
+  "tabs_actors": "Actors",
+  "tabs_scripts": "Scripts",
+  "tabs_director": "Director",
+  "city_moscow": "Moscow",
+  "city_kiev": "Kiev",
+  "city_london": "London",
+
+  "form-field_submit-get-catalog": "Get catalog",
+  "form-field_submit-get-presentation": "Get presentation",
+  "form-field_submit-send-request": "Send request",
+
+  "form-field_validation-required": "Required field",
+  "form-field_validation-required-file-url": "Be sure to send the link or file.",
+
+  "form-field_label-city": "City",
+  "form-field_label-fio": "First and Last name",
+  "form-field_label-email": "Email",
+  "form-field_label-company": "Company",
+  "form-field_label-position": "Position",
+  "form-field_label-file": "Your script in pdf, doc or zip",
+  "form-field_label2-file": "Select another file",
+  "form-field_placeholder-file": "Drag the file into this window or click to select the file",
+  "form-field_label-link-portfolio": "Portfolio Link",
+  "form-field_label-link-script": "Script Link",
+  "form-field_label-link-works": "Links to work, filmography",
+  "form-or": "Or",
+  "form-privacy_agree": "I agree with",
+  "form-privacy_link": "Personal data processing conditions",
+  "form-field_label-phone": "Phone",
+  "form-field_submit": "Submit",
+
+  "back_to-catalog": "Back to catalog",
+
+  "project_description": "Description",
+  "project_awards": "Awards",
+  "project_gallery": "Gallery",
+  "project_similar": "Similar project",
+
+  "project_share": "Поделится",
+
+  "project-info_genre": "Genre",
+  "project-info_format": "Format",
+  "project-info_productionYear": "Year",
+  "project-info_numberOfEpisodes": "Number of episodes",
+  "project-info_directors": "Directors",
+  "project-info_scenario": "Scenario",
+  "project-info_operator": "Operator",
+  "project-info_composer": "Composer",
+  "project-info_producer": "Producer",
+  "project-info_production-designer": "Production designer",
+  "project-info_cast": "Cast",
+  "project-info_duration": "Timing\nTiming\n",
+
+  "minutes_case-0": "minutes",
+  "minutes_case-1": "minutes",
+  "minutes_case-2": "minutes"
+
+
+}

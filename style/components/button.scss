@@ -1,0 +1,255 @@
+
+.button {
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  @include transitionHover;
+
+  &_link {
+    //@extend .text_size-s;
+    @extend .text_font-object;
+    @include transitionHover;
+    padding: 0;
+    color: $color-typo-primary;
+    font-weight: bold;
+    text-align: left;
+
+    &--l {
+      text-transform: uppercase;
+      @extend .text_size-l;
+    }
+
+    &--m {
+      text-transform: uppercase;
+      @extend .text_size-m;
+    }
+
+    &--s {
+      @extend .text_size-s;
+    }
+
+    &--light {
+      color: $color-typo-secondary;
+      fill: $color-typo-secondary;
+    }
+
+    &--gray {
+      color: $color-typo-placeholder;
+      fill: $color-typo-placeholder;
+    }
+
+    &--font-root {
+      @extend .text_font-root;
+      font-weight: normal;
+    }
+
+    &--decoration {
+      text-decoration: underline;
+      text-decoration-color: $color-typo-placeholder
+    }
+
+    &:hover {
+      color: $color-link-default;
+      fill: $color-link-default;
+      opacity: 1;
+    }
+
+    &--disabled {
+      color: $color-typo-placeholder;
+
+      &:hover {
+        color: $color-typo-placeholder;
+        fill: $color-typo-placeholder;
+      }
+    }
+  }
+
+  &_primary {
+    min-width: 200px;
+    min-height: 56px;
+    background-color: $color-link-default;
+    color: $color-link-primary;
+    @extend .text_font-object;
+    @extend .text_size-s;
+
+    &:hover {
+      background-color: $color-base-accent;
+    }
+
+    &:disabled {
+      background-color: $color-link-disabled;
+      color: $color-typo-disabled;
+    }
+
+  }
+
+  &_circle {
+    @extend .text_font-object;
+    @extend .text_size-s;
+    background-color: $color-bg-secondary;
+    color: $color-typo-secondary;
+    fill: $color-typo-secondary;
+    border-radius: 50%;
+    text-align: center;
+    position: relative;
+
+    &:before {
+      @include transitionHover;
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: $color-bg-secondary;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      z-index: 0;
+    }
+
+    * {
+      z-index: 1;
+      position: relative;
+    }
+
+    &:hover {
+      &:before {
+        transform: translate(-50%, -50%) scale(1.2);
+      }
+
+      &:disabled {
+        &:before {
+          transform: translate(-50%, -50%) scale(1);
+        }
+      }
+    }
+
+    &:disabled {
+      background-color: $color-link-disabled;
+      color: $color-typo-disabled;
+
+      &:before {
+        background-color: $color-link-disabled;
+      }
+    }
+
+    &--l {
+      width: 200px;
+      height: 200px;
+    }
+
+    &--m {
+      width: 112px;
+      height: 112px;
+      @extend .text_size-s;
+    }
+
+    &--s {
+      width: 64px;
+      height: 64px;
+      line-height: 64px;
+      @extend .text_size-s;
+    }
+
+    &--xs {
+      width: 32px;
+      height: 32px;
+      line-height: 32px;
+      @extend .text_size-s;
+    }
+
+    &--xxs {
+      width: 21px;
+      height: 21px;
+      line-height: 32px;
+      @extend .text_size-s;
+    }
+
+    &--inverse {
+      color: $color-link-default;
+      fill: $color-link-default;
+      background-color: $color-typo-secondary;
+
+      &:before {
+        background-color: $color-typo-secondary;
+      }
+
+      &:hover {
+        background-color: $color-typo-secondary;
+      }
+    }
+
+    &--gray {
+      color: $color-typo-primary;
+      fill: $color-typo-primary;
+      background-color: $color-typo-placeholder;
+
+      &:before {
+        background-color: $color-typo-placeholder;
+      }
+
+      &:hover {
+        color: $color-link-default;
+        fill: $color-link-default;
+        background-color: $color-typo-placeholder;
+      }
+    }
+
+
+  }
+
+  &_tab {
+    @extend .text_font-object;
+    @extend .text_size-xs;
+    border: 1px solid $color-border-base;
+    background-color: $color-bg-default;
+    color: $color-typo-primary;
+    text-transform: uppercase;
+
+    &:hover {
+      color: $color-typo-brand;
+    }
+
+    &--active {
+      background-color: $color-bg-dark;
+      color: $color-bg-default;
+    }
+
+    height: 56px;
+    padding-left: 16px;
+    padding-right: 16px;
+    @media(min-width: 1024px) {
+      font-size: $size-typo-m;
+      line-height: $line-height-typo-m;
+      height: 80px;
+      width: 300px;
+    }
+
+  }
+
+  &_transparent {
+    color: $color-typo-secondary;
+    padding: 0;
+
+    &--dark {
+      color: $color-bg-dark;
+    }
+
+    &:hover {
+      color: $color-link-default;
+      fill: $color-link-default;
+    }
+  }
+
+
+  &--icon {
+    display: flex;
+    align-items: center;
+  }
+
+  &--full {
+    width: 100%;
+  }
+
+}

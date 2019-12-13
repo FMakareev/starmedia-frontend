@@ -1,0 +1,355 @@
+.header {
+  @include transitionHover;
+  $this: &;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background-color: #fff;
+
+  color: $color-typo-primary;
+  fill: $color-typo-primary;
+
+
+  &--transparent {
+    background-color: transparent;
+    color: $color-typo-secondary;
+    fill: $color-typo-secondary;
+
+    #{$this}_burger {
+      span {
+        background-color: $color-typo-secondary;
+      }
+
+    }
+  }
+
+  &--is-scroll {
+    background-color: #fff;
+    color: $color-typo-primary;
+    fill: $color-typo-primary;
+
+    #{$this}_burger {
+      height: 64px;
+
+      span {
+        background-color: $color-typo-primary;
+
+        &:nth-child(1) {
+          top: 27px;
+        }
+
+        &:nth-child(2) {
+          top: 35px;
+        }
+      }
+    }
+
+    #{$this}_logo-wrapper {
+      height: 64px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+
+      svg {
+        width: 49px;
+        height: 35px;
+      }
+    }
+
+  }
+
+  &_container {
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    @media(min-width: 1440px) {
+      max-width: 1260px;
+      width: 100%;
+    }
+
+  }
+
+
+  &_left {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    width: 100%;
+    @media(min-width: 1024px) {
+      width: calc(184px + 32px);
+      flex-direction: row;
+      justify-content: normal;
+    }
+    @media(min-width: 1080px) {
+      width: calc(280px + 32px);
+    }
+  }
+
+  &_right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 40px;
+    @media(min-width: 1024px) {
+      margin: 0;
+      padding-right: 16px;
+      max-width: 740px;
+    }
+    @media(min-width: 1200px) {
+      padding-right: 104px;
+      max-width: 900px;
+    }
+    @media(min-width: 1440px) {
+      padding-right: 16px;
+      max-width: 752px;
+    }
+  }
+
+
+  &_burger {
+    @include transitionHover;
+    position: relative;
+    background-color: transparent;
+    border: none;
+    max-width: 72px;
+    width: 100%;
+    height: 64px;
+    transform: rotate(0deg);
+    cursor: pointer;
+
+    @media(min-width: 1024px) {
+      height: 88px;
+      max-width: 104px;
+    }
+
+    @media(min-width: 1440px) {
+      margin-left: -82px;
+      max-width: 98px;
+    }
+
+    &:hover {
+      span {
+        background-color: $color-bg-secondary;
+      }
+    }
+
+    span {
+      display: block;
+      position: absolute;
+      height: 2px;
+      width: 40px;
+      background-color: $color-typo-primary;
+      opacity: 1;
+      left: 50%;
+      transform: rotate(0deg) translateX(-50%);
+      transition: .25s ease-in-out;
+
+      &:nth-child(1) {
+        top: 27px;
+
+        @media(min-width: 1024px) {
+          top: 39px;
+        }
+      }
+
+      &:nth-child(2) {
+        top: 35px;
+        @media(min-width: 1024px) {
+          top: 47px;
+        }
+      }
+    }
+
+    &.open span {
+      background-color: $color-bg-dark;
+    }
+
+    &.open span:nth-child(1) {
+      left: 22%;
+      top: 50%;
+      transform: rotate(135deg) translateX(0);
+
+      @media(min-width: 1024px) {
+        left: 30%;
+      }
+    }
+
+    &.open span:nth-child(2) {
+      left: 22%;
+      top: 50%;
+      transform: rotate(-135deg) translateX(0);
+
+      @media(min-width: 1024px) {
+        left: 30%;
+      }
+    }
+
+  }
+
+  &_logo-wrapper {
+    max-width: 112px;
+    width: 100%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: $color-bg-secondary;
+    text-align: center;
+    height: 64px;
+    cursor: pointer;
+
+    svg {
+      width: 49px;
+      height: 35px;
+      @media(min-width: 1024px) {
+        width: 62px;
+        height: 45px;
+      }
+    }
+
+    @media(min-width: 1024px) {
+      height: auto;
+      max-width: 184px;
+      padding-top: 20px;
+      padding-bottom: 19px;
+    }
+
+  }
+
+  &_phone-wrapper {
+    //margin-right: 14%;
+    color: inherit;
+    fill: inherit;
+  }
+
+  &_search-wrapper {
+    //margin-right: 10%;
+  }
+
+  &_search-button {
+    @extend .button;
+    @extend .text_size-m;
+    @extend .text_font-root;
+    @include transitionHover;
+    color: inherit;
+    fill: inherit;
+    padding: 0;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      color: $color-typo-brand;
+      fill: $color-typo-brand;
+    }
+  }
+
+  &_right-right {
+    width: 290px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 16px;
+  }
+
+  &_social-list-wrapper {
+    //margin-right: 8%;
+    height: 40px;
+
+    .social-links_link {
+      color: inherit;
+      fill: inherit;
+
+      &:hover {
+        color: $color-typo-brand;
+        fill: $color-typo-brand;
+      }
+    }
+
+  }
+
+  &_lang-switcher-wrapper {
+    .lang-switcher_label {
+      color: inherit;
+      fill: inherit;
+
+      &:hover {
+        color: $color-typo-brand;
+        fill: $color-typo-brand;
+      }
+    }
+  }
+
+
+  &_menu-wrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    display: none;
+    padding-top: 32px;
+    padding-bottom: 80px;
+    min-height: 100px;
+    background-color: $color-bg-default;
+
+
+    @media(max-width: 767px) {
+      height: calc(100vh - 64px);
+      overflow-y: auto;
+    }
+
+    @media(min-width: 1024px) {
+      padding-top: 52px;
+    }
+
+    &--active {
+      display: block;
+    }
+  }
+
+  &_menu-item {
+    margin-bottom: 16px;
+  }
+
+  &_menu-left {
+    width: 100%;
+    margin-bottom: 40px;
+    padding-left: 16px;
+    padding-right: 16px;
+    @media(min-width: 1024px) {
+      width: 475px;
+      margin-bottom: 0;
+      padding-left: 104px;
+    }
+    @media(min-width: 1200px) {
+      padding-left: 16px;
+    }
+    @media(min-width: 1440px) {
+      padding-left: 16px;
+      width: calc(100% - 768px);
+    }
+  }
+
+  &_menu-right {
+    width: 100%;
+    margin-bottom: 40px;
+    padding-left: 16px;
+    padding-right: 16px;
+    @media(min-width: 1024px) {
+      margin-bottom: 0;
+      width: calc(100% - 475px);
+    }
+    @media(min-width: 1440px) {
+
+      max-width: 768px;
+      width: 100%;
+    }
+  }
+
+}

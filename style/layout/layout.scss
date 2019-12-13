@@ -1,0 +1,47 @@
+
+.main {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 64px;
+  &:after {
+    content: '';
+    display: block;
+    height: 431px;
+    width: 100%;
+  }
+
+  @media(min-width: 1024px){
+    padding-top: 88px;
+  }
+
+
+}
+
+
+
+.layout-title-date-content {
+  &_sidebar {
+    width: 100%;
+    padding-top: 4px;
+    padding-left: 1em;
+    padding-right: 1em;
+    order: 2;
+    margin-bottom: 60px;
+    @media(min-width: 1024px){
+      width: 200px;
+      order: 1;
+    }
+  }
+  &_content {
+    width: 100%;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-bottom: 50px;
+    order: 1;
+    @media(min-width: 1024px){
+      width: calc(100% - 200px);
+      margin-bottom: 130px;
+      order: 2;
+    }
+  }
+}

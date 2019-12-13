@@ -1,0 +1,326 @@
+.service {
+  $this: &;
+
+  &_wrapper {
+    overflow: hidden;
+  }
+
+  &_list {
+    @media only screen and (min-width: map_get($screen, "lg")) {
+      margin-left: 104px;
+    }
+
+    @media only screen and (min-width: 1440px) {
+      margin-left: calc((100vw - #{$container-max-width} - -16px) / 2);
+    }
+  }
+
+  &_item {
+    @include transitionHover;
+    position: relative;
+    border-top: 1px solid $color-base-gray;
+    border-left: 1px solid $color-base-gray;
+
+    &--active {
+      #{$this}_item-top-number {
+        color: $color-typo-brand;
+      }
+
+      #{$this}_item-top-title {
+        color: $color-typo-brand;
+      }
+    }
+
+    &:last-child {
+      &:after {
+        content: '';
+        position: absolute;
+        left: -1px;
+        top: 100%;
+        width: 1px;
+        background-color: $color-base-gray;
+        height: 200px;
+      }
+
+    }
+
+  }
+
+  &_item-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    padding-left: 16px;
+    padding-right: 16px;
+    cursor: pointer;
+    @media only screen and (min-width: map_get($screen, "lg")) {
+      padding-right: 120px;
+      padding-left: 32px;
+    }
+
+    @media only screen and (min-width: 1440px) {
+      padding-right: calc((100vw - #{$container-max-width} - -16px) / 2);
+    }
+  }
+
+  &_item-top-number {
+    @extend .text_font-object;
+    width: 32px;
+    font-size: $size-typo-xs;
+    line-height: $line-height-typo-xs;
+
+    @media(min-width: 768px) {
+      margin-right: 64px;
+      width: 42px;
+      font-size: $size-typo-l;
+      line-height: $line-height-typo-l;
+    }
+  }
+
+  &_item-top-title {
+    @extend .text_font-object;
+    @extend .text_size-m;
+    width: 100%;
+    text-transform: uppercase;
+  }
+
+  &_item-contacts {
+    &_wrapper {
+      background-color: #F0F0F0;
+      padding: 40px 0;
+      margin-left: -16px;
+      margin-right: -16px;
+
+      @media(min-width: 768px) {
+        padding: 40px 16px 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      @media(min-width: 1440px) {
+        padding: 50px 35px 0;
+      }
+    }
+
+    &_item {
+      padding-left: 16px;
+      padding-right: 16px;
+
+
+      @media(min-width: 768px) {
+        width: 50%;
+      }
+
+      @media(min-width: 1440px) {
+        padding-left: 35px;
+        padding-right: 35px;
+      }
+
+    }
+  }
+
+  &_item-top-toggle {
+    position: relative;
+    svg {
+      width: 15px;
+      height: 15px;
+      @media (min-width: 768px) {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+
+  &_item-content {
+    padding-top: 30px;
+    padding-bottom: 80px;
+    margin-left: 16px;
+    margin-right: 16px;
+    @media only screen and (min-width: map_get($screen, "sm")) {
+
+      margin-left: 120px;
+      margin-right: 26px;
+    }
+    @media only screen and (min-width: map_get($screen, "lg")) {
+      margin-right: 120px;
+      margin-left: 132px;
+    }
+
+    @media only screen and (min-width: 1440px) {
+      margin-right: calc((100vw - #{$container-max-width} - -16px) / 2);
+    }
+  }
+
+  &_item-content-row {
+    margin-bottom: 30px;
+
+    @media(min-width: 1024px) {
+      display: flex;
+
+    }
+  }
+
+  &_item-content-label {
+    @extend .text_font-object;
+    @extend .text_size-xs;
+    margin-bottom: 16px;
+    text-align: left;
+    text-transform: uppercase;
+
+    width: 100%;
+    @media(min-width: 1024px) {
+      width: 300px;
+    }
+    @media(min-width: 1440px) {
+      width: 350px;
+    }
+  }
+
+  &_item-content-value {
+    @extend .text_font-root;
+    @extend .text_size-m;
+    width: 100%;
+    @media(min-width: 1024px) {
+      width: calc(100% - 300px);
+    }
+
+    @media(min-width: 1440px) {
+      width: calc(100% - 350px);
+    }
+  }
+
+  &_item-content-card {
+    background-color: $color-bg-primary;
+    padding: 32px 40px;
+    margin-left: -40px;
+  }
+
+  &_item-content-form {
+
+    &_list {
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: -16px;
+      margin-right: -16px;
+
+      @media(min-width: 768px) {
+
+        margin-left: -32px;
+        margin-right: -8px;
+      }
+      @media(min-width: 1200px) {
+        margin-left: -48px;
+        margin-right: -8px;
+      }
+    }
+
+    &_item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      margin: 8px;
+      background-color: #f0f0f0;
+      padding: 16px 20px;
+      cursor: pointer;
+
+
+      @media(min-width: 768px) {
+        width: calc(50% - 16px);
+        padding: 16px 20px;
+      }
+
+      @media(min-width: 1200px) {
+        padding: 32px 40px;
+      }
+
+    }
+
+    &_item-label {
+      @extend .text_font-object;
+      font-size: $size-typo-xs;
+      line-height: $line-height-typo-xs;
+      text-transform: uppercase;
+      width: calc(100% - 64px);
+
+      @media(min-width: 768px) {
+        font-size: $size-typo-m;
+        line-height: $line-height-typo-m;
+      }
+    }
+
+  }
+
+}
+
+
+.service_item-content-table {
+  table {
+    width: 100% !important;
+    border: none !important;
+    @media(max-width: 1023px) {
+      display: block;
+    }
+  }
+
+  tr {
+    vertical-align: baseline;
+
+    @media(max-width: 1023px) {
+      display: block;
+    }
+  }
+
+  td {
+    @extend .text_font-root;
+    @extend .text_size-m;
+    width: 100%;
+    padding: 0;
+    @media(max-width: 1023px) {
+      display: block;
+    }
+
+    @media(min-width: 1024px) {
+      width: calc(100% - 300px);
+    }
+
+    @media(min-width: 1440px) {
+      width: calc(100% - 350px);
+    }
+
+    &:last-child {
+      padding-bottom: 32px;
+    }
+    &:first-child {
+      @extend .text_font-object;
+      @extend .text_size-xs;
+      margin-bottom: 16px;
+      text-align: left;
+      text-transform: uppercase;
+      padding-bottom: 0;
+      padding-right: 24px;
+
+      * {
+        @extend .text_font-object;
+        @extend .text_size-xs;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        text-transform: uppercase;
+        font-style: normal;
+      }
+      width: 100%;
+      @media(min-width: 1024px) {
+        width: 300px;
+      }
+      @media(min-width: 1440px) {
+        width: 350px;
+      }
+    }
+  }
+
+
+}

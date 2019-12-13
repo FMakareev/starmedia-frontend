@@ -1,0 +1,20 @@
+.footer {
+  margin-top: -431px;
+  min-height: 431px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  width: 100%;
+  background-color: $color-bg-dark;
+
+
+  @media (min-width: map_get($screen, "md")){
+    padding-top: 80px;
+    padding-bottom: 48px;
+  }
+
+  &_nav-list {}
+  &_nav-item {
+    margin-bottom: 24px ;
+    text-align: left;
+  }
+}

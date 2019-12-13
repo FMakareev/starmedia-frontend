@@ -1,0 +1,36 @@
+.cursor {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  opacity: 0;
+  transition: .225s opacity;
+  pointer-events: none;
+  display: none;
+
+  img {
+    width: 100%;
+  }
+  @media (min-width: 768px) {
+    display: block;
+  }
+}
+
+.cursor_container {
+  position: relative;
+  cursor: none;
+
+  &-hidden{
+    opacity: 0;
+    display: none;
+  }
+
+  &:hover {
+    .cursor {
+      opacity: 1;
+    }
+  }
+}

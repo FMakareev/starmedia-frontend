@@ -1,0 +1,317 @@
+# This is sample SDL schema for GraphQL Faker.
+#
+# There are two directives you can use to enhance fake data:
+#   - @fake
+#   - @examples
+# Each directive has autocompletion working so start by typing @
+#
+# Press save or Cmd+Enter to apply the changes and update server. Switch to GraphiQL
+# on the left panel to immediately test your changes.
+# This tool also supports extending existing APIs. Check graphql-faker --help
+#
+# Developed with ❤️ by APIs.guru | https://github.com/APIs-guru/graphql-faker
+
+
+type File {
+  url: String @examples(values: ["https://picsum.photos/id/1081/1200/1300","https://picsum.photos/id/1081/1500/1300"])
+}
+
+type SeoTags {
+
+	description:  LocalizedString,
+	keywords: LocalizedString
+	title: LocalizedString
+
+	ogUrl: LocalizedString,
+	ogImage: LocalizedString,
+	ogType: LocalizedString, 
+	ogTitle: LocalizedString,
+  
+	twitterImage: LocalizedString,
+	twitterImage_alt: LocalizedString,
+	twitterTitle: LocalizedString,
+	twitterDescription: LocalizedString,
+	twitterSite: LocalizedString,
+	twitterCard: LocalizedString
+}
+
+
+type LocalizedString {
+  ru: String @fake(type:companyName,  locale:en_CA)
+  en: String @fake(type:companyName,  locale:en_AU)
+  uk: String @fake(type:companyName,  locale:fr_CA)  
+}
+
+type GpsPoint {
+	lat: String @fake(type:latitude)
+	lng: String @fake(type:longitude)
+}
+
+type Address {
+	gpsPoints: GpsPoint
+	addresses: LocalizedString
+}
+type Person {
+	name: LocalizedString,
+	email: String @fake(type:email),
+	phone: String @fake(type:phoneNumber)
+	company: LocalizedString, 
+	position: LocalizedString
+}
+
+type Departament {
+	name: LocalizedString,
+	persons: [Person]
+}
+
+type MainContact {
+	locale: String @examples(values: ["uk", "en", "ru"])
+	name: LocalizedString,
+	addresses: [Address],
+	phones: [String] @fake(type:phoneNumber),
+	emails: [String] @fake(type:email),
+	departaments: [Departament]
+}
+
+
+type Forms {
+  type: String  @examples(values: ["GET_PRESENTATION", "FREE_TESTING"]),
+  name: LocalizedString,
+	description: LocalizedString,
+}
+
+
+type Protection {      			
+	name: LocalizedString, 
+	content: LocalizedString,
+	contacts: [MainContact],
+	forms: [Forms],
+	presentation: File,
+	icon: File
+}
+type VehicleRental {
+	name: LocalizedString, 
+	content: LocalizedString,
+	contacts: [MainContact],
+	icon: File
+}
+type EquipmentRental {
+	name: LocalizedString, 
+	content: LocalizedString,
+	contacts: [MainContact],
+	icon: File
+}
+
+type SeilzHouse {
+	name: LocalizedString, 
+	content: LocalizedString,
+	contacts: [MainContact],
+	icon: File
+}
+
+type CostumeRental{
+	name: LocalizedString, 
+	content: LocalizedString,
+	contacts: [MainContact],
+	icon: File
+}
+
+type RentalPremises {
+	name: LocalizedString, 
+	content: LocalizedString,
+	contacts: [MainContact],
+	icon: File
+}
+
+
+
+
+type Services {
+	protection: Protection,
+	vehicleRental: VehicleRental,
+	equipmentRental: EquipmentRental,
+	seilzHouse: SeilzHouse,
+	costumeRental: CostumeRental,
+	rentalPremises: RentalPremises,
+	seoTags: SeoTags
+}
+
+type Award {
+	name: LocalizedString,
+	icon: File,
+	date: String @fake(type:recentDate, options: {dateFormat: "2015-04-03T20:10:12.819Z"}),
+	description: LocalizedString,
+	shortDescription: LocalizedString,
+	content: LocalizedString,
+  slug: String
+	seoTags: SeoTags,
+}
+
+
+type Contacts {
+	mainContacts: [MainContact],
+} 
+
+
+type News {
+	seoTags: SeoTags,
+	slug: String
+	date: String @fake(type:recentDate, options: {dateFormat: "2015-04-03T20:10:12.819Z"}),
+	name: LocalizedString,
+	content: LocalizedString,
+}
+
+type Tag {
+	name: LocalizedString	
+}
+
+type ProjectInfo {
+	genre: LocalizedString,
+	format: LocalizedString,
+	productionYear: Int,
+	numberOfEpisodes: Int,
+	directors: LocalizedString,
+	scenario: LocalizedString,
+	operator: LocalizedString,
+	composer: LocalizedString,
+	producer: LocalizedString,
+	cast: LocalizedString,
+}
+
+
+type Video {
+	preview: File,
+	video: File,
+}
+
+
+type Project {
+  slug: String
+	title: LocalizedString,
+	description: LocalizedString
+	preview: File
+
+	trailer: Video 
+	projectInfo: ProjectInfo,
+	awards: [Award],
+	gallery: [File],
+	tags: [Tag],
+	similarProject: [Project]
+}
+
+
+type ProjectPage {
+	seoTags: SeoTags
+	project: Project
+}
+
+type Scripts {
+	form: Forms,
+	name: LocalizedString,
+	description: LocalizedString
+}
+type Director {
+	form: Forms,
+	name: LocalizedString,
+	description: LocalizedString
+}
+
+
+type Actors{
+	form: Forms,
+	name: LocalizedString,
+	description: LocalizedString
+}
+
+
+type Cooperation {
+	actors: Actors,
+	scripts: Scripts,
+	director: Director
+}
+
+type PrivacyPolicyPage {
+	title: LocalizedString,
+	content: LocalizedString,
+	seoTags: SeoTags
+}
+
+type CookieAccess {
+	description: LocalizedString
+}
+
+type SocialLink {
+	url: String @examples(values: [
+    "https://www.youtube.com/user/starmedia",
+    "https://www.facebook.com/starmediacompany/",
+    "https://vk.com/starmediafilm",
+    "https://ok.ru/starmedia",
+    "https://www.linkedin.com/company/star-media-group-russia-ukraine-/"
+  ]),
+	icon: String,
+	name: String @examples(values: [""]),
+	shortName: String @examples(values: ["FB","VK","YT","IN","OK"]),
+}
+
+type AboutUsSection {
+	title: LocalizedString,
+	backgroudVideo: Video,	
+}
+
+
+type MainSection {
+	title: LocalizedString,
+	animatedText: [LocalizedString],
+}
+
+type Feedback {
+  id :ID
+	form: Forms
+	person: Person
+	url: String
+	file: File
+	date: String
+}
+
+type OrderCatalog {
+	title: LocalizedString,
+	form: Feedback,
+  catalog: File, 
+}
+
+
+type HomePage {
+	mainSection: MainSection,
+	aboutUsSection:AboutUsSection,
+	orderCatalog:	OrderCatalog,
+	seoTags: SeoTags
+}
+
+type AboutUsBabble {
+	title: LocalizedString,
+	content: LocalizedString,
+}	
+
+type AboutUs {
+	seoTags: SeoTags,
+	title: LocalizedString,
+	content: LocalizedString,
+	redBubble: LocalizedString,
+	titleTVBroadcast: LocalizedString,
+	titleTVBroadcastBabbles:[AboutUsBabble],	
+}
+
+
+type Query {
+  getAboutUsPage: AboutUs
+	getHomePage:HomePage
+  getSocialList: [SocialLink]
+  getCookieAccess:CookieAccess
+  getPrivacyPolicy: PrivacyPolicyPage
+  getNews(slug:String): News
+  getContacts: Contacts
+  getServices: Services
+  getAward(slug:String): Award
+  getProject(slug:String): ProjectPage
+	getCooperation:Cooperation
+}

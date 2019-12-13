@@ -1,0 +1,87 @@
+{
+  "error-page_title": "Ошибка",
+  "error-page_description": "Произошла неизвестная ошибка, попробуйте перезагрузить страницу.",
+
+  "error-page-404_title": "Ошибка",
+  "error-page-404_description": "Страница не найдена.",
+
+  "button_detail": "Подробнее",
+  "button_detail-project": "Подробнее о проекте",
+  "button_show-more": "Показать <br/> еще",
+  "button_watch-online": "Смотреть онлайн",
+  "search_btn-label": "Поиск",
+  "search_placeholder": "Поиск по сайту",
+  "search_placeholder-search-by-name": "Поиск по названию",
+
+  "search_found-n-result": "Найдено {{count}} результата",
+  "search_not-found": "Нам жаль, но по вашему запросу \"{{searchWord}}\" ничего не найдено",
+  "search_not-found_not-result": "Нет результатов",
+
+  "services-contact_us": "Связаться с нами",
+  "news_next-news": "Следующая новость",
+  "news_go-back": "Вернуться к списку новостей",
+
+  "awards_go-back": "Вернуться к списку наград",
+
+  "filter_format-label": "Формат",
+  "filter_genre-label": "Жанр",
+  "filter_year-label": "Год",
+
+  "filter_options-all": "Все",
+  "tabs_actors": "Актеры",
+  "tabs_scripts": "Сценарии",
+  "tabs_director": "Режиссеры",
+  "city_moscow": "Москва",
+  "city_kiev": "Киев",
+  "city_london": "Лондон",
+
+
+  "form-field_submit-get-catalog": "Получить каталог",
+  "form-field_submit-get-presentation": "Получить презентацию",
+  "form-field_submit-send-request": "Отправить заявку",
+
+  "form-field_validation-required": "Поле обязательно для заполнения",
+  "form-field_validation-required-file-url": "Обязательно передайте ссылку или файл.",
+
+  "form-field_label-city": "Город",
+  "form-field_label-fio": "Имя и Фамилия",
+  "form-field_label-email": "Email",
+  "form-field_label-company": "Компания",
+  "form-field_label-position": "Должность",
+  "form-field_label-file": "Ваш сценарий в pdf, doc или zip",
+  "form-field_label2-file": "Выбрать другой файл",
+  "form-field_placeholder-file": "Перетащите файл в это окошко \nили нажмите чтобы выбрать файл",
+  "form-field_label-link-portfolio": "Ссылка на портфолио",
+  "form-field_label-link-script": "Ссылка на сценарий",
+  "form-field_label-link-works": "Ссылки на работы, фильмография",
+  "form-or": "или",
+  "form-privacy_agree": "Я согласен с ",
+  "form-privacy_link": "условиями обработки персональных данных",
+  "form-field_label-phone": "телефон",
+  "form-field_submit": "Отправить",
+
+  "back_to-catalog": "Вернутся в каталог",
+
+  "project_description": "Описание",
+  "project_awards": "Награды",
+  "project_gallery": "Галерея",
+  "project_similar": "Похожие проекты",
+  "project_share": "Поделиться",
+
+  "project-info_genre": "Жанр",
+  "project-info_format": "Формат",
+  "project-info_productionYear": "Год производства",
+  "project-info_numberOfEpisodes": "Кол-во эпизодов",
+  "project-info_directors": "Режиссер",
+  "project-info_scenario": "Сценарист",
+  "project-info_operator": "Оператор",
+  "project-info_composer": "Композитор",
+  "project-info_producer": "Продюсер",
+  "project-info_production-designer": "Художник-постановщик",
+  "project-info_cast": "В ролях",
+  "project-info_duration": "Хронометраж",
+
+  "minutes_case-0": "минут",
+  "minutes_case-1": "минута",
+  "minutes_case-2": "минуты"
+}
