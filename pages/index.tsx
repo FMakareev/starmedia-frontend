@@ -27,10 +27,13 @@ const Homepage = () => {
     en: GetHomePageENQuery,
     uk: GetHomePageUKQuery,
   }, {
+    errorPolicy: 'ignore',
     variables:{
       locale: i18n.language,
     }
   });
+
+  console.log('data: ', data);
 
   if (loading) {
     return (<Preloader/>)

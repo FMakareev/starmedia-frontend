@@ -6,7 +6,7 @@ import Container from '../../components/Container/Container';
 import Text from "../../components/Text/Text";
 import ProjectTags from "../../components/ProjectTags/ProjectTags";
 import ProjectInfoList from './ProjectInfoList';
-import {ButtonElementEnum} from '../../types/types';
+import {ButtonElementEnum, Maybe, ResponsiveImage} from '../../types/types';
 import Button from "../../components/Button/Button";
 import BackIcon from "../../components/Icons/BackIcon";
 import ProjectDetailMainBottom from "./ProjectDetailMainBottom";
@@ -15,6 +15,10 @@ import {useTranslation} from "../../libs/i18n";
 import {GetLocalizationString} from "../../libs/GetLocalizationString";
 import {Project} from "../../types/projectTypes";
 import {getLocalizationPreview} from "../../libs/getLocalizationPreview";
+import {Picture} from "react-responsive-picture";
+// @ts-ignore
+import placeholder from "../../static/images/project-placeholder.jpg";
+import { oc } from 'ts-optchain';
 
 interface IProjectMainSectionProps extends Project {
   [prop: string]: any
@@ -48,20 +52,49 @@ const ProjectMainSection: React.FC<IProjectMainSectionProps> = (
 ) => {
   const {t, i18n} = useTranslation('common');
 
+
+  const responsivePosterImage: Maybe<ResponsiveImage> = getLocalizationPreview({
+      preview,
+      previewEn,
+      previewRu,
+      previewUk,
+    },
+    i18n.language
+  );
+
+  const responsiveTrailerPreview: Maybe<ResponsiveImage> = getLocalizationPreview({
+      preview: trailerPreview,
+      previewRu:trailerPreviewRu,
+      previewEn:trailerPreviewEn,
+      previewUk:trailerPreviewUk,
+    },
+    i18n.language
+  );
+
   return (
     <Col mb={[40, 80]} pb={40} pt={130} className={'project-detail-main_wrapper'}>
       <div className="section-main_bg">
-        <img
-          src={getLocalizationPreview({
-              preview,
-              previewEn,
-              previewRu,
-              previewUk,
-            },
-            i18n.language
-          )}
-          alt=""
+        <Picture
           className="project-detail-main_bg-img"
+          alt={'project poster'}
+          // @ts-ignore
+          sources={[
+            {
+              srcSet: oc(responsivePosterImage).xs.url(placeholder),
+              media: "(max-width: 420px)",
+            },
+            {
+              srcSet: oc(responsivePosterImage).sm.url(placeholder),
+              media: "(max-width: 800px)",
+            },
+            {
+              srcSet: oc(responsivePosterImage).md.url(placeholder),
+              media: "(max-width: 1024px)",
+            },
+            {
+              srcSet: oc(responsivePosterImage).lg.url(placeholder),
+            },
+          ]}
         />
       </div>
       <Container>
@@ -86,14 +119,7 @@ const ProjectMainSection: React.FC<IProjectMainSectionProps> = (
           <Row mb={['0', '0', 52]}>
             <Col xs={12} md={6} mb={40}>
               <ProjectTrailer
-                trailerPreview={getLocalizationPreview({
-                    preview: trailerPreview,
-                    previewRu:trailerPreviewRu,
-                    previewEn:trailerPreviewEn,
-                    previewUk:trailerPreviewUk,
-                  },
-                  i18n.language
-                )}
+                preview={responsiveTrailerPreview}
                 trailer={trailer}
               />
             </Col>

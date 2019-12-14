@@ -1,5 +1,5 @@
 import {Award} from "./awardsTypes";
-import {File, LocalizedString, Maybe, PaginationPageInfo, Scalars, SeoTags, Tag} from "./types";
+import {LocalizedString, Maybe, PaginationPageInfo, ResponsiveImage, Scalars, SeoTags, Tag} from "./types";
 
 
 export interface Project {
@@ -8,19 +8,19 @@ export interface Project {
   slug?: Maybe<Scalars["String"]>;
   title?: Maybe<LocalizedString>;
   description?: Maybe<LocalizedString>;
-  preview?: Maybe<File>;
-  previewRu?: Maybe<File>;
-  previewEn?: Maybe<File>;
-  previewUk?: Maybe<File>;
+  preview?: Maybe<ResponsiveImage>;
+  previewRu?: Maybe<ResponsiveImage>;
+  previewEn?: Maybe<ResponsiveImage>;
+  previewUk?: Maybe<ResponsiveImage>;
 
-  trailerPreviewRu?: Maybe<File>;
-  trailerPreviewEn?: Maybe<File>;
-  trailerPreviewUk?: Maybe<File>;
+  trailerPreviewRu?: Maybe<ResponsiveImage>;
+  trailerPreviewEn?: Maybe<ResponsiveImage>;
+  trailerPreviewUk?: Maybe<ResponsiveImage>;
 
   trailer?: Maybe<Scalars["String"]>;
   projectInfo?: Maybe<ProjectInfo>;
   awards?: Maybe<Array<Award>>;
-  gallery?: Maybe<Array<File>>;
+  gallery?: Maybe<Array<ResponsiveImage>>;
   tags?: Maybe<Array<Tag>>;
   similarProject?: Array<Project>;
   duration?: Maybe<Scalars["Int"]>;

@@ -5,12 +5,16 @@ import {Project} from '../../types/projectTypes';
 import ProgressiveImage from 'react-progressive-image';
 // @ts-ignore
 import Tilt from 'react-tilt'
+import { oc } from 'ts-optchain';
+import { Picture } from 'react-responsive-picture';
 
 import {useTranslation} from "../../libs/i18n";
 import classNames from 'classnames';
 import {GetLocalizationString} from "../../libs/GetLocalizationString";
 import Link from "next/link";
 import {getLocalizationPreview} from "../../libs/getLocalizationPreview";
+// @ts-ignore
+import placeholder from "../../static/images/project-placeholder.jpg";
 
 interface IProjectCardProps extends Project {
   withInfo?: boolean;
@@ -36,6 +40,16 @@ const ProjectCard: React.FC<IProjectCardProps> = (
   const {t, i18n} = useTranslation();
   const localTitle = GetLocalizationString(title, i18n);
   const localGenre = GetLocalizationString(projectInfo && projectInfo.genre, i18n);
+
+  const previewImage = getLocalizationPreview({
+      preview,
+      previewEn,
+      previewRu,
+      previewUk,
+    },
+    i18n.language
+  );
+
   return (<Link href={href} as={as}>
     <a
       className={classNames('project-card_wrapper', {
@@ -48,26 +62,16 @@ const ProjectCard: React.FC<IProjectCardProps> = (
         <div
           className={classNames('project-card_preview',className)}
         >
-
-          <ProgressiveImage
-            src={getLocalizationPreview({
-                preview,
-                previewEn,
-                previewRu,
-                previewUk,
+          <Picture
+            className="project-card_preview-img"
+            alt={localTitle || 'project poster'}
+            // @ts-ignore
+            sources={[
+              {
+                srcSet: oc(previewImage).xs.url(placeholder),
               },
-              i18n.language
-            )}
-            placeholder={'/static/images/project-placeholder.jpg'}
-          >
-            {
-              (src: string) => <img
-                className="project-card_preview-img"
-                src={src}
-                alt={localTitle || 'project poster'}
-              />
-            }
-          </ProgressiveImage>
+            ]}
+          />
           <div className="project-card_detail">
             <Text
               className={'text_uppercase'}

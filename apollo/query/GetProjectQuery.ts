@@ -9,10 +9,32 @@ export const GetProjectRUQuery = gql`
             project {
                 slug
                 preview {
-                    url
+                    xs{
+                        url
+                    }
+                    sm{
+                        url
+                    }
+                    md{
+                        url
+                    }
+                    lg{
+                        url
+                    }
                 }
                 previewRu {
-                    url
+                    xs{
+                        url
+                    }
+                    sm{
+                        url
+                    }
+                    md{
+                        url
+                    }
+                    lg{
+                        url
+                    }
                 }
                 title {
                     ru
@@ -22,11 +44,15 @@ export const GetProjectRUQuery = gql`
                 }
                 trailer
                 duration
-                trailerPreview {
-                    url
+                trailerPreview  {
+                    xs{
+                        url
+                    }
                 }
                 trailerPreviewRu {
-                    url
+                    xs{
+                        url
+                    }
                 }
                 projectInfo {
                     genre {
@@ -70,7 +96,9 @@ export const GetProjectRUQuery = gql`
                     localizationEn
                 }
                 gallery {
-                    url
+                    xs{
+                        url
+                    }
                 }
                 tags {
                     name {
@@ -85,7 +113,9 @@ export const GetProjectRUQuery = gql`
                         }
                     }
                     preview {
-                        url
+                        xs{
+                            url
+                        }
                     }
                     title {
                         ru
@@ -144,10 +174,32 @@ export const GetProjectENQuery = gql`
             project {
                 slug
                 preview {
-                    url
+                    xs{
+                        url
+                    }
+                    sm{
+                        url
+                    }
+                    md{
+                        url
+                    }
+                    lg{
+                        url
+                    }
                 }
-                previewEn {
-                    url
+                previewEn  {
+                    xs{
+                        url
+                    }
+                    sm{
+                        url
+                    }
+                    md{
+                        url
+                    }
+                    lg{
+                        url
+                    }
                 }
                 title {
                     en
@@ -158,10 +210,14 @@ export const GetProjectENQuery = gql`
                 trailer
                 duration
                 trailerPreview {
-                    url
+                    xs{
+                        url
+                    }
                 }
                 trailerPreviewEn {
-                    url
+                    xs{
+                        url
+                    }
                 }
                 projectInfo {
                     genre {
@@ -205,7 +261,9 @@ export const GetProjectENQuery = gql`
                     localizationEn
                 }
                 gallery {
-                    url
+                    xs{
+                        url
+                    }
                 }
                 tags {
                     name {
@@ -215,7 +273,9 @@ export const GetProjectENQuery = gql`
                 similarProject {
                     slug
                     preview {
-                        url
+                        xs{
+                            url
+                        }
                     }
                     projectInfo {
                         genre {
@@ -277,11 +337,33 @@ export const GetProjectUKQuery = gql`
         getProjectPage(slug: $slug) {
             project {
                 slug
-                preview {
-                    url
+                preview  {
+                    xs{
+                        url
+                    }
+                    sm{
+                        url
+                    }
+                    md{
+                        url
+                    }
+                    lg{
+                        url
+                    }
                 }
-                previewUk {
-                    url
+                previewUk  {
+                    xs{
+                        url
+                    }
+                    sm{
+                        url
+                    }
+                    md{
+                        url
+                    }
+                    lg{
+                        url
+                    }
                 }
                 title {
                     uk
@@ -292,10 +374,14 @@ export const GetProjectUKQuery = gql`
                 trailer
                 duration
                 trailerPreview {
-                    url
+                    xs{
+                        url
+                    }
                 }
                 trailerPreviewUk {
-                    url
+                    xs{
+                        url
+                    }
                 }
                 projectInfo {
                     genre {
@@ -339,7 +425,9 @@ export const GetProjectUKQuery = gql`
                     localizationEn
                 }
                 gallery {
-                    url
+                    xs{
+                        url
+                    }
                 }
                 tags {
                     name {
@@ -349,7 +437,9 @@ export const GetProjectUKQuery = gql`
                 similarProject {
                     slug
                     preview {
-                        url
+                        xs{
+                            url
+                        }
                     }
                     projectInfo {
                         genre {
@@ -424,10 +514,14 @@ export const ProjectPaginationRU = gql`
             items {
                 slug
                 preview {
-                    url
+                    xs{
+                        url
+                    }
                 }
-                previewRu {
-                    url
+                previewRu{
+                    xs{
+                        url
+                    }
                 }
                 title {
                     ru
@@ -456,10 +550,14 @@ export const ProjectPaginationEN = gql`
             items {
                 slug
                 preview {
-                    url
+                    xs{
+                        url
+                    }
                 }
-                previewEn {
-                    url
+                previewEn{
+                    xs{
+                        url
+                    }
                 }
                 title{
                     en
@@ -487,10 +585,14 @@ export const ProjectPaginationUK = gql`
             items {
                 slug
                 preview {
-                    url
+                    xs{
+                        url
+                    }
                 }
                 previewUk {
-                    url
+                    xs{
+                        url
+                    }
                 }
                 title {
                     uk

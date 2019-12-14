@@ -21,437 +21,6 @@ interface IProjectFilterProps {
   [prop: string]: any
 }
 
-// @ts-ignore
-const DATA: any = {
-  "getFilters": {
-    "formats": [
-      {
-        "ru": "сериал"
-      },
-      {
-        "ru": "фильм"
-      },
-      {
-        "ru": "историческая реконструкция"
-      },
-      {
-        "ru": "историческая реконструкция"
-      },
-      {
-        "ru": "сериал"
-      },
-      {
-        "ru": "сериал"
-      },
-      {
-        "ru": "фильм"
-      },
-      {
-        "ru": "телевизионный формат"
-      },
-      {
-        "ru": "телевизионный формат"
-      },
-      {
-        "ru": "телевизионный проект"
-      },
-      {
-        "ru": "телевизионный проект"
-      }
-    ],
-    "genres": [
-      {
-        "ru": ""
-      },
-      {
-        "ru": "драма"
-      },
-      {
-        "ru": "мелодрама"
-      },
-      {
-        "ru": "детектив "
-      },
-      {
-        "ru": "докудрама"
-      },
-      {
-        "ru": "мелодрама "
-      },
-      {
-        "ru": "психологическая драма"
-      },
-      {
-        "ru": "мелодрама "
-      },
-      {
-        "ru": "драмеди"
-      },
-      {
-        "ru": "докудрама"
-      },
-      {
-        "ru": "мелодрама"
-      },
-      {
-        "ru": "мелодрама "
-      },
-      {
-        "ru": "военно-историческая драма "
-      },
-      {
-        "ru": "военно-историческая драма"
-      },
-      {
-        "ru": "мелодрама "
-      },
-      {
-        "ru": "криминал, приключения, мелодрама"
-      },
-      {
-        "ru": "триллер"
-      },
-      {
-        "ru": "военная драма"
-      },
-      {
-        "ru": "шпионский боевик"
-      },
-      {
-        "ru": "триллер, детектив"
-      },
-      {
-        "ru": "детектив"
-      },
-      {
-        "ru": "мелодрама"
-      },
-      {
-        "ru": "детектив"
-      },
-      {
-        "ru": "детектив"
-      },
-      {
-        "ru": "романтическая комедия"
-      },
-      {
-        "ru": "драма, детектив"
-      },
-      {
-        "ru": "военно-историческая драма"
-      },
-      {
-        "ru": "драма"
-      },
-      {
-        "ru": "военная драма"
-      },
-      {
-        "ru": "детектив-триллер"
-      },
-      {
-        "ru": "комедия"
-      },
-      {
-        "ru": "биографическая драма"
-      },
-      {
-        "ru": "детектив"
-      },
-      {
-        "ru": "военно-историческая драма"
-      },
-      {
-        "ru": "криминальная драма с элементами фантастики"
-      },
-      {
-        "ru": "приключенческий детектив"
-      },
-      {
-        "ru": "детектив с элементами мистики"
-      },
-      {
-        "ru": "криминальная мелодрама"
-      },
-      {
-        "ru": "комедия, приключения, музыкальный \t"
-      },
-      {
-        "ru": "историческая драма"
-      },
-      {
-        "ru": "лирическая комедия "
-      },
-      {
-        "ru": "романтическая комедия"
-      },
-      {
-        "ru": "приключенческая драма"
-      },
-      {
-        "ru": "лирическая комедия"
-      },
-      {
-        "ru": "военно-историческая драма"
-      },
-      {
-        "ru": "военная драма"
-      },
-      {
-        "ru": "детективная мелодрама"
-      },
-      {
-        "ru": " военно-историческая драма"
-      },
-      {
-        "ru": "лирическая комедия"
-      },
-      {
-        "ru": "биографический документальный фильм"
-      },
-      {
-        "ru": "приключенческий детектив"
-      },
-      {
-        "ru": "криминальная драма"
-      },
-      {
-        "ru": "криминальный детектив"
-      },
-      {
-        "ru": "криминальная драма"
-      },
-      {
-        "ru": "экшн"
-      },
-      {
-        "ru": "детектив"
-      },
-      {
-        "ru": "криминальная драма "
-      },
-      {
-        "ru": "комедия, мелодрама"
-      },
-      {
-        "ru": "лирическая комедия"
-      },
-      {
-        "ru": "историческая мелодрама"
-      },
-      {
-        "ru": "военная драма"
-      },
-      {
-        "ru": "криминальная драма, экшн"
-      },
-      {
-        "ru": "мистический триллер"
-      },
-      {
-        "ru": "военно-приключенческий фильм"
-      },
-      {
-        "ru": "комедийный детектив"
-      },
-      {
-        "ru": "драма, биография"
-      },
-      {
-        "ru": "докудрама"
-      },
-      {
-        "ru": "криминальная мелодрама"
-      },
-      {
-        "ru": "военный детектив"
-      },
-      {
-        "ru": "ТВ-шоу"
-      },
-      {
-        "ru": "детектив"
-      },
-      {
-        "ru": "танцевальное шоу"
-      },
-      {
-        "ru": "ток-шоу"
-      },
-      {
-        "ru": "остросюжетный детектив"
-      },
-      {
-        "ru": "иронический детектив"
-      },
-      {
-        "ru": "развлекательное танцевальное шоу"
-      },
-      {
-        "ru": "ТВ-шоу"
-      },
-      {
-        "ru": "криминальная драма"
-      },
-      {
-        "ru": "историческая драма"
-      },
-      {
-        "ru": "развлекательное шоу"
-      },
-      {
-        "ru": "детектив с элементами комедии"
-      },
-      {
-        "ru": "авантюрная мелодрама"
-      },
-      {
-        "ru": "телевизионное шоу"
-      },
-      {
-        "ru": "драмеди с элементами фантастики"
-      },
-      {
-        "ru": "лирико-эксцентрическая комедия"
-      },
-      {
-        "ru": "психологический триллер"
-      },
-      {
-        "ru": "историческая анимация"
-      },
-      {
-        "ru": "мелодрама/телевизионный роман"
-      },
-      {
-        "ru": "криминальная драма"
-      },
-      {
-        "ru": "историко-приключенческая драма"
-      },
-      {
-        "ru": "романтический триллер"
-      },
-      {
-        "ru": "психологический детектив"
-      },
-      {
-        "ru": "семейная сага"
-      },
-      {
-        "ru": "военно-шпионский детектив"
-      },
-      {
-        "ru": "детективная драма"
-      },
-      {
-        "ru": "приключенческая мелодрама"
-      },
-      {
-        "ru": "сериал с элементами фантастики"
-      },
-      {
-        "ru": "иронический детектив"
-      },
-      {
-        "ru": "сериал с элементами фантастики"
-      },
-      {
-        "ru": "фантастическая комедия"
-      },
-      {
-        "ru": "мелодрама"
-      },
-      {
-        "ru": "исторический мини-формат"
-      },
-      {
-        "ru": "лирическая драма"
-      },
-      {
-        "ru": "детектив с элементами «экшн»"
-      },
-      {
-        "ru": "военно-шпионский детектив"
-      },
-      {
-        "ru": "комедийная мелодрама"
-      },
-      {
-        "ru": "психологический триллер"
-      },
-      {
-        "ru": "остросюжетный детектив"
-      },
-      {
-        "ru": "лирическая мелодрама"
-      },
-      {
-        "ru": "исторический миниформат"
-      },
-      {
-        "ru": "любовный детектив"
-      },
-      {
-        "ru": "фантастическая трагикомедия"
-      },
-      {
-        "ru": "мелодрама"
-      },
-      {
-        "ru": "военно-шпионский детектив"
-      },
-      {
-        "ru": "комедия"
-      },
-      {
-        "ru": "фантастика"
-      },
-      {
-        "ru": "анимация"
-      },
-      {
-        "ru": "Лирическая комедия"
-      },
-      {
-        "ru": ""
-      },
-      {
-        "ru": "реалити"
-      },
-      {
-        "ru": "приключенческая драма "
-      },
-      {
-        "ru": "драма с элементами мистики"
-      },
-      {
-        "ru": "реалити"
-      }
-    ],
-    "years": [
-      "2020",
-      "2019",
-      "2018",
-      "2017",
-      "2016",
-      "2015",
-      "2014",
-      "2013",
-      "2012",
-      "2011",
-      "2010",
-      "2009",
-      "2008",
-      "2007",
-      "2006",
-      ""
-    ]
-  }
-}
-
-
 const CheckFilterOption = (language: AppLanguages) => (option: LocalizedString) => {
   //@ts-ignore
   if (language in option && option[language] && option[language].length > 0) {
@@ -460,7 +29,7 @@ const CheckFilterOption = (language: AppLanguages) => (option: LocalizedString) 
   return false;
 };
 
-const OptionFormat = memo((options: LocalizedString[], optionAll:any, language: AppLanguages) => {
+const OptionFormat = memo((options: LocalizedString[], optionAll: any, language: AppLanguages) => {
   let filteredOptions = options
     .filter(CheckFilterOption(language));
   let uniqueOption: any[] = [...new Set(filteredOptions.map(option => {
@@ -487,7 +56,7 @@ const removeUniqueInArray = (arr: any[]) => {
   return result;
 };
 
-const OptionYearFormat = memo((options: string[],optionAll:any,_) => {
+const OptionYearFormat = memo((options: string[], optionAll: any, _) => {
   let filterOption: any[] = options
     .filter((option: string) => {
       //@ts-ignore
@@ -514,31 +83,30 @@ const ProjectFilter: React.FC<IProjectFilterProps> = (
     setFilters,
   }
 ) => {
+
   const {t, i18n} = useTranslation('common');
   // @ts-ignore
-  const {data, loading} = useLocalizationQuery<GetFilters>({
+  const {data} = useLocalizationQuery<GetFilters>({
     ru: GetFiltersRU,
     en: GetFiltersEN,
     uk: GetFiltersUK,
-  },{
+  }, {
     errorPolicy: 'ignore',
   });
 
-  if (loading) {
-    return null;
-  }
+
   // @ts-ignore
   const lang: AppLanguages = i18n.language;
   const optionAll = {
     label: t('filter_options-all'),
-    value: '',
+    value: '*',
   };
 
   const formats = OptionFormat(data && data.getFilters && data.getFilters.formats || [], optionAll, lang);
   const genres = OptionFormat(data && data.getFilters && data.getFilters.genres || [], optionAll, lang);
 
   const yearList: any[] = OptionYearFormat(data && data.getFilters && data.getFilters.years && data.getFilters.years || [], optionAll, lang);
-
+  console.log('ProjectFilter filters: ', filters);
   return (
     <Container mb={40} mt={24}>
       <Row>
@@ -547,12 +115,7 @@ const ProjectFilter: React.FC<IProjectFilterProps> = (
             label={t('filter_format-label')}
             input={{
               value: filters.format,
-              onChange: (event: any) => {
-                setFilters({
-                  ...filters,
-                  format: event,
-                })
-              }
+              onChange: (format: string) => setFilters({format})
             }}
             options={formats}
             styles={{
@@ -567,12 +130,7 @@ const ProjectFilter: React.FC<IProjectFilterProps> = (
             label={t('filter_genre-label')}
             input={{
               value: filters.genre,
-              onChange: (event: any) => {
-                setFilters({
-                  ...filters,
-                  genre: event,
-                })
-              }
+              onChange: (genre: string) => setFilters({genre})
             }}
             options={genres}
             styles={{
@@ -589,13 +147,9 @@ const ProjectFilter: React.FC<IProjectFilterProps> = (
               width: '144px'
             }}
             input={{
-              value: filters.year,
-              onChange: (event: any) => {
-                setFilters({
-                  ...filters,
-                  year: event,
-                })
-              }
+              value: `${filters.year}`,
+              onChange: (year: string) => setFilters({year})
+
             }}
             options={yearList}
           />
@@ -606,10 +160,7 @@ const ProjectFilter: React.FC<IProjectFilterProps> = (
             input={{
               value: filters.query,
               onChange: (event: any) => {
-                setFilters({
-                  ...filters,
-                  search: event.target.value,
-                })
+                setFilters({search: event.target.value,})
               }
             }}
             label={' '}
