@@ -106,7 +106,7 @@ const ProjectFilter: React.FC<IProjectFilterProps> = (
   const genres = OptionFormat(data && data.getFilters && data.getFilters.genres || [], optionAll, lang);
 
   const yearList: any[] = OptionYearFormat(data && data.getFilters && data.getFilters.years && data.getFilters.years || [], optionAll, lang);
-  console.log('ProjectFilter filters: ', filters);
+
   return (
     <Container mb={40} mt={24}>
       <Row>

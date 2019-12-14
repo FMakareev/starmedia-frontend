@@ -94,7 +94,7 @@ const ProjectGallery: React.FC<IProjectGalleryProps> = (
   }
 
   const paramsConfig = params(gallery);
-  console.log('gallery: ', gallery);
+
   return (
     <Col
       as={'section'}

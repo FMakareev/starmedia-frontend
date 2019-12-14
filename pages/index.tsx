@@ -33,8 +33,6 @@ const Homepage = () => {
     }
   });
 
-  console.log('data: ', data);
-
   if (loading) {
     return (<Preloader/>)
   }

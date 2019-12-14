@@ -41,7 +41,6 @@ const ProjectFilterHOC = (WrapperComponent: any) => class extends React.Componen
 
   get initialState() {
     const {query} = this.props.router;
-    console.log('this.props: ', this.props.router);
     return {
       genre: query && query.genre || null,
       format: query && query.format || null,

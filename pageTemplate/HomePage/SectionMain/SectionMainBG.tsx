@@ -20,9 +20,6 @@ const SectionMainBg: React.FC<ISectionMainBgProps> = (
   ) => {
   const {i18n} = useTranslation();
 
-  //
-
-  console.log('project: ', project);
   const responsivePreviewImage: Maybe<ResponsiveImage> = getLocalizationPreview({
       preview: project && project.preview,
       previewEn: project && project.previewEn,
