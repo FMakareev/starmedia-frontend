@@ -5,8 +5,7 @@ import {Project} from '../../types/projectTypes';
 import ProgressiveImage from 'react-progressive-image';
 // @ts-ignore
 import Tilt from 'react-tilt'
-import { oc } from 'ts-optchain';
-import { Picture } from 'react-responsive-picture';
+import {oc} from 'ts-optchain';
 
 import {useTranslation} from "../../libs/i18n";
 import classNames from 'classnames';
@@ -60,18 +59,16 @@ const ProjectCard: React.FC<IProjectCardProps> = (
         options={{max: 5, scale: 1}}
       >
         <div
-          className={classNames('project-card_preview',className)}
+          className={classNames('project-card_preview', className)}
         >
-          <Picture
-            className="project-card_preview-img"
-            alt={localTitle || 'project poster'}
-            // @ts-ignore
-            sources={[
-              {
-                srcSet: oc(previewImage).xs.url(placeholder),
-              },
-            ]}
-          />
+          <ProgressiveImage src={oc(previewImage).xs.url(placeholder) || ''} placeholder={placeholder}>
+            {(src: string) => <img
+              src={src}
+              className="project-card_preview-img"
+              alt={localTitle || 'project poster'}
+            />}
+          </ProgressiveImage>
+
           <div className="project-card_detail">
             <Text
               className={'text_uppercase'}
