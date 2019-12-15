@@ -19,6 +19,7 @@ import {Picture} from "react-responsive-picture";
 // @ts-ignore
 import placeholder from "../../static/images/project-placeholder.jpg";
 import { oc } from 'ts-optchain';
+import {useRouter} from "next/router";
 
 interface IProjectMainSectionProps extends Project {
   [prop: string]: any
@@ -52,6 +53,7 @@ const ProjectMainSection: React.FC<IProjectMainSectionProps> = (
 ) => {
   const {t, i18n} = useTranslation('common');
 
+  const {back } = useRouter();
 
   const responsivePosterImage: Maybe<ResponsiveImage> = getLocalizationPreview({
       preview,
@@ -102,7 +104,7 @@ const ProjectMainSection: React.FC<IProjectMainSectionProps> = (
           <Row mb={38}>
             <Col xs={12}>
               <Link href={'/projects'}>
-                <Button as={'a'} href={'/projects'} element={ButtonElementEnum.transparent} mods={['light', 'icon']}>
+                <Button onClick={()=>back()} element={ButtonElementEnum.transparent} mods={['light', 'icon']}>
                   <Col style={{height: '24px'}} mr={8}>
                     <BackIcon/>
                   </Col>
