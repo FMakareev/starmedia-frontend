@@ -1,5 +1,6 @@
 import * as React from 'react';
-import ProgressiveImage from 'react-progressive-image';
+// import ProgressiveImage from 'react-progressive-image';
+import { Picture } from 'react-responsive-picture';
 
 import Text from '../Text/Text';
 import Button from '../Button/Button';
@@ -10,6 +11,8 @@ import {News} from "../../types/newsTypes";
 import {GetLocalizationString} from "../../libs/GetLocalizationString";
 import Link from 'next/link';
 import {DateFormat} from "../../libs/DateFormat";
+import { oc } from 'ts-optchain';
+
 
 interface INewsCardLargeProps extends News {
   [prop: string]: any
@@ -29,15 +32,29 @@ const NewsCardLarge: React.FC<INewsCardLargeProps> = (
   return (
     <div className={'news-card-large_wrapper'}>
       <div className="news-card-large_preview">
-        <Link href={`/news/${slug}`}>
-          <a href={`/news/${slug}`}>
-            <ProgressiveImage src={preview && preview.url || ''} placeholder={placeholder}>
-              {(src: string) => (<img
-                src={src}
-                alt=""
-                className="news-card-large_preview-img"
-              />)}
-            </ProgressiveImage>
+        <Link href={`/news/[slug]`} as={`/news/${slug}`}>
+          <a>
+            <Picture
+              className="news-card-large_preview-img"
+              // @ts-ignore
+              sources={[
+                {
+                  srcSet: oc(preview).xs.url(placeholder),
+                  media: "(max-width: 420px)",
+                },
+                {
+                  srcSet: oc(preview).sm.url(placeholder),
+                  media: "(max-width: 800px)",
+                },
+                {
+                  srcSet: oc(preview).md.url(placeholder),
+                  media: "(max-width: 1024px)",
+                },
+                {
+                  srcSet: oc(preview).lg.url(placeholder),
+                },
+              ]}
+            />
           </a>
         </Link>
       </div>
@@ -47,7 +64,7 @@ const NewsCardLarge: React.FC<INewsCardLargeProps> = (
             date && DateFormat(date)
           }
         </Text>
-        <Link href={`/news/${slug}`}>
+        <Link href={`/news/[slug]`} as={`/news/${slug}`}>
           <a href={`/news/${slug}`} className="news-card-large_title">
             {
               GetLocalizationString(name)
@@ -61,7 +78,7 @@ const NewsCardLarge: React.FC<INewsCardLargeProps> = (
             GetLocalizationString(info)
           }
         </Text>
-        <Link href={`/news/${slug}`}>
+        <Link href={`/news/[slug]`} as={`/news/${slug}`}>
           <Button as={'a'} href={`/news/${slug}`}>
             {t('button_detail')}
           </Button>

@@ -3,9 +3,10 @@ import {ButtonElementEnum, Video} from "../../types/types";
 import PlayIcon from "../../components/Icons/PlayIcon";
 import Button from "../../components/Button/Button";
 import YouTube from "react-youtube"
-import ProgressiveImage from "react-progressive-image";
 // @ts-ignore
 import placeholder from "../../static/images/project-trailer-placeholder.svg";
+import {Picture} from "react-responsive-picture";
+import { oc } from 'ts-optchain';
 
 interface IProjectTrailerProps extends Video {
   [prop: string]: any
@@ -18,15 +19,15 @@ function youtubeParser(url: string = ''): string {
     // @ts-ignore
     return (match && match[7] && match[7].length === 11) ? match[7] : false;
   } catch (e) {
-    console.log(e);
+    console.error(e);
     return '';
   }
 }
 
 const ProjectTrailer: React.FC<IProjectTrailerProps> = (
   {
-    trailerPreview,
     trailer,
+    preview
   }
 ) => {
 
@@ -55,17 +56,16 @@ const ProjectTrailer: React.FC<IProjectTrailerProps> = (
       {
         !watch &&
 				<div onClick={togglePlayer} className="project-trailer_preview">
-					<ProgressiveImage
-						src={trailerPreview}
-						placeholder={placeholder}
-					>
-            {
-              (src: string) => <img
-                src={src}
-                alt={'project poster'}
-              />
-            }
-					</ProgressiveImage>
+
+					<Picture
+						alt={'project poster'}
+            // @ts-ignore
+						sources={[
+              {
+                srcSet: oc(preview).xs.url(placeholder),
+              },
+            ]}
+					/>
           {
             trailer &&
 						<div className="project-trailer_play">

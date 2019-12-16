@@ -61,7 +61,7 @@ const AwardsList: React.FC<IAwardsListProps> = () => {
             }, 500)
           }
         } catch (e) {
-          console.log(e);
+          console.error(e);
         }
       }
     }

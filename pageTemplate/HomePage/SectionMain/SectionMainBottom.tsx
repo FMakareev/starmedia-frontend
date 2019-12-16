@@ -91,7 +91,9 @@ const SectionMainBottom: React.FC<ISectionMainBottomProps> = (
                  <Link href={`/project/slug`}>
                    <ProjectCard
                      disabled={disabled}
-                     href={`/project/slug`} key={index} withInfo={false} {...item}/>
+                     href={`/project/[slug]`}
+                     as={`/project/${item.slug}`}
+                     key={index} withInfo={false} {...item}/>
                  </Link>
                </Col>
              )

@@ -8,6 +8,7 @@ import Link from "next/link";
 import Slider from "react-slick";
 import ProjectCard from "../../../components/ProjectCard/ProjectCard";
 import ReactIdSwiper, {SwiperInstance} from 'react-id-swiper';
+import {isBrowser} from "../../../libs/isBrowser/isBrowser";
 
 interface ISectionMainBottomProps {
   [prop: string]: any
@@ -40,7 +41,7 @@ const params = ({onSlideChange}: any) => ({
 
 const changeSlidesOffsetAfter = () => {
   try {
-    if (typeof window !== undefined) {
+    if (isBrowser) {
       if (window.innerWidth >= 768) {
         if (window.innerWidth >= 1600) {
           return 370 * 4
@@ -61,7 +62,7 @@ const changeSlidesOffsetAfter = () => {
       return 40;
     }
   } catch (e) {
-    console.log(e);
+    console.error(e);
 
   }
 
@@ -92,7 +93,7 @@ const SectionMainBottom: React.FC<ISectionMainBottomProps> = (
 
 
   React.useEffect(() => {
-    if (typeof window !== undefined) {
+    if (isBrowser) {
       if (window.innerWidth > 768) {
         window.addEventListener('resize', () => {
           swiperConfig.slidesOffsetAfter = changeSlidesOffsetAfter();
@@ -140,7 +141,9 @@ const SectionMainBottom: React.FC<ISectionMainBottomProps> = (
                 <ProjectCard
                   className={' project-card_preview--catalog'}
                   disabled={disabled}
-                  href={`/project/${item.slug}`} key={index} withInfo={false} {...item}/>
+                  href={`/project/[slug]`}
+                  as={`/project/${item.slug}`}
+                  key={index} withInfo={false} {...item}/>
               </Link>
             </Col>)
           })

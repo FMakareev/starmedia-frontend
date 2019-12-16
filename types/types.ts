@@ -12,6 +12,7 @@ export type Scalars = {
   Date: any;
 };
 
+
 export enum ViewportSizeEnum {
   'xs' = 'xs',
   'sm' = 'sm',
@@ -52,7 +53,20 @@ export type LocalizedString = {
   [AppLanguages.uk]?: Maybe<Scalars["String"]>;
 };
 
+export type ResponsiveImage = {
+  xs?: Maybe<File>,
+  sm?: Maybe<File>,
+  md?: Maybe<File>,
+  lg?: Maybe<File>,
+}
 
+
+export type LocalizationPreview = {
+  previewEn?: Maybe<ResponsiveImage>,
+  previewRu?: Maybe<ResponsiveImage>,
+  previewUk?: Maybe<ResponsiveImage>,
+  preview?: Maybe<ResponsiveImage>,
+}
 export type IRelation = {}
 export type File = {
   __typename?: "SocialLink";
@@ -70,7 +84,7 @@ export type File = {
 }
 
 export type Video = {
-  preview?: Maybe<File>;
+  preview?: Maybe<ResponsiveImage>;
   video?: Scalars["String"];
 }
 

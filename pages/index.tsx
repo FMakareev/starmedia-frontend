@@ -27,6 +27,7 @@ const Homepage = () => {
     en: GetHomePageENQuery,
     uk: GetHomePageUKQuery,
   }, {
+    errorPolicy: 'ignore',
     variables:{
       locale: i18n.language,
     }

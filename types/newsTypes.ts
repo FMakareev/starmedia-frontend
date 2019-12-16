@@ -1,4 +1,4 @@
-import {LocalizedString, Maybe, Scalars, SeoTags, PaginationPageInfo,File} from "./types";
+import {LocalizedString, Maybe, Scalars, SeoTags, PaginationPageInfo,ResponsiveImage} from "./types";
 
 export type GetNews = {
   getNews: News;
@@ -11,7 +11,7 @@ export interface News  {
   name?: Maybe<LocalizedString>;
   date?: Scalars["String"];
   content?: Maybe<LocalizedString>;
-  preview?: Maybe<File>;
+  preview?: Maybe<ResponsiveImage>;
 };
 
 

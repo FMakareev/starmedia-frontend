@@ -118,6 +118,9 @@ export const usePaginationQuery = <TQuery = any, TVariables = any>(
   if (variables) {
     WatchChangeVariables(variables, () => {
       moreData(1);
+      if (!fetchMore) {
+        return
+      }
       void fetchMore({
         variables: {
           page: 1,
@@ -140,6 +143,9 @@ export const usePaginationQuery = <TQuery = any, TVariables = any>(
       // @ts-ignore
       if (data[queryName].pageInfo.currentPage < data[queryName].pageInfo.nextPage) {
         moreData(page + 1);
+        if (!fetchMore) {
+          return
+        }
         void fetchMore({
           variables: {
             page: page + 1,

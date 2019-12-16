@@ -8,9 +8,8 @@ import {usePaginationQuery} from "../libs/usePaginationQuery";
 import {PaginationVariables} from "../types/types";
 import {ProjectPaginationRU, ProjectPaginationEN, ProjectPaginationUK} from '../apollo/query/GetProjectQuery';
 import {ProjectPagination} from '../types/projectTypes';
-import {useRouter} from "next/router";
+import {withRouter} from "next/router";
 import Head from "../components/Head/Head";
-
 
 
 interface IProjectsProps {
@@ -32,17 +31,74 @@ const getDefaultLimitsByWindowWidth = (): number => {
   }
 };
 
+const ProjectFilterHOC = (WrapperComponent: any) => class extends React.Component<any, any> {
 
-const Projects: React.FC<IProjectsProps> = ({t}) => {
+  constructor(props: any) {
+    super(props);
+    this.setFilter = this.setFilter.bind(this);
+    this.state = this.initialState;
+  }
 
-  const {query} = useRouter();
+  get initialState() {
+    const {query} = this.props.router;
+    return {
+      genre: query && query.genre || null,
+      format: query && query.format || null,
+      year: query && typeof query.year === 'string' && parseInt(query.year) || 0,
+      query: query && query.query || '',
+    }
+  }
 
-  const [filters, setFilter] = React.useState({
-    genre: query && query.genre || null,
-    format: query && query.format || null,
-    year: query && typeof query.year === 'string' && parseInt(query.year) || 0,
-    search: query && query.search || '',
-  });
+  setFilter(
+    filterOptions: any,
+  ) {
+    const {push, pathname} = this.props.router;
+    this.setState((state: any) => {
+      const newValue: any = {};
+      let queryString: object = {};
+
+      Object
+        .entries(state)
+        .map(([key]) => {
+          if (!!(filterOptions[key]) || filterOptions[key] === '') {
+            newValue[key] = filterOptions[key];
+          } else {
+            newValue[key] = state[key];
+          }
+        });
+
+      Object
+        .entries(newValue)
+        .map(([key, value]) => {
+          queryString = !!(value) && value !== '*' ? {...queryString, [key]: value} : queryString;
+        });
+
+      push({
+        pathname: pathname,
+        query: queryString
+      });
+
+      return newValue;
+    })
+  }
+
+  render() {
+    return (<WrapperComponent
+      filters={this.state}
+      setFilter={this.setFilter}
+      {...this.props}
+    />)
+  }
+};
+
+
+const Projects: React.FC<IProjectsProps> = (
+  {
+    t,
+    filters,
+    setFilter,
+  }
+) => {
 
   const {
     data,
@@ -62,9 +118,9 @@ const Projects: React.FC<IProjectsProps> = ({t}) => {
       uk: ProjectPaginationUK,
     },
     variables: {
-      genre: filters.genre || '',
-      format: filters.format || '',
-      year: filters && typeof filters.year === 'string' && parseInt(filters.year) || '0',
+      genre: !!(filters.genre) && filters.genre !== '*' ? filters.genre : '',
+      format: !!(filters.format) && filters.format !== '*' ? filters.format : '',
+      year: !!(filters.year) && filters.year !== '*' ? parseInt(filters.year) : '0',
       query: filters.search || '',
     },
     options: {
@@ -80,10 +136,12 @@ const Projects: React.FC<IProjectsProps> = ({t}) => {
         seoTags={{}}
         title={t('nav-project-list')}
       />
+
       <ProjectFilter
         filters={filters}
         setFilters={setFilter}
       />
+
       {
         data && data.projectPagination && data.projectPagination.items && <ProjectList
 					projects={data && data.projectPagination && data.projectPagination.items}
@@ -107,4 +165,5 @@ const Projects: React.FC<IProjectsProps> = ({t}) => {
   );
 };
 
-export default withTranslation(['nav', 'home', 'footer'])(Projects);
+// @ts-ignore
+export default withTranslation(['nav', 'home', 'footer'])(withRouter(ProjectFilterHOC(Projects)));

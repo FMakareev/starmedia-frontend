@@ -32,7 +32,8 @@ const ProjectList: React.FC<IProjectListProps> = ({projects}) => {
                   <ProjectCard
                     className={'project-card_preview--catalog'}
                     withInfo={true}
-                    href={`/project/${item.slug}`}
+                    href={`/project/[slug]`}
+                    as={`/project/${item.slug}`}
                     {...item}
                   />
                 </Col>

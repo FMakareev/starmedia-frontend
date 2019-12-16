@@ -11,12 +11,13 @@ import {useLocalizationQuery} from "../../libs/useLocalizationQuery";
 import Head from "../../components/Head/Head";
 import {DateFormat} from "../../libs/DateFormat";
 import Typeset from '../../components/Typeset/Typeset';
+import {isBrowser} from "../../libs/isBrowser/isBrowser";
 
 
 const AwardDetail = () => {
   const {t} = useTranslation('common');
 
-  const {query} = useRouter();
+  const {query, push} = useRouter();
 
   const {data, loading} = useLocalizationQuery<GetAward>({
     ru: GetAwardRUQuery,
@@ -35,6 +36,14 @@ const AwardDetail = () => {
   if (loading) {
     return <Preloader/>
   }
+
+  if(!content || content && content.indexOf('None') >= 0){
+    if(isBrowser){
+      void push('/about-us');
+    }
+    return null;
+  }
+
   return (
    <Fragment>
      <Head
@@ -46,6 +55,7 @@ const AwardDetail = () => {
        date={data && DateFormat(data.getAward.date || '')}
        goBackLabel={t('awards_go-back')}
        goBackLink={'/about-us#awards'}
+       goBackHref={'/about-us'}
      >
        <Typeset
         content={content}

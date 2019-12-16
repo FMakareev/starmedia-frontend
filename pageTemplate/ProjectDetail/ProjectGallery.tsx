@@ -7,41 +7,47 @@ import ReactIdSwiper, {SwiperInstance} from 'react-id-swiper';
 import 'react-id-swiper/lib/styles/scss/swiper.scss';
 import CustomCursor from "../../components/CustomCursor/CustomCursor";
 import {useTranslation} from "../../libs/i18n";
-import {File} from '../../types/types';
+import {ResponsiveImage, Maybe} from '../../types/types';
 import {getSlidesOffsetBefore} from "../../libs/swiperUtils";
+import {isBrowser} from "../../libs/isBrowser/isBrowser";
+import {Picture} from "react-responsive-picture";
+// @ts-ignore
+import placeholder from "../../static/images/project-placeholder.jpg";
+import { oc } from 'ts-optchain';
 
 
 interface IProjectGalleryProps {
-  gallery?: File[];
+  gallery?: Maybe<ResponsiveImage[]>;
 
   [prop: string]: any
 }
 
-const updateSizeScroll = (gallery: File[]) => {
+const updateSizeScroll = (gallery: ResponsiveImage[]) => {
 
 
   return (swiper: SwiperInstance) => {
-    if (typeof window === undefined && typeof document === undefined) return;
+    if (!isBrowser) return;
     let Counter = 0;
     let TotalImages = gallery.length;
 
     try {
-      gallery.forEach((item: File) => {
-        if (item.url) {
+      gallery.forEach((item: ResponsiveImage) => {
+        if (oc(item).xs.url) {
           const image = new Image();
           image.onload = () => {
             Counter++;
-            // Verify if the counter is less than the number of images
             if (Counter < TotalImages) {
               return;
             }
-            swiper && swiper.scrollbar && swiper.scrollbar.updateSize();
+            setTimeout(()=>{
+              swiper && swiper.scrollbar && swiper.scrollbar.updateSize();
+            },1000)
           };
-          image.src = item.url;
+          image.src = oc(item).xs.url('');
         }
       })
     } catch (e) {
-      console.log(e);
+      console.error(e);
     }
 
 
@@ -49,7 +55,7 @@ const updateSizeScroll = (gallery: File[]) => {
 };
 
 
-const params = (gallery: File[]) => ({
+const params = (gallery: ResponsiveImage[]) => ({
   scrollbar: {
     el: '.swiper-scrollbar',
     hide: false
@@ -64,7 +70,6 @@ const params = (gallery: File[]) => ({
   spaceBetween: 32,
   slidesOffsetBefore: getSlidesOffsetBefore(),
   getSwiper: (swiper: SwiperInstance) => {
-    console.log('swiper: ', swiper);
 
     updateSizeScroll(gallery)(swiper);
 
@@ -111,7 +116,7 @@ const ProjectGallery: React.FC<IProjectGalleryProps> = (
       <CustomCursor>
         <ReactIdSwiper {...paramsConfig}>
           {
-            gallery && [{}, ...gallery].map((item: File, index: number) => {
+            gallery && [{}, ...gallery].map((item: ResponsiveImage, index: number) => {
               if (index === 0) {
                 return (<Col
                   key={index}
@@ -122,7 +127,16 @@ const ProjectGallery: React.FC<IProjectGalleryProps> = (
               }
 
               return (<Col key={index}>
-                <img id={item.url || 'empty'} src={item.url || ''} alt=""/>
+                <Picture
+                  className="project-detail-main_bg-img"
+                  alt={'project poster'}
+                  // @ts-ignore
+                  sources={[
+                    {
+                      srcSet: oc(item).xs.url(placeholder),
+                    },
+                  ]}
+                />
               </Col>)
             })
           }

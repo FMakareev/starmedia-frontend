@@ -190,8 +190,19 @@ export const NewsPaginationRU = gql`
                 info{
                     ru
                 }
-                preview{
-                    url
+                preview {
+                    xs{
+                        url
+                    }
+                    sm{
+                        url
+                    }
+                    md{
+                        url
+                    }
+                    lg{
+                        url
+                    }
                 }
                 date
                 slug
@@ -211,8 +222,20 @@ export const NewsPaginationEN = gql`
             }
             count
             items {
-                preview{
-                    url
+
+                preview {
+                    xs{
+                        url
+                    }
+                    sm{
+                        url
+                    }
+                    md{
+                        url
+                    }
+                    lg{
+                        url
+                    }
                 }
                 name{
                     en
@@ -238,8 +261,19 @@ export const NewsPaginationUK = gql`
             }
             count
             items {
-                preview{
-                    url
+                preview {
+                    xs{
+                        url
+                    }
+                    sm{
+                        url
+                    }
+                    md{
+                        url
+                    }
+                    lg{
+                        url
+                    }
                 }
                 name{
                     uk
@@ -268,8 +302,10 @@ export const GetNextNewsRU = gql`
             info {
                 ru
             }
-            preview{
-                url
+            preview {
+                xs{
+                    url
+                }
             }
             date
             slug
@@ -286,8 +322,10 @@ export const GetNextNewsEN = gql`
             info {
                 en
             }
-            preview{
-                url
+            preview {
+                xs{
+                    url
+                }
             }
             date
             slug
@@ -305,8 +343,10 @@ export const GetNextNewsUK = gql`
             info {
                 uk
             }
-            preview{
-                url
+            preview {
+                xs{
+                    url
+                }
             }
             date
             slug

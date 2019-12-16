@@ -94,10 +94,32 @@ export const GetHomePageRUQuery = gql`
             items {
                 slug
                 preview {
-                    url
+                    xs{
+                        url
+                    }
+                    sm{
+                        url
+                    }
+                    md{
+                        url
+                    }
+                    lg{
+                        url
+                    }
                 }
                 previewRu {
-                    url
+                    xs{
+                        url
+                    }
+                    sm{
+                        url
+                    }
+                    md{
+                        url
+                    }
+                    lg{
+                        url
+                    }
                 }
                 title{
                     ru
@@ -115,10 +137,32 @@ export const GetHomePageRUQuery = gql`
             items {
                 slug
                 preview {
-                    url
+                    xs{
+                        url
+                    }
+                    sm{
+                        url
+                    }
+                    md{
+                        url
+                    }
+                    lg{
+                        url
+                    }
                 }
                 previewRu {
-                    url
+                    xs{
+                        url
+                    }
+                    sm{
+                        url
+                    }
+                    md{
+                        url
+                    }
+                    lg{
+                        url
+                    }
                 }
                 title{
                     ru
@@ -145,10 +189,10 @@ export const GetHomePageENQuery = gql`
                     en
                 }
                 backgroundVideo{
-                    video{
+                    video {
                         url
                     }
-                    preview{
+                    preview {
                         url
                     }
                 }
@@ -220,10 +264,32 @@ export const GetHomePageENQuery = gql`
             items {
                 slug
                 preview {
-                    url
+                    xs{
+                        url
+                    }
+                    sm{
+                        url
+                    }
+                    md{
+                        url
+                    }
+                    lg{
+                        url
+                    }
                 }
                 previewEn {
-                    url
+                    xs{
+                        url
+                    }
+                    sm{
+                        url
+                    }
+                    md{
+                        url
+                    }
+                    lg{
+                        url
+                    }
                 }
                 title{
                     en
@@ -241,10 +307,32 @@ export const GetHomePageENQuery = gql`
             items {
                 slug
                 preview {
-                    url
+                    xs{
+                        url
+                    }
+                    sm{
+                        url
+                    }
+                    md{
+                        url
+                    }
+                    lg{
+                        url
+                    }
                 }
                 previewEn {
-                    url
+                    xs{
+                        url
+                    }
+                    sm{
+                        url
+                    }
+                    md{
+                        url
+                    }
+                    lg{
+                        url
+                    }
                 }
                 title{
                     en
@@ -271,10 +359,10 @@ export const GetHomePageUKQuery = gql`
                     uk
                 }
                 backgroundVideo{
-                    video{
+                    video {
                         url
                     }
-                    preview{
+                    preview {
                         url
                     }
                 }
@@ -347,10 +435,32 @@ export const GetHomePageUKQuery = gql`
             items {
                 slug
                 preview {
-                    url
+                    xs{
+                        url
+                    }
+                    sm{
+                        url
+                    }
+                    md{
+                        url
+                    }
+                    lg{
+                        url
+                    }
                 }
                 previewUk {
-                    url
+                    xs{
+                        url
+                    }
+                    sm{
+                        url
+                    }
+                    md{
+                        url
+                    }
+                    lg{
+                        url
+                    }
                 }
                 title{
                     uk
@@ -368,10 +478,32 @@ export const GetHomePageUKQuery = gql`
             items {
                 slug
                 preview {
-                    url
+                    xs{
+                        url
+                    }
+                    sm{
+                        url
+                    }
+                    md{
+                        url
+                    }
+                    lg{
+                        url
+                    }
                 }
                 previewUk {
-                    url
+                    xs{
+                        url
+                    }
+                    sm{
+                        url
+                    }
+                    md{
+                        url
+                    }
+                    lg{
+                        url
+                    }
                 }
                 title{
                     uk

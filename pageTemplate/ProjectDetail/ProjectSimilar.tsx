@@ -77,7 +77,8 @@ const ProjectSimilar: React.FC<IProjectSimilarProps> = ({projects}) => {
               >
                 <Link href={`/project/${item.slug}`}>
                   <ProjectCard
-                    href={`/project/${item.slug}`}
+                    href={`/project/[slug]`}
+                    as={`/project/${item.slug}`}
                     withInfo={true}
                     {...item}
                   />
