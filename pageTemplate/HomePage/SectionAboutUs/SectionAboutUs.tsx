@@ -33,7 +33,7 @@ const SectionAboutUs: React.FC<ISectionAboutUsProps> = (
      <Picture
 
         className="section-about-us_video"
-        alt={'project poster'}
+        alt={'about us background'}
         // @ts-ignore
         sources={[
           {
