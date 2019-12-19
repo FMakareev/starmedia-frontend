@@ -12,6 +12,8 @@ import {GetLocalizationString} from "../../../libs/GetLocalizationString";
 import ShowComponentInLocales from "../../../components/ShowComponentInLocales/ShowComponentInLocales";
 import ReactHtmlParser from "react-html-parser";
 import {useState} from "react";
+import {Picture} from "react-responsive-picture";
+import {oc} from "ts-optchain";
 
 interface ISectionAboutUsProps extends AboutUsSection {
   [prop: string]: any
@@ -20,41 +22,37 @@ interface ISectionAboutUsProps extends AboutUsSection {
 const SectionAboutUs: React.FC<ISectionAboutUsProps> = (
   {
     title,
+    backgroundVideo
   }
 ) => {
   const [titleIsShow] = useState(true);
   const {t, i18n} = useTranslation('home');
-
+  console.log('backgroundVideo: ', backgroundVideo);
   return (
     <div className={'section-about-us'}>
-      <img
-        className="section-about-us_video"
-        src="/static/images/aboutusBg.jpg"
-        alt=""
-      />
-      {/*<video*/}
-      {/*  onLoadedData={()=>{*/}
-      {/*    toggleTitle && toggleTitle(false);*/}
-      {/*  }}*/}
-      {/*  autoPlay*/}
-      {/*  loop*/}
-      {/*  playsInline*/}
-      {/*  muted*/}
-      {/*  preload="yes"*/}
-      {/*  width={'100%'}*/}
-      {/*  height={'100%'}*/}
-      {/*  poster={backgroundVideo && backgroundVideo.preview && backgroundVideo.preview.url || '/static/video/f186a09c00195a9368fd7b4d740df086.jpg'}*/}
-      {/*  */}
-      {/*>*/}
-      {/*    <source*/}
-      {/*      type="video/mp4"*/}
-      {/*      src={*/}
-      {/*        backgroundVideo && backgroundVideo.video && backgroundVideo.video.url || '/static/video/10000000_156705418846576_2936494491409534675_n.mp4'*/}
-      {/*      }*/}
-      {/*    />*/}
-      {/*  Your browser does not support the video tag.*/}
-      {/*</video>*/}
+     <Picture
 
+        className="section-about-us_video"
+        alt={'project poster'}
+        // @ts-ignore
+        sources={[
+          {
+            srcSet: oc(backgroundVideo).preview.xs.url("/static/images/aboutusBg.jpg"),
+            media: "(max-width: 420px)",
+          },
+          {
+            srcSet: oc(backgroundVideo).preview.sm.url("/static/images/aboutusBg.jpg"),
+            media: "(max-width: 800px)",
+          },
+          {
+            srcSet: oc(backgroundVideo).preview.md.url("/static/images/aboutusBg.jpg"),
+            media: "(max-width: 1024px)",
+          },
+          {
+            srcSet: oc(backgroundVideo).preview.lg.url("/static/images/aboutusBg.jpg"),
+          },
+        ]}
+      />
       <div className="section-about-us_content">
         {
           titleIsShow &&
