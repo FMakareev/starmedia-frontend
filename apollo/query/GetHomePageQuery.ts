@@ -22,8 +22,19 @@ export const GetHomePageRUQuery = gql`
                     video{
                         url
                     }
-                    preview{
-                        url
+                    preview {
+                        xs{
+                            url
+                        }
+                        sm{
+                            url
+                        }
+                        md{
+                            url
+                        }
+                        lg{
+                            url
+                        }
                     }
                 }
             }
@@ -193,7 +204,18 @@ export const GetHomePageENQuery = gql`
                         url
                     }
                     preview {
-                        url
+                        xs{
+                            url
+                        }
+                        sm{
+                            url
+                        }
+                        md{
+                            url
+                        }
+                        lg{
+                            url
+                        }
                     }
                 }
             }
@@ -363,7 +385,18 @@ export const GetHomePageUKQuery = gql`
                         url
                     }
                     preview {
-                        url
+                        xs{
+                            url
+                        }
+                        sm{
+                            url
+                        }
+                        md{
+                            url
+                        }
+                        lg{
+                            url
+                        }
                     }
                 }
             }
