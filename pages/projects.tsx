@@ -121,7 +121,7 @@ const Projects: React.FC<IProjectsProps> = (
       genre: !!(filters.genre) && filters.genre !== '*' ? filters.genre : '',
       format: !!(filters.format) && filters.format !== '*' ? filters.format : '',
       year: !!(filters.year) && filters.year !== '*' ? parseInt(filters.year) : '0',
-      query: filters.search || '',
+      query: filters.query || '',
     },
     options: {
       fetchPolicy: 'cache-and-network'
