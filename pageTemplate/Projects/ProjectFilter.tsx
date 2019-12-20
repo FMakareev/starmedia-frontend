@@ -160,7 +160,7 @@ const ProjectFilter: React.FC<IProjectFilterProps> = (
             input={{
               value: filters.query,
               onChange: (event: any) => {
-                setFilters({search: event.target.value,})
+                setFilters({query: event.target.value,})
               }
             }}
             label={' '}
