@@ -39,8 +39,10 @@ const updateSizeScroll = (gallery: ResponsiveImage[]) => {
             if (Counter < TotalImages) {
               return;
             }
+
             setTimeout(()=>{
-              swiper && swiper.scrollbar && swiper.scrollbar.updateSize();
+              swiper && swiper.scrollbar && swiper.scrollbar.init();
+              swiper && swiper.scrollbar && swiper.resize.resizeHandler();
             },1000)
           };
           image.src = oc(item).xs.url('');
