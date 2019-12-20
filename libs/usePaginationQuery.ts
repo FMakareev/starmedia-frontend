@@ -168,7 +168,10 @@ export const usePaginationQuery = <TQuery = any, TVariables = any>(
       }
     }
     moreData(selected + 1);
-
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
     void fetchMore({
       variables: {
         page: selected + 1,
