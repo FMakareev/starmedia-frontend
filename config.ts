@@ -10,7 +10,7 @@ export default {
     serverEndpoint: "http://localhost:8000/graphql",
     clientEndpoint: "/graphql",
 
-    devServerEndpoint: "https://starmedia.expanse.systems/graphql",
+    devServerEndpoint: "https://www.starmediafilm.com/graphql",
     devClientEndpoint: "/graphql",
   }
 };
