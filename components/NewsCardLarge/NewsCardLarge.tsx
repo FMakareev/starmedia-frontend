@@ -40,18 +40,6 @@ const NewsCardLarge: React.FC<INewsCardLargeProps> = (
               sources={[
                 {
                   srcSet: oc(preview).xs.url(placeholder),
-                  media: "(max-width: 420px)",
-                },
-                {
-                  srcSet: oc(preview).sm.url(placeholder),
-                  media: "(max-width: 800px)",
-                },
-                {
-                  srcSet: oc(preview).md.url(placeholder),
-                  media: "(max-width: 1024px)",
-                },
-                {
-                  srcSet: oc(preview).lg.url(placeholder),
                 },
               ]}
             />
