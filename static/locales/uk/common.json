@@ -27,7 +27,7 @@
   "filter_genre-label": "Жанр",
   "filter_year-label": "Рік",
 
-  "filter_options-all": "Усе",
+  "filter_options-all": "Все",
 
   "tabs_actors": "Актеры",
   "tabs_scripts": "Сценарии",
@@ -73,9 +73,9 @@
   "project-info_productionYear": "Рік виробництва",
   "project-info_numberOfEpisodes": "Кількість епізодів",
   "project-info_directors": "Режисер",
-  "project-info_scenario": "Сеценаріст",
+  "project-info_scenario": "Сценарист",
   "project-info_operator": "Оператор",
-  "project-info_composer": "Компосітор",
+  "project-info_composer": "Композитор",
   "project-info_producer": "Продюсер",
   "project-info_production-designer": "Художник-постановник",
   "project-info_cast": "У ролях",
