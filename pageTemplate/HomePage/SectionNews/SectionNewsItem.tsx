@@ -22,8 +22,8 @@ const SectionNewsItem: React.FC<ISectionNewsItemProps> = (
   const {t} = useTranslation('common');
 
   return (
-    <Link href={`/news`} as={`/news/${slug}`}>
-      <a href={`/news/${slug}`} className="section-news_item">
+    <Link href={`/news/[slug]`} as={`/news/${slug}`}>
+      <a className="section-news_item">
         <Text className="section-news_item-content" size={'m'} font={'root'} type={'inherit'}>
           {GetLocalizationString(name)}
         </Text>
