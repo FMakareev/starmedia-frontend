@@ -22,9 +22,7 @@ const LangSwitcher: React.FC<ILangSwitcherProps> = (
         }
         const forceLangSet = getCookie("forceLang") || null;
         const ipLangSet = getCookie("ipLang") || null;
-        debugger;
         if (!forceLangSet && !ipLangSet) {
-          debugger;
           fetch("https://api.2ip.ua/geo.json?ip=")
             .then(data => {return data.json()})
             .then(resp => {
