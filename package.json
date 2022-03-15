@@ -39,7 +39,7 @@
     "highlight-words-core": "^1.2.2",
     "intl": "^1.2.5",
     "js-cookie": "^2.2.1",
-    "lodash-es": "^4.17.15",
+    "lodash-es": "^4.17.21",
     "next": "9.0.5",
     "next-i18next": "1.2.0",
     "next-with-apollo": "^4.3.0",
